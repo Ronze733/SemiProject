@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class DBManager {
 	
 	public static Connection connect() throws SQLException {
-		String url = "C:\\oracleDB\\Wallet_DB202204301707.zip";
+		String url = "C:\\oracleDB\\Wallet_DB202204301707";
 		String id = "JM";
 		String pw = "Soldesk802!!!";
 		
