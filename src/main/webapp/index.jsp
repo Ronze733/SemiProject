@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/reset.css">
-<title>Insert title here</title>
+<title>South Korea Travel Controller</title>
 </head>
 <body>
 
