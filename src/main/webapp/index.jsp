@@ -5,9 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/index.css">
+<link rel="stylesheet" href="./css/jm/event.css">
 <title>South Korea Travel Controller</title>
 </head>
 <body>
-
+	<div class="container">
+	
+	</div>
 </body>
 </html>
