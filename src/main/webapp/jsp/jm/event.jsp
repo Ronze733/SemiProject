@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>eventPageCheck</h1>
+	<div class="event-container">
+		<div class="event-content">
+			<div class="event-quiz-name">
+				<h1></h1>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
