@@ -5,7 +5,8 @@ div {
 }
 
 .main-container {
-	width: 100%
+	width: 100%;
+	z-index: 10;
 }
 
 .main-header {
@@ -14,6 +15,7 @@ div {
 	align-items: center;
 	margin: auto;
 	width: 1521px;
+	z-index: 10;
 }
 
 .main-header-logo {
@@ -26,10 +28,12 @@ div {
 	font-weight: 600;
 	font-size: 24px;
 	line-height: 29px;
+	z-index: 10;
 }
 
 .main-header-logo img {
 	width: 110px;
+	z-index: 10;
 }
 
 .main-header-menu {
@@ -42,6 +46,12 @@ div {
 	line-height: 29px;
 	letter-spacing: 0em;
 	text-align: center;
+	color: #FFFFFF;
+	z-index: 10;
+}
+
+.main-header-login{
+	z-index: 10;
 }
 
 .main-footer-box {
@@ -58,9 +68,11 @@ div {
 	font-size: 24px;
 	line-height: 29px;
 	color: #FFFFFF;
+	z-index: 10;
 }
 
 .main-footer-box img {
-	width: 144px; 
+	width: 144px;
 	height: 135px;
+	z-index: 10;
 }

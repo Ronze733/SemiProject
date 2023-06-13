@@ -27,7 +27,6 @@
 					<div>고객 게시판</div>
 				</div>
 				<div class="main-header-login">
-					회원가입
 					<div><jsp:include page="${LoginPage}"></jsp:include></div>
 				</div>
 			</div>
