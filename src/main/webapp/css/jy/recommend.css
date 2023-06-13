@@ -7,15 +7,13 @@
 
 #recommend-banner-img {
 	width: 100%;
-	height: 1200px;
 	opacity: 80%;
 }
 
 .recommend-banner-copy {
 	position: absolute;
 	top: 500px;
-	left: 800px;
-	width: 1212px;
+	width: 100%;
 	height: 96px;
 	font-family: 'Urbanist';
 	font-style: normal;
