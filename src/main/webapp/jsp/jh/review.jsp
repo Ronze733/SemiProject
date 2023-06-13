@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../../css/jh/review.css">
 </head>
 <body>
-	<div>
+	<div class="review-container">
 	
 		<div class="review-title">
 			당신의 이야기를 들려주세요.
@@ -17,8 +17,8 @@
    	 		<form action="ReviewC" method="GET">
    	 			<div>
        				<input class="review-search" type="text" name="keyword" placeholder="검색어를 입력하세요">			
-       			</div>
        			 	<button class="review-searchbutton" type="submit">search</button>  		
+       			</div>
     		</form>
 		</div>
 		<div class="review-write">

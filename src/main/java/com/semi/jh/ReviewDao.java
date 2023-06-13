@@ -59,15 +59,26 @@ public class ReviewDao {
 			pstmt = con.prepareStatement(url);
 			
 			String user_id=mr.getParameter("id");
-			String[] place= mr.getParameterValues("place_name");
+			String place= mr.getParameter("place_name");
 			String title=mr.getParameter("title");
 			String body=mr.getParameter("body");
 			String pic=mr.getFilesystemName("pic");
-
-		
+	
+			
+			pstmt.setString(1, user_id);
+			pstmt.setString(2, place);
+			pstmt.setString(3, title);
+			pstmt.setString(4, body);
+			pstmt.setString(5, pic);
+			
+			
+			if (pstmt.executeUpdate()==1) {
+				System.out.println("등록성공");
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("등록실패");
 		}finally {
 			DBManager.close(con, pstmt, null);
 			
