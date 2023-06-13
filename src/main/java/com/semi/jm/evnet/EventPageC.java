@@ -12,7 +12,7 @@ public class EventPageC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		request.setAttribute("contentPage", "./jsp/jm/event/eventMain.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

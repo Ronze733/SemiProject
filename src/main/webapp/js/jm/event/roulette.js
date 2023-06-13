@@ -79,6 +79,33 @@ Vue.createApp({
 				this.buttonDisabled = false;
 			}, 5000);
 		},
+		refreshStyle(){
+			const itemStyles = [];
+			const lineStyles = [];
+			this. items.forEach((el, idx)=>{
+				// itemStyles 정의
+				itemStyles.push({
+					"transform":"rotate(" + (this.segment * idx) +"deg)",
+				});
+				// lineStyles 정의
+				lineStyles.push({
+                	"transform":"rotate("+ (this.segment * idx + this.offset) +"deg)",
+                });
+			});
+			this.itemStyles = itemStyles;
+			this.lineStyles = lineStyles;
+		},
+		watch:{
+			items:{
+				deep:true,
+				handler(){
+					this.refreshStyle();
+				},
+			},
+		},
+		created(){
+			this.refreshStyle();
+		},
 		
 	}
 }).mount("#eventRoulette");
