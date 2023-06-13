@@ -13,7 +13,7 @@
 <title>South Korea Travel Controller</title>
 </head>
 <body>
-	<div class="container">
+	<div class="Container">
 		<div class="main-container">
 			<div class="main-header">
 				<div class="main-header-logo">
