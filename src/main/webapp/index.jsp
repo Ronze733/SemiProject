@@ -29,7 +29,8 @@
 					<div><jsp:include page="${LoginPage}"></jsp:include></div>
 				</div>
 			</div>
-			<div><jsp:include page="${contentPage}"></jsp:include></div>
+			<div><jsp:include page="${0.
+			}"></jsp:include></div>
 			<div class="main-footer">
 				<div class="main-footer-box">
 					<div>
