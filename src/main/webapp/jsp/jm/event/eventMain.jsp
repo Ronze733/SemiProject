@@ -7,15 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="event-container">
-		<div class="event-content">
-			<div class="event-quiz-name">
-				<h1>Quiz</h1>
-			</div>
-			<div class="event-start-button">
-				<button onclick="EventStartC">Quiz Start</button>
-			</div>
+	<div>
+		<div>
+			<div>여행 상품 구매</div>
+			<div onclick="EventRouletteC">포인트 룰렛</div>
 		</div>
+		<div>
+			<div></div>
+		</div>
+		<div>광고</div>
 	</div>
 </body>
 </html>

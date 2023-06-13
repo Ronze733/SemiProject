@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+#eventRoulette{
+	text-align: center;
+}
+
+.eventRoulette-roulette-outer{
+	position: relative;
+	
+	overflow: hidden;
+	
+	width: 500px;
+	height: 500px;
+	font-size: 30px;
+	
+	margin-left: auto;
+	margin-right: auto;
+	
+	background: #ffeaa7;
+}
+
+.eventRoulette-roulette{
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	right: 5%;
+	bottom: 5%;
+	
+	border-radius: 50%;
+	border: 2px solid black;
+}
+
+.eventRoulette-roulette-pin{
+	position: absolute;
+	top: 3%;
+	left: 50%;
+	
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 30px 5px 0 5px;
+	border-color: #ff0000 transparent transparent transparent;
+	
+	margin-left: -5px;
+}
+
+.eventRoulette-roulette-item{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	
+	padding-top: 10%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.eventRoulette-roulette-line{
+	position: absolute;
+    top:0;
+    bottom:50%;
+    left:50%;
+    width:2px;
+    margin-left: -1px;
+    background: black;
+
+    transform-origin: bottom;
+}
+
+.eventRoulette-roulette{
+	transition: transform 5s ease-in-out;
+}
+
