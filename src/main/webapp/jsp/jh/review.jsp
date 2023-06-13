@@ -11,21 +11,32 @@
 	<div>
 	
 		<div class="review-title">
-		당신의 이야기를 들려주세요.
+			당신의 이야기를 들려주세요.
 		</div>
-		<div class="review-search">
-   	 	<form action="ReviewC" method="GET">
-        <input type="text" name="keyword" placeholder="검색어를 입력하세요">
-        <input type="submit" value="검색">
-    	</form>
+		<div >
+   	 		<form action="ReviewC" method="GET">
+   	 			<div>
+       				<input class="review-search" type="text" name="keyword" placeholder="검색어를 입력하세요">			
+       			</div>
+       			 	<button class="review-searchbutton" type="submit">search</button>  		
+    		</form>
 		</div>
 		<div class="review-write">
-			<div>
-			후기를 알려주세요. <br>
-			추첨을 통해 소정의 상품을 증정드립니다.
+			<div class="review-write-word">
+				<div class="review-write-big">
+					후기를 알려주세요.
+				</div>
+				<div class="review-write-small">
+					추첨을 통해 소정의 상품을 증정드립니다.
+				</div>
 			</div>
-			<div>
-			<button>후기작성</button>
+			<div class="review-button">
+				<div>
+					<img alt="" src="">
+				</div>
+				<div class="review-button-link">
+					<a href="ReviewWriteC">후기작성</a>
+				</div>
 			</div>
 		</div>
 		<div class="review-img">
