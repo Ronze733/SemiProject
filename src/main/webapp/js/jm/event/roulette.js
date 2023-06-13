@@ -27,7 +27,7 @@ function handleButtonClick(){
 	}
 }
 
-Vue.createApp({
+const app = Vue.createApp({
 	data(){
 		return {
 			items:[
@@ -40,7 +40,7 @@ Vue.createApp({
 			itemStyles:[],
 			lineStyles:[],
 			current: 0,
-			count: 3,
+			count: 0,
 			history:[],
 			buttonDisabled: false,
 		};
@@ -68,10 +68,10 @@ Vue.createApp({
 			return this.items[this.current];
 		},
 	},
-	method:{
+	methods:{
 		play(){
-			this.buttonDisabled=true;
 			this.count++;
+			this.buttonDisabled=true;
 			this.current = Math.floor(Math.random() * this.items.length);
 			this.history.push(this.currentItem.value);
 			
@@ -79,33 +79,20 @@ Vue.createApp({
 				this.buttonDisabled = false;
 			}, 5000);
 		},
-		refreshStyle(){
-			const itemStyles = [];
-			const lineStyles = [];
-			this. items.forEach((el, idx)=>{
-				// itemStyles 정의
-				itemStyles.push({
-					"transform":"rotate(" + (this.segment * idx) +"deg)",
-				});
-				// lineStyles 정의
-				lineStyles.push({
-                	"transform":"rotate("+ (this.segment * idx + this.offset) +"deg)",
-                });
+	},
+	mounted(){
+		this.items.forEach((el, idx)=>{
+			// itemStyles 정의
+			this.itemStyles.push({
+				"transform":"rotate(" + (this.segment * idx) + "deg)",
+				
 			});
-			this.itemStyles = itemStyles;
-			this.lineStyles = lineStyles;
-		},
-		watch:{
-			items:{
-				deep:true,
-				handler(){
-					this.refreshStyle();
-				},
-			},
-		},
-		created(){
-			this.refreshStyle();
-		},
-		
-	}
-}).mount("#eventRoulette");
+			// lineStyles 정의
+			this.lineStyles.push({
+				"transform":"rotate(" + (this.segment * idx + this.offset) + "deg)",
+			});
+		});
+	},
+});
+
+app.mount("#eventRoulette");

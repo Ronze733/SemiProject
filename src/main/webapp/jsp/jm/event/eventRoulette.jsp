@@ -17,20 +17,23 @@
 					<!-- 값 영역 -->
 					<div class="eventRoulette-roulette-item-wrapper">
 						<div class="eventRoulette-roulette-item" v-for="(item, index) in items"
-							v-bind:style="itemStyles[index]">{{item.value}}</div>
+                                v-bind:style="itemStyles[index]">{{item.value}}</div>
 					</div>
 					
 					<!-- 선 영역 -->
 					<div class="eventRoulette-roulette-line-wrapper">
 						<div class="eventRoulette-roulette-line" v-for="(item, index) in items"
-							v-bind:style="lineStyles[index]"></div>
+                                v-bind:style="lineStyles[index]"></div>
 					</div>
 				</div>
 			</div>
+			<button class="eventRoulette-play-btn" v-on:click="play" v-bind:disabled="buttonDisabled">추첨!</button>
+			<ul>
+				<li v-for="(h,idx) in history">{{h}}</li>
+			</ul>
 		</div>
 	</div>
 	
-	<button onclick="handleButtonClick();">추첨!</button>
 	
 	<script src="https://unpkg.com/vue@next"></script>
 	<script src="./js/jm/event/roulette.js"></script>
