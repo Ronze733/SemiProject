@@ -2,6 +2,7 @@
  * 
  */
  
+ 
  function checkTicket(){
 	return true;
 }
@@ -67,6 +68,9 @@ const app = Vue.createApp({
 		currentItem(){
 			return this.items[this.current];
 		},
+		historyValues(){
+			return this.history.join(',');
+		},
 	},
 	methods:{
 		play(){
@@ -74,6 +78,11 @@ const app = Vue.createApp({
 			this.buttonDisabled=true;
 			this.current = Math.floor(Math.random() * this.items.length);
 			this.history.push(this.currentItem.value);
+			try{
+			console.log(document.getElementsByName("eventRoulette-hideval")[this.count - 1]);
+			} catch(error){
+				console.log(error);
+			}
 			
 			setTimeout(()=>{
 				this.buttonDisabled = false;
