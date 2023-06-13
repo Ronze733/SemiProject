@@ -27,9 +27,9 @@
 					<div onclick="location.href='ReviewC'">여행 후기</div>
 					<div>고객 게시판</div>
 				</div>
-				<div class="main-header-login">
+				<%--  <div class="main-header-login">
 					<div><jsp:include page="${LoginPage}"></jsp:include></div>
-				</div>
+				</div> --%>
 			</div>
 			<div><jsp:include page="${contentPage}"></jsp:include></div>
 			<div class="main-footer">
