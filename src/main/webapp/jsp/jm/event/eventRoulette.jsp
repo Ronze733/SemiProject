@@ -28,7 +28,7 @@
 				</div>
 			</div>
 			<button class="eventRoulette-play-btn" v-on:click="play" v-bind:disabled="buttonDisabled">추첨!</button>
-			<input type="hidden" v-for="(h, idx) in history" v-bind:key="idx" v-bind:name="'eventRoulette-hideval'" v-model="h" />
+			<input type="hidden" v-for="(h, idx) in history" v-bind:key="idx" name="eventRoulette-hideval" v-model="h" />
 			<ul>
 				<li v-for="(h,idx) in history">{{h}}</li>
 			</ul>

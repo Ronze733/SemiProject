@@ -78,11 +78,6 @@ const app = Vue.createApp({
 			this.buttonDisabled=true;
 			this.current = Math.floor(Math.random() * this.items.length);
 			this.history.push(this.currentItem.value);
-			try{
-			console.log(document.getElementsByName("eventRoulette-hideval")[this.count - 1]);
-			} catch(error){
-				console.log(error);
-			}
 			
 			setTimeout(()=>{
 				this.buttonDisabled = false;
