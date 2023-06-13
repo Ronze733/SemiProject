@@ -16,7 +16,7 @@ public class AccountDAO {
 	
 	Connection con = null;
 	PreparedStatement pstmt = null;
-	String sql = "insert into user_tbl values(?, ?, ?, date, ?, '0')";
+	String sql = "insert into user_tbl values(?, ?, ?, sysdate, ?, '0')";
 	
 	String email = request.getParameter("email");
 	String nickname = request.getParameter("nickname");
