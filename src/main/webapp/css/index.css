@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-div {
-	border: 1px solid black;
-}
-
 .main-container {
 	width: 100%;
 	z-index: 10;
