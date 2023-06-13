@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/png" href="./img/jy/sktc-favicon.png">
 <link rel="stylesheet" href="./css/reset.css">
 <link rel="stylesheet" href="./css/index.css">
 <link rel="stylesheet" href="./css/jm/event.css">
@@ -23,7 +24,7 @@
 				</div>
 				<div class="main-header-menu">
 					<div>이벤트</div>
-					<div>여행 후기</div>
+					<div onclick="location.href='ReviewC'">여행 후기</div>
 					<div>고객 게시판</div>
 				</div>
 				<div class="main-header-login">
