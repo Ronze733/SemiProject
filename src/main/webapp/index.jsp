@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="./css/reset.css">
 <link rel="stylesheet" href="./css/index.css">
 <link rel="stylesheet" href="./css/jm/event.css">
+<link rel="stylesheet" href="./css/jh/review.css">
+<link rel="stylesheet" href="./css/jy/recommend.css">
 <title>South Korea Travel Controller</title>
 </head>
 <body>
@@ -15,12 +17,12 @@
 			<div class="main-header">
 				<div class="main-header-logo">
 					<div>
-						<img style="width: 110px;" alt="" src="./img/jy/SKTC.png">
+						<img alt="" src="./img/jy/SKTC.png">
 					</div>
 					<div>SKTC</div>
 				</div>
 				<div class="main-header-menu">
-					<div>여행 상품</div>
+					<div>이벤트</div>
 					<div>여행 후기</div>
 					<div>고객 게시판</div>
 				</div>
@@ -33,8 +35,7 @@
 			<div class="main-footer">
 				<div class="main-footer-box">
 					<div>
-						<img style="width: 144px; height: 135px;" alt=""
-							src="./img/jy/SKTC.png">
+						<img alt=""	src="./img/jy/SKTC.png">
 					</div>
 					<div>© 2023 South Korea Travel Controller. All rights
 						reserved</div>
