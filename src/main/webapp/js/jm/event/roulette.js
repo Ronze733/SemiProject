@@ -32,7 +32,7 @@ const app = Vue.createApp({
 	data(){
 		return {
 			items:[
-				{value: 1000},
+				{value: -1000},
 				{value: 5000},
 				{value: 500},
 				{value: -300},

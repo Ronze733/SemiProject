@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div>
-		<div>룰렛</div>
+		<div style="text-align: center">룰렛</div>
 		<div id="eventRoulette">
 			<div class="eventRoulette-roulette-outer">
 				<div class="eventRoulette-roulette-pin"></div>
