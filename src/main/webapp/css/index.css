@@ -1,11 +1,8 @@
 @charset "UTF-8";
 
-div {
-	border: 1px solid black;
-}
-
 .main-container {
-	width: 100%
+	width: 100%;
+	z-index: 10;
 }
 
 .main-header {
@@ -14,19 +11,46 @@ div {
 	align-items: center;
 	margin: auto;
 	width: 1521px;
+	z-index: 10;
 }
 
 .main-header-logo {
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 180px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 29px;
+	z-index: 10;
+}
+
+.main-header-logo img {
+	width: 110px;
+	z-index: 10;
 }
 
 .main-header-menu {
 	display: flex;
 	justify-content: space-around;
 	width: 1000px;
+	font-family: Urbanist;
+	font-size: 24px;
+	font-weight: 800;
+	line-height: 29px;
+	letter-spacing: 0em;
+	text-align: center;
+	color: #FFFFFF;
+	z-index: 10;
 }
 
-.main-footer-box{
+.main-header-login{
+	z-index: 10;
+}
+
+.main-footer-box {
 	width: 100%;
 	height: 458px;
 	display: flex;
@@ -34,8 +58,17 @@ div {
 	justify-content: center;
 	align-items: center;
 	background-color: rgba(127, 206, 223, 0.46);
+	font-family: 'Urbanist';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 29px;
+	color: #FFFFFF;
+	z-index: 10;
 }
 
-
-
-
+.main-footer-box img {
+	width: 144px;
+	height: 135px;
+	z-index: 10;
+}

@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.recommend-banner {
+	margin-top: -130px;
+	width: 100%;
+}
+
+#recommend-banner-img {
+	width: 100%;
+	height: 1200px;
+	opacity: 80%;
+}
+
+.recommend-banner-copy {
+	position: absolute;
+	top: 500px;
+	left: 800px;
+	width: 1212px;
+	height: 96px;
+	font-family: 'Urbanist';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 80px;
+	line-height: 96px;
+	text-align: center;
+	color: #FFFFFF; 
+}

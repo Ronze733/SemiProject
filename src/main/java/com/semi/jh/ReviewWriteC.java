@@ -7,15 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ReviewC")
-public class ReviewC extends HttpServlet {
+
+@WebServlet("/ReviewWriteC")
+public class ReviewWriteC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("LoginPage", "jsp/bj/login/login.jsp");
-		request.setAttribute("contentPage", "jsp/jh/review.jsp");
+		request.setAttribute("contentPage", "jsp/jh/reviewwrite.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+		ReviewDao.select(request);
 	}
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
