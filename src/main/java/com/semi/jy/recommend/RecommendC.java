@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.semi.bj.account.AccountDAO;
+
 @WebServlet("/RecommendC")
 public class RecommendC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -16,8 +18,8 @@ public class RecommendC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		AccountDAO.loginCheck(request);
 		PlaceDAO.recommendPlace(request);
-		request.setAttribute("LoginPage", "jsp/bj/login/navbarSignup.jsp");
 		request.setAttribute("contentPage", "./jsp/jy/recommend/recommend.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 
