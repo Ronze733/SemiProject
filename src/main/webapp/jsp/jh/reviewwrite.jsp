@@ -18,8 +18,8 @@
    	 		<form action="ReviewC" method="GET">
    	 			<div>
        				<input class="review-search" type="text" name="keyword" placeholder="검색어를 입력하세요">			
-       			</div>
        			 	<button class="review-searchbutton" type="submit">search</button>  		
+       			</div>
     		</form>
 		</div>
 		<div class="review-write">
@@ -66,7 +66,7 @@
 				<div class="place">
 					<div class="place-name">Place</div>
 						<div class="place2">
-							<select name="place_name">
+							<select name="place_name" class="select-styling">
 								<option value="seoul">서울</option>
 								<option value="busan">부산</option>						
 								<option value="daegu">대구</option>
