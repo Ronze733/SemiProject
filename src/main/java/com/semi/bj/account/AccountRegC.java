@@ -19,6 +19,7 @@ public class AccountRegC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		AccountDAO.regAccount(request);
 		AccountDAO.loginCheck(request);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
