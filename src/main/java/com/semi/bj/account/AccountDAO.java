@@ -23,6 +23,9 @@ public class AccountDAO {
 		String email = request.getParameter("email");
 		String pw = request.getParameter("password");
 		String result = "";
+		
+		System.out.println(email);
+		System.out.println(pw);
 
 		String sql = "select * from user_tbl where user_id = ?";
 		try {
@@ -34,6 +37,7 @@ public class AccountDAO {
 			if (rs.next()) {
 				String dbPw = rs.getString("user_pw");
 				if (pw.equals(dbPw)) {
+					System.out.println("로그인 성공");
 					result = "로그인 성공!";
 					Account userInfo = new Account();
 					userInfo.setUser_id("user_id");
@@ -47,15 +51,18 @@ public class AccountDAO {
 					hs.setAttribute("account", userInfo);
 					hs.setMaxInactiveInterval(60);
 				} else {
+					System.out.println("비밀번호 오류");
 					result = "비밀번호가 맞지 않습니다";
 				}
 				
 			} else {
+				System.out.println("아이디 오류");
 				result = "존재하지 않는 회원입니다";
 			}
 			request.setAttribute("result", result);
 			
 		} catch (Exception e) {
+			System.out.println("db접속 오류");
 			e.printStackTrace();
 		} finally {
 			DBManager.close(con, pstmt, rs);
@@ -63,8 +70,15 @@ public class AccountDAO {
 
 	}
 
-	public static void loginCheck(HttpServletRequest request) {
-		// TODO Auto-generated method stub
+	public static boolean loginCheck(HttpServletRequest request) {
+		Account account = (Account) request.getSession().getAttribute("account");
+		if (account == null) {
+			request.setAttribute("LoginPage", "jsp/bj/login/navbarLogin.jsp");
+			return false;
+		} else {
+			request.setAttribute("LoginPage", "jsp/bj/login/navbarLoginOK.jsp");
+			return true;
+		}
 
 	}
 

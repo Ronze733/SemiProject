@@ -20,7 +20,7 @@
 </head>
 
 <div class="dropdown">
-	<button class="btn btn-light dropdown-toggle" type="button"
+	<button class="btn btn-transparent dropdown-toggle" type="button"
 		id="dropdownMenuButton2" data-bs-toggle="dropdown"
 		aria-expanded="false">
 		<i class="material-icons">person</i> (${account.user_name })님

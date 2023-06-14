@@ -22,6 +22,7 @@ public class LoginC extends HttpServlet {
 		
 		AccountDAO.login(request);
 		AccountDAO.loginCheck(request);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 }
