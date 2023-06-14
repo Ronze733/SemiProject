@@ -6,11 +6,14 @@
  border: 1px solid black;
 }
 .detail-main{
-	text-align: center;
+	width: 50px;
+	
 	border: 1px solid black;
 }
 .detail-main-title{
-	
+	text-align: center;
+	width: 1800px;
+	height: 180px;
 	border-bottom: 1px solid black;
 	background-color: #416EE1;
 	
@@ -20,15 +23,24 @@
 	display: inline-flex;
 	}
 .detail-main-img{
-	width: 400px;
-	height: 200px;
+justify-content: space-between;
 }
+
+.detail-main-explain{
+	justify-content: space-between;
+}
+
 .detail-weather{
 	
 	border-bottom: 1px solid black;
 	background-color: #3295CC;
 
 }
+.detail-weather-title{
+margin-left: 20px;
+	
+}
+
 .detail-week{
 	display: flex;
 	border: 1px solid black; 
@@ -36,7 +48,8 @@
 }
 
 .detail-week-date{
-	margin-right: 200px;
+	margin-left: 120px;
+	margin-right: 100px;
 }
 
 .detail-weather-weatherAll{
