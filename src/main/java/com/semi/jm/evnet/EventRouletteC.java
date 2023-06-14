@@ -21,5 +21,3 @@ public class EventRouletteC extends HttpServlet {
 		
 	}
 }
-
-

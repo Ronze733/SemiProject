@@ -8,13 +8,9 @@ let ctx = canvas.getContext("2d");
 canvas.width = 600;
 canvas.height = 600;
 
-ctx.fillStyle = "red";
+ctx.fillStyle = "green";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-ctx.beginPath();
-ctx.arc(canvas.width / 2,  canvas.height / 2, 225, 0, Math.PI * 2);
-ctx.fillStyle = "white";
-ctx.fill();
  
  
 function checkTicket(){
