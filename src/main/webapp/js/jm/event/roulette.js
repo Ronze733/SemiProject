@@ -1,9 +1,15 @@
 /**
  * 
  */
+
+let canvas = document.getElementById("evetnRoulette-canvas");
+let ctx = canvas.getContext("2d");
+
+canvas.width = 600;
+canvas.height = 600;
  
  
- function checkTicket(){
+function checkTicket(){
 	return true;
 }
 
@@ -74,6 +80,7 @@ const app = Vue.createApp({
 	},
 	methods:{
 		play(){
+			alert("룰렛이 돌아갑니다.");
 			this.count++;
 			this.buttonDisabled=true;
 			this.current = Math.floor(Math.random() * this.items.length);

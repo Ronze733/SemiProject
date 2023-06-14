@@ -9,6 +9,7 @@
 </head>
 <body>
 	<div>
+		<canvas id="evetnRoulette-canvas"></canvas>
 		<div style="text-align: center">룰렛</div>
 		<div id="eventRoulette">
 			<div class="eventRoulette-roulette-outer">
