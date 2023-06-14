@@ -7,6 +7,13 @@
 <meta charset="UTF-8">	
 <title>Insert title here</title>
 <link rel="stylesheet" href="../../css/jh/review.css">
+<script type="text/javascript">
+	let result = '${result }';
+	if(result != null && result != ""){
+		location.href="ReviewC";
+	}
+	
+</script>
 </head>
 <body>
 	<div class="review-container">
@@ -16,7 +23,7 @@
 		</div>
 		<div >
    	 		<form action="ReviewC" method="GET">
-   	 			<div>
+   	 			<div class="review-searcher">
        				<input class="review-search" type="text" name="keyword" placeholder="검색어를 입력하세요">			
        			 	<button class="review-searchbutton" type="submit">search</button>  		
        			</div>
@@ -40,37 +47,19 @@
 				</div>
 			</div>
 		</div>
-		<div class="review-img">
-		<c:forEach var="r" items="${reviews }">
-			<div>
-				<img id="reviewImg" src="img/${r.review_pic }">
-			</div>
-			<div>
-				<div>타이틀</div>
-				<div>${r.review_title }</div>
-			</div>
-			<div>
-				<div>body</div>
-				<div>${r.review_title }</div>
-			</div>
-		</c:forEach>
-			</div>
-		<div class="review-img2">
-			<div>
-				<img id="reviewImg" src="img/${r.review_pic }">
-			</div>
-			<div>
-				<input type="text">
-			</div>
+			<c:forEach var="r" items="${reviews}">
+				<div class="review-img">
+					<div class="review-con">
+						<div class="r-img">
+							<img class="reviewImg" src="img/jh/${r.review_pic }">
+						</div>
+						<div class="r-text">
+							<div onclick="location.href='ReviewDetailC'" class="r-title">${r.review_title}</div>
+							<div class="r-body">${r.review_body}</div>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
-		<div class="review-img3">
-			<div>
-				<img id="reviewImg" src="img/${r.review_pic }">
-			</div>
-			<div>
-				<input type="text">
-			</div>
-		</div>
-	</div>
 </body>
 </html>

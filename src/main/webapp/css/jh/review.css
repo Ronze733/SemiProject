@@ -11,6 +11,9 @@
     color: #000000;
     padding: 70px;
 }
+.review-searcher{
+	text-align: center;
+}
 
 .review-search{
 box-sizing: border-box;
@@ -158,34 +161,45 @@ order: 1;
 flex-grow: 0
 }
 
-.review-img{
+.review-con {
 display: flex;
-flex-direction: row;
 align-items: center;
+margin-bottom: 20px;
+flex-direction: row;
+padding: 0px;
+gap: 200px;
+  }
+.reviewImg{
+width: 300px;
 padding: 10px;
-gap: 104px;
-
-
 }
 
-
-.review-img2{
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 10px;
-gap: 104px;
-
-}
-.review-img3{
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 10px;
-gap: 104px;
-
+.r-img {
+margin-right: 20px;
+width: 200px;
 }
 
+.review-img {
+width: 200px;
+}
+
+.r-text {
+flex: 1;
+}
+
+.r-title {
+font-weight: bold;
+margin-bottom: 10px;
+width: 500px;
+padding-bottom: 20px;
+font-size: 25px;
+}
+
+.r-body {
+margin-bottom: 10px;
+width: 500px; 
+font-size: 20px
+}
 
 .review-write-submit{
 display: flex;
@@ -400,3 +414,24 @@ flex-grow: 0;
 .select-styling option:checked {
   background-color: #F4F4F4; /* 선택된 항목의 배경색 변경 */
 }
+
+.place{
+	display: flex;
+}
+
+.div-button{
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px solid #AAA8A8;
+    border-radius: 4px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 10px;
+    
+    
+  }
+
+.div-button:hover {
+    background-color: #d5d5d5;
+  }
