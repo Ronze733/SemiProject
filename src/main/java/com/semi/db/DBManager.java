@@ -9,10 +9,11 @@ import java.sql.SQLException;
 public class DBManager {
 	
 	public static Connection connect() throws SQLException {
-		String url = "C:\\oracleDB\\Wallet_DB202204301707";
+		String url = "jdbc:oracle:thin:@db202204301707_high?TNS_ADMIN=C:/oracleDB/Wallet_DB202204301707";
 		String id = "JM";
 		String pw = "Soldesk802!!!";
 		
+		System.out.println("연결 성공");
 		return DriverManager.getConnection(url, id, pw);
 	}
 	
@@ -20,8 +21,10 @@ public class DBManager {
 		try {
 			if(rs != null)
 				rs.close();
-			pstmt.close();
-			con.close();
+			if(pstmt != null)
+				pstmt.close();
+			if(con != null)
+				con.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

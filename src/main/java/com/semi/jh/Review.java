@@ -7,12 +7,26 @@ public class Review {
 	private String review_user_id;
 	private String review_place;
 	private String review_title;
+	private String review_body;
 	private Date review_create_at;
 	private String review_pic;
 	private int review_likes;
-	
+
 	public Review() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Review(int review_id, String review_user_id, String review_place, String review_title, String review_body,
+			Date review_create_at, String review_pic, int review_likes) {
+		super();
+		this.review_id = review_id;
+		this.review_user_id = review_user_id;
+		this.review_place = review_place;
+		this.review_title = review_title;
+		this.review_body = review_body;
+		this.review_create_at = review_create_at;
+		this.review_pic = review_pic;
+		this.review_likes = review_likes;
 	}
 
 	public int getReview_id() {
@@ -47,6 +61,14 @@ public class Review {
 		this.review_title = review_title;
 	}
 
+	public String getReview_body() {
+		return review_body;
+	}
+
+	public void setReview_body(String review_body) {
+		this.review_body = review_body;
+	}
+
 	public Date getReview_create_at() {
 		return review_create_at;
 	}
@@ -71,24 +93,12 @@ public class Review {
 		this.review_likes = review_likes;
 	}
 
-	public Review(int review_id, String review_user_id, String review_place, String review_title, Date review_create_at,
-			String review_pic, int review_likes) {
-		super();
-		this.review_id = review_id;
-		this.review_user_id = review_user_id;
-		this.review_place = review_place;
-		this.review_title = review_title;
-		this.review_create_at = review_create_at;
-		this.review_pic = review_pic;
-		this.review_likes = review_likes;
-	}
-
 	@Override
 	public String toString() {
 		return "Review [review_id=" + review_id + ", review_user_id=" + review_user_id + ", review_place="
-				+ review_place + ", review_title=" + review_title + ", review_create_at=" + review_create_at
-				+ ", review_pic=" + review_pic + ", review_likes=" + review_likes + "]";
+				+ review_place + ", review_title=" + review_title + ", review_body=" + review_body
+				+ ", review_create_at=" + review_create_at + ", review_pic=" + review_pic + ", review_likes="
+				+ review_likes + "]";
 	}
-	
 	
 }
