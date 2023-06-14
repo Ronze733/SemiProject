@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="./css/jm/roulette.css">
 </head>
 <body>
-	<div>
+	<div id="eventRoulette-canvas-container">
 		<canvas id="evetnRoulette-canvas"></canvas>
 		<div style="text-align: center">룰렛</div>
 		<div id="eventRoulette">
