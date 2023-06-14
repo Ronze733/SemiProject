@@ -70,6 +70,14 @@ public class AccountDAO {
 
 	}
 
+	public static void logout(HttpServletRequest request) {
+		
+		HttpSession hs = request.getSession();
+		
+		hs.setAttribute("account", null);
+		loginCheck(request);
+	}
+	
 	public static boolean loginCheck(HttpServletRequest request) {
 		Account account = (Account) request.getSession().getAttribute("account");
 		if (account == null) {
@@ -96,6 +104,12 @@ public class AccountDAO {
 		String pwConfirm = request.getParameter("passwordConfirm");
 		String gender = request.getParameter("gender");
 
+		System.out.println(email);
+		System.out.println(nickname);
+		System.out.println(pw);
+		System.out.println(pwConfirm);
+		System.out.println(gender);
+		
 		try {
 
 			con = DBManager.connect();
@@ -104,6 +118,11 @@ public class AccountDAO {
 			pstmt.setString(2, nickname);
 			pstmt.setString(3, pw);
 			pstmt.setString(4, gender);
+			
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("등록 성공");
+				request.setAttribute("result", "회원가입 완료");
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -113,5 +132,6 @@ public class AccountDAO {
 		}
 
 	}
+
 
 }

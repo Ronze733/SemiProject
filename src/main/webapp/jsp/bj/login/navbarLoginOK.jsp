@@ -32,7 +32,7 @@
 		<li><a class="dropdown-item" href="#">리뷰남기기</a></li>
 		<li><a class="dropdown-item" href="#">Q&A</a></li>
 		<li><hr class="dropdown-divider"></li>
-		<li><a class="dropdown-item" href="#">로그아웃</a></li>
+		<li><a class="dropdown-item" href="LoginC">로그아웃</a></li>
 	</ul>
 </div>
 
