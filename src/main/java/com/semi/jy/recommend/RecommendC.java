@@ -15,6 +15,12 @@ public class RecommendC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		PlaceDAO.recommendPlace(request);
+		request.setAttribute("LoginPage", "jsp/bj/login/navbarSignup.jsp");
+		request.setAttribute("contentPage", "./jsp/jy/recommend/recommend.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+
 	}
 
 }
