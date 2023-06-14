@@ -53,40 +53,70 @@ public class ReviewDao {
 	public static void insert(HttpServletRequest request) {
 		Connection con =null;
 		PreparedStatement pstmt =null;
-		String url="insert into review values(review_id_seq.nextval,?,?,?,?,sysdate,?,0)";
-		String path = request.getServletContext().getRealPath("img");
+		String url="INSERT INTO review VALUES (review_id_seq.nextval, 'jh' , ? , ? , ? , sysdate , ? , 0)";
+		String path = request.getServletContext().getRealPath("img/jh");
+		System.out.println(path);
 		try {
 			MultipartRequest mr = new MultipartRequest(request, path , 30*1024*1024,"utf-8",new DefaultFileRenamePolicy());
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(url);
 			
-			String user_id=mr.getParameter("id");
+			//String user_id=mr.getParameter("id");
 			String place= mr.getParameter("place_name");
 			String title=mr.getParameter("title");
 			String body=mr.getParameter("body");
 			String pic=mr.getFilesystemName("pic");
 	
-			
-			pstmt.setString(1, user_id);
-			pstmt.setString(2, place);
-			pstmt.setString(3, title);
-			pstmt.setString(4, body);
-			pstmt.setString(5, pic);
+			System.out.println(place);
+			System.out.println(title);
+			System.out.println(body);
+			System.out.println(pic);
+
+			//pstmt.setString(1, user_id);
+			pstmt.setString(1, place);
+			pstmt.setString(2, title);
+			pstmt.setString(3, body);
+			pstmt.setString(4, pic);
 			
 			
 			if (pstmt.executeUpdate()==1) {
-				System.out.println("殿废己傍");
+				String result = "霌彪靹标车";
+				System.out.println("霌彪靹标车");
+				request.setAttribute("result", result);
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("殿废角菩");
+			System.out.println("霌彪鞁ろ尐");
 		}finally {
 			DBManager.close(con, pstmt, null);
 			
 		}
 		
 		
+		
+	}
+
+	public static void delect(HttpServletRequest request) {
+		Connection con =null;
+		PreparedStatement pstmt =null;
+		String url="delete from review where review_id=? ";
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(url);
+			
+			
+			if (pstmt.executeUpdate()==1) {
+				System.out.println("霌彪靹标车");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("霌彪鞁ろ尐");
+		}finally {
+			DBManager.close(con, pstmt, null);
+			
+		}
 		
 	}
 	

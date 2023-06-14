@@ -13,7 +13,7 @@ public class ReviewC extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ReviewDao.select(request);
-		request.setAttribute("LoginPage", "jsp/bj/login/login.jsp");
+		request.setAttribute("LoginPage", "jsp/bj/login/navbarSignup.jsp");
 		request.setAttribute("contentPage", "jsp/jh/review.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

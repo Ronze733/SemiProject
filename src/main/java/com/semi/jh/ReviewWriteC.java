@@ -13,7 +13,7 @@ public class ReviewWriteC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("LoginPage", "jsp/bj/login/login.jsp");
+		request.setAttribute("LoginPage", "jsp/bj/login/navbarSignup.jsp");
 		request.setAttribute("contentPage", "jsp/jh/reviewwrite.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		ReviewDao.select(request);

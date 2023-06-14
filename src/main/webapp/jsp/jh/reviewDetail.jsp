@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,54 +43,35 @@
 		</div>
 		<form action="ReviewInsertC" method="post" enctype="multipart/form-data">
 		
+		<c:forEach items="${reviews }" var="r">
 		<div class="review-write-submit">
 			<div class="review-writeimg">
-				<input name="pic" type="file">
+				${r.review_pic}
 			</div>
-			<div class="review-blank">
-			
-			</div>
-			
+				<div class="review-blank">
+					</div>
 			<div class="review-write-detail">
 				<div class="review-title-text">
-					타이틀을 적어주세요.
+					타이틀
 				</div>
 				<div class="review-title-input">
-					<input class="input-box" type="text" name="title" placeholder="제목을 기입해주세요!">
+					${r.review_title}
 				</div>
 				
 				<div class="review-title-text2">
-					후기를 적어주세요.
+					후기
 				</div>
 				<div class="review-title-input2">
-					<textarea class="input-box2" rows="" cols="" name="body" placeholder="여러분의 후기를 적어주세요!"></textarea>
+					${r.review_title}
 				</div>
+				
 				<div class="place">
-						<div class="place2">
-							<select name="place_name" class="select-styling">
-								<option value="seoul">서울</option>
-								<option value="busan">부산</option>						
-								<option value="daegu">대구</option>
-								<option value="incheon">인천</option>
-								<option value="gwangju">광주</option>
-								<option value="daejeon">대전</option>
-								<option value="ulsan">울산</option>																								
-								<option value="kyeonggido">경기도</option>
-								<option value="chungcheong">충청도</option>
-								<option value="gyeongsang ">경상도</option>										
-								<option value="jeolla">전라도</option>	
-								<option value="gangwon">강원도</option>
-								<option value="jeju ">제주도</option>
-							</select>
-						</div>	
 					<div class="div-button" onclick="ReviewDelC">삭제</div>
 					<div class="div-button" onclick="ReviewUpdateC">수정</div>					
-					</div>
-				<div class="review-detailbutton" >
-					<button class="review-detailbutton">Submit</button>
 				</div>
 			</div>
 		</div>
+	</c:forEach>
 		</form>
 	</div>
 </body>
