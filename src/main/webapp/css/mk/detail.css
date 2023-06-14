@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.detail-container{
+	width: 100%;
+ margin: auto;
+ border: 1px solid black;
+}
+.detail-main{
+	text-align: center;
+	border: 1px solid black;
+}
+.detail-main-title{
+	
+	border-bottom: 1px solid black;
+	background-color: #416EE1;
+	
+}
+
+.detail-main-informatoin{
+	display: inline-flex;
+	}
+.detail-main-img{
+	width: 400px;
+	height: 200px;
+}
+.detail-weather{
+	
+	border-bottom: 1px solid black;
+	background-color: #3295CC;
+
+}
+.detail-week{
+	display: flex;
+	border: 1px solid black; 
+    
+}
+
+.detail-week-date{
+	margin-right: 200px;
+}
+
+.detail-weather-weatherAll{
+
+	background-color: orange;
+}
+
+.detail-place{
+	height: 800px;
+}
+.detail-place-root{
+	background-color: #B9E2AE;
+	border-bottom: 1px solid black;
+}
+.detail-place-addr{
+	background-color: #2B8940;
+}

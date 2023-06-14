@@ -1,9 +1,19 @@
 /**
  * 
  */
+
+let canvas = document.getElementById("evetnRoulette-canvas");
+let ctx = canvas.getContext("2d");
+
+canvas.width = 600;
+canvas.height = 600;
+
+ctx.fillStyle = "green";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
  
  
- function checkTicket(){
+function checkTicket(){
 	return true;
 }
 
@@ -32,7 +42,7 @@ const app = Vue.createApp({
 	data(){
 		return {
 			items:[
-				{value: 1000},
+				{value: -1000},
 				{value: 5000},
 				{value: 500},
 				{value: -300},
@@ -74,6 +84,7 @@ const app = Vue.createApp({
 	},
 	methods:{
 		play(){
+			alert("룰렛이 돌아갑니다.");
 			this.count++;
 			this.buttonDisabled=true;
 			this.current = Math.floor(Math.random() * this.items.length);
