@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,7 @@
 <link rel="stylesheet" href="../../css/jh/review.css">
 </head>
 <body>
-	<div>
+	<div class="review-container">
 	
 		<div class="review-title">
 			당신의 이야기를 들려주세요.
@@ -17,8 +18,8 @@
    	 		<form action="ReviewC" method="GET">
    	 			<div>
        				<input class="review-search" type="text" name="keyword" placeholder="검색어를 입력하세요">			
-       			</div>
        			 	<button class="review-searchbutton" type="submit">search</button>  		
+       			</div>
     		</form>
 		</div>
 		<div class="review-write">
@@ -40,16 +41,23 @@
 			</div>
 		</div>
 		<div class="review-img">
+		<c:forEach var="r" items="${reviews }">
 			<div>
-				<img alt="" src="https://th.bing.com/th/id/OIP.IV8EW2nGNvJnDj9lF7Bl_AHaFj?pid=ImgDet&rs=1">
+				<img id="reviewImg" src="img/${r.review_pic }">
 			</div>
 			<div>
-				<input type="text">
+				<div>타이틀</div>
+				<div>${r.review_title }</div>
 			</div>
-		</div>
+			<div>
+				<div>body</div>
+				<div>${r.review_title }</div>
+			</div>
+		</c:forEach>
+			</div>
 		<div class="review-img2">
 			<div>
-				<img alt="" src="https://th.bing.com/th/id/OIP.IV8EW2nGNvJnDj9lF7Bl_AHaFj?pid=ImgDet&rs=1">
+				<img id="reviewImg" src="img/${r.review_pic }">
 			</div>
 			<div>
 				<input type="text">
@@ -57,7 +65,7 @@
 		</div>
 		<div class="review-img3">
 			<div>
-				<img alt="" src="https://th.bing.com/th/id/OIP.IV8EW2nGNvJnDj9lF7Bl_AHaFj?pid=ImgDet&rs=1">
+				<img id="reviewImg" src="img/${r.review_pic }">
 			</div>
 			<div>
 				<input type="text">
