@@ -12,7 +12,7 @@ public class EventRouletteC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("LoginPage", "./jsp/bj/login/login.jsp");
+		request.setAttribute("LoginPage", "./jsp/bj/login/navbarSignup.jsp");
 		request.setAttribute("contentPage", "./jsp/jm/event/eventRoulette.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
@@ -20,5 +20,4 @@ public class EventRouletteC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
-
 }
