@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,16 +41,23 @@
 			</div>
 		</div>
 		<div class="review-img">
+		<c:forEach var="r" items="${reviews }">
 			<div>
-				<img alt="" src="https://th.bing.com/th/id/OIP.IV8EW2nGNvJnDj9lF7Bl_AHaFj?pid=ImgDet&rs=1">
+				<img id="reviewImg" src="img/${r.review_pic }">
 			</div>
 			<div>
-				<input type="text">
+				<div>타이틀</div>
+				<div>${r.review_title }</div>
 			</div>
-		</div>
+			<div>
+				<div>body</div>
+				<div>${r.review_title }</div>
+			</div>
+		</c:forEach>
+			</div>
 		<div class="review-img2">
 			<div>
-				<img alt="" src="https://th.bing.com/th/id/OIP.IV8EW2nGNvJnDj9lF7Bl_AHaFj?pid=ImgDet&rs=1">
+				<img id="reviewImg" src="img/${r.review_pic }">
 			</div>
 			<div>
 				<input type="text">
@@ -57,7 +65,7 @@
 		</div>
 		<div class="review-img3">
 			<div>
-				<img alt="" src="https://th.bing.com/th/id/OIP.IV8EW2nGNvJnDj9lF7Bl_AHaFj?pid=ImgDet&rs=1">
+				<img id="reviewImg" src="img/${r.review_pic }">
 			</div>
 			<div>
 				<input type="text">

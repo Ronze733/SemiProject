@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.semi.db.DBManager;
 
 public class ReviewDao {
 
@@ -23,19 +24,20 @@ public class ReviewDao {
 			pstmt = con.prepareStatement(url);
 			rs = pstmt.executeQuery();
 			Review r = null;
-			ArrayList<Review> reviews= new ArrayList<Review>();
-		while (rs.next()) {
-			int id=rs.getInt("review_id");
-			String user_id=rs.getString("review_user_id");
-			String place=rs.getString("review_place");
-			String title=rs.getString("review_title");
-			Date date=rs.getDate("review_create_at");
-			String pic=rs.getString("review_pic");
-			int likes=rs.getInt("review_likes");
-			r = new Review(id, user_id, place, title, date, pic, likes);
-			reviews.add(r);
-		}
-		request.setAttribute("reviews", reviews);
+			ArrayList<Review> reviews = new ArrayList<Review>();
+			while (rs.next()) {
+				int id=rs.getInt("review_id");
+				String user_id = rs.getString("review_user_id");
+				String place = rs.getString("review_place");
+				String title = rs.getString("review_title");
+				String body = rs.getString("review_body");
+				Date date = rs.getDate("review_created_at");
+				String pic = rs.getString("review_pic");
+				int likes = rs.getInt("review_likes");
+				r = new Review(id, user_id, place, title, body, date, pic, likes);
+				reviews.add(r);
+			}
+			request.setAttribute("reviews", reviews);
 		
 			
 		} catch (Exception e) {
