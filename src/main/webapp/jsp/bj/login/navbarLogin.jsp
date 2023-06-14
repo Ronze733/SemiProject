@@ -13,8 +13,8 @@
 </head>
 <body>
 	<div class="navbar-signup">
-		<button class="btn btn-outline-*" id="Navbar-signup" type="submit">Sign up</button>
-		<button class="btn btn-outline-*" id="Navbar-login" type="submit">Login</button>
+		<button class="btn btn-outline-*" id="Navbar-signup" onclick="location.href='AccountRegC'" type="submit">Sign up</button>
+		<button class="btn btn-outline-*" id="Navbar-login" onclick="location.href='LoginC'" type="submit">Login</button>
 	</div>
 </body>
 </html>

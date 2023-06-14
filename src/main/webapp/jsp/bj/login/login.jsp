@@ -13,22 +13,21 @@
 	crossorigin="anonymous">
 </head>
 <body class="text-center">
-
 	<main class="form-signin w-100 m-auto">
-		<form>
+		<form action="LoginC" method="post">
 			<img class="mb-8"
 				src="https://cdn.discordapp.com/attachments/1114101103341088820/1117298158129659924/SKTC.png"
 				alt="" width="150" height="118">
 			<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
 			<div class="form-floating">
-				<input type="email" class="form-control" id="floatingInput"
+				<input name="email" type="email" class="form-control" id="floatingInput"
 					placeholder="이메일"
 					onFocus="changePlaceholder(this, 'name@example.com');"
 					onBlur="restorePlaceholder(this, '이메일');">
 			</div>
 			<div class="form-floating">
-				<input type="password" class="form-control" id="floatingPassword"
+				<input name="password" type="password" class="form-control" id="floatingPassword"
 					placeholder="비밀번호">
 			</div>
 

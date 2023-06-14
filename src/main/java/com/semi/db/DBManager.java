@@ -13,7 +13,8 @@ public class DBManager {
 		String id = "JM";
 		String pw = "Soldesk802!!!";
 		
-		System.out.println("¿¬°á ¼º°ø");
+
+		System.out.println("ì ‘ì† ì„±ê³µ");
 		return DriverManager.getConnection(url, id, pw);
 	}
 	
