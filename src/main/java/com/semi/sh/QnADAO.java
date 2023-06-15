@@ -70,5 +70,27 @@ public class QnADAO {
 		
 	}
 
+	public static void insert(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "insert into inquiry values(?, ?, ?, sysdate, inquiry_seq.nextval, ?)";
+		try {
+			request.setCharacterEncoding("UTF-8");
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+	}
+
 	
 }
