@@ -17,8 +17,6 @@ public class PlaceDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			ArrayList<String> conditions = new ArrayList<String>();
-			ArrayList<String> conditions2 = new ArrayList<String>();
 			ArrayList<Place> recommendPlaces = new ArrayList<Place>();
 
 			request.setCharacterEncoding("utf-8");
@@ -32,82 +30,64 @@ public class PlaceDAO {
 
 			System.out.println("------------");
 
-			String themes2 = "";
 
 			if (themes != null) {
-				for (String s : themes) {
-					themes2 += s + "!";
+				for (int i = 0; i < themes.length; i++) {
+					themes[i] = themes[i] + "!";
 				}
 			}
 
-			System.out.println(themes2);
-
-			String places2 = "";
 
 			if (places != null) {
-				for (String s : places) {
-					places2 += s + "!";
-				}
-			}
-
-			System.out.println(places2);
-
-			if (themes != null) {
-				conditions.add("place_category1 like ?");
-			}
-
-			if (places != null) {
-				conditions.add("place_category2 like ?");
-			}
-
-			if (locations != null) {
-				for (int i = 0; i < locations.length; i++) {
-					conditions2.add("place_category3 = ?");
+				for (int i = 0; i < places.length; i++) {
+					places[i] = places[i] + "!";
 				}
 			}
 
 			String sql = "select * from place";
 
-			if(themes != null || places != null || locations != null)
-			    sql += " where ";
+			if (themes != null || places != null || locations != null)
+				sql += " where ";
 
-			if(themes != null){
-			    sql += "(";
-			    for(int i = 0; i < themes.length; i++){
-				if(i == themes.length - 1)
-				    sql += "place_category1 like ?";
-				else
-				    sql += "place_category1 like ? or ";
-			    }
-			    sql += ")";
-			   
-			   if(places != null || locations != null)
-				sql += " and ";
+			if (themes != null) {
+				
+				for (int i = 0; i < themes.length; i++) {
+					if (i == themes.length-1) {
+						sql += "place_category1 like ? ";
+					} else {
+						sql += "place_category1 like ? and ";
+					}
+				}
+
+				if (places != null || locations != null) {
+					sql += " and ";
+				}
 			}
 
-			if(places != null){
-			    sql += "(";
-			    for(int i = 0; i < places.length; i++){
-				if(i == places.length - 1)
-				    sql += "place_category2 like ?";
-				else
-				    sql += "place_category2 like ? or ";
-			    }
-			    sql += ")";
-			   
-			   if(locations != null)
-				sql += " and ";
-			}
+			if (places != null) {
+				
+				for (int i = 0; i < places.length; i++) {
+					if (i == places.length-1) {
+						sql += "place_category2 like ? ";
+					} else {
+						sql += "place_category2 like ? and ";
+					}
+				}
 
-			if(locations != null){
-			    sql += "(";
-			    for(int i = 0; i < locations.length; i++){
-				if(i == locations.length - 1)
-				    sql += "place_category3 = ?";
-				else
-				    sql += "place_category3 = ? or ";
-			    }
-			    sql += ")";
+				if (locations != null) {
+					sql += " and ";
+				}
+			}
+			
+			if (locations != null) {
+				sql += "(";
+				for (int i = 0; i < locations.length; i++) {
+					if (i == locations.length - 1)
+						sql += "place_category3 = ?";
+					else
+						sql += "place_category3 = ? or ";
+				}
+				sql += ")";
 			}
 
 			System.out.println("/////////////////");
@@ -117,12 +97,16 @@ public class PlaceDAO {
 			pstmt = con.prepareStatement(sql);
 			int index = 1;
 			if (themes != null) {
-
-				pstmt.setString(index++, "%" + themes2 + "%");
+				for (int i = 0; i < themes.length; i++) {
+					pstmt.setString(index++, "%" + themes[i] + "%");
+				}
 			}
 
 			if (places != null) {
-				pstmt.setString(index++, "%" + places2 + "%");
+				
+				for (int i = 0; i < places.length; i++) {
+					pstmt.setString(index++, "%" + places[i] + "%");
+				}
 			}
 
 			if (locations != null) {
