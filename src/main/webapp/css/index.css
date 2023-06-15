@@ -5,17 +5,26 @@
 }
 
 .main-container {
+	position: relative;
 	width: 100%;
 	z-index: 10;
 }
 
 .main-header {
+	position: sticky;
+	top: 0;
+	background-color: transparent;
+	transition: background-color 1s ease;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin: auto;
 	width: 100%;
 	z-index: 10;
+}
+
+.main-header.scroll-active {
+  background-color: white; /* 스크롤 위치에 도달하면 배경색을 흰색으로 변경 */
 }
 
 .main-header-logo {
