@@ -37,8 +37,9 @@
 					<div>
 						<img alt=""	src="./img/jy/SKTC.png">
 					</div>
-					<div>© 2023 South Korea Travel Controller. All rights
-						reserved</div>
+					<div>
+						© 2023 South Korea Travel Controller. All rights reserved
+					</div>
 				</div>
 			</div>
 		</div>
