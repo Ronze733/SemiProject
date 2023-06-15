@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="./css/jm/event.css">
 <link rel="stylesheet" href="./css/jh/review.css">
 <link rel="stylesheet" href="./css/jy/recommend.css">
+<link rel="stylesheet" href="./css/sh/QnA.css">
 <title>South Korea Travel Controller</title>
 </head>
 <body>
@@ -25,7 +26,7 @@
 				<div class="main-header-menus">
 					<div class="main-header-menu">이벤트</div>
 					<div class="main-header-menu" onclick="location.href='ReviewC'">여행 후기</div>
-					<div class="main-header-menu">고객 게시판</div>
+					<div class="main-header-menu" onclick="location.href='QnAC'">고객 게시판</div>
 				</div>
 				<div class="main-header-login">
 			    <div><jsp:include page="${LoginPage}"></jsp:include></div>

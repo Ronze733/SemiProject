@@ -1,32 +1,97 @@
 .QnA-container{
-	text-align: center;
 	width: 100%;
 	height: 100%;
 }
 
 .QnA-content{
-	margin-left: auto;
-	margin-right: auto;	
-	display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.QnA-title-left{
+	text-align: center;
 }
 
 .QnA-body{
 	border: 1px solid red;
+	width: 800px;
+	margin-left: 50px;
 }
 
 .QnA-body-title{
 	display: flex;
+	justify-content: space-between;
 }
 
-.QnA-lists{
-	border: 1px solid blue;
+.QnA-body-list{
 }
 
 .QnA-list-title{
+	justify-content: space-between;
 	display: flex;
 }
 
-.QnA-list{
+.QnA-lists{
+	justify-content: space-between;
+	border: 1px solid blue;
 	display: flex;
 }
+
+
+/* QnA_insert */
+
+.QnA-insert-container{
+	width: 100%;
+	height: 100%;
+}
+
+.QnA-insert-content{
+	justify-content: space-around;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.QnA-insert-header{
+	display: flex;
+}
+
+.QnA-insert-body{
+	
+}
+
+.QnA-insert-button{
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
