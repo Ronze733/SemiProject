@@ -9,14 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.semi.bj.account.AccountDAO;
 
-@WebServlet("/QnAC")
-public class QnAC extends HttpServlet {
+@WebServlet("/QnAInsertC")
+public class QnAInsertC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QnADAO.getAllQnA(request);
+		QnADAO.insert(request);
 		AccountDAO.loginCheck(request);
-		request.setAttribute("contentPage", "jsp/sh/QnA.jsp");
+		request.setAttribute("contentPage", "jsp/sh/QnA_insert.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
