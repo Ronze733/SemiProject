@@ -10,11 +10,13 @@
 <body>
 	<div class="QnA-container">
 		<div class="QnA-content">
-			<div class="QnA-list-title">
-				<div>고객 게시판</div>
-				<div>a</div>
-				<div>b</div>
-				<div>c</div>
+			<div class="QnA-title-left">
+				<div id="">고객 게시판</div>
+				<div>
+					<div>a</div>
+					<div>b</div>
+					<div>c</div>
+				</div>
 			</div>
 			<div class="QnA-body">
 				<div class="QnA-body-title">
@@ -24,19 +26,19 @@
 						<button class="QnA-searchbutton">검색</button>
 					</div>
 					<div>
-						<button>작성</button>
+						<button onclick="location.href='QnAInsertC'">작성</button>
 					</div>
 				</div>
-				<div class="QnA-lists">
+				<div class="QnA-body-list">
 					<div class="QnA-list-title">
-						<div>번호</div>
+						<div>카테고리</div>
 						<div>제목</div>
 						<div>아이디</div>
 						<div>날짜</div>
 					</div>
 					<c:forEach items="${QnAs }" var="QnA">
-						<div class="QnA-list">
-							<div>${QnA.inquiry_no }</div>
+						<div class="QnA-lists">
+							<div>${QnA.inquiry_category }</div>
 							<div onclick="location.href='QnADetailC?no=${QnA.inquiry_no}'">${QnA.inquiry_title }</div>
 							<div>${QnA.inquiry_user_id }</div>
 							<div>${QnA.inquiry_question_day }</div>
