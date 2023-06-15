@@ -14,7 +14,7 @@
 </head>
 <body class="text-center">
 	<main class="form-signin w-100 m-auto">
-		<form action="LoginC" method="post">
+		<form action="LoginC" method="post" accept-charset="utf-8">
 			<img class="mb-8"
 				src="https://cdn.discordapp.com/attachments/1114101103341088820/1117298158129659924/SKTC.png"
 				alt="" width="150" height="118">
