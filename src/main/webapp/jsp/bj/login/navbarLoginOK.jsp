@@ -23,12 +23,12 @@
 	<button class="btn btn-transparent dropdown-toggle" type="button"
 		id="dropdownMenuButton2" data-bs-toggle="dropdown"
 		aria-expanded="false">
-		<i class="material-icons">person</i> (${account.user_name })님
+		<i class="material-icons">person</i> (${sessionScope.account.user_name })님
 				환영합니다.
 	</button>
 	<ul class="dropdown-menu dropdown-menu"
 		aria-labelledby="dropdownMenuButton2">
-		<li><a class="dropdown-item active" href="#">마이페이지</a></li>
+		<li><a class="dropdown-item active" href="AccountDetailC">마이페이지</a></li>
 		<li><a class="dropdown-item" href="#">리뷰남기기</a></li>
 		<li><a class="dropdown-item" href="#">Q&A</a></li>
 		<li><hr class="dropdown-divider"></li>
