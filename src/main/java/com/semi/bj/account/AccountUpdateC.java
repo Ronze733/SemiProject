@@ -14,14 +14,14 @@ public class AccountUpdateC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		AccountDAO.loginCheck(request);
-		AccountDAO.accountUpdate(request);
-		request.getRequestDispatcher("jsp/bj/login/myPage.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/bj/login/update.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		AccountDAO.loginCheck(request);
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		AccountDAO.accountUpdate(request);
+		request.getRequestDispatcher("jsp/bj/login/myPage.jsp").forward(request, response);
 	}
 
 }

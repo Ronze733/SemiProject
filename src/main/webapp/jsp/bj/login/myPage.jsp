@@ -17,7 +17,7 @@
 		<div class="input-form-backgroud row">
 			<div class="signup-input-form col-md-12 mx-auto">
 				<h4 class="mb-3">회원가입</h4>
-				<form class="validation-form" action="AccountRegC" method="post">
+				<form class="validation-form" action="AccountRegC" method="post" >
 					<div class="row">
 					</div>
 					<div class="mb-3">

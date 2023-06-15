@@ -1,5 +1,6 @@
 package com.semi.bj.account;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,7 +48,7 @@ public class AccountDAO {
 					userInfo.setUser_pw(rs.getString("user_pw"));
 					userInfo.setUser_create_at(rs.getString("user_create_at"));
 					userInfo.setUser_gender(rs.getString("user_gender"));
-					userInfo.setUser_points(rs.getString("user_points"));
+// 					userInfo.setUser_points(rs.getString("user_points")); 포인트 삭제
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("account", userInfo);
@@ -92,13 +93,14 @@ public class AccountDAO {
 
 	}
 
-	public static void regAccount(HttpServletRequest request) {
-
+	public static void regAccount(HttpServletRequest request) throws UnsupportedEncodingException {
+		
+		request.setCharacterEncoding("UTF-8");
 		Date date = new Date();
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into user_tbl values(?, ?, ?, sysdate, ?, '0')";
+		String sql = "insert into user_tbl values(?, ?, ?, sysdate, ?)";
 
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
@@ -135,7 +137,9 @@ public class AccountDAO {
 
 	}
 
-	public static void accountUpdate(HttpServletRequest request) {
+	public static void accountUpdate(HttpServletRequest request) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
+		
 		Account account = (Account) request.getSession().getAttribute("account");
 		Connection con = null;
 		PreparedStatement pstmt = null;
