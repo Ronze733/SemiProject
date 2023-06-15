@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="./css/jm/event.css">
 <link rel="stylesheet" href="./css/jh/review.css">
 <link rel="stylesheet" href="./css/jy/recommend.css">
+<script type="text/javascript" src="./js/jy/recommend.js"></script>
 <title>South Korea Travel Controller</title>
 </head>
 <body>

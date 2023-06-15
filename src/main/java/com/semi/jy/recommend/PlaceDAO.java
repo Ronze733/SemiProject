@@ -7,10 +7,88 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import com.semi.db.DBManager;
 
 public class PlaceDAO {
+	
+	
+	
+	public static JSONObject recommendPlace2(HttpServletRequest request) {
+		System.out.println("GET Start ===============");
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = DBManager.connect();
+		
 
+			// 테마 값 받기
+			String themes = request.getParameter("query");
+			String themeVals[] = themes.split("!"); 
+			
+			String sql = "select * from place where ";
+			if (themes != null) {
+				for (int i = 0; i < themeVals.length; i++) {
+					sql += "place_category1 like '%'||?||'%'";
+					if (i != themeVals.length-1) {
+						sql += " and ";
+					}
+				}
+			}
+			pstmt = con.prepareStatement(sql);
+			for (int i = 0; i< themeVals.length; i++)  {
+				pstmt.setString(i+1, themeVals[i]);
+			}
+			rs = pstmt.executeQuery();
+				// 이미지랑 제목만
+			
+			
+			/*
+				{ 
+				"data" : [
+						{"img" : "a.jpg",
+						 "name" : aaa},
+						{"img" : a.jpg,
+						 "name" : aaa},
+						{"img" : a.jpg,
+						 "name" : aaa},
+					]
+				}
+			
+			
+			 */
+						
+			
+			
+			
+			
+			JSONObject myJson = new JSONObject();
+			JSONArray ja = new JSONArray();
+			
+			while (rs.next()) {
+				String pic = rs.getString("place_pic");
+				String name = rs.getString("place_name");
+				System.out.println(pic);
+				System.out.println(name);
+				JSONObject jo = new JSONObject();
+				jo.put("pic", pic);
+				jo.put("name", name);
+				ja.add(jo);
+			}
+			myJson.put("data", ja);
+			return myJson;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+		
+		
+	}
 	public static void recommendPlace(HttpServletRequest request) {
 
 		Connection con = null;
@@ -51,6 +129,7 @@ public class PlaceDAO {
 
 			if (themes != null) {
 				
+				sql += "(";
 				for (int i = 0; i < themes.length; i++) {
 					if (i == themes.length-1) {
 						sql += "place_category1 like ? ";
@@ -58,6 +137,7 @@ public class PlaceDAO {
 						sql += "place_category1 like ? and ";
 					}
 				}
+				sql += ")";
 
 				if (places != null || locations != null) {
 					sql += " and ";
@@ -65,7 +145,7 @@ public class PlaceDAO {
 			}
 
 			if (places != null) {
-				
+				sql += "(";
 				for (int i = 0; i < places.length; i++) {
 					if (i == places.length-1) {
 						sql += "place_category2 like ? ";
@@ -73,6 +153,7 @@ public class PlaceDAO {
 						sql += "place_category2 like ? and ";
 					}
 				}
+				sql += ")";
 
 				if (locations != null) {
 					sql += " and ";
@@ -129,9 +210,9 @@ public class PlaceDAO {
 
 				Place place = new Place(p_id, p_name, p_addr, p_category1, p_category2, p_category3, p_explain, p_pic);
 				recommendPlaces.add(place);
-
-				request.setAttribute("recommendPlaces", recommendPlaces);
 			}
+			
+			request.setAttribute("recommendPlaces", recommendPlaces);
 
 		} catch (Exception e) {
 			e.printStackTrace();
