@@ -100,14 +100,12 @@
 
 }
 
-.detail-weather-weatherAll{
-	z-index:2;
-	background-color: orange;
-	font-size: 9pt;
-}
+
 .detail-weather-weeklyWeather{
 	display:flex;
 	justify-content:space-around;
+	background-color: orange;
+	
 }
 #detail-weather-dateWeatherDetail{
 	text-align:center;

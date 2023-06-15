@@ -64,13 +64,6 @@
 	 		5
 	 		</div> 
 	 		</div>
-	 		<div class="detail-weather-weatherAll">
-	 		<div class="detail-weather-weatherCondition"> 기상 상황</div>
-	 		<div class="detail-weather-weatherCondition">기온</div>
-	 		<div class="detail-weather-weatherCondition">습도</div>
-	 		<div class="detail-weather-weatherCondition">풍속</div>
-	 		
- 		</div>
  		</div>
 		<div class="detail-place">
 			<div class="detail-place-root"> 오시는길</div>
