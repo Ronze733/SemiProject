@@ -10,7 +10,7 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="./css/jm/event.css" />
     <link rel="stylesheet" href="./css/jh/review.css" />
     <link rel="stylesheet" href="./css/jy/recommend.css" />
-
+    <script src="./js/index.js"></script>
     <link rel="stylesheet" href="./css/sh/QnA.css" />
     <title>South Korea Travel Controller</title>
   </head>
