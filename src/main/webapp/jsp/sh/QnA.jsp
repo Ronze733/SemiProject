@@ -11,16 +11,16 @@
 	<div class="QnA-container">
 		<div class="QnA-content">
 			<div class="QnA-title-left">
-				<div id="">고객 게시판</div>
-				<div>
-					<div>a</div>
-					<div>b</div>
-					<div>c</div>
+				<div class="QnA-header">고객 게시판</div>
+				<div class="QnA-left-lists">
+					<div class="QnA-left-list">공지사항</div>
+					<div class="QnA-left-list">이벤트</div>
+					<div class="QnA-left-list">문의하기</div>
 				</div>
 			</div>
 			<div class="QnA-body">
 				<div class="QnA-body-title">
-					<div>aaa</div>
+					<div class="QnA-header">aaa</div>
 					<div>
 						<input class="QnA-search" placeholder="검색어를 입력해주세요.">
 						<button class="QnA-searchbutton">검색</button>
@@ -30,20 +30,33 @@
 					</div>
 				</div>
 				<div class="QnA-body-list">
-					<div class="QnA-list-title">
-						<div>카테고리</div>
-						<div>제목</div>
-						<div>아이디</div>
-						<div>날짜</div>
+					<div class="QnA-list-titles">
+						<div class="QnA-list-title1">카테고리</div>
+						<div class="QnA-list-title2">제목</div>
+						<div class="QnA-list-title3">아이디</div>
+						<div class="QnA-list-title4">날짜</div>
 					</div>
 					<c:forEach items="${QnAs }" var="QnA">
 						<div class="QnA-lists">
-							<div>${QnA.inquiry_category }</div>
-							<div onclick="location.href='QnADetailC?no=${QnA.inquiry_no}'">${QnA.inquiry_title }</div>
-							<div>${QnA.inquiry_user_id }</div>
-							<div>${QnA.inquiry_question_day }</div>
+							<div class="QnA-list1">${QnA.inquiry_category }</div>
+							<div class="QnA-list2" onclick="location.href='QnADetailC?no=${QnA.inquiry_no}'">${QnA.inquiry_title }</div>
+							<div class="QnA-list3">${QnA.inquiry_user_id }</div>
+							<div class="QnA-list4">${QnA.inquiry_question_day }</div>
 						</div>
 					</c:forEach>
+				</div>
+				<div class="QnA-page-number">
+					<div onclick="location.href='QnAPageC?p=1'">[맨처음]</div>
+						<c:if test="${curPageNo > 1}">
+      			  			<div onclick="location.href='QnAPageC?p=${curPageNo - 1}'">&nbsp;[이전]&nbsp;</div>
+ 					   	</c:if>
+						<c:forEach begin="1" end="${pageCount }" var="i">
+							<div onclick="location.href='QnAPageC?p=${i }'">&nbsp;${i }&nbsp; </div>
+						</c:forEach>
+						<c:if test="${curPageNo < pageCount}">
+      					  <div onclick="location.href='QnAPageC?p=${curPageNo + 1}'">&nbsp;[다음]&nbsp;</div>
+   						</c:if>
+					<div onclick="location.href='QnAPageC?p=${pageCount }'">[맨끝]</div>
 				</div>
 			</div>
 		</div>
