@@ -14,8 +14,9 @@ public class QnAC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QnADAO.getAllQnA(request);
 		AccountDAO.loginCheck(request);
+		QnADAO.getQnADAO().getAllQnA(request);
+		QnADAO.getQnADAO().pagingQnA(1, request);
 		request.setAttribute("contentPage", "jsp/sh/QnA.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
