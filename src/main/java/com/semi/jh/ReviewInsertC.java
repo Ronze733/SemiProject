@@ -20,8 +20,8 @@ public class ReviewInsertC extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ReviewDao.insert(request);
-		ReviewDao.select(request);
+		ReviewDao.getReviewdao().insert(request);
+		ReviewDao.getReviewdao().select(request);
 		AccountDAO.loginCheck(request);
 		request.setAttribute("contentPage", "jsp/jh/review.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);

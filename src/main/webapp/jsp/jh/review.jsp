@@ -47,7 +47,8 @@
 				</div>
 			</div>
 		</div>
-			<c:forEach var="r" items="${reviews}">
+	    <c:forEach var="r" items="${reviews}" varStatus="loop">
+	        <c:if test="${loop.index < 3}">
 				<div class="review-img">
 					<div class="review-con">
 						<div class="r-img">
@@ -59,7 +60,15 @@
 						</div>
 					</div>
 				</div>
+				</c:if>
 			</c:forEach>
-		</div>
-</body>
+				<div>
+					<a href="ReviewPageC?p=1">[맨처음]</a>
+					<c:forEach begin="1" end="${pageCount }" var="i">
+					<a href="ReviewPageC?p=${i }">[${i }]</a>
+					</c:forEach>
+					<a href="ReviewPageC?p=${pageCount }">[맨끝]</a>
+				</div>
+			</div>
+</body>	
 </html>

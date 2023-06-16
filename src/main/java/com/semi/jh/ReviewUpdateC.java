@@ -14,8 +14,9 @@ public class ReviewUpdateC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ReviewDao.select(request);
+		ReviewDao.getReviewdao().select(request);
 		AccountDAO.loginCheck(request);
+		ReviewDao.getReviewdao().selectid(request);
 		request.setAttribute("contentPage", "jsp/jh/reviewUpdate.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 
@@ -24,10 +25,10 @@ public class ReviewUpdateC extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ReviewDao.select(request);
+		ReviewDao.getReviewdao().select(request);
 		AccountDAO.loginCheck(request);
 		
-		ReviewDao.update(request);		
+		ReviewDao.getReviewdao().update(request);		
 		request.setAttribute("contentPage", "jsp/jh/review.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

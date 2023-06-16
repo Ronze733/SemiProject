@@ -8,13 +8,28 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.semi.db.DBManager;
 
 public class ReviewDao {
+	private ArrayList<Review> reviews = null;
+	private final static ReviewDao REVIEWDAO = new ReviewDao();
+	
+	private ReviewDao() {
+		
+	}
+	
+	
+	
+	public static ReviewDao getReviewdao() {
+		return REVIEWDAO;
+	}
 
-	public static void select(HttpServletRequest request) {
+
+
+	public void select(HttpServletRequest request) {
 		Connection con =null;
 		PreparedStatement pstmt =null;
 		ResultSet rs= null;
@@ -24,7 +39,7 @@ public class ReviewDao {
 			pstmt = con.prepareStatement(url);
 			rs = pstmt.executeQuery();
 			Review r = null;
-			ArrayList<Review> reviews = new ArrayList<Review>();
+			reviews = new ArrayList<Review>();
 			while (rs.next()) {
 				int id=rs.getInt("review_id");
 				String user_id = rs.getString("review_user_id");
@@ -49,7 +64,7 @@ public class ReviewDao {
 		
 		
 	}
-	public static void selectid(HttpServletRequest request) {
+	public void selectid(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -85,7 +100,7 @@ public class ReviewDao {
 		
 		
 	}
-	public static void insert(HttpServletRequest request) {
+	public void insert(HttpServletRequest request) {
 		Connection con =null;
 		PreparedStatement pstmt =null;
 		String url="INSERT INTO review VALUES (review_id_seq.nextval, 'jh' , ? , ? , ? , sysdate , ? , 0)";
@@ -132,7 +147,7 @@ public class ReviewDao {
 		
 	}
 
-	public static void delete(HttpServletRequest request) {
+	public void delete(HttpServletRequest request) {
 		Connection con =null;
 		PreparedStatement pstmt =null;
 		String url="delete from review where review_id=? ";
@@ -157,7 +172,7 @@ public class ReviewDao {
 		
 	}
 
-	public static void update(HttpServletRequest request) {
+	public void update(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String path = request.getServletContext().getRealPath("img/jh");
@@ -198,6 +213,26 @@ public class ReviewDao {
 		}finally {
 			DBManager.close(con, pstmt, null);
 		}
+		
+	}
+	
+	public void paging(int page, HttpServletRequest req) {
+		int cnt =3; 
+		int total = reviews.size(); 
+		int pageCount = (int)Math.ceil((double)total/cnt); 
+		
+		
+		int start= total-(cnt*(page-1));
+		int end= (page==pageCount)?-1:start-(cnt+1);
+	
+		ArrayList<Review> items = new ArrayList<Review>();
+		for (int i = start-1; i > end; i--) {
+			items.add(reviews.get(i));
+		}
+		
+		req.setAttribute("pageCount", pageCount);
+		req.setAttribute("curPageNo", page);
+		req.setAttribute("reviews", items);
 		
 	}
 }
