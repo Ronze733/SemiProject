@@ -1,5 +1,6 @@
 package com.semi.bj.account;
 
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,6 +8,7 @@ import java.sql.ResultSet;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.User;
@@ -149,17 +151,20 @@ public class AccountDAO {
 		String nickname = request.getParameter("nickname");
 		String pw = request.getParameter("password");
 		String pwConfirm = request.getParameter("passwordConfirm");
+		String gender = request.getParameter("gender");
 		
 		System.out.println(nickname);
 		System.out.println(pw);
 		System.out.println(pwConfirm);
+		System.out.println(gender);
 		
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, nickname);
 			pstmt.setString(2, pw);
-			pstmt.setString(3, account.getUser_id());
+			pstmt.setString(3, gender);
+			pstmt.setString(4, account.getUser_id());
 			
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("수정 성공");
@@ -205,6 +210,49 @@ public class AccountDAO {
 		} finally {
 			DBManager.close(con, pstmt, null);
 		}
+	}
+
+	public static void duplicateCheck(HttpServletRequest request, HttpServletResponse response) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select user_id from user_tbl where user_id = ?";
+		
+		String email = request.getParameter("user_id");
+		System.out.println(request.getParameter("user_id"));
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter writer = response.getWriter();
+			
+			if (rs.next()) {
+				System.out.println("중복된 아이디 있음");
+				response.setStatus(400);
+				writer.write("false");
+			} else {
+				System.out.println("중복체크 통과 아이디 생성가능");
+				response.setStatus(200);
+				writer.write("true");
+			}
+			
+			
+			
+		} catch (Exception e) {
+			System.out.println("db연결 오류");
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		
+		
+		
+		
 	}
 
 

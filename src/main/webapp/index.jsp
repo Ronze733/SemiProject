@@ -10,6 +10,7 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="./css/jm/event.css" />
     <link rel="stylesheet" href="./css/jh/review.css" />
     <link rel="stylesheet" href="./css/jy/recommend.css" />
+    <script src="./js/jh/review.js"></script>
     <link rel="stylesheet" href="./css/sh/QnA.css" />
     <title>South Korea Travel Controller</title>
   </head>
@@ -36,8 +37,12 @@ pageEncoding="UTF-8"%>
           </div>
         </div>
         <div>
-        	<jsp:include page="${contentPage}"></jsp:include>
-        	<input type="hidden" id="main-header-contentPage" value="${contentPage }">
+          <jsp:include page="${contentPage}"></jsp:include>
+          <input
+            type="hidden"
+            id="main-header-contentPage"
+            value="${contentPage }"
+          />
         </div>
         <script src="./js/index.js"></script>
         <div class="main-footer">

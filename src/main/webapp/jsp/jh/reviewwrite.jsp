@@ -81,9 +81,7 @@
 								<option value="gangwon">강원도</option>
 								<option value="jeju ">제주도</option>
 							</select>
-						</div>	
-					<div class="div-button" onclick="ReviewDelC">삭제</div>
-					<div class="div-button" onclick="ReviewUpdateC">수정</div>					
+						</div>				
 					</div>
 				<div class="review-detailbutton" >
 					<button class="review-detailbutton">Submit</button>
