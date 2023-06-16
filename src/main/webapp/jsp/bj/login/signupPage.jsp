@@ -41,7 +41,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="email">이메일</label> <input name="email" type="email"
-							class="form-control" id="email" placeholder="이메일을 입력해주세요"
+							class="form-control" id="email-check" placeholder="이메일을 입력해주세요"
 							onFocus="changePlaceholder(this, 'example@gmail.com');"
 							onBlur="restorePlaceholder(this, '이메일을 입력해주세요');" required>
 						<div class="invalid-feedback">이메일을 입력해주세요.</div>
