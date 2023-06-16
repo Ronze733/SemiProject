@@ -17,7 +17,6 @@
 </head>
 <body>
 	<div class="review-container">
-	
 		<div class="review-title">
 			당신의 이야기를 들려주세요.
 		</div>
@@ -47,22 +46,32 @@
 				</div>
 			</div>
 		</div>
-	    <c:forEach var="r" items="${reviews}" varStatus="loop">
-	        <c:if test="${loop.index < 3}">
-				<div class="review-img">
-					<div class="review-con">
-						<div class="r-img">
-							<img onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="reviewImg" src="img/jh/${r.review_pic }">
-						</div>
-						<div class="r-text">
-							<div onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="r-title">${r.review_title}</div>
-							<div onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="r-body">${r.review_body}</div>
-						</div>
-					</div>
-				</div>
-				</c:if>
+		
+			<c:forEach var="r" items="${reviews}" varStatus="loop">
+			  <c:if test="${loop.index < 3}">
+			    <div class="review-imgf">
+			      <div class="review-img">
+			        <div class="review-con">
+			        	<div>
+			          		<input style="width: 3000px;" type="hidden" >
+			          	</div>
+			          <div class="r-img">
+			            <img onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="reviewImg" src="img/jh/${r.review_pic}">
+			          </div>
+			          	<div>
+			          		<input  style="width: 250px;" type="hidden">
+			          	</div>
+			          <div class="r-text">
+			            <div onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="r-title">${r.review_title}</div>
+			            <div onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="r-body">${r.review_body}</div>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </c:if>
 			</c:forEach>
-				<div class="r-page" style="display: flex;">
+			
+				<div class="r-page" style="display: flex; justify-content: center;">
 					<select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)">
 					  <option value="recently">최신순</option>
 					  <option value="mostviewed">많이읽은순</option>						
@@ -74,5 +83,6 @@
 					<div onclick="location.href='ReviewPageC?p=${pageCount }'">[맨끝]</div>
 				</div>
 			</div>
+			
 </body>	
 </html>
