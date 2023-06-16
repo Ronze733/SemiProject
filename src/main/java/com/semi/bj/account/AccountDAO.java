@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.User;
+import org.mindrot.jbcrypt.BCrypt;
 
 import com.semi.db.DBManager;
+
 
 public class AccountDAO {
 
@@ -41,7 +43,7 @@ public class AccountDAO {
 
 			if (rs.next()) {
 				String dbPw = rs.getString("user_pw");
-				if (pw.equals(dbPw)) {
+				if (BCrypt.checkpw(pw, dbPw)) {
 					System.out.println("로그인 성공");
 					result = "로그인 성공!";
 					Account userInfo = new Account();
@@ -102,11 +104,13 @@ public class AccountDAO {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		
+		
 		String sql = "insert into user_tbl values(?, ?, ?, sysdate, ?)";
 
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
-		String pw = request.getParameter("password");
+		String pw = BCrypt.hashpw(request.getParameter("password"), BCrypt.gensalt());
 		String pwConfirm = request.getParameter("passwordConfirm");
 		String gender = request.getParameter("gender");
 
@@ -254,6 +258,12 @@ public class AccountDAO {
 		
 		
 	}
-
+	public static void main(String[] args) {
+		System.out.println("ㅇㅇ");
+		String pw1 = BCrypt.hashpw("12345", BCrypt.gensalt());
+		System.out.println(pw1);
+		String pw2 = BCrypt.hashpw("12345", BCrypt.gensalt());
+		System.out.println(pw2);
+	}
 
 }
