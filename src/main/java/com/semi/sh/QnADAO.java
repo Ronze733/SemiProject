@@ -10,8 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import com.semi.db.DBManager;
 
 public class QnADAO {
+	private ArrayList<QnA> QnAs = null;
+	private final static QnADAO QnADao = new QnADAO();
+	
+	private QnADAO(){
+		
+	}
+	
+	public static QnADAO getQnADAO() {
+		return QnADao;
+	}
 
-	public static void getAllQnA(HttpServletRequest request) {
+	public void getAllQnA(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -22,7 +32,7 @@ public class QnADAO {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
-			ArrayList<QnA> QnAs = new ArrayList<QnA>();
+			QnAs = new ArrayList<QnA>();
 			while (rs.next()) {
 				QnA qna = new QnA(rs.getString("inquiry_user_id"), rs.getString("inquiry_title"), rs.getString("inquiry_body"),
 						rs.getDate("inquiry_question_day"), rs.getInt("inquiry_no"), rs.getString("inquiry_category"));
@@ -38,7 +48,7 @@ public class QnADAO {
 		}
 	}
 
-	public static void getQnA(HttpServletRequest request) {
+	public void getQnA(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -70,16 +80,15 @@ public class QnADAO {
 		
 	}
 
-	public static void insert(HttpServletRequest request) {
+	public void insert(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into inquiry values(?, ?, ?, sysdate, inquiry_seq.nextval, ?)";
+		String sql = "insert into inquiry values(?, ?, ?, sysdate, inquiry_no_seq.nextval, ?)";
 		try {
 			request.setCharacterEncoding("UTF-8");
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			
 			
 			
 			
@@ -89,6 +98,32 @@ public class QnADAO {
 		
 		
 		
+		
+	}
+
+	public void pagingQnA(int page, HttpServletRequest request) {
+		
+		int cnt = 10;	// 한페이지당 보여줄 개수
+		int total = QnAs.size();		// 총데이터 개수
+		int pageCount = (int)Math.ceil((double)total / cnt);
+		
+		int start = total - (cnt *(page - 1));
+		int end = (page == pageCount) ? -1 : start - (cnt + 1);
+	
+		ArrayList<QnA> items = new ArrayList<QnA>();
+		for (int i = start-1; i > end; i--) {
+			items.add(QnAs.get(i));
+		}
+		
+		int emptyItemCount = cnt - items.size();
+		for (int i = 0; i < emptyItemCount; i++) {
+		    items.add(new QnA("", "", "", null, 0, ""));
+		}
+		
+		request.setAttribute("pageCount", pageCount);
+		request.setAttribute("curPageNo", page);
+		
+		request.setAttribute("QnAs", items);
 		
 	}
 
