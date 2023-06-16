@@ -1,4 +1,4 @@
-package com.semi.sh;
+package com.semi.jh;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,15 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.semi.bj.account.AccountDAO;
 
-@WebServlet("/QnAC")
-public class QnAC extends HttpServlet {
+@WebServlet("/ReviewPageC")
+public class ReviewPageC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AccountDAO.loginCheck(request);
-		QnADAO.getQnADAO().getAllQnA(request);
-		QnADAO.getQnADAO().pagingQnA(1, request);
-		request.setAttribute("contentPage", "jsp/sh/QnA.jsp");
+		ReviewDao.getReviewdao().select(request);
+		int p = Integer.parseInt(request.getParameter("p"));
+		ReviewDao.getReviewdao().paging(p,request);
+		request.setAttribute("contentPage", "jsp/jh/review.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
@@ -26,3 +27,5 @@ public class QnAC extends HttpServlet {
 	}
 
 }
+
+

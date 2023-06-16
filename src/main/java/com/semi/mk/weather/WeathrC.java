@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.semi.bj.account.AccountDAO;
+
 
 @WebServlet("/WeathrC")
 public class WeathrC extends HttpServlet {
@@ -15,7 +17,7 @@ public class WeathrC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		WeatherDAO.weather(request);
+		AccountDAO.loginCheck(request);
 		request.setAttribute("contentPage","jsp/mk/detail.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

@@ -2,55 +2,153 @@
 
 .detail-container{
 	width: 100%;
- margin: auto;
- border: 1px solid black;
+ 	border: 1px solid black;
 }
 .detail-main{
-	text-align: center;
-	border: 1px solid black;
+	width: 60%;
+	border-bottom: 1px solid black;
+	margin-left: auto;
+	margin-right: auto;
+}
+.detail-main-titleline{
+	margin-top: 15px;
+	margin-left:auto;
+	margin-right:auto;
+	width: 100%;
+	height: 50px;
+	
 }
 .detail-main-title{
-	
-	border-bottom: 1px solid black;
-	background-color: #416EE1;
+	font-weight: 530;
+	font-size: 18pt;
+	text-align: center;
+	position: relative;
+		
 	
 }
 
+.detail-main-area{
+	
+	position:relative;
+	text-align: center;
+	font-size: 9pt;
+	
+}
 .detail-main-informatoin{
-	display: inline-flex;
+	display: inline;
+	position: relative;
 	}
 .detail-main-img{
-	width: 400px;
-	height: 200px;
+	margin-top:40px;
+	margin-bottom: 40px;
+	width:90%;
 }
+#detail-place_img{
+	width: 100%;
+	height: 30%;
+}
+.detail-main-text{
+	border-bottom: 3px solid black;
+	width: 100%;
+	text-align: left;
+}
+
+.detail-main-explain{
+	margin-top: 20px;
+	margin-left: 15px;
+	margin-right: 30px;
+	margin-bottom: 20px;
+	width: 100%;
+	font-size: 12pt;
+}
+
 .detail-weather{
-	
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.detail-weather-title{
+	text-align:center;
+	width: 100%;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-bottom: 20px;	
+	font-size: 14pt;
+}
+
+.detail-wheather-week{
+display: flex;
+justify-content: center;
+margin-right: -43px;
+}
+.detail-weather-week_date{
+	margin-left: 39px;
+	margin-right: 20px;
+}
+.detail-weather-dateText{
+	display:flex;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+	justify-content: center;
 	border-bottom: 1px solid black;
-	background-color: #3295CC;
+}
+
+.detail-weather-weather_icon{
+	align-items:center;
+	display:flex;
+	justify-content:center;
+	margin-left:auto;
+	margin-top:12%;
+	text-align:center;
+	background-color: aqua;
+}
+
+
+.detail-weather-week_date{
+	margin-right: 25px;
 
 }
-.detail-week{
+
+
+
+
+#detail-weather-weatherAllCondition{
 	display: flex;
-	border: 1px solid black; 
-    
+	justify-content: center;
+	background-color: gold;
 }
 
-.detail-week-date{
-	margin-right: 200px;
+
+#detail-weather-dateWeatherDetail{
+	display:inline;
+	margin-left: 90px;
+	margin-right:50px;
+	width: 15%;
+	
 }
 
-.detail-weather-weatherAll{
-
-	background-color: orange;
-}
 
 .detail-place{
-	height: 800px;
+	margin-top: 20px;
+	height: auto;
 }
 .detail-place-root{
-	background-color: #B9E2AE;
-	border-bottom: 1px solid black;
+	width: 60%;
+	font-weight:700;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
 }
 .detail-place-addr{
+	width: 60%;
+	height: 30px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
 	background-color: #2B8940;
+	border-bottom: 1px solid black;
 }
