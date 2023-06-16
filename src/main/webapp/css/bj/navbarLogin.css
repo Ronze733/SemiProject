@@ -21,4 +21,9 @@
 	color: black;
 	border-radius: 40px;
 	font-weight: 700;
+	transition: background-color 1s ease;
+}
+
+#Navbar-login.scroll-active {
+  background-color: #7FCEDF; /* 스크롤 위치에 도달하면 배경색을 흰색으로 변경 */
 }

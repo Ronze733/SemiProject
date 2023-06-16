@@ -7,8 +7,8 @@
 <div class="recommend-container">
 	<div class="recommend-banner">
 		<img id="recommend-banner-img" alt="" src="./img/jy/main-img.png">
+		<div class="recommend-banner-copy">너만 오면 GO!</div>
 	</div>
-	<div class="recommend-banner-copy">너만 오면 GO!</div>
 	<div class="recommend-container">
 		<div class="recommend-search" style="display: flex;">
 			<div id="recommend-search-menus">

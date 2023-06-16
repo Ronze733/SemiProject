@@ -16,8 +16,8 @@
 	<main class="form-signin w-100 m-auto">
 		<form action="LoginC" method="post" accept-charset="utf-8">
 			<img class="mb-8"
-				src="https://cdn.discordapp.com/attachments/1114101103341088820/1117298158129659924/SKTC.png"
-				alt="" width="150" height="118">
+				src="./img/jy/SKTC.png"
+				alt="" width="150" height="118" onclick="location.href='HC'">
 			<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
 			<div class="form-floating">
