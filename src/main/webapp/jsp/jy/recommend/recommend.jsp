@@ -17,68 +17,105 @@
 					<div class="recommend-search-themes">
 						테마
 						<div>
-							<label> <input type="checkbox" name="themes" value="가족">가족
+							<label>
+								<input class="recommend-themes" type="checkbox" name="themes" value="가족">가족
 							</label>
 						</div>
 						<div>
-							<input type="checkbox" name="themes" value="친구">친구
+							<label>
+								<input class="recommend-themes" type="checkbox" name="themes" value="친구">친구
+							</label> 
 						</div>
 						<div>
-							<input type="checkbox" name="themes" value="연인">연인
+							<label>
+								<input class="recommend-themes" type="checkbox" name="themes" value="연인">연인
+							</label> 
 						</div>
 					</div>
 					<div class="recommend-search-places">
 						장소
 						<div>
-							<input type="checkbox" name="places" value="산">산
+							<label>
+								<input class="recommend-places" type="checkbox" name="places" value="산">산
+							</label>	
 						</div>
 						<div>
-							<input type="checkbox" name="places" value="바다">바다
+							<label>
+								<input class="recommend-places" type="checkbox" name="places" value="바다">바다
+							</label> 						
 						</div>
 						<div>
-							<input type="checkbox" name="places" value="계곡">계곡
+							<label>
+								<input class="recommend-places" type="checkbox" name="places" value="계곡">계곡
+							</label> 
 						</div>
 					</div>
 					<div class="recommend-search-locations">
 						지역
 						<div>
-							<input type="checkbox" name="locations" value="서울">서울
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="서울">서울
+							</label>
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="인천">인천
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="인천">인천
+							</label> 
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="대전">대전
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="대전">대전
+							</label> 
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="대구">대구
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="대구">대구
+							</label> 
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="광주">광주
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="광주">광주
+							</label> 
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="울산">울산
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="울산">울산
+							</label> 
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="부산">부산
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="부산">부산
+							</label> 
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="경기도">경기도
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="경기도">경기도
+							</label> 
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="강원도">강원도
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="강원도">강원도
+							</label> 
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="충청도">충청도
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="충청도">충청도
+							</label> 
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="전라도">전라도
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="전라도">전라도
+							</label>
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="경상도">경상도
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="경상도">경상도
+							</label>
 						</div>
 						<div>
-							<input type="checkbox" name="locations" value="제주도">제주도
+							<label>
+								<input class="recommend-locations" type="checkbox" name="locations" value="제주도">제주도
+							</label>
 						</div>
 					</div>
 					<div>
@@ -154,8 +191,6 @@ function setVal(data) {
 	
 }
 
-	const el = $("input[name='themes']");
-	
 	// 테마
 // 			el 3개   체크 되어있는것들을 theme = 여기다 완성품
 // 									param1,param2,   => dao   if 문 거를게
@@ -164,23 +199,57 @@ function setVal(data) {
 // 			el 3개   체크 되어있는것들을 place = 여기다 문자열 완성품
 // 	// 지역
 // 			el
+	const el = $('.recommend-themes');
+	const el2 = $('.recommend-places');
+	const el3 = $('.recommend-locations');
 	
 	let query = "";
+	let query2 = "";
+	let query3 = "";
+		
 	$(el).click(function() {
-			let themes = $(this).val();
-			query += themes + "!";
-			console.log(query);
-			 $.ajax({
-		 	    data : {query}, // 요청 파라미터
-		 	    type : "GET", // 요청 타입
-	 		    url : "RecommendC", // 호출할 jsp 파일 / 컨트롤러 가도 됨
-	 		    contentType : "json",
-	 		    success : function(data) {
-	 		        setVal(data);
-	 		    }
-	 		}); 
+		let themes = $(this).val();
+		query += themes + "!";
+		console.log(query);
+		 $.ajax({
+		 	data : {query : query}, // 요청 파라미터
+		 	type : "GET", // 요청 타입
+	 		url : "RecommendC", // 호출할 jsp 파일 / 컨트롤러 가도 됨
+	 		contentType : "json",
+	 		success : function(data) {
+	 			setVal(data);
+	 		}
+	 	}); 
 	});
 
-   
+	$(el2).click(function() {
+		let places = $(this).val();
+		query2 += places + "!";
+		console.log(query2);
+		$.ajax({
+			data : {query2 : query2},
+			type : "GET",
+			url : "RecommendC",
+			success : function(data) {
+				setVal(data);
+			}
+		});
+	});
+	
+	$(el3).click(function() {
+		let locations = $(this).val();
+		query3 += locations + "!";
+		console.log(query3);
+		$.ajax({
+			data : {query3 : query3},
+			type : "GET",
+			url : "RecommendC",
+			success : function(data) {
+				setVal(data);
+			}
+		});
+	});
+	
+	
 	
 </script>

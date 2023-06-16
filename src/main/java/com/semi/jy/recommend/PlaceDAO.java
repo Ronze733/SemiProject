@@ -23,14 +23,18 @@ public class PlaceDAO {
 		ResultSet rs = null;
 		try {
 			con = DBManager.connect();
-		
 
 			// 테마 값 받기
 			String themes = request.getParameter("query");
-			String themeVals[] = themes.split("!"); 
+			String places = request.getParameter("query2");
+			String locations = request.getParameter("query3");
+			System.out.println(themes);
+			System.out.println(places);
+			System.out.println(locations);
 			
 			String sql = "select * from place where ";
 			if (themes != null) {
+				String themeVals[] = themes.split("!"); 
 				for (int i = 0; i < themeVals.length; i++) {
 					sql += "place_category1 like '%'||?||'%'";
 					if (i != themeVals.length-1) {
@@ -38,11 +42,22 @@ public class PlaceDAO {
 					}
 				}
 			}
-			pstmt = con.prepareStatement(sql);
-			for (int i = 0; i< themeVals.length; i++)  {
-				pstmt.setString(i+1, themeVals[i]);
+			
+			// 장소 값 받기
+			String placeVals[] = places.split("!");
+			if (places != null) {
+				for (int i = 0; i < placeVals.length; i++) {
+					sql += "place_category2 like '%'||?||'%'";
+					if (i != placeVals.length-1) {
+						sql += "and";
+					}
+				}
 			}
-			rs = pstmt.executeQuery();
+//			pstmt = con.prepareStatement(sql);
+//			for (int i = 0; i< themeVals.length; i++)  {
+//				pstmt.setString(i+1, themeVals[i]);
+//			}
+//			rs = pstmt.executeQuery();
 				// 이미지랑 제목만
 			
 			
@@ -69,11 +84,13 @@ public class PlaceDAO {
 			JSONArray ja = new JSONArray();
 			
 			while (rs.next()) {
+				int id = rs.getInt("place_id");
 				String pic = rs.getString("place_pic");
 				String name = rs.getString("place_name");
 				System.out.println(pic);
 				System.out.println(name);
 				JSONObject jo = new JSONObject();
+				jo.put("id", id);
 				jo.put("pic", pic);
 				jo.put("name", name);
 				ja.add(jo);
