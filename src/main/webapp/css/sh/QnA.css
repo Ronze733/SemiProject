@@ -6,16 +6,23 @@
 .QnA-content{
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-top: 100px;
 }
 
-.QnA-title-left{
+.QnA-header{
+	font-size: 20pt;
+}
+
+.QnA-left-lists{
+	margin-top: 20px;
 	text-align: center;
 }
 
+.QnA-left-list{
+	padding: 5px 0px;
+}
+
 .QnA-body{
-	border: 1px solid red;
 	width: 800px;
 	margin-left: 50px;
 }
@@ -26,19 +33,83 @@
 }
 
 .QnA-body-list{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
-.QnA-list-title{
-	justify-content: space-between;
+.QnA-list-titles{
 	display: flex;
+	width: 100%;
+	padding: 20px 0px;
+    font-weight: 600;
+}
+
+.QnA-list-title1{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.QnA-list-title2{
+	flex-grow: 1;
+    text-align: center;
+    line-height: 20px;
+}
+
+.QnA-list-title3{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.QnA-list-title4{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
 }
 
 .QnA-lists{
 	justify-content: space-between;
-	border: 1px solid blue;
 	display: flex;
+	height: 30px;
+	border-top: 1px solid black;
+	padding: 14px 0px;
+	height: 50px;
 }
 
+.QnA-list1{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.QnA-list2{
+	padding-left: 70px;
+	flex-grow: 1;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.QnA-list3{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.QnA-list4{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 400;
+    color: gray;
+}
+
+.QnA-page-number{
+	display: flex;
+	justify-content: center;
+}
 
 /* QnA_insert */
 
