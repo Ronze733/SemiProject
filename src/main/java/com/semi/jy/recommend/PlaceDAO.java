@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -34,7 +35,7 @@ public class PlaceDAO {
 			
 			String themeVals[] = themes.split("!"); 
 			String sql = "select * from place where ";
-			if (themes != null) {
+			if (!themes.equals("")) {
 				for (int i = 0; i < themeVals.length; i++) {
 					sql += "place_category1 like '%'||?||'%'";
 					if (i != themeVals.length-1) {
@@ -45,7 +46,10 @@ public class PlaceDAO {
 			
 			// 장소 값 받기
 			String placeVals[] = places.split("!");
-			if (places != null) {
+			if (!places.equals("")) {
+				if (!themes.equals("")) {
+					sql += "and";
+				}
 				for (int i = 0; i < placeVals.length; i++) {
 					sql += "place_category2 like '%'||?||'%'";
 					if (i != placeVals.length-1) {
@@ -53,13 +57,53 @@ public class PlaceDAO {
 					}
 				}
 			}
-			pstmt = con.prepareStatement(sql);
-			for (int i = 0; i< themeVals.length; i++)  {
-				pstmt.setString(i+1, themeVals[i]);
-			}
-			rs = pstmt.executeQuery();
-				// 이미지랑 제목만
 			
+			String locationVals[] = locations.split("!");
+			if (!locations.equals("")) {
+				sql += "(";
+				for (int i = 0; i < locationVals.length; i++) {
+					sql += "place_category3 = ? ";
+					if (i != locationVals.length-1) {
+						sql += "or";
+					}
+				}
+				sql += ")";
+			}
+			
+			System.out.println(sql);
+			
+			pstmt = con.prepareStatement(sql);
+			
+			System.out.println(themeVals.length);
+			System.out.println(placeVals.length);
+			System.out.println(locationVals.length);
+			
+			System.out.println(themeVals[0]);
+			System.out.println(placeVals[0]);
+			System.out.println(locationVals[0]);
+			
+			int index = 1;
+			
+			if (themes != "") {
+				for (int i = 0; i < themeVals.length; i++) {
+					pstmt.setString(index++, themeVals[i]);
+				}
+			}
+
+			if (places != "") {
+				for (int i = 0; i < placeVals.length; i++) {
+					pstmt.setString(index++, placeVals[i]);
+				}
+			}
+			
+			if (locations != "") {
+				for (int i = 0; i < locationVals.length; i++) {
+					pstmt.setString(index++, locationVals[i]);
+				}
+			}
+			
+			rs = pstmt.executeQuery();
+			// 이미지랑 제목만
 			
 			/*
 				{ 
@@ -72,13 +116,7 @@ public class PlaceDAO {
 						 "name" : aaa},
 					]
 				}
-			
-			
 			 */
-						
-			
-			
-			
 			
 			JSONObject myJson = new JSONObject();
 			JSONArray ja = new JSONArray();

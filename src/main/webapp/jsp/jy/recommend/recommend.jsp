@@ -214,9 +214,9 @@ function setVal(data) {
 		 	type : "GET", // 요청 타입
 	 		url : "RecommendC", // 호출할 jsp 파일 / 컨트롤러 가도 됨
 	 		contentType : "json",
-	 		/* success : function(data) {
+	 		success : function(data) {
 	 			setVal(data);
-	 		} */
+	 		}
 	 	}); 
 	});
 
@@ -231,9 +231,9 @@ function setVal(data) {
 	 				},
 			type : "GET",
 			url : "RecommendC",
-			/* success : function(data) {
+			success : function(data) {
 				setVal(data);
-			} */
+			}
 		});
 	});
 	
@@ -248,9 +248,9 @@ function setVal(data) {
 	 				},
 			type : "GET",
 			url : "RecommendC",
-			/* success : function(data) {
+			success : function(data) {
 				setVal(data);
-			} */
+			}
 		});
 	});
 	
