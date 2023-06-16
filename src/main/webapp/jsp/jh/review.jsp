@@ -62,12 +62,16 @@
 				</div>
 				</c:if>
 			</c:forEach>
-				<div>
-					<a href="ReviewPageC?p=1">[맨처음]</a>
+				<div class="r-page" style="display: flex;">
+					<select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)">
+					  <option value="recently">최신순</option>
+					  <option value="mostviewed">많이읽은순</option>						
+					</select>
+					<div onclick="location.href='ReviewPageC?p=1'">[맨처음]</div>
 					<c:forEach begin="1" end="${pageCount }" var="i">
-					<a href="ReviewPageC?p=${i }">[${i }]</a>
+					<div onclick="loaction.href='ReviewPageC?p=${i }'">[${i }]</div>
 					</c:forEach>
-					<a href="ReviewPageC?p=${pageCount }">[맨끝]</a>
+					<div onclick="location.href='ReviewPageC?p=${pageCount }'">[맨끝]</div>
 				</div>
 			</div>
 </body>	
