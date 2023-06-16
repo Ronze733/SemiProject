@@ -13,8 +13,19 @@ public class AccountRegC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
-		request.getRequestDispatcher("jsp/bj/login/signupPage.jsp").forward(request, response);
+		
+		if (request.getParameter("user_id") != null) {
+			AccountDAO.duplicateCheck(request, response);
+			
+		} else {
+			AccountDAO.loginCheck(request);
+			request.getRequestDispatcher("jsp/bj/login/signupPage.jsp").forward(request, response);
+		}
+	
+//		if (request.getParameter("actionType").equals("isDuplicated")) {
+//		} else {
+//		}
+//		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -22,7 +33,7 @@ public class AccountRegC extends HttpServlet {
 //		request.setCharacterEncoding("UTF-8");
 		AccountDAO.regAccount(request);
 		AccountDAO.loginCheck(request);
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		response.sendRedirect("HC");
 	}
 
 }
