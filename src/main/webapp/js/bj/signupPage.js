@@ -22,12 +22,19 @@ function restorePlaceholder(element, message) {
 };
 
 function test(){
+
+let id = ( $("input[name=email]").val() );	
+alert(id);
+
 $.ajax({
             type: "GET",
-            url: "/AccountRegC",
+            async: false,
+            url: "AccountRegC",
             dataType: 'json',
             data: {
-              "testParam":"안녕하세요"
+				"actionType" : "isDuplicated",
+				"user_id" : id
+	
             }, 
             
             success: function (res) {

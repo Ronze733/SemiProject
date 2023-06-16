@@ -33,7 +33,7 @@
 							<label for="nickname">닉네임</label> <input name="nickname"
 								type="text" class="form-control" id="nickname" placeholder="닉네임"
 								onFocus="changePlaceholder(this, 'ex)바다가고싶다');"
-								onBlur="restorePlaceholder(this, '닉네임');" value="" required>
+								onBlur="restorePlaceholder(this, '닉네임');test();" value="" required>
 							<div class="invalid-feedback">별명을 입력해주세요.</div>
 						</div>
 					</div>
