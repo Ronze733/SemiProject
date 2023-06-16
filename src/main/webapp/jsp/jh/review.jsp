@@ -47,19 +47,32 @@
 				</div>
 			</div>
 		</div>
-			<c:forEach var="r" items="${reviews}">
+	    <c:forEach var="r" items="${reviews}" varStatus="loop">
+	        <c:if test="${loop.index < 3}">
 				<div class="review-img">
 					<div class="review-con">
 						<div class="r-img">
-							<img class="reviewImg" src="img/jh/${r.review_pic }">
+							<img onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="reviewImg" src="img/jh/${r.review_pic }">
 						</div>
 						<div class="r-text">
-							<div onclick="location.href='ReviewDetailC'" class="r-title">${r.review_title}</div>
-							<div class="r-body">${r.review_body}</div>
+							<div onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="r-title">${r.review_title}</div>
+							<div onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="r-body">${r.review_body}</div>
 						</div>
 					</div>
 				</div>
+				</c:if>
 			</c:forEach>
-		</div>
-</body>
+				<div class="r-page" style="display: flex;">
+					<select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)">
+					  <option value="recently">최신순</option>
+					  <option value="mostviewed">많이읽은순</option>						
+					</select>
+					<div onclick="location.href='ReviewPageC?p=1'">[맨처음]</div>
+					<c:forEach begin="1" end="${pageCount }" var="i">
+					<div onclick="loaction.href='ReviewPageC?p=${i }'">[${i }]</div>
+					</c:forEach>
+					<div onclick="location.href='ReviewPageC?p=${pageCount }'">[맨끝]</div>
+				</div>
+			</div>
+</body>	
 </html>

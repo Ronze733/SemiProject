@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.semi.bj.account.AccountDAO;
+
 @WebServlet("/ReviewInsertC")
 public class ReviewInsertC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -18,9 +20,9 @@ public class ReviewInsertC extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ReviewDao.insert(request);
-		ReviewDao.select(request);
-		request.setAttribute("LoginPage", "jsp/bj/login/navbarSignup.jsp");
+		ReviewDao.getReviewdao().insert(request);
+		ReviewDao.getReviewdao().select(request);
+		AccountDAO.loginCheck(request);
 		request.setAttribute("contentPage", "jsp/jh/review.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
