@@ -9,21 +9,27 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.semi.bj.account.AccountDAO;
 
-
-@WebServlet("/ReviewWriteC")
-public class ReviewWriteC extends HttpServlet {
+@WebServlet("/ReviewUpdateC")
+public class ReviewUpdateC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
-		request.setAttribute("contentPage", "jsp/jh/reviewwrite.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
 		ReviewDao.select(request);
+		AccountDAO.loginCheck(request);
+		request.setAttribute("contentPage", "jsp/jh/reviewUpdate.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+
 	}
 
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		ReviewDao.select(request);
+		AccountDAO.loginCheck(request);
+		
+		ReviewDao.update(request);		
+		request.setAttribute("contentPage", "jsp/jh/review.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 }

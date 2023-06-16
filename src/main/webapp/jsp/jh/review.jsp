@@ -51,11 +51,11 @@
 				<div class="review-img">
 					<div class="review-con">
 						<div class="r-img">
-							<img class="reviewImg" src="img/jh/${r.review_pic }">
+							<img onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="reviewImg" src="img/jh/${r.review_pic }">
 						</div>
 						<div class="r-text">
-							<div onclick="location.href='ReviewDetailC'" class="r-title">${r.review_title}</div>
-							<div class="r-body">${r.review_body}</div>
+							<div onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="r-title">${r.review_title}</div>
+							<div onclick="location.href='ReviewDetailC?id=${r.review_id}'" class="r-body">${r.review_body}</div>
 						</div>
 					</div>
 				</div>

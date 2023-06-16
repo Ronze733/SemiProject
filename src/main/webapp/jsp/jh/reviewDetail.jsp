@@ -6,15 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../../css/jh/review.css">
 </head>
 <body>
-	<div>
-	
-		<div class="review-title">
-			이번 여행은 어떠셨나요? <br>
-			다른 분들에게 공유해주세요.
-		</div>
+		<div>
+			<div class="review-title">
+				이번 여행은 어떠셨나요? <br>
+				다른 분들에게 공유해주세요.
+			</div>
 		<div >
    	 		<form action="ReviewC" method="GET">
    	 			<div class="review-searcher">
@@ -41,38 +39,33 @@
 				</div>
 			</div>
 		</div>
-		<form action="ReviewInsertC" method="post" enctype="multipart/form-data">
-		
-		<c:forEach items="${reviews }" var="r">
-		<div class="review-write-submit">
-			<div class="review-writeimg">
-				${r.review_pic}
+			<form action="ReviewInsertC" method="post" enctype="multipart/form-data">    
+			    <div class="review-write-submit">
+			        <div class="review-writeimg">
+			            <img class="reviewImg" src="img/jh/${review.review_pic}">
+			        </div>
+			        <div class="review-blank">
+			        </div>
+			        <div class="review-write-detail">
+			            <div class="review-title-text">
+			                타이틀    
+			            </div>
+			            <div class="review-title-input">
+			                ${review.review_title}
+			            </div>
+			            <div class="review-title-text2">
+			                후기
+			            </div>
+			            <div class="review-title-input2">
+			                ${review.review_body}
+			            </div>
+							<div class="place">
+								<div class="div-button" onclick="location.href='ReviewDelC?id=${review.review_id}'">삭제</div>
+								<div class="div-button" onclick="location.href='ReviewUpdateC?id=${review.review_id}'">수정</div>					
+							</div>
+			        	</div>
+			   		 </div>
+				</form>
 			</div>
-				<div class="review-blank">
-					</div>
-			<div class="review-write-detail">
-				<div class="review-title-text">
-					타이틀
-				</div>
-				<div class="review-title-input">
-					${r.review_title}
-				</div>
-				
-				<div class="review-title-text2">
-					후기
-				</div>
-				<div class="review-title-input2">
-					${r.review_title}
-				</div>
-				
-				<div class="place">
-					<div class="div-button" onclick="ReviewDelC">삭제</div>
-					<div class="div-button" onclick="ReviewUpdateC">수정</div>					
-				</div>
-			</div>
-		</div>
-	</c:forEach>
-		</form>
-	</div>
 </body>
 </html>
