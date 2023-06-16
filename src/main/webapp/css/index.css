@@ -14,7 +14,7 @@
 	position: sticky;
 	top: 0;
 	background-color: transparent;
-	transition: background-color 1.5s ease;
+	transition: background-color 1.2s ease;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
