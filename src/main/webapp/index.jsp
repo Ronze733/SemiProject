@@ -10,7 +10,7 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="./css/jm/event.css" />
     <link rel="stylesheet" href="./css/jh/review.css" />
     <link rel="stylesheet" href="./css/jy/recommend.css" />
-    <script src="./js/index.js"></script>
+    
     <link rel="stylesheet" href="./css/sh/QnA.css" />
     <title>South Korea Travel Controller</title>
   </head>
@@ -18,14 +18,13 @@ pageEncoding="UTF-8"%>
     <div class="Container">
       <div class="main-container">
         <div class="main-header">
-          <div class="main-header-logo">
+          <div class="main-header-logo" onclick="location.href='HC'">
             <div>
               <img alt="" src="./img/jy/SKTC.png" />
             </div>
             <div>SKTC</div>
           </div>
           <div class="main-header-menus">
-            <div class="main-header-menu">이벤트</div>
             <div class="main-header-menu" onclick="location.href='ReviewC'">
               여행 후기
             </div>
@@ -37,7 +36,11 @@ pageEncoding="UTF-8"%>
             <div><jsp:include page="${LoginPage}"></jsp:include></div>
           </div>
         </div>
-        <div><jsp:include page="${contentPage}"></jsp:include></div>
+        <div>
+        	<jsp:include page="${contentPage}"></jsp:include>
+        	<input type="hidden" id="main-header-contentPage" value="${contentPage }">
+        </div>
+        <script src="./js/index.js"></script>
         <div class="main-footer">
           <div class="main-footer-box">
             <div>

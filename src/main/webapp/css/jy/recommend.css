@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
 .recommend-banner {
+	position: relative;
+	display: flex;
 	margin-top: -130px;
 	width: 100%;
 }
@@ -13,14 +15,33 @@
 
 .recommend-banner-copy {
 	position: absolute;
-	top: 500px;
-	width: 100%;
-	height: 96px;
+	top: 47%;
 	font-family: 'Urbanist';
 	font-style: normal;
 	font-weight: 800;
-	font-size: 80px;
 	line-height: 96px;
 	text-align: center;
-	color: black; 
+	color: black;
+	white-space: nowrap;
+	transition: font-size 0.3s ease;
+	cursor: default;
 }
+
+@media (max-width: 1300px) {
+  .recommend-banner-copy {
+    left: 689px;
+	font-size: 50px;
+  }
+}
+
+@media (min-width: 1301px) {
+  .recommend-banner-copy {
+    left: 53%;
+    font-size: calc(50px + 0.15vw);
+  }
+}
+
+
+
+
+
