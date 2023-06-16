@@ -194,15 +194,15 @@ function setVal(data) {
 // 			el 3개   체크 되어있는것들을 place = 여기다 문자열 완성품
 // 	// 지역
 // 			el
-	const el = $('.recommend-themes');
-	const el2 = $('.recommend-places');
-	const el3 = $('.recommend-locations');
+	const themesEl = $('.recommend-themes');
+	const placesEl = $('.recommend-places');
+	const locationsEl = $('.recommend-locations');
 	
 	let query1 = "";
 	let query2 = "";
 	let query3 = "";
 		
-	$(el).click(function() {
+	$(themesEl).click(function() {
 		let themes = $(this).val();
 		query1 += themes + "!";
 		console.log(query1);
@@ -220,7 +220,7 @@ function setVal(data) {
 	 	}); 
 	});
 
-	$(el2).click(function() {
+	$(placesEl).click(function() {
 		let places = $(this).val();
 		query2 += places + "!";
 		console.log(query2);
@@ -237,7 +237,7 @@ function setVal(data) {
 		});
 	});
 	
-	$(el3).click(function() {
+	$(locationsEl).click(function() {
 		let locations = $(this).val();
 		query3 += locations + "!";
 		console.log(query3);

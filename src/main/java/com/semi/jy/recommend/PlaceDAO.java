@@ -32,9 +32,9 @@ public class PlaceDAO {
 			System.out.println(places);
 			System.out.println(locations);
 			
+			String themeVals[] = themes.split("!"); 
 			String sql = "select * from place where ";
 			if (themes != null) {
-				String themeVals[] = themes.split("!"); 
 				for (int i = 0; i < themeVals.length; i++) {
 					sql += "place_category1 like '%'||?||'%'";
 					if (i != themeVals.length-1) {
@@ -53,11 +53,11 @@ public class PlaceDAO {
 					}
 				}
 			}
-//			pstmt = con.prepareStatement(sql);
-//			for (int i = 0; i< themeVals.length; i++)  {
-//				pstmt.setString(i+1, themeVals[i]);
-//			}
-//			rs = pstmt.executeQuery();
+			pstmt = con.prepareStatement(sql);
+			for (int i = 0; i< themeVals.length; i++)  {
+				pstmt.setString(i+1, themeVals[i]);
+			}
+			rs = pstmt.executeQuery();
 				// 이미지랑 제목만
 			
 			
