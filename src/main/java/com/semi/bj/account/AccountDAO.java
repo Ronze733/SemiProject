@@ -151,17 +151,20 @@ public class AccountDAO {
 		String nickname = request.getParameter("nickname");
 		String pw = request.getParameter("password");
 		String pwConfirm = request.getParameter("passwordConfirm");
+		String gender = request.getParameter("gender");
 		
 		System.out.println(nickname);
 		System.out.println(pw);
 		System.out.println(pwConfirm);
+		System.out.println(gender);
 		
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, nickname);
 			pstmt.setString(2, pw);
-			pstmt.setString(3, account.getUser_id());
+			pstmt.setString(3, gender);
+			pstmt.setString(4, account.getUser_id());
 			
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("수정 성공");
