@@ -25,7 +25,7 @@ public class PlaceDAO {
 			con = DBManager.connect();
 
 			// 테마 값 받기
-			String themes = request.getParameter("query");
+			String themes = request.getParameter("query1");
 			String places = request.getParameter("query2");
 			String locations = request.getParameter("query3");
 			System.out.println(themes);

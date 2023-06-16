@@ -11,9 +11,8 @@
 	<div class="recommend-banner-copy">너만 오면 GO!</div>
 	<div class="recommend-container">
 		<div class="recommend-search" style="display: flex;">
-			<div>
+			<div id="recommend-search-menus">
 				검색
-				<form action="RecommendC" method="post">
 					<div class="recommend-search-themes">
 						테마
 						<div>
@@ -118,10 +117,6 @@
 							</label>
 						</div>
 					</div>
-					<div>
-						<button>검색</button>
-					</div>
-				</form>
 			</div>
 			<div class="result-div-wrap">
 
@@ -203,22 +198,25 @@ function setVal(data) {
 	const el2 = $('.recommend-places');
 	const el3 = $('.recommend-locations');
 	
-	let query = "";
+	let query1 = "";
 	let query2 = "";
 	let query3 = "";
 		
 	$(el).click(function() {
 		let themes = $(this).val();
-		query += themes + "!";
-		console.log(query);
+		query1 += themes + "!";
+		console.log(query1);
 		 $.ajax({
-		 	data : {query : query}, // 요청 파라미터
+		 	data : {query1 : query1,
+		 			query2 : query2,
+		 			query3 : query3
+		 			}, // 요청 파라미터
 		 	type : "GET", // 요청 타입
 	 		url : "RecommendC", // 호출할 jsp 파일 / 컨트롤러 가도 됨
 	 		contentType : "json",
-	 		success : function(data) {
+	 		/* success : function(data) {
 	 			setVal(data);
-	 		}
+	 		} */
 	 	}); 
 	});
 
@@ -227,12 +225,15 @@ function setVal(data) {
 		query2 += places + "!";
 		console.log(query2);
 		$.ajax({
-			data : {query2 : query2},
+			data : {query1 : query1,
+	 				query2 : query2,
+	 				query3 : query3
+	 				},
 			type : "GET",
 			url : "RecommendC",
-			success : function(data) {
+			/* success : function(data) {
 				setVal(data);
-			}
+			} */
 		});
 	});
 	
@@ -241,12 +242,15 @@ function setVal(data) {
 		query3 += locations + "!";
 		console.log(query3);
 		$.ajax({
-			data : {query3 : query3},
+			data : {query1 : query1,
+	 				query2 : query2,
+	 				query3 : query3
+	 				},
 			type : "GET",
 			url : "RecommendC",
-			success : function(data) {
+			/* success : function(data) {
 				setVal(data);
-			}
+			} */
 		});
 	});
 	
