@@ -37,41 +37,99 @@
  		</div>
  		<div class="detail-weather">
 	 		<div class="detail-weather-title">날씨</div>
-	 		<div class="detail-wheatehr-week"> 
-		 		 <div class="detail-weahter-week_date" >Today</div> 
-		 		 <div class="detail-weather-week_date"  >day+1</div> 
-		 		 <div class="detail-weather-week_date"  >day+2</div> 
-		 		 <div class="detail-weather-week_date">day+3</div> 
-		 		 <div class="detail-weather-week_date" >day+4</div> 
+	 		<div class="detail-wheather-week"> 
+		 		 <div class="detail-weahter-week_date" >
+		 		 <div class="detail-weather-dateText">	
+		 		 	Today
+		 		 	</div> 
+		 		 	 <div class="detail-weather-weather_icon">
+		 		 	 아이콘
+		 		 	 </div>
+		 		 <div id="detail-weather-dateWeatherDetail">
+			 	<span id="detail-weather-weatherAllCondition">
+			 		맑음<br>
+			 		26도<br>
+			 		30m/s<br>
+			 	23%<br>
+			 	</span>
+	 			</div> 
 	 		</div> 
-	 		<div class="detail-weather-weeklyWeather"> 
-	 		<div id="detail-weather-dateWeatherDetail">
-	 		1맑음
-	 		20도
-	 		30%
-	 		8m/s
+		 		 <div class="detail-weather-week_date">
+		 		  <div class="detail-weather-dateText">
+		 		 day+1
+		 		 </div>
+		 		  <div class="detail-weather-weather_icon">아이콘</div>
+		 		 <div id="detail-weather-dateWeatherDetail">
+	 		<span id="detail-weather-weatherAllCondition">
+	 			2 기상상황
+	 			<br>
+	 			23도
+	 			<br>
+	 			22m/s
+	 			<br>
+	 		23%<br>
+	 		</span>
+	 			 </div> 
 	 		</div> 
-	 		<div id="detail-weather-dateWeatherDetail">
-	 		2
+		 		 <div class="detail-weather-week_date"  >
+		 		  <div class="detail-weather-dateText">
+		 		 day+2 	
+		 		 </div>
+		 		  <div class="detail-weather-weather_icon">아이콘</div>
+		 		 <div id="detail-weather-dateWeatherDetail">
+	 			<span id="detail-weather-weatherAllCondition">
+	 			3 기상상황
+	 			<br>
+	 			23도
+	 			<br>
+	 			22m/s
+	 			<br>
+	 			23%<br>
+	 			</span>
+	 			</div> 
 	 		</div> 
-	 		<div id="detail-weather-dateWeatherDetail">
-	 		3
+		 		 <div class="detail-weather-week_date">
+		 		  <div class="detail-weather-dateText">
+		 		 day+3
+		 		 </div>
+		 		 <div class="detail-weather-weather_icon">아이콘</div>
+		 		 <div id="detail-weather-dateWeatherDetail">
+	 			<span id="detail-weather-weatherAllCondition">
+	 			4 기상상황
+	 			<br>
+	 			23도
+	 			<br>
+	 			22m/s
+	 			<br>
+	 			23%<br>
+	 			</span>
 	 		</div> 
-	 		<div id="detail-weather-dateWeatherDetail">
-	 		4
 	 		</div> 
-	 		<div id="detail-weather-dateWeatherDetail">
-	 		5
+		 		 <div class="detail-weather-week_date" >
+		 		  <div class="detail-weather-dateText">
+		 			 day+4
+		 		 </div>
+		 		 <div class="detail-weather-weather_icon">
+		 		 	아이콘
+		 		 </div>
+		 		 <div id="detail-weather-dateWeatherDetail">
+	 			<span id="detail-weather-weatherAllCondition">
+	 					5 기상상황
+	 				<br>
+	 					23도
+	 				<br>
+	 					22m/s
+	 				<br>
+	 				23%<br>
+	 			</span>
+	 		</div> 
 	 		</div> 
 	 		</div>
  		</div>
 		<div class="detail-place">
 			<div class="detail-place-root"> 오시는길</div>
 			<div class="detail-place-addr"> 주소: </div>
-			<div class="detail-place-map"> 지도
-
 			</div>
 		</div>
-	</div>
 </body>
 </html>
