@@ -11,14 +11,13 @@ public class Account {
 	private String user_pw;
 	private String user_gender;
 	private String user_create_at;
-	private String user_points;
 
 	public Account() {
 
 	}
 
 	public Account(Date date, String user_id, String user_name, String user_pw, String user_gender,
-			String user_create_at, String user_points) {
+			String user_create_at) {
 		super();
 		this.date = date;
 		this.user_id = user_id;
@@ -26,7 +25,6 @@ public class Account {
 		this.user_pw = user_pw;
 		this.user_gender = user_gender;
 		this.user_create_at = user_create_at;
-		this.user_points = user_points;
 	}
 
 	public Date getDate() {
@@ -75,14 +73,6 @@ public class Account {
 
 	public void setUser_create_at(String user_create_at) {
 		this.user_create_at = user_create_at;
-	}
-
-	public String getUser_points() {
-		return user_points;
-	}
-
-	public void setUser_points(String user_points) {
-		this.user_points = user_points;
 	}
 
 }
