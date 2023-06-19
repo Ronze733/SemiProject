@@ -26,15 +26,20 @@ public class PlaceDAO {
 			con = DBManager.connect();
 
 			// 테마 값 받기
-			String themes = request.getParameter("query1");
-			String places = request.getParameter("query2");
-			String locations = request.getParameter("query3");
+			String themes = request.getParameter("themeQuery");
+			String places = request.getParameter("placeQuery");
+			String locations = request.getParameter("locationQuery");
+			
 			System.out.println(themes);
 			System.out.println(places);
 			System.out.println(locations);
 			
 			String themeVals[] = themes.split("!"); 
+			String placeVals[] = places.split("!");
+			String locationVals[] = locations.split("!");
+			
 			String sql = "select * from place where ";
+			
 			if (!themes.equals("")) {
 				for (int i = 0; i < themeVals.length; i++) {
 					sql += "place_category1 like '%'||?||'%'";
@@ -42,29 +47,29 @@ public class PlaceDAO {
 						sql += " and ";
 					}
 				}
+				if (!places.equals("") || !locations.equals("")) {
+					sql += " and ";
+				}
 			}
 			
-			// 장소 값 받기
-			String placeVals[] = places.split("!");
 			if (!places.equals("")) {
-				if (!themes.equals("")) {
-					sql += "and";
-				}
 				for (int i = 0; i < placeVals.length; i++) {
 					sql += "place_category2 like '%'||?||'%'";
 					if (i != placeVals.length-1) {
-						sql += "and";
+						sql += " and ";
 					}
+				}
+				if (!locations.equals("")) {
+					sql += " and ";
 				}
 			}
 			
-			String locationVals[] = locations.split("!");
 			if (!locations.equals("")) {
 				sql += "(";
 				for (int i = 0; i < locationVals.length; i++) {
 					sql += "place_category3 = ? ";
 					if (i != locationVals.length-1) {
-						sql += "or";
+						sql += " or ";
 					}
 				}
 				sql += ")";
