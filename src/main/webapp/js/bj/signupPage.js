@@ -21,7 +21,7 @@ function restorePlaceholder(element, message) {
 	element.placeholder = message;
 };
 
-$("#check").click(function(e) {
+/*$("#check").click(function(e) {
 	console.log($(this).is(":checked"))
 	if (!$(this).is(":checked")) {
 		alert("체크를 풀었구나")
@@ -30,7 +30,7 @@ $("#check").click(function(e) {
 	// if 문에 걸리면 ajax 실행 안됨
 	alert("ajax 실행")
 
-});
+});*/
 
 
 $("#duplicate-check").change(function(e) {
@@ -67,3 +67,15 @@ $("#duplicate-check").change(function(e) {
 $("#email-check").focus(function() {
     $("#duplicate-check").prop("checked", false);
 });
+
+
+
+
+
+
+
+
+
+
+
+
