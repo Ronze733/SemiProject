@@ -20,7 +20,7 @@
 		<div class="input-form-backgroud row">
 			<div class="signup-input-form col-md-12 mx-auto">
 				<h4 class="mb-3">회원정보 수정</h4>
-				<form class="validation-form" action="AccountRegC" method="post">
+				<form class="validation-form" action="AccountUpdateC" method="post">
 					<div class="row">
 						<div class="col md-6 mb-3">
 							<label for="nickname">닉네임</label> <input name="nickname"
