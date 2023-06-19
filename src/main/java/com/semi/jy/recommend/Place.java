@@ -97,5 +97,8 @@ public class Place {
 				+ ", place_category1=" + place_category1 + ", place_category2=" + place_category2 + ", place_category3="
 				+ place_category3 + ", place_explain=" + place_explain + ", place_pic=" + place_pic + "]";
 	}
+
+	
+
 	
 }

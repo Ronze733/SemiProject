@@ -14,9 +14,7 @@ import com.semi.db.DBManager;
 
 public class PlaceDAO {
 	
-	
-	
-	public static JSONObject recommendPlace2(HttpServletRequest request) {
+	public static JSONObject recommendPlace(HttpServletRequest request) {
 		System.out.println("GET Start ===============");
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -25,41 +23,89 @@ public class PlaceDAO {
 			con = DBManager.connect();
 
 			// 테마 값 받기
-			String themes = request.getParameter("query1");
-			String places = request.getParameter("query2");
-			String locations = request.getParameter("query3");
+			String themes = request.getParameter("themeQuery");
+			String places = request.getParameter("placeQuery");
+			String locations = request.getParameter("locationQuery");
+			
 			System.out.println(themes);
 			System.out.println(places);
 			System.out.println(locations);
 			
 			String themeVals[] = themes.split("!"); 
+			String placeVals[] = places.split("!");
+			String locationVals[] = locations.split("!");
+			
 			String sql = "select * from place where ";
-			if (themes != null) {
+			
+			if (!themes.equals("")) {
 				for (int i = 0; i < themeVals.length; i++) {
 					sql += "place_category1 like '%'||?||'%'";
 					if (i != themeVals.length-1) {
 						sql += " and ";
 					}
 				}
+				if (!places.equals("") || !locations.equals("")) {
+					sql += " and ";
+				}
 			}
 			
-			// 장소 값 받기
-			String placeVals[] = places.split("!");
-			if (places != null) {
+			if (!places.equals("")) {
 				for (int i = 0; i < placeVals.length; i++) {
 					sql += "place_category2 like '%'||?||'%'";
 					if (i != placeVals.length-1) {
-						sql += "and";
+						sql += " and ";
 					}
 				}
+				if (!locations.equals("")) {
+					sql += " and ";
+				}
 			}
-			pstmt = con.prepareStatement(sql);
-			for (int i = 0; i< themeVals.length; i++)  {
-				pstmt.setString(i+1, themeVals[i]);
-			}
-			rs = pstmt.executeQuery();
-				// 이미지랑 제목만
 			
+			if (!locations.equals("")) {
+				sql += "(";
+				for (int i = 0; i < locationVals.length; i++) {
+					sql += "place_category3 = ? ";
+					if (i != locationVals.length-1) {
+						sql += " or ";
+					}
+				}
+				sql += ")";
+			}
+			
+			System.out.println(sql);
+			
+			pstmt = con.prepareStatement(sql);
+			
+//			System.out.println(themeVals.length);
+//			System.out.println(placeVals.length);
+//			System.out.println(locationVals.length);
+			
+//			System.out.println(themeVals[0]);
+//			System.out.println(placeVals[0]);
+//			System.out.println(locationVals[0]);
+			
+			int index = 1;
+			
+			if (themes != "") {
+				for (int i = 0; i < themeVals.length; i++) {
+					pstmt.setString(index++, themeVals[i]);
+				}
+			}
+
+			if (places != "") {
+				for (int i = 0; i < placeVals.length; i++) {
+					pstmt.setString(index++, placeVals[i]);
+				}
+			}
+			
+			if (locations != "") {
+				for (int i = 0; i < locationVals.length; i++) {
+					pstmt.setString(index++, locationVals[i]);
+				}
+			}
+			
+			rs = pstmt.executeQuery();
+			// 이미지랑 제목만
 			
 			/*
 				{ 
@@ -72,13 +118,7 @@ public class PlaceDAO {
 						 "name" : aaa},
 					]
 				}
-			
-			
 			 */
-						
-			
-			
-			
 			
 			JSONObject myJson = new JSONObject();
 			JSONArray ja = new JSONArray();
@@ -103,10 +143,9 @@ public class PlaceDAO {
 		}
 		return null;
 		
-		
-		
 	}
-	public static void recommendPlace(HttpServletRequest request) {
+	
+	public static void recommendPlace2(HttpServletRequest request) {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -214,7 +253,7 @@ public class PlaceDAO {
 			}
 
 			rs = pstmt.executeQuery();
-
+			
 			while (rs.next()) {
 				int p_id = rs.getInt("place_id");
 				String p_name = rs.getString("place_name");
@@ -237,5 +276,51 @@ public class PlaceDAO {
 			DBManager.close(con, pstmt, rs);
 		}
 
+	}
+	public static JSONObject presentAllPlaces(HttpServletRequest request) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from place";
+		try {
+			
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			JSONObject myJson = new JSONObject();
+			JSONArray ja = new JSONArray();
+			while (rs.next()) {
+				int id = rs.getInt("place_id");
+				String pic = rs.getString("place_pic");
+				String name = rs.getString("place_name");
+				String addr = rs.getString("place_addr");
+				String p_category1 = rs.getString("place_category1");
+				String p_category2 = rs.getString("place_category2");
+				String p_category3 = rs.getString("place_category3");
+				String p_explain = rs.getString("place_explain");
+				JSONObject jo = new JSONObject();
+				jo.put("id", id);
+				jo.put("pic", pic);
+				jo.put("name", name);
+				jo.put("addr", addr);
+				jo.put("category1", p_category1);
+				jo.put("category2", p_category2);
+				jo.put("category3", p_category3);
+				jo.put("explain", p_explain);
+				
+				ja.add(jo);
+			}
+			myJson.put("data", ja);
+			return myJson;
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		
+		return null;
 	}
 }
