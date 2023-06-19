@@ -23,21 +23,18 @@ public class RecommendC extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");
-		out.print(PlaceDAO.recommendPlace2(request).toJSONString());
+		out.print(PlaceDAO.recommendPlace(request).toJSONString());
 		
-		
-		
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		AccountDAO.loginCheck(request);
-		PlaceDAO.recommendPlace(request);
-		request.setAttribute("contentPage", "./jsp/jy/recommend/recommend.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
-
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		response.setContentType("application/json");
+		out.print(PlaceDAO.presentAllPlaces(request).toJSONString());
 	}
 
 }
