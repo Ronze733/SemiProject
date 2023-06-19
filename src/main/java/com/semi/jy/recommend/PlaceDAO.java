@@ -79,13 +79,13 @@ public class PlaceDAO {
 			
 			pstmt = con.prepareStatement(sql);
 			
-			System.out.println(themeVals.length);
-			System.out.println(placeVals.length);
-			System.out.println(locationVals.length);
+//			System.out.println(themeVals.length);
+//			System.out.println(placeVals.length);
+//			System.out.println(locationVals.length);
 			
-			System.out.println(themeVals[0]);
-			System.out.println(placeVals[0]);
-			System.out.println(locationVals[0]);
+//			System.out.println(themeVals[0]);
+//			System.out.println(placeVals[0]);
+//			System.out.println(locationVals[0]);
 			
 			int index = 1;
 			

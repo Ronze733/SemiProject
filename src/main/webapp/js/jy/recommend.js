@@ -17,6 +17,9 @@ function clearResults()	{
 	themesEl.prop('checked',false);
 	placesEl.prop('checked',false);
 	locationsEl.prop('checked',false);
+	themeQuery = "";
+	placeQuery = "";
+	locationQuery = "";
 }
 	
 function setVal(data) {
@@ -48,47 +51,31 @@ let themeQuery = "";
 let placeQuery = "";
 let locationQuery = "";
 	
-const checkboxes = [
-  { el: themesEl, handler: themesClick },
-  { el: placesEl, handler: placesClick },
-  { el: locationsEl, handler: locationsClick }
-];
-
-function themesClick() {
-	$(themesEl).click(function() {
+$(themesEl).click(function() {
 	let themes = $(this).val();
 	themeQuery += themes + "!";
 	console.log(themeQuery);
 	 
 	sendAjaxRequest();
 		
-	});
-}
+});
 
-function placesClick() {
-	$(placesEl).click(function() {
+$(placesEl).click(function() {
 	let places = $(this).val();
 	placeQuery += places + "!";
 	console.log(placeQuery);
 	
 	sendAjaxRequest();
 		
-	});
-}
+});
 
-function locationsClick() {
-	$(locationsEl).click(function() {
+$(locationsEl).click(function() {
 	let locations = $(this).val();
 	locationQuery += locations + "!";
 	console.log(locationQuery);
 	
 	sendAjaxRequest();
 		
-	});
-}
-
-checkboxes.forEach(function(item) {
-  item.el.off('click').on('click', item.handler);
 });
 
 function sendAjaxRequest() {
