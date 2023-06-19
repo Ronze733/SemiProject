@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.semi.bj.account.AccountDAO;
 
-@WebServlet("/ReviewC")
-public class ReviewC extends HttpServlet {
+@WebServlet("/ReviewSearchC")
+public class ReviewSearchC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AccountDAO.loginCheck(request);
-		ReviewDao.getReviewdao().select(request);
-		request.setAttribute("contentPage", "jsp/jh/review.jsp");
+		ReviewDao.getReviewdao().search(request);
+		request.setAttribute("contentPage", "jsp/jh/reviewSearch.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		
 

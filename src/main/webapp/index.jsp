@@ -25,7 +25,7 @@ pageEncoding="UTF-8"%>
             <div>SKTC</div>
           </div>
           <div class="main-header-menus">
-            <div class="main-header-menu" onclick="location.href='ReviewC'">
+            <div class="main-header-menu" onclick="location.href='ReviewPageC?p=1'">
               여행 후기
             </div>
             <div class="main-header-menu" onclick="location.href='QnAC'">

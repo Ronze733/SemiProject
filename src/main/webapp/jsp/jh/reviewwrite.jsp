@@ -22,21 +22,16 @@
        			</div>
     		</form>
 		</div>
-		<div class="review-write">
+		<div class="review-write-de">
+			<div>
+			</div>
 			<div class="review-write-word">
+
 				<div class="review-write-big">
 					후기를 알려주세요.
 				</div>
 				<div class="review-write-small">
 					추첨을 통해 소정의 상품을 증정드립니다.
-				</div>
-			</div>
-			<div class="review-button">
-				<div>
-					<img alt="" src="">
-				</div>
-				<div class="review-button-link">
-					<a href="ReviewWriteC">후기작성</a>
 				</div>
 			</div>
 		</div>
