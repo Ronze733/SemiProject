@@ -14,11 +14,11 @@
 	
 	<div class="detail-container">
 		<div class="detail-main">
-			<div class="detail-main-titleline">
-				<div class="detail-main-title">불국사</div>
-				<div class="detail-main-area">경주</div>
-			</div>
-			<div class="detail-main-informatoin">
+		<div class="detail-main-titleline">
+		<div class="detail-main-title">불국사</div>
+		<div class="detail-main-area">경주</div>
+		</div>
+		<div class="detail-main-informatoin">
 	 		<div class="detail-main-img" >
 	 			<img id="detail-place_img" alt="" src="./img/mk/불국사.jpg">
 	 		</div>
@@ -37,9 +37,9 @@
  		</div>
  		<div class="detail-weather">
 	 		<div class="detail-weather-title">날씨</div>
-	 	<div class="detail-weather-recent">
-	 		<div class="detail-weather-option">
-	 		 	<div class="detail-weather-optiontext"> 오늘 날씨</div> 
+	 			<div class="detail-weather-recent">
+	 				<div class="detail-weather-option">
+	 		 		<div class="detail-weather-optiontext"> 오늘 날씨</div> 
 	 		 		아이콘<br>
 	 		 		기상 상태<br>
 	 		 		강수확률<br>
@@ -48,7 +48,7 @@
 	 				습도<br>
 	 				풍향
 	 				풍속
-	 			<div class="detail-weather-optiontext"> 내일 날씨</div>
+	 				<div class="detail-weather-optiontext"> 내일 날씨</div>
 	 				 아이콘<br>
 	 				 기상 상태 ${w.condition }<br>
 	 				 강수확률<br>
@@ -57,7 +57,7 @@
 	 				습도 ${w.humidity }<br>
 	 				풍향
 	 				풍속${w.windSpeed }
-	 			<div class="detail-weather-optiontext"> 모레 날씨</div>
+	 				<div class="detail-weather-optiontext"> 모레 날씨</div>
 	 				 아이콘<br>
 	 				 기상 상태<br>
 	 				 강수확률<br>
@@ -66,9 +66,11 @@
 	 				습도<br>
 	 				풍향
 	 				풍속
+	 				</div>
+	 			</div>
 	 		</div>
-	 	</div>
-	 </div>
+	 			
+		 	
 		<div class="detail-place">
 			<div class="detail-place-root"> 오시는길</div>
 			<div class="detail-place-addr"> 주소: 경상북도 경주시 불국로 385 불국사 </div>
