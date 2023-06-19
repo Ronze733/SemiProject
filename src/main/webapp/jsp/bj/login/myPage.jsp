@@ -16,7 +16,7 @@
 	<div class="signup-container">
 		<div class="input-form-backgroud row">
 			<div class="signup-input-form col-md-12 mx-auto">
-				<h4 class="mb-3">회원가입</h4>
+				<h4 class="mb-3">마이페이지</h4>
 				<form class="validation-form" action="AccountRegC" method="post" >
 					<div class="row">
 					</div>
@@ -39,15 +39,16 @@
 					</div>
 
 					<div class="mb-3">
-						<label for="password">비밀번호</label> <input name="password"
-							type="password" class="form-control" id="password"
-							value="${sessionScope.account.user_pw }" required disabled>
+						<label for="question">비밀번호 찾기 질문</label> <input name="question"
+							type="text" class="form-control" id="question"
+							value="${sessionScope.account.user_question }" required disabled>
 					</div>
 					<div class="mb-3">
-						<label for="password-confirm">비밀번호 확인</label> <input
-							name="passwordConfirm" type="password" class="form-control"
-							id="password-confirm" value="${sessionScope.account.user_pw }" required disabled>
+						<label for="answer">비밀번호 찾기 답</label> <input name="answer"
+							type="text" class="form-control" id="answer"
+							value="${sessionScope.account.user_answer }" required disabled>
 					</div>
+
 					<div class="row">
 						<div class="col-md-8 mb-3">
 							<label for="gender">성별</label> <input name="email" type="email"

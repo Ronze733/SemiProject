@@ -119,21 +119,32 @@
 }
 
 .QnA-insert-content{
-	justify-content: space-around;
-    align-items: center;
     margin-top: 100px;
+    width: 754px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .QnA-insert-header{
 	display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
 }
 
 .QnA-insert-body{
+    justify-content: flex-start;
 	
 }
 
 .QnA-insert-button{
-	
+	justify-content: space-between;
+    display: flex;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-top: 15px;
 }
 
 

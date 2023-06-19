@@ -19,9 +19,17 @@ public class AccountUpdateC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
-		AccountDAO.accountUpdate(request);
-		request.getRequestDispatcher("jsp/bj/login/myPage.jsp").forward(request, response);
+		
+		if (AccountDAO.loginCheck(request)) {
+			AccountDAO.accountUpdate(request);
+			AccountDAO.loginCheck(request);
+			request.getRequestDispatcher("jsp/bj/login/myPage.jsp").forward(request, response);
+			
+		} else {
+			AccountDAO.pwUpdate(request);
+			AccountDAO.loginCheck(request);
+			request.getRequestDispatcher("jsp/bj/login/login.jsp").forward(request, response);
+		}
 	}
 
 }

@@ -20,7 +20,11 @@ public class QnAInsertC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		QnADAO.getQnADAO().insert(request);
+		AccountDAO.loginCheck(request);
+		request.setAttribute("contentPage", "jsp/sh/QnA_insert.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
 	}
 
 }

@@ -15,24 +15,24 @@
 <body class="text-center">
 	<main class="form-signin w-100 m-auto">
 		<form action="LoginC" method="post" accept-charset="utf-8">
-			<img class="mb-8"
-				src="./img/jy/SKTC.png"
-				alt="" width="150" height="118" onclick="location.href='HC'">
+			<img class="mb-8" src="./img/jy/SKTC.png" alt="" width="150"
+				height="118" onclick="location.href='HC'">
 			<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
 			<div class="form-floating">
-				<input name="email" type="email" class="form-control" id="floatingInput"
-					placeholder="이메일"
+				<input name="email" type="email" class="form-control"
+					id="floatingInput" placeholder="이메일"
 					onFocus="changePlaceholder(this, 'name@example.com');"
 					onBlur="restorePlaceholder(this, '이메일');">
 			</div>
 			<div class="form-floating">
-				<input name="password" type="password" class="form-control" id="floatingPassword"
-					placeholder="비밀번호">
+				<input name="password" type="password" class="form-control"
+					id="floatingPassword" placeholder="비밀번호">
 			</div>
 
 			<div class="signup mb-3">
-				<a href="AccountRegC">아직 회원이 아니신가요?</a>
+				<a href="javascript:void(0);" onclick="openPopup();">비밀번호를
+					잊어버리셨나요?</a>
 			</div>
 			<button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
 			<p class="mt-5 mb-3 text-muted">© 2023~</p>
