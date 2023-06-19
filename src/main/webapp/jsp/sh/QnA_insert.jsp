@@ -7,37 +7,38 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="QnA-insert-container">
-		<div class="QnA-insert-content">
-			<div class="QnA-insert-header">
-				<div>
-					제목<input name="unquiry_title">
+	<form action="QnAInsertC?" method="post">
+		<div class="QnA-insert-container">
+			<div class="QnA-insert-content">
+				<div class="QnA-insert-header">
+					<div>
+						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp;<input name="unquiry_title" placeholder="제목을 입력해주세요."> 
+					</div>
 				</div>
-				<div>작성자 aaa</div>
-			</div>
-			<div class="QnA-insert-header">
-				<div>카테고리</div>
-				<div>
-					<select>
-						<option value="">a</option>
-						<option value="">b</option>
-						<option value="">c</option>
-						<option value="">d</option>
-					</select>
+				<div class="QnA-insert-header">
+					<div>
+						<span style="font-weight: 600;">카테고리</span>&nbsp;&nbsp;
+						<select name="inquiry_category">
+							<option disabled selected value="">--카테고리를 선택해주세요--</option>
+							<option value="notice">공지사항</option>
+							<option value="event">이벤트</option>
+							<option value="ask">문의하기</option>
+						</select>
+					</div>
+					<div><span style="font-weight: 600;">작성자</span> ${inquiry_user_id }</div>
 				</div>
-				<div>날짜</div>
-			</div>
-			<div class="QnA-insert-body">
-				<div>내용</div>
-				<div>
-					<textarea rows="10" cols="100"></textarea>
+				<div class="QnA-insert-body">
+					<div style="font-weight: 600; margin-bottom: 15px;">내용</div>
+					<div>
+						<textarea rows="10" cols="100" name="inquiry_body"></textarea>
+					</div>
 				</div>
-			</div>
-			<div class="QnA-insert-button">
-				<button>취소</button>
-				<button>완료</button>
+				<div class="QnA-insert-button">
+					<div><button>완료</button></div> 
+					<div><button>취소</button></div> 
+				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 </body>
 </html>
