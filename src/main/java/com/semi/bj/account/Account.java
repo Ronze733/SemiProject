@@ -8,44 +8,25 @@ public class Account {
 	private String user_pw;
 	private String user_gender;
 	private String user_create_at;
-<<<<<<< HEAD
 	private String user_points;
 	private String user_question;
 	private String user_answer;
-=======
->>>>>>> 855e753923fc094c830a28c5677325502bfb7dcf
 
 	public Account() {
 		// TODO Auto-generated constructor stub
 	}
 
-<<<<<<< HEAD
 	public Account(String user_id, String user_name, String user_pw, String user_gender,
 			String user_create_at, String user_points, String user_question, String user_answer) {
-=======
-	public Account(Date date, String user_id, String user_name, String user_pw, String user_gender,
-			String user_create_at) {
->>>>>>> 855e753923fc094c830a28c5677325502bfb7dcf
 		super();
 		this.user_id = user_id;
 		this.user_name = user_name;
 		this.user_pw = user_pw;
 		this.user_gender = user_gender;
 		this.user_create_at = user_create_at;
-<<<<<<< HEAD
 		this.user_points = user_points;
 		this.user_question = user_question;
 		this.user_answer = user_answer;
-=======
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
->>>>>>> 855e753923fc094c830a28c5677325502bfb7dcf
 	}
 
 	public String getUser_id() {
@@ -88,7 +69,6 @@ public class Account {
 		this.user_create_at = user_create_at;
 	}
 
-<<<<<<< HEAD
 	public String getUser_points() {
 		return user_points;
 	}
@@ -115,6 +95,4 @@ public class Account {
 
 	
 
-=======
->>>>>>> 855e753923fc094c830a28c5677325502bfb7dcf
 }
