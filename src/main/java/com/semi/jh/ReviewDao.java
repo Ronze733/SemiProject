@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -234,6 +235,45 @@ public class ReviewDao {
 		req.setAttribute("curPageNo", page);
 		req.setAttribute("reviews", items);
 		
+	}
+
+
+
+	public void search(HttpServletRequest request) {
+		String keyword = request.getParameter("keyword");
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		
+	    List<Review> searchResults = new ArrayList<>(); // 검색 결과를 저장하기 위한 리스트
+		String sql = "SELECT * FROM review WHERE review_title LIKE ? OR review_body LIKE ?";
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%" + keyword + "%");
+			pstmt.setString(2, "%" + keyword + "%");
+			rs=pstmt.executeQuery();
+			Review r = null;
+	        while (rs.next()) {
+			System.out.println("검색성공");
+			int id=rs.getInt("review_id");
+			String user_id = rs.getString("review_user_id");
+			String place = rs.getString("review_place");
+			String title = rs.getString("review_title");
+			String body = rs.getString("review_body");
+			Date date = rs.getDate("review_created_at");
+			String pic = rs.getString("review_pic");
+			int likes = rs.getInt("review_likes");
+			r = new Review(id, user_id, place, title, body, date, pic, likes);
+			searchResults.add(r);
+	        }
+	        request.setAttribute("reviews",searchResults);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
+			
+		}
 	}
 }
 
