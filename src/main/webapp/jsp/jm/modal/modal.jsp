@@ -7,15 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
-		<div>
-			<div>여행 상품 구매</div>
-			<div onclick="EventRouletteC">포인트 룰렛</div>
-		</div>
-		<div>
-			<div></div>
-		</div>
-		<div>광고</div>
-	</div>
+
 </body>
 </html>
