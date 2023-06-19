@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,9 +14,7 @@ import com.semi.db.DBManager;
 
 public class PlaceDAO {
 	
-	
-	
-	public static JSONObject recommendPlace2(HttpServletRequest request) {
+	public static JSONObject recommendPlace(HttpServletRequest request) {
 		System.out.println("GET Start ===============");
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -146,10 +143,9 @@ public class PlaceDAO {
 		}
 		return null;
 		
-		
-		
 	}
-	public static void recommendPlace(HttpServletRequest request) {
+	
+	public static void recommendPlace2(HttpServletRequest request) {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -257,7 +253,7 @@ public class PlaceDAO {
 			}
 
 			rs = pstmt.executeQuery();
-
+			
 			while (rs.next()) {
 				int p_id = rs.getInt("place_id");
 				String p_name = rs.getString("place_name");
@@ -280,5 +276,51 @@ public class PlaceDAO {
 			DBManager.close(con, pstmt, rs);
 		}
 
+	}
+	public static JSONObject presentAllPlaces(HttpServletRequest request) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from place";
+		try {
+			
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			JSONObject myJson = new JSONObject();
+			JSONArray ja = new JSONArray();
+			while (rs.next()) {
+				int id = rs.getInt("place_id");
+				String pic = rs.getString("place_pic");
+				String name = rs.getString("place_name");
+				String addr = rs.getString("place_addr");
+				String p_category1 = rs.getString("place_category1");
+				String p_category2 = rs.getString("place_category2");
+				String p_category3 = rs.getString("place_category3");
+				String p_explain = rs.getString("place_explain");
+				JSONObject jo = new JSONObject();
+				jo.put("id", id);
+				jo.put("pic", pic);
+				jo.put("name", name);
+				jo.put("addr", addr);
+				jo.put("category1", p_category1);
+				jo.put("category2", p_category2);
+				jo.put("category3", p_category3);
+				jo.put("explain", p_explain);
+				
+				ja.add(jo);
+			}
+			myJson.put("data", ja);
+			return myJson;
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		
+		return null;
 	}
 }
