@@ -26,7 +26,6 @@
 			<input type="hidden" name="id" value="${param.id }">
 		<div class="review-write-submit">
 				<div class="review-writeimg">
-					<img name="pic" src="img/jh/${review.review_pic}">
 				<div><input name="pic_new" type="file"></div>
 				</div>
 				<div class="review-blank">
@@ -66,6 +65,7 @@
 				<div class="review-detailbutton" >
 					<button class="review-detailbutton">Submit</button>
 				</div>
+					<button class="review-detailbutton">뒤로가기</button>
 			</div>
 		</div>
 		</form>

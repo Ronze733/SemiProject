@@ -137,7 +137,7 @@ public class QnADAO {
 		
 		int emptyItemCount = cnt - items.size();
 		for (int i = 0; i < emptyItemCount; i++) {
-		    items.add(new QnA("", "", "", null, 0, ""));
+			items.add(new QnA("", "", "", null, 0, ""));
 		}
 		
 		request.setAttribute("pageCount", pageCount);
