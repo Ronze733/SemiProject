@@ -90,15 +90,34 @@ public class QnADAO {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			
+			String id = request.getParameter("id");
+			String title = request.getParameter("inquiry_title");
+			String category = request.getParameter("inquiry_category");
+			String body = request.getParameter("inquiry_body");
+			
+			System.out.println(id);
+			System.out.println(title);
+			System.out.println(category);
+			System.out.println(body);
+			
+			pstmt.setString(1, id);
+			pstmt.setString(2, title);
+			pstmt.setString(3, body);
+			pstmt.setString(4, category);
+			
+			
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("등록 성공");
+			}
 			
 			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("등록 실패");
+		} finally {
+			DBManager.close(con, pstmt, null);
 		}
-		
-		
-		
 		
 	}
 
@@ -128,5 +147,64 @@ public class QnADAO {
 		
 	}
 
+	public void delQnA(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete inquiry where inquiry_no = ?";
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, request.getParameter("pkno"));
+			
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("삭제성공");
+				
+			}
+					
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, null);
+		}
+		
+		
+		
+		
+		
+		
+	}
+
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

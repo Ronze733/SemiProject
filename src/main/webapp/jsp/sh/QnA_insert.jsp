@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="QnAInsertC?" method="post">
+	<form action="QnAInsertC" method="post">
 		<div class="QnA-insert-container">
 			<div class="QnA-insert-content">
 				<div class="QnA-insert-header">
 					<div>
-						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp;<input name="unquiry_title" placeholder="제목을 입력해주세요."> 
+						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp;<input name="inquiry_title" placeholder="제목을 입력해주세요."> 
 					</div>
 				</div>
 				<div class="QnA-insert-header">
@@ -20,12 +20,12 @@
 						<span style="font-weight: 600;">카테고리</span>&nbsp;&nbsp;
 						<select name="inquiry_category">
 							<option disabled selected value="">--카테고리를 선택해주세요--</option>
-							<option value="notice">공지사항</option>
-							<option value="event">이벤트</option>
-							<option value="ask">문의하기</option>
+							<option value="공지사항">공지사항</option>
+							<option value="이벤트">이벤트</option>
+							<option value="문의하기">문의하기</option>
 						</select>
 					</div>
-					<div><span style="font-weight: 600;">작성자</span> ${inquiry_user_id }</div>
+					<div><span style="font-weight: 600;">작성자</span> <span> ${sessionScope.account.user_id }</span></div>
 				</div>
 				<div class="QnA-insert-body">
 					<div style="font-weight: 600; margin-bottom: 15px;">내용</div>
@@ -34,8 +34,7 @@
 					</div>
 				</div>
 				<div class="QnA-insert-button">
-					<div><button>완료</button></div> 
-					<div><button>취소</button></div> 
+					<div><button name="id" value=" ${sessionScope.account.user_id }">완료</button></div>
 				</div>
 			</div>
 		</div>

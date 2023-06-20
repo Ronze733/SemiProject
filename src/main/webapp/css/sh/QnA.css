@@ -147,7 +147,21 @@
     margin-top: 15px;
 }
 
+/* QnA_Detail */
 
+.QnA-insert-bodytxt{
+	height: 300px;
+}
+
+.QnA-insert-button{
+	justify-content: space-between;
+    display: flex;
+    width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-top: 15px;
+}
 
 
 

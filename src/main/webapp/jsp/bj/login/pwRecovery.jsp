@@ -1,145 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
-
-<!-- Bootstrap CSS -->
+<meta charset="UTF-8">
+<title>회원가입 화면 샘플</title>
+<link href="../../../css/bj/signupPage.css" rel="stylesheet"
+	type="text/css">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-<title>아이디 찾기</title>
-<style>
-@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-
-html {
-	height: 100%;
-}
-
-body {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding-top: 200px;
-	padding-bottom: 40px;
-	font-family: "Nanum Gothic", arial, helvetica, sans-serif;
-	background-repeat: no-repeat;
-}
-
-.card {
-	margin: 0 auto; /* Added */
-	float: none; /* Added */
-	margin-bottom: 10px; /* Added */
-}
-
-#btn-Yes {
-	background-color: #e4932b;
-	border: none;
-}
-
-.form-signin .form-control {
-	position: relative;
-	height: auto;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 10px;
-	font-size: 16px;
-}
-
-.card-title {
-	margin-left: 30px;
-}
-
-a {
-	color: #f58b34;
-	text-decoration: none;
-}
-
-.links {
-	text-align: center;
-	margin-bottom: 10px;
-}
-
-.checks {
-	color: red;
-}
-</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="../../../js/bj/pwRecovery.js"
+	defer="defer"></script>
 </head>
+<body>
 
-<body cellpadding="0" cellspacing="0" marginleft="0" margintop="0"
-	width="100%" height="100%" align="center">
-
-	<div class="card align-middle" style="width: 25rem;">
-		<div class="card-title" style="margin-top: 30px;">
-
-			<h2 class="card-title" style="color: #f58b34;">
-				<img src="../../img/jy/SKTC.png" alt="SKTC 이미지" />
-			</h2>
-		</div>
-
-		<div class="card-body">
-			<form action="findPw" class="form-signin" method="POST">
-				<input type="text" name="member_id" id="member_id"
-					class="form-control" placeholder="아이디" required><br> <input
-					type="text" name="name" id="name" class="form-control"
-					placeholder="이름" required><BR> <input type="email"
-					name="email" id="email" class="form-control" placeholder="이메일"
-					required><br>
-				<p class="checks" id="checks">${findpw_checkf}</p>
-				<br />
-				<button id="btn-Yes" class="btn btn-lg btn-primary btn-block"
-					type="submit">비밀번호 찾기</button>
-			</form>
-
-		</div>
-		<div class="links">
-			<a href="memberId">아이디 찾기</a> | <a href="memberLogin">로그인</a> | <a
-				href="memberRegist">회원가입</a>
-
+	<div class="signup-container">
+		<div class="input-form-backgroud row">
+			<div class="signup-input-form col-md-12 mx-auto">
+				<h4 class="mb-3">본인인증</h4>
+				<form class="validation-form" action="../../../AccountUpdateC"
+					method="post">
+					<div class="mb-3">
+						<label for="email">이메일</label> <input name="email" type="email"
+							class="form-control" id="email-check" placeholder="이메일을 입력해주세요"
+							onFocus="changePlaceholder(this, 'example@gmail.com');"
+							onBlur="restorePlaceholder(this, '이메일을 입력해주세요');" required>
+						<div class="invalid-feedback">이메일을 입력해주세요.</div>
+					</div>
+					<div class="mb-4">
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input"
+								id="duplicate-check" required> <label
+								class="custom-control-label" for="duplicate-check">이메일
+								등록 여부 확인</label>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="question">비밀번호 찾기 질문</label> <select name="question"
+							class="custom-select d-block w-100" id="question" required>
+							<option value="birthPlace">출생지는 어디인가요?</option>
+							<option value="favoriteAnimal">가장 좋아하는 동물은 무엇인가요?</option>
+							<option value="favoriteMovie">가장 좋아하는 영화는 무엇인가요?</option>
+							<option value="firstSchool">첫 번째 학교 이름은 무엇인가요?</option>
+							<option value="bestPlace">가장 기억에 남는 여행지는 어디인가요?</option>
+						</select>
+					</div>
+					<div class="mb-3">
+						<label for="answer">답</label> <input name="answer" type="text"
+							class="form-control" id="answer"
+							placeholder="비밀번호를 잊어버렸을 때 질문의 답"
+							onFocus="changePlaceholder(this, '최대 12자, 띄어쓰기 대소문자 확인');"
+							onBlur="restorePlaceholder(this, '비밀번호를 잊어버렸을 때 질문의 답');"
+							required>
+					</div>
+					<hr class="mb-4">
+					<div class="mb-4"></div>
+					<button class="btn btn-primary btn-lg btn-block" type="submit">본인
+						인증</button>
+				</form>
+			</div>
 		</div>
 	</div>
-
 </body>
-<script type="text/javascript">
-	//아이디 정규식
-	var idJ = /^[a-z0-9]{5,20}$/;
 
-	$("#member_id").focusout(function() {
-		if ($('#member_id').val() == "") {
-			$('#checks').text('아이디를 입력해주세요.');
-			$('#checks').css('color', 'red');
-		}
-	});
-
-	$("#member_id").focusout(function() {
-		if (!idJ.test($(this).val())) {
-			$('#checks').text('5~20자의 영문 소문자, 숫자만 사용가능합니다');
-			$('#checks').css('color', 'red');
-		}
-	});
-
-	$("#name").focusout(function() {
-		if ($('#name').val() == "") {
-			$('#checks').text('이름을 입력해주세요.');
-			$('#checks').css('color', 'red');
-		}
-	});
-
-	$("#email").focusout(function() {
-		if ($('#email').val() == "") {
-			$('#checks').text('이메일을 입력해주세요');
-			$('#checks').css('color', 'red');
-		}
-	});
-</script>
 </html>

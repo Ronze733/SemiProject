@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.catalina.valves.LoadBalancerDrainingValve;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -35,8 +36,12 @@ public class PlaceDAO {
 			String placeVals[] = places.split("!");
 			String locationVals[] = locations.split("!");
 			
-			String sql = "select * from place where ";
+			String sql = "select * from place";
 			
+			if (!themes.equals("") || !places.equals("") || !locations.equals("")) {
+				sql += " where ";
+			}	
+
 			if (!themes.equals("")) {
 				for (int i = 0; i < themeVals.length; i++) {
 					sql += "place_category1 like '%'||?||'%'";
@@ -75,14 +80,6 @@ public class PlaceDAO {
 			System.out.println(sql);
 			
 			pstmt = con.prepareStatement(sql);
-			
-//			System.out.println(themeVals.length);
-//			System.out.println(placeVals.length);
-//			System.out.println(locationVals.length);
-			
-//			System.out.println(themeVals[0]);
-//			System.out.println(placeVals[0]);
-//			System.out.println(locationVals[0]);
 			
 			int index = 1;
 			
@@ -127,7 +124,7 @@ public class PlaceDAO {
 				int id = rs.getInt("place_id");
 				String pic = rs.getString("place_pic");
 				String name = rs.getString("place_name");
-				System.out.println(pic);
+//				System.out.println(pic);
 				System.out.println(name);
 				JSONObject jo = new JSONObject();
 				jo.put("id", id);

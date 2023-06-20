@@ -41,7 +41,48 @@
   }
 }
 
+#recommend-search-menus{
+	display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.recommend-search-themes{
+	display: flex;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
 
+.recommend-search-places{
+	display: flex;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
 
+.recommend-search-locations{
+	display: flex;
+}
+
+.result-div-wrap{
+	display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.result-div{
+	background-color: black;
+	width: 300px;
+	height: 200px;
+}
+
+.result-img{
+	max-width: 150px;
+}
 

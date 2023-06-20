@@ -12,7 +12,6 @@
 	<div class="recommend-container">
 		<div class="recommend-search" style="display: flex;">
 			<div id="recommend-search-menus">
-				검색
 					<div class="recommend-search-themes">
 						테마
 						<div>
@@ -118,39 +117,14 @@
 						</div>
 					</div>
 			</div>
-			<div class="result-div-wrap">
-
-			
-
-			</div>
-
 		</div>
 		<div class="recommend-travel-places">
 			추천여행지 <br>
-			<c:forEach var="p" items="${recommendPlaces}">
-					${p.place_name} <br>
-			</c:forEach>
-			<div class="recommend-travel-locations">
-				여행지
-				<div class="recommend-travel-location">
-					<div>
-						<img style="max-width: 100px;" alt="" src="./img/jy/IFCmall.jpg">
-					</div>
-					<div>IFC몰</div>
+				<div class="result-div-wrap">
+
+					
+					
 				</div>
-				<div class="recommend-travel-location">
-					<div>
-						<img style="max-width: 100px;" alt="" src="./img/jy/IFCmall.jpg">
-					</div>
-					<div>IFC몰</div>
-				</div>
-				<div class="recommend-travel-location">
-					<div>
-						<img style="max-width: 100px;" alt="" src="./img/jy/IFCmall.jpg">
-					</div>
-					<div>IFC몰</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
