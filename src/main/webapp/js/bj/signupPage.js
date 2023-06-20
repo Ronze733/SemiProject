@@ -37,7 +37,6 @@ $("#duplicate-check").change(function(e) {
 	console.log($(this).is(":checked"))
 	
 	if (!$(this).is(":checked")) {
-		alert("체크를 풀었구나")
 		return;
 	}
 	let id = $("input[name=email]").val();
