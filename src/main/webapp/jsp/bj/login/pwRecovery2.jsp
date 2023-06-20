@@ -28,7 +28,7 @@
 						<div class="invalid-feedback">이메일을 입력해주세요.</div>
 					</div>
 				<h4 class="mb-3">새 비밀번호 생성</h4>
-				<form class="validation-form" action="AccountUpdateC2" method="post">
+				<form>
 					<div class="mb-3">
 						<label for="password">새 비밀번호</label> <input name="password"
 							type="password" class="form-control" id="password"

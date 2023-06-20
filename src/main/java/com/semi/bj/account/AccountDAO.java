@@ -310,7 +310,8 @@ public class AccountDAO {
 		return result;
 	}
 
-	public static void pwUpdate(HttpServletRequest request, HttpServletResponse response) {
+	public static void pwUpdate(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
 		
 		Account account = (Account) request.getSession().getAttribute("account");
 		
@@ -318,10 +319,10 @@ public class AccountDAO {
 		PreparedStatement pstmt = null;
 		
 		String sql = "update user_tbl set user_pw = ? where user_id = ?";
-		String pw = BCrypt.hashpw(request.getParameter("password"), BCrypt.gensalt());
+		String pw = BCrypt.hashpw(request.getParameter("user_pw"), BCrypt.gensalt());
 		String id = account.getUser_id();
 		
-		System.out.println(request.getParameter("password"));
+		System.out.println(request.getParameter("user_pw"));
 		System.out.println(pw);
 		System.out.println(id);
 		
@@ -334,6 +335,7 @@ public class AccountDAO {
 			
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter writer = response.getWriter();
+			
 			
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("수정 성공");
@@ -354,5 +356,4 @@ public class AccountDAO {
 		
 		
 	}
-
 }
