@@ -14,18 +14,19 @@
 	
 	<div class="detail-container">
 		<div class="detail-main">
-		<div class="detail-main-titleline">
-		<div class="detail-main-title">불국사</div>
-		<div class="detail-main-area">경주</div>
+		<div class="detail-main-titleline"> <C:forEach items="places" var="p"></C:forEach>
+		<div class="detail-main-title">불국사${p.name }</div>
+		<div class="detail-main-area">경주${p.c3}</div>
 		</div>
 		<div class="detail-main-informatoin">
 	 		<div class="detail-main-img" >
-	 			<img id="detail-place_img" alt="" src="./img/mk/불국사.jpg">
+	 			<img id="detail-place_img" alt="" src="./img/mk/불국사.jpg"> ${p.pic }
 	 		</div>
 	 		<div class="detail-main-text">
 	 			<h2>상세정보</h2>
 	 		</div>
 	 		<div class="detail-main-explain">
+	 			${p.explain}
 	 			불국정토를 속세에 건설하겠다는 야심찬 통일신라의 꿈을 드러내는 건축물로, 
 	 			이름인 불국사는 불국정토에서 유래한 호국 사찰이다. 
 	 			황룡사가 거대한 규모로 유명한 절이라면 불국사는 치밀한 구성의 완성도와 아름다움으로 유명한 절이다. 
@@ -82,7 +83,7 @@
 		let container = document.getElementById('map');
 		let options = {
 				center: new kakao.maps.LatLng(35.790402, 129.332103),
-				level: 5
+				level: 7
 		}
 		
 		let map = new kakao.maps.Map(container, options);
@@ -90,7 +91,7 @@
 		
 		let geocoder = new kakao.maps.services.Geocoder();
 		
-		geocoder.addressSearch(place, function(result, status){
+		geocoder.addressSearch('경북 경주시 불국로 385 불국사', function(result, status){
 			 if (status === kakao.maps.services.Status.OK) {
 
 			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);

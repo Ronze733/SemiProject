@@ -16,7 +16,6 @@ public class WeathrC extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		AccountDAO.loginCheck(request);
 		request.setAttribute("contentPage","jsp/mk/detail.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);

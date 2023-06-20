@@ -1,74 +1,73 @@
 package com.semi.mk.weather;
 
 public class Weather {
- private int weather_id;
- private int weather_place_id;
- private float humidity;
- private float temperature;
- private float wind_speed;
- private String weather_condition;
- 
- public Weather() {
-	// TODO Auto-generated constructor stub
-}
+	private String humidity;
+	private String temp;
+	private String windSpeed;
+	private String condition;
+	private String day;
+	private String icon;
+	
+	public Weather() {
+		// TODO Auto-generated constructor stub
+	}
 
-public Weather(int weather_id, int weather_place_id, float humidity, float temperature, float wind_speed,
-		String weather_condition) {
-	super();
-	this.weather_id = weather_id;
-	this.weather_place_id = weather_place_id;
-	this.humidity = humidity;
-	this.temperature = temperature;
-	this.wind_speed = wind_speed;
-	this.weather_condition = weather_condition;
-}
+	public Weather(String humidity, String temp, String windSpeed, String condition, String day, String icon) {
+		super();
+		this.humidity = humidity;
+		this.temp = temp;
+		this.windSpeed = windSpeed;
+		this.condition = condition;
+		this.day = day;
+		this.icon = icon;
+	}
 
-public int getWeather_id() {
-	return weather_id;
-}
+	public String getHumidity() {
+		return humidity;
+	}
 
-public void setWeather_id(int weather_id) {
-	this.weather_id = weather_id;
-}
+	public void setHumidity(String humidity) {
+		this.humidity = humidity;
+	}
 
-public int getWeather_place_id() {
-	return weather_place_id;
-}
+	public String getTemp() {
+		return temp;
+	}
 
-public void setWeather_place_id(int weather_place_id) {
-	this.weather_place_id = weather_place_id;
-}
+	public void setTemp(String temp) {
+		this.temp = temp;
+	}
 
-public float getHumidity() {
-	return humidity;
-}
+	public String getWindSpeed() {
+		return windSpeed;
+	}
 
-public void setHumidity(float humidity) {
-	this.humidity = humidity;
-}
+	public void setWindSpeed(String windSpeed) {
+		this.windSpeed = windSpeed;
+	}
 
-public float getTemperature() {
-	return temperature;
-}
+	public String getCondition() {
+		return condition;
+	}
 
-public void setTemperature(float temperature) {
-	this.temperature = temperature;
-}
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
 
-public float getWind_speed() {
-	return wind_speed;
-}
+	public String getDay() {
+		return day;
+	}
 
-public void setWind_speed(float wind_speed) {
-	this.wind_speed = wind_speed;
-}
+	public void setDay(String day) {
+		this.day = day;
+	}
 
-public String getWeather_condition() {
-	return weather_condition;
-}
+	public String getIcon() {
+		return icon;
+	}
 
-public void setWeather_condition(String weather_condition) {
-	this.weather_condition = weather_condition;
-}
- 
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
 }

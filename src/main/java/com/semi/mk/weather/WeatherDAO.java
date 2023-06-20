@@ -1,78 +1,92 @@
 package com.semi.mk.weather;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.servlet.http.HttpServletRequest;
 
-import com.semi.db.DBManager;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class WeatherDAO {
 	
-	private static ArrayList<Weather> weathers;
-  
-	public static void weather(HttpServletRequest request) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+	private final static WeatherDAO WEATHERDAO = new WeatherDAO(); 
+	
+	public WeatherDAO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static WeatherDAO getWeatherdao() {
+		// TODO Auto-generated method stub
+		return WEATHERDAO;
+	}
+
+	public void makeWeather(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		String city = request.getParameter("city");
 		
-		String sql = "Select*from weather";
+		String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&cnt=40&appid=3c20bb3f5ab75a340db446d8ba273c5b";
 		
 		try {
-			con = DBManager.connect();
-			pstmt= con.prepareStatement(sql);
-			rs= pstmt.executeQuery();
-			weathers = new ArrayList<Weather>();
-			Weather w = null;
+			URL u = new URL(url);
+			HttpsURLConnection  huc = (HttpsURLConnection) u.openConnection();
 			
-			while (rs.next()) {
-				int weather_id = rs.getInt("weather_id");
-				int place_id = rs.getInt("place_id");
-				float humidity = rs.getFloat("humidity");
-				float temperature = rs.getFloat("temperature");
-				float wind_speed = rs.getFloat("wind_speed");
-				String weather_condition = rs.getString("weather_condition");
-				 w = new Weather(weather_id, place_id, humidity, temperature, wind_speed, weather_condition);
-				weathers.add(w);	 
-			} request.setAttribute("weathers", weathers);
+			InputStream is = huc.getInputStream();
+			InputStreamReader isr = new InputStreamReader(is, "utf-8");
 			
 			
+			JSONParser jp = new JSONParser();
 			
+			JSONObject weatherData = (JSONObject) jp.parse(isr);
+			
+			JSONObject sysJ = (JSONObject) weatherData.get("city");
+			JSONArray weatherJ = (JSONArray) weatherData.get("list");
+			
+			String cityName = sysJ.get("name") + "";
+			String countryName = sysJ.get("country") + "";
+			
+			request.setAttribute("cityName", cityName);
+			request.setAttribute("countryName", countryName);
+			
+			Weather weather = null;
+			
+			ArrayList<Weather> weathers = new ArrayList<Weather>();
+			
+			for(int i = 0; i < 24; i++) {
+				JSONObject day = (JSONObject) weatherJ.get(i);
+				String date = (String) day.get("dt_txt");
+				
+				JSONObject main = (JSONObject) day.get("main");
+				
+				String humidity = main.get("humidity") + "";
+				String temp = main.get("temp") + "";
+				
+				JSONArray conditionJ = (JSONArray) day.get("weather");
+				String condition = ((JSONObject) conditionJ.get(0)).get("main") + "";
+				String icon = ((JSONObject) conditionJ.get(0)).get("icon") + "";
+				
+				
+				
+				String windspeed = ((JSONObject) day.get("wind")).get("speed") + "";
+				weather = new Weather(humidity, temp, windspeed, condition, date, icon);
+				
+				weathers.add(weather);
+			}
+			
+			request.setAttribute("weathers", weathers);
 			
 			
 		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			DBManager.close(con, pstmt, rs);
-		}
-		
-	}
-	
-	
-	
-	public static void weatherUpdate(HttpServletRequest request) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		
-		String sql = "update weather set humidity=?,temperature=?, wind_speed, weather_condition=? where weather_id";
-		
-		try {
-			con = DBManager.connect();
-			pstmt= con.prepareStatement(sql);
-			
-			
-			
-			
-			
-			
-		} catch (Exception e) {
+			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
 	}
+
+}
 	
 
-	
-}
