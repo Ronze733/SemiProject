@@ -1,4 +1,4 @@
-package com.semi.mk.weather;
+package com.semi.mk.PlaceInfo;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.semi.bj.account.AccountDAO;
 
 
-@WebServlet("/WeathrC")
-public class WeathrC extends HttpServlet {
+@WebServlet("/PlaceInfoC")
+public class PlaceInfoC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		AccountDAO.loginCheck(request);
+		PlaceInfoDAO.getPlaceInfo(request);
 		request.setAttribute("contentPage","jsp/mk/detail.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
