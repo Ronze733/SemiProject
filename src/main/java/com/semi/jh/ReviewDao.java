@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.semi.db.DBManager;
+import com.semi.sh.QnA;
 
 public class ReviewDao {
 	private ArrayList<Review> reviews = null;
@@ -231,6 +232,11 @@ public class ReviewDao {
 			items.add(reviews.get(i));
 		}
 		
+		/*int emptyItemCount = cnt - items.size();
+		for (int i = 0; i < emptyItemCount; i++) {
+		    items.add(new Review(i, null, null, null, null, null, null, i));
+		}*/
+
 		req.setAttribute("pageCount", pageCount);
 		req.setAttribute("curPageNo", page);
 		req.setAttribute("reviews", items);
@@ -245,7 +251,7 @@ public class ReviewDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs= null;
 		
-	    List<Review> searchResults = new ArrayList<>(); // 검색 결과를 저장하기 위한 리스트
+		reviews = new ArrayList<Review>(); // 검색 결과를 저장하기 위한 리스트
 		String sql = "SELECT * FROM review WHERE review_title LIKE ? OR review_body LIKE ?";
 		try {
 			con = DBManager.connect();
@@ -265,9 +271,9 @@ public class ReviewDao {
 			String pic = rs.getString("review_pic");
 			int likes = rs.getInt("review_likes");
 			r = new Review(id, user_id, place, title, body, date, pic, likes);
-			searchResults.add(r);
+			reviews.add(r);
 	        }
-	        request.setAttribute("reviews",searchResults);
+	        request.setAttribute("reviews",reviews);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

@@ -22,7 +22,8 @@
 		<div >
    	 		<form action="ReviewSearchC" method="GET">
    	 			<div class="review-searcher">
-       				<input class="review-search" type="text" name="keyword" placeholder="검색어를 입력하세요">			
+       				 <input class="review-search" type="text" name="keyword" value="${keyword}" placeholder="검색어를 입력하세요">			
+       			 	 <input type="hidden" name="p" value="1">
        			 	<button class="review-searchbutton" type="submit">search</button>  		
        			</div>
     		</form>
@@ -46,9 +47,7 @@
 				</div>
 			</div>
 		</div>
-		
 			<c:forEach var="r" items="${reviews}" varStatus="loop">
-			  <c:if test="${loop.index < 3}">
 			    <div class="review-imgf">
 			      <div class="review-img">
 			        <div class="review-con">
@@ -74,7 +73,6 @@
 			        </div>
 			      </div>
 			    </div>
-			  </c:if>
 			</c:forEach>
 			<div class="r-page" style="display: flex;font-size: 20px;justify-content: center;margin-top: 20px;">
 				    <select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)">
@@ -82,12 +80,17 @@
 				        <option value="mostviewed">많이읽은순</option>
 				    </select>
 				    <div onclick="location.href='ReviewPageC?p=1'">[맨처음]</div>
-				    <c:forEach begin="1" end="${pageCount}" var="i">
-				        <div onclick="handlePageClick(${i})">[${i}]</div>
-				    </c:forEach>
-				    <div onclick="location.href='ReviewPageC?p=${pageCount}'">[맨끝]</div>
+				    	<c:if test="${curPageNo > 1}">
+      			  			<div onclick="location.href='ReviewPageC?p=${curPageNo - 1}'">&nbsp;[이전]&nbsp;</div>
+ 					   	</c:if>
+						<c:forEach begin="1" end="${pageCount }" var="i">
+							<div onclick="location.href='ReviewPageC?p=${i }'">&nbsp;${i }&nbsp; </div>
+						</c:forEach>
+						<c:if test="${curPageNo < pageCount}">
+      					  <div onclick="location.href='ReviewPageC?p=${curPageNo + 1}'">&nbsp;[다음]&nbsp;</div>
+   						</c:if>
+					<div onclick="location.href='ReviewPageC?p=${pageCount }'">[맨끝]</div>
 				</div>
-			</div>		
-			
+			</div>				
 </body>	
 </html>
