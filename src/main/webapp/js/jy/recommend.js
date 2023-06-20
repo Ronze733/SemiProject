@@ -1,11 +1,10 @@
 let resultDivWrap = $(".result-div-wrap");
 
-const resultDiv = `<div class="result-div"
-		style="border: 1px solid red; width: 300px; height: 200px; display: flex;">
-		<div style="width: 50%;">
-			<img style="max-width: 150px;" alt="" src="" class="result-img">
+const resultDiv = `<div class="result-div">
+		<div>
+			<img alt="" src="" class="result-img">
 		</div>
-		<div style="text-align: center;" class="result-name"></div>
+		<div class="result-name"></div>
 	</div>
 	`;
 
