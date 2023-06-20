@@ -17,7 +17,7 @@
 		 <div class="detail-main">
 		<div class="detail-main-titleline">
 		<div class="detail-main-title">${p.p_name }</div>
-		<div class="detail-main-area">${p.p_category3}</div>
+		<div class="detail-main-area">${p.p_category1},${p.p_category2},${p.p_category3}</div>
 		</div>
 		<div class="detail-main-informatoin">
 	 		<div class="detail-main-img" >
@@ -33,6 +33,7 @@
  		</div>
  		</C:forEach>
  		<div class="detail-weather">
+	 				<jsp:include page="Weather.jsp"></jsp:include>
 	 		<div class="detail-weather-title">날씨</div>
 	 			<div class="detail-weather-recent">
 	 				<div class="detail-weather-option">
