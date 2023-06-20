@@ -1,4 +1,4 @@
-package com.semi.mk.weather;
+package com.semi.mk.PlaceInfo;
 
 
 import java.io.InputStream;

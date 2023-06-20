@@ -13,29 +13,25 @@
 <body>
 	
 	<div class="detail-container">
-		<div class="detail-main">
-		<div class="detail-main-titleline"> <C:forEach items="places" var="p"></C:forEach>
-		<div class="detail-main-title">불국사${p.name }</div>
-		<div class="detail-main-area">경주${p.c3}</div>
+		 <C:forEach items="${ placeInfo}" var="p">
+		 <div class="detail-main">
+		<div class="detail-main-titleline">
+		<div class="detail-main-title">${p.p_name }</div>
+		<div class="detail-main-area">${p.p_category3}</div>
 		</div>
 		<div class="detail-main-informatoin">
 	 		<div class="detail-main-img" >
-	 			<img id="detail-place_img" alt="" src="./img/mk/불국사.jpg"> ${p.pic }
+	 			<img id="detail-place_img" alt="" src="./img/mk/불국사.jpg"> ${p.p_placePic }
 	 		</div>
 	 		<div class="detail-main-text">
 	 			<h2>상세정보</h2>
 	 		</div>
 	 		<div class="detail-main-explain">
-	 			${p.explain}
-	 			불국정토를 속세에 건설하겠다는 야심찬 통일신라의 꿈을 드러내는 건축물로, 
-	 			이름인 불국사는 불국정토에서 유래한 호국 사찰이다. 
-	 			황룡사가 거대한 규모로 유명한 절이라면 불국사는 치밀한 구성의 완성도와 아름다움으로 유명한 절이다. 
-	 			다만 불국사도 전성기인 신라~고려시대에는 지금의 8배에 달하는 규모의 대사찰이었으며, 
-	 			세월을 거치면서 파괴되고 복원하는 과정에서 규모가 줄어든 것이다. 
-	 			오늘날의 불국사는 조선 영조 때 복원된 불국사에 기인한다.
+	 			${p.p_explain}
 	 		</div>
 	 	</div>
  		</div>
+ 		</C:forEach>
  		<div class="detail-weather">
 	 		<div class="detail-weather-title">날씨</div>
 	 			<div class="detail-weather-recent">
@@ -74,7 +70,7 @@
 		 	
 		<div class="detail-place">
 			<div class="detail-place-root"> 오시는길</div>
-			<div class="detail-place-addr"> 주소: 경상북도 경주시 불국로 385 불국사 </div>
+			<div class="detail-place-addr"> 주소: ${p.addr }</div>
 			<input type="hidden" id="param" value="${param.place }">
 	<div id="map" style="width:500px;height:400px;"></div>
 	
