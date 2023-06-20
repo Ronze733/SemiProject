@@ -118,37 +118,31 @@
 						</div>
 					</div>
 			</div>
-			<div class="result-div-wrap">
-
-			
-
-			</div>
-
 		</div>
 		<div class="recommend-travel-places">
 			추천여행지 <br>
-			<c:forEach var="p" items="${recommendPlaces}">
-					${p.place_name} <br>
-			</c:forEach>
 			<div class="recommend-travel-locations">
 				여행지
-				<div class="recommend-travel-location">
-					<div>
-						<img style="max-width: 100px;" alt="" src="./img/jy/IFCmall.jpg">
+				<div class="result-div-wrap">
+
+					<div class="recommend-travel-location">
+						<div>
+							<img style="max-width: 100px;" alt="" src="./img/jy/IFCmall.jpg">
+						</div>
+						<div>IFC몰</div>
 					</div>
-					<div>IFC몰</div>
-				</div>
-				<div class="recommend-travel-location">
-					<div>
-						<img style="max-width: 100px;" alt="" src="./img/jy/IFCmall.jpg">
+					<div class="recommend-travel-location">
+						<div>
+							<img style="max-width: 100px;" alt="" src="./img/jy/IFCmall.jpg">
+						</div>
+						<div>IFC몰</div>
 					</div>
-					<div>IFC몰</div>
-				</div>
-				<div class="recommend-travel-location">
-					<div>
-						<img style="max-width: 100px;" alt="" src="./img/jy/IFCmall.jpg">
+					<div class="recommend-travel-location">
+						<div>
+							<img style="max-width: 100px;" alt="" src="./img/jy/IFCmall.jpg">
+						</div>
+						<div>IFC몰</div>
 					</div>
-					<div>IFC몰</div>
 				</div>
 			</div>
 		</div>
