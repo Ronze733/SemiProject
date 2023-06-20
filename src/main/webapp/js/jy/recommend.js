@@ -1,16 +1,11 @@
 let resultDivWrap = $(".result-div-wrap");
 
 const resultDiv = `<div class="result-div"
-		style="border: 1px solid red; width: 500px; height: 500px; display: flex;">
+		style="border: 1px solid red; width: 300px; height: 200px; display: flex;">
 		<div style="width: 50%;">
 			<img style="max-width: 150px;" alt="" src="" class="result-img">
 		</div>
 		<div style="text-align: center;" class="result-name"></div>
-		<div style="text-align: center;" class="result-addr"></div>
-		<div style="text-align: center;" class="result-category1"></div>
-		<div style="text-align: center;" class="result-category2"></div>
-		<div style="text-align: center;" class="result-category3"></div>
-		<div style="text-align: center;" class="result-explain"></div>
 	</div>
 	`;
 
@@ -33,9 +28,6 @@ function presentAllPlaces(){
 
 function clearResults()	{
 	$(resultDivWrap).empty();
-	/*themeQuery = "";
-	placeQuery = "";
-	locationQuery = "";*/
 }
 	
 function setVal(data) {
@@ -45,18 +37,11 @@ function setVal(data) {
 	$.each(data.data, function(i, el) {
 	let resultDiv2 = $(resultDiv).clone();
 	console.log(el.name);
-	console.log(el.explain);
-	console.log(el.addr);
 	$(resultDiv2).find('.result-img').attr("src", "./img/jy/" + el.pic);
 	$(resultDiv2).find('.result-name').text(el.name);
-	$(resultDiv2).find('.result-category1').text(el.category1);
-	$(resultDiv2).find('.result-category2').text(el.category2);
-	$(resultDiv2).find('.result-category3').text(el.category3);
-	$(resultDiv2).find('.result-explain').text(el.explain);
-	$(resultDiv2).find('.result-addr').text(el.addr);
 	$(resultDivWrap).append(resultDiv2);
 		
-		console.log(el);
+//		console.log(el);
 	})
 	
 }
@@ -71,21 +56,33 @@ let locationQuery = "";
 	
 $(themesEl).click(function() {
 	let themes = $(this).val();
-	themeQuery += themes + "!";
+	if($(this).is(':checked')){
+		themeQuery += themes + "!";
+	}else{
+		 themeQuery = themeQuery.replace($(this).val()+"!", "");		
+	}
 	console.log(themeQuery);
 	sendAjaxRequest();
 });
 
 $(placesEl).click(function() {
 	let places = $(this).val();
-	placeQuery += places + "!";
+	if($(this).is(':checked')){
+		placeQuery += places + "!";
+	}else{
+		placeQuery = placeQuery.replace($(this).val()+"!", "");
+	}
 	console.log(placeQuery);
 	sendAjaxRequest();
 });
 
 $(locationsEl).click(function() {
 	let locations = $(this).val();
-	locationQuery += locations + "!";
+	if($(this).is(':checked')){
+		locationQuery += locations + "!";
+	}else{
+		locationQuery = locationQuery.replace($(this).val()+"!", "");
+	}
 	console.log(locationQuery);
 	sendAjaxRequest();
 });
