@@ -119,9 +119,6 @@ public class QnADAO {
 			DBManager.close(con, pstmt, null);
 		}
 		
-		
-		
-		
 	}
 
 	public void pagingQnA(int page, HttpServletRequest request) {
@@ -150,5 +147,64 @@ public class QnADAO {
 		
 	}
 
+	public void delQnA(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete inquiry where inquiry_no = ?";
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, request.getParameter("pkno"));
+			
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("삭제성공");
+				
+			}
+					
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, null);
+		}
+		
+		
+		
+		
+		
+		
+	}
+
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
