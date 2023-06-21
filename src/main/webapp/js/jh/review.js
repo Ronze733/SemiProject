@@ -55,3 +55,42 @@ function handlePageClick(page) {
     location.href = `ReviewPageC?p=${page}`; // ReviewPageC로 이동하는 동작 수행
     // 추가적인 동작 수행
 }
+
+
+  function drawStar(target) {
+    const width = target.value * 10 + '%';
+    document.querySelector('.star span').style.width = width;
+    console.log(target.value);
+	document.querySelector("#star_value").value = target.value;
+  }
+  
+  	const star_value = document.getElementById("star_value");
+	const star_value2 = document.getElementById("s");
+	
+	
+  
+  
+  function drawStar2(p) {
+    console.log(p);
+    const width = p * 10 + '%';
+   	document.querySelector('.star span').style.width = width;
+	star_value.value = p;
+	star_value.value = star_value2.value;
+  }
+
+
+
+function createStar(value) {
+	console.log(value);
+  const width = value * 10 + '%';
+  const starElement = document.createElement('div');
+  starElement.className = 'star';
+  const spanElement = document.createElement('span');
+  spanElement.style.width = width;
+  starElement.appendChild(spanElement);
+  document.body.appendChild(starElement);
+}
+
+
+
+  

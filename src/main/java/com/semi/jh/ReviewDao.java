@@ -105,7 +105,7 @@ public class ReviewDao {
 	public void insert(HttpServletRequest request) {
 		Connection con =null;
 		PreparedStatement pstmt =null;
-		String url="INSERT INTO review VALUES (review_id_seq.nextval, 'jh' , ? , ? , ? , sysdate , ? , 0)";
+		String url="INSERT INTO review VALUES (review_id_seq.nextval, ? , ? , ? , ? , sysdate , ? , ?)";
 		String path = request.getServletContext().getRealPath("img/jh");
 		System.out.println(path);
 		try {
@@ -113,22 +113,26 @@ public class ReviewDao {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(url);
 			
-			//String user_id=mr.getParameter("id");
+			String user_id=mr.getParameter("id");
 			String place= mr.getParameter("place_name");
 			String title=mr.getParameter("title");
 			String body=mr.getParameter("body");
 			String pic=mr.getFilesystemName("pic");
+			String likes=mr.getParameter("star_value");
 	
+			System.out.println(user_id);
 			System.out.println(place);
 			System.out.println(title);
 			System.out.println(body);
 			System.out.println(pic);
+			System.out.println(likes);
 
-			//pstmt.setString(1, user_id);
-			pstmt.setString(1, place);
-			pstmt.setString(2, title);
-			pstmt.setString(3, body);
-			pstmt.setString(4, pic);
+			pstmt.setString(1, user_id);
+			pstmt.setString(2, place);
+			pstmt.setString(3, title);
+			pstmt.setString(4, body);
+			pstmt.setString(5, pic);
+			pstmt.setString(6, likes);
 			
 			
 			if (pstmt.executeUpdate()==1) {
@@ -281,5 +285,6 @@ public class ReviewDao {
 			
 		}
 	}
+	
 }
 
