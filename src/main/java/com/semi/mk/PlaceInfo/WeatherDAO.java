@@ -19,16 +19,13 @@ public class WeatherDAO {
 	private final static WeatherDAO WEATHERDAO = new WeatherDAO(); 
 	
 	public WeatherDAO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public static WeatherDAO getWeatherdao() {
-		// TODO Auto-generated method stub
 		return WEATHERDAO;
 	}
 
 	public void makeWeather(HttpServletRequest request) {
-		// TODO Auto-generated method stub
 		String city = request.getParameter("city");
 		
 		String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&cnt=40&appid=3c20bb3f5ab75a340db446d8ba273c5b";
@@ -83,7 +80,6 @@ public class WeatherDAO {
 			
 			
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
