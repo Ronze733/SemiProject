@@ -30,13 +30,11 @@
 				<div class="QnA-insert-body">
 					<div style="font-weight: 600; margin-bottom: 15px;">내용</div>
 					<div>
-						<textarea rows="10" cols="100" name="inquiry_body">
-							${QnA.inquiry_body }
-						</textarea>
+						<textarea rows="10" cols="100" name="inquiry_body">${QnA.inquiry_body }</textarea>
 					</div>
 				</div>
 				<div class="QnA-insert-button">
-					<div><button onclick="on.href='QnAC'">취소</button></div>
+					<div><button onclick="history.back()">취소</button></div>
 					<div><button>수정하기</button></div>
 				</div>
 			</div>
