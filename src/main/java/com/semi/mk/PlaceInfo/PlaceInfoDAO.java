@@ -15,12 +15,14 @@ public class PlaceInfoDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		String pId = request.getParameter("pid");
+		System.out.println(pId);
 		
 		String sql = "select*from place where place_name=?";
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, request.getParameter("p_id"));
+			pstmt.setString(1, pId);
 			rs= pstmt.executeQuery();
 			if (rs.next()) {
 				
