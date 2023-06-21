@@ -1,9 +1,13 @@
 package com.semi.mk.PlaceInfo;
 
 
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -13,26 +17,39 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import com.semi.db.DBManager;
+
 public class WeatherDAO {
 	
 	private final static WeatherDAO WEATHERDAO = new WeatherDAO(); 
 	
 	public WeatherDAO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public static WeatherDAO getWeatherdao() {
-		// TODO Auto-generated method stub
 		return WEATHERDAO;
 	}
 
-	public void makeWeather(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		String city = request.getParameter("city");
+	public static void makeWeather(HttpServletRequest request) {
 		
-		String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&cnt=40&appid=3c20bb3f5ab75a340db446d8ba273c5b";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String pId = request.getParameter("pid"); 
+		String sql = "select place_addr2 from place where place_id = ?";
 		
 		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pId);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				
+			String city = request.getParameter("city");
+			String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&cnt=40&appid=3c20bb3f5ab75a340db446d8ba273c5b";
+			
+			
 			URL u = new URL(url);
 			HttpsURLConnection  huc = (HttpsURLConnection) u.openConnection();
 			
@@ -57,32 +74,32 @@ public class WeatherDAO {
 			
 			ArrayList<Weather> weathers = new ArrayList<Weather>();
 			
-			for(int i = 0; i < 24; i++) {
-				JSONObject day = (JSONObject) weatherJ.get(i);
+			for(int i = 0; i < 3; i++) {
+				JSONObject day = (JSONObject) weatherJ.get(8 * i + 4);
 				String date = (String) day.get("dt_txt");
-				
+				String popS = day.get("pop") + "";
+				double pop = Double.parseDouble(popS);
 				JSONObject main = (JSONObject) day.get("main");
-				
 				String humidity = main.get("humidity") + "";
-				String temp = main.get("temp") + "";
+				String minTemp = main.get("temp_min") + "";
+				String maxTemp = main.get("temp_max") + "";
+				String fillTemp = main.get("fill_like") + "";
 				
 				JSONArray conditionJ = (JSONArray) day.get("weather");
 				String condition = ((JSONObject) conditionJ.get(0)).get("main") + "";
 				String icon = ((JSONObject) conditionJ.get(0)).get("icon") + "";
 				
 				
-				
 				String windspeed = ((JSONObject) day.get("wind")).get("speed") + "";
-				weather = new Weather(humidity, temp, windspeed, condition, date, icon);
 				
+				weather = new Weather(humidity, minTemp, maxTemp, fillTemp, windspeed, condition, date, icon, pop);				
 				weathers.add(weather);
 			}
 			
 			request.setAttribute("weathers", weathers);
-			
+			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}

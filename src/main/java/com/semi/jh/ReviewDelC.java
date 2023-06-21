@@ -14,9 +14,11 @@ public class ReviewDelC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		AccountDAO.loginCheck(request);
 		ReviewDao.getReviewdao().delete(request);
 		ReviewDao.getReviewdao().select(request);
-		AccountDAO.loginCheck(request);
+		int p = Integer.parseInt(request.getParameter("p"));
+		ReviewDao.getReviewdao().paging(p,request);
 		request.setAttribute("contentPage", "jsp/jh/review.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 
