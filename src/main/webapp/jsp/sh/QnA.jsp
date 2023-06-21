@@ -40,7 +40,7 @@
 						<div class="QnA-lists">
 							<div class="QnA-list1">${QnA.inquiry_category }</div>
 							<div class="QnA-list2" onclick="location.href='QnADetailC?no=${QnA.inquiry_no}'">${QnA.inquiry_title }</div>
-							<div class="QnA-list3">${QnA.inquiry_user_id }</div>
+							<div class="QnA-list3">${QnA.inquiry_user_name }</div>
 							<div class="QnA-list4">${QnA.inquiry_question_day }</div>
 						</div>
 					</c:forEach>

@@ -15,13 +15,17 @@ public class QnAUpdateC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AccountDAO.loginCheck(request);
-		QnADAO.getQnADAO().updateQnA(request);
+		QnADAO.getQnADAO().getQnA(request);
 		request.setAttribute("contentPage", "jsp/sh/QnA_update.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		AccountDAO.loginCheck(request);
+		QnADAO.getQnADAO().updateQnA(request);
+		request.setAttribute("contentPage", "jsp/sh/QnA_detail.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}
 
