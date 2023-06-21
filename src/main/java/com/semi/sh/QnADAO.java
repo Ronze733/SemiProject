@@ -168,9 +168,9 @@ public class QnADAO {
 			DBManager.close(con, pstmt, null);
 		}
 		
-		
-		
-		
+	}
+
+	public void updateQnA(HttpServletRequest request) {
 		
 		
 	}
