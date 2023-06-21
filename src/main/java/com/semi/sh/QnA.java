@@ -10,13 +10,14 @@ public class QnA {
 		private Date inquiry_question_day;
 		private int inquiry_no;
 		private String inquiry_category;
+		private String inquiry_user_name;
 		
 		public QnA() {
 			// TODO Auto-generated constructor stub
 		}
 
 		public QnA(String inquiry_user_id, String inquiry_title, String inquiry_body, Date inquiry_question_day,
-				int inquiry_no, String inquiry_category) {
+				int inquiry_no, String inquiry_category, String inquiry_user_name) {
 			super();
 			this.inquiry_user_id = inquiry_user_id;
 			this.inquiry_title = inquiry_title;
@@ -24,6 +25,7 @@ public class QnA {
 			this.inquiry_question_day = inquiry_question_day;
 			this.inquiry_no = inquiry_no;
 			this.inquiry_category = inquiry_category;
+			this.inquiry_user_name = inquiry_user_name;
 		}
 
 		public String getInquiry_user_id() {
@@ -74,12 +76,21 @@ public class QnA {
 			this.inquiry_category = inquiry_category;
 		}
 
+		public String getInquiry_user_name() {
+			return inquiry_user_name;
+		}
+
+		public void setInquiry_user_name(String inquiry_user_name) {
+			this.inquiry_user_name = inquiry_user_name;
+		}
+
 		@Override
 		public String toString() {
 			return "QnA [inquiry_user_id=" + inquiry_user_id + ", inquiry_title=" + inquiry_title + ", inquiry_body="
 					+ inquiry_body + ", inquiry_question_day=" + inquiry_question_day + ", inquiry_no=" + inquiry_no
-					+ ", inquiry_category=" + inquiry_category + "]";
+					+ ", inquiry_category=" + inquiry_category + ", inquiry_user_name=" + inquiry_user_name + "]";
 		}
+		
 		
 		
 }
