@@ -94,7 +94,7 @@
 	margin-right: 80px;
 	margin-left: 80px;
 	margin-bottom: 50px;
-	
+	flex-direction: column;
 }
 
 .detail-weather-optiontext{

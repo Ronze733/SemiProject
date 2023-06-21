@@ -13,57 +13,37 @@
 <body>
 	
 	<div class="detail-container">
-		 <C:forEach items="${ placeInfo}" var="p">
 		 <div class="detail-main">
 		<div class="detail-main-titleline">
-		<div class="detail-main-title">${p.p_name }</div>
-		<div class="detail-main-area">${p.p_category1},${p.p_category2},${p.p_category3}</div>
+		<div class="detail-main-title">${placeInfo.p_name }</div>
+		<div class="detail-main-area">${placeInfo.p_category3}</div>
 		</div>
 		<div class="detail-main-informatoin">
 	 		<div class="detail-main-img" >
-	 			<img id="detail-place_img" alt="" src="./img/mk/불국사.jpg"> ${p.p_placePic }
+	 			<img id="detail-place_img" alt="" src=""> ${placeInfo.p_pic }
 	 		</div>
 	 		<div class="detail-main-text">
 	 			<h2>상세정보</h2>
 	 		</div>
 	 		<div class="detail-main-explain">
-	 			${p.p_explain}
+	 			${placeInfo.p_explain}
 	 		</div>
 	 	</div>
  		</div>
- 		</C:forEach>
  		<div class="detail-weather">
-	 				<jsp:include page="Weather.jsp"></jsp:include>
 	 		<div class="detail-weather-title">날씨</div>
 	 			<div class="detail-weather-recent">
 	 				<div class="detail-weather-option">
-	 		 		<div class="detail-weather-optiontext"> 오늘 날씨</div> 
-	 		 		아이콘<br>
-	 		 		기상 상태<br>
-	 		 		강수확률<br>
-	 				체감온도<br>
-	 				최저 기온/최고 기온<br>
-	 				습도<br>
-	 				풍향
-	 				풍속
-	 				<div class="detail-weather-optiontext"> 내일 날씨</div>
-	 				 아이콘<br>
-	 				 기상 상태 ${w.condition }<br>
-	 				 강수확률<br>
-	 				 체감온도<br>
-	 				최저 기온${w.mintemp }/최고 기온${w.maxtemp }<br>
+	 				<C:forEach items="${weathers }" var="w">
+	 		 		<div class="detail-weather-optiontext"> ${w.day } 날짜</div> 
+	 		 		아이콘 <img alt="" src="https://openweathermap.org/img/wn/${w.icon }@2x.png"> <br>
+	 		 		기상 상태 ${w.condition }<br>
+	 		 		강수확률 ${w.pop * 100 } %<br>
+	 				체감온도 ${w.fillTemp }<br>
+	 				최저 기온/최고 기온 ${w.minTemp } / ${w.maxTemp }<br>
 	 				습도 ${w.humidity }<br>
-	 				풍향
-	 				풍속${w.windSpeed }
-	 				<div class="detail-weather-optiontext"> 모레 날씨</div>
-	 				 아이콘<br>
-	 				 기상 상태<br>
-	 				 강수확률<br>
-	 				 체감온도<br>
-	 				최저 기온/최고 기온<br>
-	 				습도<br>
-	 				풍향
-	 				풍속
+	 				풍속 ${w.windSpeed }
+	 				</C:forEach>
 	 				</div>
 	 			</div>
 	 		</div>
@@ -71,8 +51,8 @@
 		 	
 		<div class="detail-place">
 			<div class="detail-place-root"> 오시는길</div>
-			<div class="detail-place-addr"> 주소: ${p.addr }</div>
-			<input type="hidden" id="param" value="${param.place }">
+			<div class="detail-place-addr"> 주소: ${placeInfo.p_addr }</div>
+			<input type="hidden" id="param" value="${placeInfo.p_addr }">
 	<div id="map" style="width:500px;height:400px;"></div>
 	
 	<script type="text/javascript">
@@ -88,7 +68,7 @@
 		
 		let geocoder = new kakao.maps.services.Geocoder();
 		
-		geocoder.addressSearch('경북 경주시 불국로 385 불국사', function(result, status){
+		geocoder.addressSearch(place, function(result, status){
 			 if (status === kakao.maps.services.Status.OK) {
 
 			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
