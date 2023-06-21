@@ -42,12 +42,6 @@
 			        <div class="review-date">
 			        ${review.review_create_at}
 			        </div>
-			        <button id="like-${r.review_id}" class="like-button" onclick="toggleLike(${r.review_id})"
-					style="margin-left: 10px; background-color: white; border: white;">
-						<img class="heart-icon" src="img/jh/heart.png" alt="heart" style="width: 20px; height: 20px; margin-left: 85px;
-						">
-					</button>
-					<span id="like-count-${r.review_id}" class="like-count">${r.review_likes}</span>
 			        </div>
 			        <div class="review-write-detail">
 			            <div class="review-title-text">

@@ -80,17 +80,17 @@
 				        <option value="recently">최신순</option>
 				        <option value="mostviewed">많이읽은순</option>
 				    </select>
-				    <div onclick="location.href='ReviewSearchC?keyword=${keyword}&p=1'">[맨처음]</div>
+				    <div onclick="location.href='ReviewSearchC?keyword=${param.keyword}&p=1'">[맨처음]</div>
 				    <c:if test="${curPageNo > 1}">
-				        <div onclick="location.href='ReviewSearchC?keyword=${keyword}&p=${curPageNo - 1}'">&nbsp;[이전]&nbsp;</div>
+				        <div onclick="location.href='ReviewSearchC?keyword=${param.keyword}&p=${curPageNo - 1}'">&nbsp;[이전]&nbsp;</div>
 				    </c:if>
 				    <c:forEach begin="1" end="${pageCount}" var="i">
-				        <div onclick="location.href='ReviewSearchC?keyword=${keyword}&p=${i}'">&nbsp;${i}&nbsp;</div>
+				        <div onclick="location.href='ReviewSearchC?keyword=${param.keyword}&p=${i}'">&nbsp;${i}&nbsp;</div>
 				    </c:forEach>
 				    <c:if test="${curPageNo < pageCount}">
-				        <div onclick="location.href='ReviewSearchC?keyword=${keyword}&p=${curPageNo + 1}'">&nbsp;[다음]&nbsp;</div>
+				        <div onclick="location.href='ReviewSearchC?keyword=${param.keyword}&p=${curPageNo + 1}'">&nbsp;[다음]&nbsp;</div>
 				    </c:if>
-				    <div onclick="location.href='ReviewSearchC?keyword=${keyword}&p=${pageCount}'">[맨끝]</div>
+				    <div onclick="location.href='ReviewSearchC?keyword=${param.keyword}&p=${pageCount}'">[맨끝]</div>
 				</div>
 			</div>				
 </body>	

@@ -36,10 +36,20 @@
 			</div>
 		</div>
 		<form action="ReviewInsertC" method="post" enctype="multipart/form-data">
-		
+		<input type="hidden" name="id" value="${sessionScope.account.user_id}">
 		<div class="review-write-submit">
+			<div>
 			<div class="review-writeimg">
 				<input name="pic" type="file">
+			</div>
+			<div style="margin-left: 100px;">
+			<span class="star">
+			★★★★★
+			<span>★★★★★</span>
+			<input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+			</span>
+			 <input type="hidden" id="star_value" name="star_value" value="">
+			</div>
 			</div>
 			<div class="review-blank">
 			

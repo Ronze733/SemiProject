@@ -57,13 +57,14 @@
 			          	<div>
 						<div class="r-img" onclick="location.href='ReviewDetailC?id=${r.review_id}'" >
 						  <img class="reviewImg" src="img/jh/${r.review_pic}">
-						</div>
+						</div>									
 						<div>
-						  <button id="like-${r.review_id}" class="like-button" onclick="toggleLike(${r.review_id})"
-						   style="margin-left: 10px; background-color: white; border: white;">
-						    <img class="heart-icon" src="img/jh/heart.png" alt="heart" style="width: 20px; height: 20px;">
-						  </button>
-						  <span id="like-count-${r.review_id}" class="like-count">${r.review_likes}</span>
+						<span class="star">
+						  ★★★★★
+						  <span>★★★★★</span>
+						  <input type="range" id="s" value="drawStar2(${r.review_likes})" step="1" min="0" max="10">
+						</span>
+						<input type="text" id="star_value" name="star_value" value="${r.review_likes}">
 						</div>
 						</div>
 						<div class="r-text">
@@ -74,6 +75,8 @@
 			      </div>
 			    </div>
 			</c:forEach>
+			<div>
+			</div>
 			<div class="r-page" style="display: flex;font-size: 20px;justify-content: center;margin-top: 20px;">
 				    <select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)">
 				        <option value="recently">최신순</option>

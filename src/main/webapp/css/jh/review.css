@@ -190,7 +190,8 @@ width: 200px;
 }
 
 .reviewImg:hover {
-  transform: scale(1.15); /* 마우스를 올렸을 때 이미지를 1.15로 확대 */
+  transform: scale(1.25); /* 마우스를 올렸을 때 이미지를 1.25로 확대 */
+  transition-duration: 0.5s
 }
 
 .review-img {
@@ -483,6 +484,30 @@ flex-grow: 0;
 
 .div-button:hover {
     background-color: #d5d5d5;
+   
   }
   
   
+  
+.star {
+  position: relative;
+  font-size: 32px;
+  color: #ddd;
+}
+
+.star input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+
+.star span {
+  width: 0;
+  position: absolute;
+  left: 0;
+  color: rgb(253, 197, 2);
+  overflow: hidden;
+  pointer-events: none;
+}
