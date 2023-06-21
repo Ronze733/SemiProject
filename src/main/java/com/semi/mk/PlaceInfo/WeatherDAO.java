@@ -21,6 +21,7 @@ import com.semi.db.DBManager;
 
 public class WeatherDAO {
 	
+	private static Connection con = DBManager.connect();
 	private final static WeatherDAO WEATHERDAO = new WeatherDAO(); 
 	
 	public WeatherDAO() {
@@ -32,14 +33,12 @@ public class WeatherDAO {
 
 	public static void makeWeather(HttpServletRequest request) {
 		
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String pId = request.getParameter("pid"); 
 		String sql = "select place_addr2 from place where place_id = ?";
 		
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, pId);
 			rs = pstmt.executeQuery();
