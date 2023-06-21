@@ -26,7 +26,7 @@
 						<button class="QnA-searchbutton">검색</button>
 					</div>
 					<div>
-						<button onclick="location.href='QnAInsertC?id=${inquiry_user_id}'">작성</button>
+						<button onclick="location.href='QnAInsertC?id=${sessionScope.account.user_id }'">작성</button>
 					</div>
 				</div>
 				<div class="QnA-body-list">

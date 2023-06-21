@@ -13,7 +13,6 @@ import com.semi.bj.account.AccountDAO;
 public class QnAInsertC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QnADAO.getQnADAO().insert(request);
 		AccountDAO.loginCheck(request);
 		request.setAttribute("contentPage", "jsp/sh/QnA_insert.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -21,10 +20,7 @@ public class QnAInsertC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QnADAO.getQnADAO().insert(request);
-		AccountDAO.loginCheck(request);
-		request.setAttribute("contentPage", "jsp/sh/QnA_insert.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
-		
+		response.sendRedirect("QnAC");
 	}
 
 }

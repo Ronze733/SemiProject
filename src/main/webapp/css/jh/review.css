@@ -190,7 +190,7 @@ width: 200px;
 }
 
 .reviewImg:hover {
-  transform: scale(1.5); /* 마우스를 올렸을 때 이미지를 1.5로 확대 */
+  transform: scale(1.15); /* 마우스를 올렸을 때 이미지를 1.15로 확대 */
 }
 
 .review-img {

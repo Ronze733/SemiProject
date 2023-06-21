@@ -29,6 +29,10 @@ function confirmDelete(reviewId) {
    
  }
 }
+
+function goBack() {
+  window.history.back();
+}
  
 function handleSearch() {
   var keyword = document.getElementById("keyword").value;
@@ -42,23 +46,12 @@ function handlePageClick(pageNumber) {
 }
 
 
-  const likeStatus = {};
+ function handleClick() {
+    location.href = 'ReviewSearch'; // ReviewSearch로 이동하는 동작 수행
+    // 추가적인 동작 수행
+}
 
-  // 좋아요 토글 함수
-  function toggleLike(reviewId) {
-    const likeButton = document.getElementById(`like-${reviewId}`);
-    const likeCountElement = document.getElementById(`like-count-${reviewId}`);
-
-    if (likeStatus[reviewId]) {
-      // 이미 좋아요를 누른 상태인 경우
-      likeStatus[reviewId] = false;
-      likeButton.classList.remove("liked");
-      likeCountElement.textContent = parseInt(likeCountElement.textContent) - 1;
-    } else {
-      // 좋아요를 누르지 않은 상태인 경우
-      likeStatus[reviewId] = true;
-      likeButton.classList.add("liked");
-      likeCountElement.textContent = parseInt(likeCountElement.textContent) + 1;
-    }
-    // TODO: 좋아요 상태를 서버에 저장하는 로직 추가
-  }
+function handlePageClick(page) {
+    location.href = `ReviewPageC?p=${page}`; // ReviewPageC로 이동하는 동작 수행
+    // 추가적인 동작 수행
+}

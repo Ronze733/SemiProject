@@ -183,7 +183,7 @@ public class AccountDAO {
 				// 세션을 새로 업데이트
 				account.setUser_name(nickname);
 				account.setUser_pw(pw);
-				account.setUser_pw(gender);
+				account.setUser_gender(gender);
 				HttpSession hs = request.getSession();
 				hs.setAttribute("account", account);
 				hs.setMaxInactiveInterval(60 * 300);
@@ -260,41 +260,100 @@ public class AccountDAO {
 
 	}
 
-	public static void pwUpdate(HttpServletRequest request) {
+	public static boolean accountCheck(HttpServletRequest request) {
 		
-		Account account = (Account) request.getSession().getAttribute("account");
-
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 
-		String sql = "update user_tbl set user_pw = ?, where user_id = ?";
+		String sql = "select * from user_tbl where user_id = ? and user_question = ? and user_answer = ?";
 
-		String pw = request.getParameter("pw");
-		String id = request.getParameter("id");
-
+		String id = request.getParameter("email");
+		String question = request.getParameter("question");
+		String answer = request.getParameter("answer");
+		
+		boolean result = false;
+		
+		System.out.println(id);
+		System.out.println(question);
+		System.out.println(answer);
+		
 		try {
 			con = DBManager.connect();
 
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, pw);
-			pstmt.setString(2, id);
+			pstmt.setString(1, id);
+			pstmt.setString(2, question);
+			pstmt.setString(3, answer);
 
-			if (pstmt.executeUpdate() == 1) {
-				System.out.println("수정 성공");
-
-				// 세션을 새로 업데이트
-				account.setUser_pw(pw);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				System.out.println("본인인증 성공");
+				Account userInfo = new Account();
+				userInfo.setUser_id(rs.getString("user_id"));
 				HttpSession hs = request.getSession();
-				hs.setAttribute("account", account);
+				hs.setAttribute("account", userInfo);
 				hs.setMaxInactiveInterval(60 * 300);
+				result = true;
+				request.setAttribute("AccountCheck", result);
+			} else {
+				System.out.println("본인인증 실패");
 			}
 
+		} catch (Exception e) {
+			System.out.println("db 접속 오류");
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		return result;
+	}
+
+	public static void pwUpdate(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
+		
+		Account account = (Account) request.getSession().getAttribute("account");
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "update user_tbl set user_pw = ? where user_id = ?";
+		String pw = BCrypt.hashpw(request.getParameter("user_pw"), BCrypt.gensalt());
+		String id = account.getUser_id();
+		
+		System.out.println(request.getParameter("user_pw"));
+		System.out.println(pw);
+		System.out.println(id);
+		
+		try {
+			con = DBManager.connect();
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pw);
+			pstmt.setString(2, id);
+			
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter writer = response.getWriter();
+			
+			
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("수정 성공");
+				response.setStatus(200);
+				writer.write("true");
+				
+			} else {
+				System.out.println("수정 실패");
+				response.setStatus(400);
+				writer.write("false");
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(con, pstmt, null);
 		}
-
+		
+		
 	}
-
 }
