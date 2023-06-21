@@ -32,6 +32,7 @@ public class AccountUpdateC extends HttpServlet {
 
 			} else {
 				// 비밀번호 질문 답 오류, 그 때 어디로 보낼 지 생각
+				request.getRequestDispatcher("jsp/bj/login/login.jsp").forward(request, response);
 			}
 		}
 	}
