@@ -39,7 +39,7 @@
 					<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 					<li class="nav-item"><a href="ReviewPageC?p=1" class="nav-link">Review</a></li>
 					<li class="nav-item"><a href="destination.html" class="nav-link">Sign Up</a></li>
-					<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+					<li class="nav-item"><a href="SKTCC2" class="nav-link">SKTC</a></li>
 					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
 				</ul>
 			</div>

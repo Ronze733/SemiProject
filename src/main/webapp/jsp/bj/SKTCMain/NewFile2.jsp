@@ -2,27 +2,28 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<head>
   <title>Pacific - Free Bootstrap 4 Template by Colorlib</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Arizonia&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="css/bj/SKTMain/animate.css">
-  
-  <link rel="stylesheet" href="css/bj/SKTMain/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/bj/SKTMain/owl.theme.default.min.css">
-  <link rel="stylesheet" href="css/bj/SKTMain/magnific-popup.css">
+	<link rel="stylesheet" href="css/bj/SKTCMain/animate.css">
+	
+	<link rel="stylesheet" href="css/bj/SKTCMain/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/bj/SKTCMain/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/bj/SKTCMain/magnific-popup.css">
 
-  <link rel="stylesheet" href="css/bj/SKTMain/bootstrap-datepicker.css">
-  <link rel="stylesheet" href="css/bj/SKTMain/jquery.timepicker.css">
+	<link rel="stylesheet" href="css/bj/SKTCMain/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="css/bj/SKTCMain/jquery.timepicker.css">
 
-  
-  <link rel="stylesheet" href="css/bj/SKTMain/flaticon.css">
-  <link rel="stylesheet" href="css/bj/SKTMain/style.css">
+	
+	<link rel="stylesheet" href="css/bj/SKTCMain/flaticon.css">
+	<link rel="stylesheet" href="css/bj/SKTCMain/style.css">
 </head>
 <body>
  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -46,7 +47,7 @@
  </nav>
  <!-- END nav -->
  
- <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('css/bj/images/images/bg_1.jpg');">
+ <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -63,7 +64,7 @@
     <div class="row d-flex">
       <div class="col-md-4 d-flex ftco-animate">
        <div class="blog-entry justify-content-end">
-        <a href="blog-single.html" class="block-20" style="background-image: url('css/bj/images/images/image_1.jpg');">
+        <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
         </a>
         <div class="text">
          <div class="d-flex align-items-center mb-4 topp">
@@ -83,7 +84,7 @@
  </div>
  <div class="col-md-4 d-flex ftco-animate">
    <div class="blog-entry justify-content-end">
-    <a href="blog-single.html" class="block-20" style="background-image: url('css/bj/images/images/image_2.jpg');">
+    <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
     </a>
     <div class="text">
      <div class="d-flex align-items-center mb-4 topp">
@@ -103,7 +104,7 @@
 </div>
 <div class="col-md-4 d-flex ftco-animate">
  <div class="blog-entry">
-  <a href="blog-single.html" class="block-20" style="background-image: url('css/bj/images/images/image_3.jpg');">
+  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
   </a>
   <div class="text">
    <div class="d-flex align-items-center mb-4 topp">
@@ -123,7 +124,7 @@
 </div>
 <div class="col-md-4 d-flex ftco-animate">
  <div class="blog-entry">
-  <a href="blog-single.html" class="block-20" style="background-image: url('css/bj/images/images/image_4.jpg');">
+  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_4.jpg');">
   </a>
   <div class="text">
    <div class="d-flex align-items-center mb-4 topp">
@@ -143,7 +144,7 @@
 </div>
 <div class="col-md-4 d-flex ftco-animate">
  <div class="blog-entry">
-  <a href="blog-single.html" class="block-20" style="background-image: url('css/bj/images/images/image_5.jpg');">
+  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_5.jpg');">
   </a>
   <div class="text">
    <div class="d-flex align-items-center mb-4 topp">
@@ -163,7 +164,7 @@
 </div>
 <div class="col-md-4 d-flex ftco-animate">
  <div class="blog-entry">
-  <a href="blog-single.html" class="block-20" style="background-image: url('css/bj/images/images/image_6.jpg');">
+  <a href="blog-single.html" class="block-20" style="background-image: url('images/image_6.jpg');">
   </a>
   <div class="text">
    <div class="d-flex align-items-center mb-4 topp">
@@ -204,7 +205,7 @@
  <div class="container">
   <div class="row justify-content-center">
    <div class="col-md-12 text-center">
-    <div class="img"  style="background-image: url(css/bj/images//bg_2.jpg);">
+    <div class="img"  style="background-image: url(images/bg_2.jpg);">
      <div class="overlay"></div>
      <h2>We Are Pacific A Travel Agency</h2>
      <p>We can manage your dream building A small river named Duden flows by their place</p>
@@ -215,7 +216,7 @@
 </div>
 </section>
 
-<footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url(css/bj/images//bg_3.jpg);">
+<footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url(images/bg_3.jpg);">
   <div class="container">
     <div class="row mb-5">
       <div class="col-md pt-5">
@@ -285,21 +286,21 @@
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-<script src="js/bj/SKTMain/jquery.min.js"></script>
-<script src="js/bj/SKTMain/jquery-migrate-3.0.1.min.js"></script>
-<script src="js/bj/SKTMain/popper.min.js"></script>
-<script src="js/bj/SKTMain/bootstrap.min.js"></script>
-<script src="js/bj/SKTMain/jquery.easing.1.3.js"></script>
-<script src="js/bj/SKTMain/jquery.waypoints.min.js"></script>
-<script src="js/bj/SKTMain/jquery.stellar.min.js"></script>
-<script src="js/bj/SKTMain/owl.carousel.min.js"></script>
-<script src="js/bj/SKTMain/jquery.magnific-popup.min.js"></script>
-<script src="js/bj/SKTMain/jquery.animateNumber.min.js"></script>
-<script src="js/bj/SKTMain/bootstrap-datepicker.js"></script>
-<script src="js/bj/SKTMain/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="js/bj/SKTMain/google-map.js"></script>
-<script src="js/bj/SKTMain/main.js"></script>
+			<script src="js/bj/SKTCMain/jquery.min.js"></script>
+			<script src="js/bj/SKTCMain/jquery-migrate-3.0.1.min.js"></script>
+			<script src="js/bj/SKTCMain/popper.min.js"></script>
+			<script src="js/bj/SKTCMain/bootstrap.min.js"></script>
+			<script src="js/bj/SKTCMain/jquery.easing.1.3.js"></script>
+			<script src="js/bj/SKTCMain/jquery.waypoints.min.js"></script>
+			<script src="js/bj/SKTCMain/jquery.stellar.min.js"></script>
+			<script src="js/bj/SKTCMain/owl.carousel.min.js"></script>
+			<script src="js/bj/SKTCMain/jquery.magnific-popup.min.js"></script>
+			<script src="js/bj/SKTCMain/jquery.animateNumber.min.js"></script>
+			<script src="js/bj/SKTCMain/bootstrap-datepicker.js"></script>
+			<script src="js/bj/SKTCMain/scrollax.min.js"></script>
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+			<script src="js/bj/SKTCMain/google-map.js"></script>
+			<script src="js/bj/SKTCMain/main.js"></script>
 
 </body>
 </html>
