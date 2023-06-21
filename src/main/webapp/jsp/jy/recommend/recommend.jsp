@@ -13,7 +13,9 @@
 		<div class="recommend-search" style="display: flex;">
 			<div id="recommend-search-menus">
 					<div class="recommend-search-themes">
-						테마
+						<div class="recommend-themes-title">
+							테마
+						</div>
 						<div>
 							<label>
 								<input class="recommend-themes" type="checkbox" name="themes" value="가족">가족
@@ -31,7 +33,9 @@
 						</div>
 					</div>
 					<div class="recommend-search-places">
-						장소
+						<div class="recommend-places-title">
+							장소
+						</div>
 						<div>
 							<label>
 								<input class="recommend-places" type="checkbox" name="places" value="산">산
@@ -49,7 +53,9 @@
 						</div>
 					</div>
 					<div class="recommend-search-locations">
-						지역
+						<div class="recommend-locations-title">
+							지역
+						</div>
 						<div>
 							<label>
 								<input class="recommend-locations" type="checkbox" name="locations" value="서울">서울
@@ -119,7 +125,6 @@
 			</div>
 		</div>
 		<div class="recommend-travel-places">
-			추천여행지 <br>
 				<div class="result-div-wrap">
 
 					

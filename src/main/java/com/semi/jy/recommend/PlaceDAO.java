@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.catalina.valves.LoadBalancerDrainingValve;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -15,13 +14,17 @@ import com.semi.db.DBManager;
 
 public class PlaceDAO {
 	
+//	private static DBManager db = DBManager.connect();
+	private static Connection con = DBManager.connect();
+	
+			
+	
 	public static JSONObject recommendPlace(HttpServletRequest request) {
 		System.out.println("GET Start ===============");
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			con = DBManager.connect();
+			
 
 			// 테마 값 받기
 			String themes = request.getParameter("themeQuery");
@@ -144,7 +147,6 @@ public class PlaceDAO {
 	
 	public static void recommendPlace2(HttpServletRequest request) {
 
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
@@ -227,7 +229,7 @@ public class PlaceDAO {
 			System.out.println("/////////////////");
 			System.out.println(sql);
 
-			con = DBManager.connect();
+			
 			pstmt = con.prepareStatement(sql);
 			int index = 1;
 			if (themes != null) {
@@ -270,19 +272,17 @@ public class PlaceDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, rs);
+			//db.close(con, pstmt, rs);
 		}
 
 	}
 	public static JSONObject presentAllPlaces(HttpServletRequest request) {
 		
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "select * from place";
 		try {
 			
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			JSONObject myJson = new JSONObject();
@@ -315,7 +315,7 @@ public class PlaceDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, rs);
+			//db.close(con, pstmt, rs);
 		}
 		
 		return null;

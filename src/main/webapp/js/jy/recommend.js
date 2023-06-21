@@ -2,7 +2,7 @@ let resultDivWrap = $(".result-div-wrap");
 
 const resultDiv = `<div class="result-div">
 		<div>
-			<img alt="" src="" class="result-img">
+			<img alt="" src="" class="result-img" onclick="">
 		</div>
 		<div class="result-name"></div>
 	</div>
@@ -33,16 +33,31 @@ function setVal(data) {
 	clearResults();
 	
 	console.log(data.data);
-	$.each(data.data, function(i, el) {
-	let resultDiv2 = $(resultDiv).clone();
-	console.log(el.name);
-	$(resultDiv2).find('.result-img').attr("src", "./img/jy/" + el.pic);
-	$(resultDiv2).find('.result-name').text(el.name);
-	$(resultDivWrap).append(resultDiv2);
-		
-//		console.log(el);
-	})
 	
+	var length = data.data.length;
+	console.log(length);
+	
+	if(length === 0){
+		var message = $('<div class="result-nothing">').text('해당 정보를 찾을 수 없습니다.');
+    	resultDivWrap.append(message);
+	} else {
+	
+		$.each(data.data, function(i, el) {
+		let resultDiv2 = $(resultDiv).clone();
+		console.log(el.name);
+		console.log(el.id);
+		$(resultDiv2).find('.result-img').attr("src", "./img/jy/" + el.pic);
+		$(resultDiv2).find('.result-name').text(el.name);
+		$(resultDiv2).find('.result-img').attr("onclick", "sendController(" + el.id + ")");
+		$(resultDivWrap).append(resultDiv2);
+		
+		})
+	
+	}
+}
+
+function sendController(id){
+	location.href='PlaceInfoC?p_id='+id;
 }
 
 const themesEl = $('.recommend-themes');
