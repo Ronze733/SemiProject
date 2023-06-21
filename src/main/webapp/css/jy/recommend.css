@@ -100,7 +100,6 @@
 }
 
 .result-div{
-	border: 1px solid red;
 	margin-bottom: 100px;
     margin-left: 90px;
     width: 300px;
@@ -108,16 +107,23 @@
 }
 
 .result-img{
-	max-width: 150px;
+	width: 277px;
+	height: 169px;
+	border-radius: 20px;
 }
 
 .result-name{
 	width: 50%;
-    margin-top: 140px;
-    margin-left: 70px;
+    margin-top: 0px;
+    margin-left: 60px;
     text-align: center;
 }
 
+.result-nothing{
+	font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
 
 
 
