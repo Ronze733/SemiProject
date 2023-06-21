@@ -22,19 +22,21 @@ public class PlaceInfoDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("p_id"));
 			rs= pstmt.executeQuery();
-			rs.next();
-			int p_id = rs.getInt("p_id");
-			String p_name = rs.getString("p_name");
-			String p_category1 = rs.getString("p_category1");
-			String p_category2 = rs.getString("p_category2");
-			String p_category3 = rs.getString("p_category3");
-			String p_placePic = rs.getString("p_pic");
-			String p_explain = rs.getString("p_explain");
-			String p_addr = rs.getString("p_addr");
+			if (rs.next()) {
+				
+			int p_id = rs.getInt("place_id");
+			String p_name = rs.getString("place_name");
+			String p_category1 = rs.getString("place_category1");
+			String p_category2 = rs.getString("place_category2");
+			String p_category3 = rs.getString("place_category3");
+			String p_placePic = rs.getString("place_pic");
+			String p_explain = rs.getString("place_explain");
+			String p_addr = rs.getString("place_addr");
 			PlaceInfo pi = new PlaceInfo(p_id, p_name, p_category1, p_category2, p_category3, p_placePic, p_explain, p_addr);  
 			request.setAttribute("placeInfo",pi);
 			
 			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
