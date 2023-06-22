@@ -1,12 +1,13 @@
 let resultDivWrap = $(".result-div-wrap");
 
-const resultDiv = `<div class="result-div">
-		<div>
-			<img alt="" src="" class="result-img" onclick="">
-		</div>
-		<div class="result-name"></div>
-	</div>
-	`;
+const resultDiv = 	`<div class="result-div">
+						<div>
+							<img alt="" src="" class="result-img" onclick="">
+						</div>
+						<div class="result-name"></div>
+						<div class="result-location"></div>
+					</div>
+					`;
 
 const resultImg = $(".result-img");
 const resultName = $(".result-name");
