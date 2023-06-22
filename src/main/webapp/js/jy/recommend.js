@@ -1,12 +1,13 @@
 let resultDivWrap = $(".result-div-wrap");
 
-const resultDiv = `<div class="result-div">
-		<div>
-			<img alt="" src="" class="result-img" onclick="">
-		</div>
-		<div class="result-name"></div>
-	</div>
-	`;
+const resultDiv = 	`<div class="result-div">
+						<div>
+							<img alt="" src="" class="result-img" onclick="">
+						</div>
+						<div class="result-name"></div>
+						<div class="result-location"></div>
+					</div>
+					`;
 
 const resultImg = $(".result-img");
 const resultName = $(".result-name");
@@ -46,7 +47,7 @@ function setVal(data) {
 		let resultDiv2 = $(resultDiv).clone();
 		console.log(el.name);
 		console.log(el.id);
-		$(resultDiv2).find('.result-img').attr("src", "./img/jy/" + el.pic);
+		$(resultDiv2).find('.result-img').attr("src", "./img/mk/" + el.pic);
 		$(resultDiv2).find('.result-name').text(el.name);
 		$(resultDiv2).find('.result-img').attr("onclick", "sendController(" + el.id + ")");
 		$(resultDivWrap).append(resultDiv2);
@@ -57,7 +58,7 @@ function setVal(data) {
 }
 
 function sendController(id){
-	location.href='PlaceInfoC?p_id='+id;
+	location.href='PlaceInfoC?pid='+id;
 }
 
 const themesEl = $('.recommend-themes');
