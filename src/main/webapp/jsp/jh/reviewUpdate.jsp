@@ -12,7 +12,8 @@
 			이번 여행은 어떠셨나요? <br>
 			다른 분들에게 공유해주세요.
 		</div>
-		<div class="review-write">
+		<div class="review-write-de">
+			<div></div>
 			<div class="review-write-word">
 				<div class="review-write-big">
 					후기를 수정하시겠습니까?.
@@ -25,9 +26,24 @@
 		<form action="ReviewUpdateC" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="${param.id }">
 		<div class="review-write-submit">
+			<div>
 				<div class="review-writeimg">
-				<div><input name="pic_new" type="file"></div>
+				<div>
+				<img src="img/jh/${review.review_pic}"
+						style="max-width: 300px;"> <input name="oldImg"
+						type="hidden" value="${review.review_pic}"> <input
+						type="file" name="pic_new">
 				</div>
+				</div>
+					<div style="margin-left: 100px;">
+						<span class="star"> ★★★★★ <span>★★★★★</span> <input
+							type="range" oninput="drawStar(this)" value="1" step="1" min="0"
+							max="10"> 
+							<input type="hidden" class="star_value"
+							name="star_value" value=>
+						</span>
+					</div>
+				</div>	
 				<div class="review-blank">
 				</div>
 				<div class="review-write-detail">
@@ -60,12 +76,16 @@
 								<option value="gangwon">강원도</option>
 								<option value="jeju ">제주도</option>
 							</select>
-						</div>				
-					</div>
-				<div class="review-detailbutton" >
-					<button class="review-detailbutton">Submit</button>
+							<div>
+							<div class="review-detailbutton" >
+							<button class="review-detailbutton" onclick="goBack()">뒤로가기</button>
+								<div>
+							<button class="review-detailbutton">Submit</button>
+							</div>
+						</div>		
+						</div>
+					</div>				
 				</div>
-					<button class="review-detailbutton">뒤로가기</button>
 			</div>
 		</div>
 		</form>
