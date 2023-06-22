@@ -1,16 +1,16 @@
-let resultDivWrap = $(".recommend-result-div-wrap");
+let resultDivWrap = $(".result-div-wrap");
 
-const resultDiv = 	`<div class="recommend-result-div">
+const resultDiv = 	`<div class="result-div">
 						<div>
-							<img alt="" src="" class="recommend-result-img" onclick="">
+							<img alt="" src="" class="result-img" onclick="">
 						</div>
-						<div class="recommend-result-name"></div>
-						<div class="recommend-result-location"></div>
+						<div class="result-name"></div>
+						<div class="result-location"></div>
 					</div>
 					`;
 
-const resultImg = $(".recommend-result-img");
-const resultName = $(".recommend-result-name");
+const resultImg = $(".result-img");
+const resultName = $(".result-name");
 
 $(document).ready(function(){
 	presentAllPlaces();
@@ -39,7 +39,7 @@ function setVal(data) {
 	console.log(length);
 	
 	if(length === 0){
-		var message = $('<div class="recommend-result-nothing">').text('해당 정보를 찾을 수 없습니다.');
+		var message = $('<div class="result-nothing">').text('해당 정보를 찾을 수 없습니다.');
     	resultDivWrap.append(message);
 	} else {
 	
@@ -47,10 +47,9 @@ function setVal(data) {
 		let resultDiv2 = $(resultDiv).clone();
 		console.log(el.name);
 		console.log(el.id);
-		$(resultDiv2).find('.recommend-result-img').attr("src", "./img/mk/" + el.pic);
-		$(resultDiv2).find('.recommend-result-name').text(el.name);
-		$(resultDiv2).find('.recommend-result-location').text(el.category3);
-		$(resultDiv2).find('.recommend-result-img').attr("onclick", "sendController(" + el.id + ")");
+		$(resultDiv2).find('.result-img').attr("src", "./img/mk/" + el.pic);
+		$(resultDiv2).find('.result-name').text(el.name);
+		$(resultDiv2).find('.result-img').attr("onclick", "sendController(" + el.id + ")");
 		$(resultDivWrap).append(resultDiv2);
 		
 		})
@@ -116,16 +115,3 @@ function sendAjaxRequest() {
 		}
 	});
 }
-
-$('#recommend-pagination').pagination({
-	pageSize: 5,
-	callback: function(data, pagination){
-		 		setVal(data);
-	}	
-
-});
-
-
-
-
-

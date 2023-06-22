@@ -1,3 +1,35 @@
+$(document).ready(function() {
+	//아이디 정규식
+	var idJ = /^[a-z0-9]{5,20}$/;
+
+	$("#member_id").focusout(function() {
+		if ($('#member_id').val() == "") {
+			$('#checks').text('아이디를 입력해주세요.');
+			$('#checks').css('color', 'red');
+		}
+	});
+
+	$("#member_id").focusout(function() {
+		if (!idJ.test($(this).val())) {
+			$('#checks').text('5~20자의 영문 소문자, 숫자만 사용가능합니다');
+			$('#checks').css('color', 'red');
+		}
+	});
+
+	$("#name").focusout(function() {
+		if ($('#name').val() == "") {
+			$('#checks').text('이름을 입력해주세요.');
+			$('#checks').css('color', 'red');
+		}
+	});
+
+	$("#email").focusout(function() {
+		if ($('#email').val() == "") {
+			$('#checks').text('이메일을 입력해주세요');
+			$('#checks').css('color', 'red');
+		}
+	});
+});
 
 window.addEventListener('load', () => {
 	const forms = document.getElementsByClassName('validation-form');
@@ -12,40 +44,6 @@ window.addEventListener('load', () => {
 			form.classList.add('was-validated');
 		}, false);
 	});
-	// 비밀번호 유효성 검사
-  const passwordInput = document.getElementById('password');
-  const passwordConfirmInput = document.getElementById('password-confirm');
-  passwordInput.addEventListener('input', function() {
-    const passwordValue = passwordInput.value;
-    const passwordConfirmValue = passwordConfirmInput.value;
-    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
-    const passwordErrorMessage = document.getElementById('password-error-message');
-
-    if (!passwordRegex.test(passwordValue)) {
-      passwordInput.setCustomValidity('비밀번호는 영문, 숫자, 특수문자를 최소 한가지씩 조합하고 8~16자로 입력해야 합니다.');
-      passwordErrorMessage.textContent = '비밀번호는 영문, 숫자, 특수문자를 최소 한가지씩 조합하고 8~16자로 입력해야 합니다.';
-    } else {
-      passwordInput.setCustomValidity('');
-      passwordErrorMessage.textContent = '';
-    }
-
-    if (passwordValue !== passwordConfirmValue) {
-      passwordConfirmInput.setCustomValidity('비밀번호와 비밀번호 확인 값이 일치하지 않습니다.');
-    } else {
-      passwordConfirmInput.setCustomValidity('');
-    }
-  });
-
-  passwordConfirmInput.addEventListener('input', function() {
-    const passwordValue = passwordInput.value;
-    const passwordConfirmValue = passwordConfirmInput.value;
-
-    if (passwordValue !== passwordConfirmValue) {
-      passwordConfirmInput.setCustomValidity('비밀번호와 비밀번호 확인 값이 일치하지 않습니다.');
-    } else {
-      passwordConfirmInput.setCustomValidity('');
-    }
-  });
 }, false);
 
 function changePlaceholder(element, message) {
@@ -56,6 +54,34 @@ function restorePlaceholder(element, message) {
 	element.placeholder = message;
 };
 
+$("#duplicate-check").change(function(e) {
+	console.log($(this).is(":checked"))
+
+	if (!$(this).is(":checked")) {
+		return;
+	}
+	let id = $("input[name=email]").val();
+	$.ajax({
+		type: "get",
+		async: false,
+		url: "../../../AccountRegC",
+		dataType: 'json',
+		data: {
+			"actionType": "isDuplicated",
+			"user_id": id
+
+		},
+		success: function(res) {
+			console.log(res)
+			alert("등록되지 않는 회원입니다");
+		},
+		error: function(error) {
+			console.log(error)
+			alert("등록된 회원 정보가 있습니다");
+		}
+	});
+
+});
 
 $("#email-check").focus(function() {
 	$("#duplicate-check").prop("checked", false);
@@ -82,19 +108,17 @@ $(document).ready(function() {
 			success: function(res) {
 				console.log(res)
 				alert("새 비밀번호가 등록되었습니다");
-				window.opener.handlePopupClosed(); // 부모 창의 함수 호출
-				window.close(); // 팝업창 닫기
 			},
 			error: function(xhr, status, error) {
 				console.log(xhr);
 				console.log(status);
 				console.log(error);
 				alert("오류가 발생했습니다. 관리자에게 문의하세요.");
-				window.location.href = "LoginC";
 			}
 		});
 
-
+		window.opener.handlePopupClosed(); // 부모 창의 함수 호출
+		window.close(); // 팝업창 닫기
 
 		// 실패 시
 		// 적절한 오류 처리
