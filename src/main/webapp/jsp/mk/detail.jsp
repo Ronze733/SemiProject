@@ -30,13 +30,19 @@
 	 		</div>
 	 	</div>
  		</div>
- 		<div class="detail-weather">
+ 		<div class="detail-weather-mk">
 	 		<div class="detail-weather-title">날씨</div>
 	 			<div class="detail-weather-recent">
 	 				<div class="detail-weather-option">
-	 				<C:forEach items="${weathers }" var="w">
-	 		 		<div class="detail-weather-optiontext"> ${w.day } 날짜</div> 
-	 		 		아이콘 <img alt="" src="https://openweathermap.org/img/wn/${w.icon }@2x.png"> <br>
+	 				<C:forEach items="${weathers }" var="w" varStatus="loop">
+	 		 		<div class="detail-weather-optiontext"> 
+	 				<C:choose>
+	 				<C:when test="${loop.index ==0 }">오늘</C:when>
+	 				<C:when test="${loop.index ==1 }">내일</C:when>
+	 				<C:when test="${loop.index ==2 }">모레</C:when>
+	 				</C:choose>
+	 		 		</div> 
+	 		 		<img alt="" src="https://openweathermap.org/img/wn/${w.icon }@2x.png"> <br>
 	 		 		기상 상태 ${w.condition }<br>
 	 		 		강수확률 ${w.pop * 100 } %<br>
 	 				체감온도 ${w.fillTemp }<br>
