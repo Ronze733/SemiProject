@@ -9,23 +9,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.semi.bj.account.AccountDAO;
 
-@WebServlet("/ReviewDelC")
-public class ReviewDelC extends HttpServlet {
+@WebServlet("/ReviewSRC")
+public class ReviewSRC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AccountDAO.loginCheck(request);
-		ReviewDao.getReviewdao().delete(request);
-		ReviewDao.getReviewdao().select(request);
-		ReviewDao.getReviewdao().paging(1,request);
-		request.setAttribute("contentPage", "jsp/jh/review.jsp");
+		ReviewDao.getReviewdao().selectlikes(request);
+		int p = Integer.parseInt(request.getParameter("p"));
+		ReviewDao.getReviewdao().paging(p,request);
+		request.setAttribute("contentPage", "jsp/jh/reviewStar.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
+		
 
 	}
 
-
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 	}
 
 }
