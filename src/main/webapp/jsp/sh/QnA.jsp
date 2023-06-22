@@ -6,7 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/sh/QnA.css">
 </head>
+
 <body>
 	<div class="QnA-container">
 		<div class="QnA-content">
@@ -14,7 +16,6 @@
 				<div class="QnA-header">고객 게시판</div>
 				<div class="QnA-left-lists">
 					<div class="QnA-left-list">공지사항</div>
-					<div class="QnA-left-list">이벤트</div>
 					<div class="QnA-left-list">문의하기</div>
 					<div class="QnA-left-list">자주 묻는 질문</div>
 				</div>
@@ -42,7 +43,7 @@
 						<div class="QnA-lists">
 							<div class="QnA-list1">${QnA.inquiry_category }</div>
 							<c:if test="${QnA.inquiry_title ne '' }">
-							<div class="QnA-list2" onclick="location.href='QnADetailC?no=${QnA.inquiry_no}'">${QnA.inquiry_title }</div>
+							<div class="QnA-list2" onclick="location.href='QnADetailC?no=${QnA.inquiry_no}'"> <span class="leftToRight">${QnA.inquiry_title }</span></div>
 							</c:if>
 							<c:if test="${QnA.inquiry_title eq '' }">
 							<div class="QnA-list2"></div>

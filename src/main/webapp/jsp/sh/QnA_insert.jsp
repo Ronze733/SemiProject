@@ -22,7 +22,6 @@
 						<select name="inquiry_category">
 							<option disabled selected value="">--카테고리를 선택해주세요--</option>
 							<option value="공지사항">공지사항</option>
-							<option value="이벤트">이벤트</option>
 							<option value="문의하기">문의하기</option>
 						</select>
 					</div>

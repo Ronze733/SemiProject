@@ -98,6 +98,22 @@
     cursor: pointer;
 }
 
+.leftToRight::after {
+  content: "";
+  display: block;
+  border-bottom: 3px solid #000;
+  transition: width 250ms ease-out;
+  left: auto;
+  right: 0;
+  width: 0;
+}
+
+.leftToRight:hover::after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
 .QnA-list3{
 	flex-basis: 100px;
     text-align: center;
