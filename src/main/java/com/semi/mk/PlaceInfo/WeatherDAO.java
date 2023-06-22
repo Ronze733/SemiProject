@@ -31,7 +31,7 @@ public class WeatherDAO {
 		return WEATHERDAO;
 	}
 
-	public static void makeWeather(HttpServletRequest request) {
+	public void makeWeather(HttpServletRequest request) {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
