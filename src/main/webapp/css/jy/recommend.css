@@ -16,7 +16,7 @@
 .recommend-banner-copy {
 	position: absolute;
 	top: 47%;
-	font-family: 'Urbanist';
+	font-family: 'Noto Sans KR', sans-serif;
 	font-style: normal;
 	font-weight: 800;
 	line-height: 96px;
@@ -47,6 +47,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .recommend-search-themes{
@@ -97,6 +98,7 @@
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .result-div{
@@ -117,10 +119,17 @@
     margin-top: 0px;
     margin-left: 60px;
     text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -1px;
 }
 
 .result-nothing{
-	font-weight: 700;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 500;
+	font-size: 20px;
+    line-height: 24px;
     margin-top: 10px;
     margin-bottom: 30px;
 }
