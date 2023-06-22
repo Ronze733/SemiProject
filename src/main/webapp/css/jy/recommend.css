@@ -93,7 +93,7 @@
 	font-weight: 500;
 }
 
-.result-div-wrap{
+.recommend-result-div-wrap{
 	display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -101,31 +101,37 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-.result-div{
+.recommend-result-div{
 	margin-bottom: 100px;
     margin-left: 90px;
     width: 300px;
     height: 200px;
 }
 
-.result-img{
+.recommend-result-img{
 	width: 277px;
 	height: 169px;
 	border-radius: 20px;
 }
 
-.result-name{
+.recommend-result-name{
 	width: 50%;
     margin-top: 0px;
-    margin-left: 60px;
-    text-align: center;
+    margin-left: 0px;
+    text-align: left;
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
     letter-spacing: -1px;
 }
 
-.result-nothing{
+.recommend-result-location{
+	font-weight: 300;
+	font-size: 16px;
+    line-height: 20px;
+}
+
+.recommend-result-nothing{
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 500;
 	font-size: 20px;
