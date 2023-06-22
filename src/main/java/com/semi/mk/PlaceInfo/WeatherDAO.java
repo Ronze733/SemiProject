@@ -21,7 +21,6 @@ import com.semi.db.DBManager;
 
 public class WeatherDAO {
 	
-	private static Connection con = DBManager.connect();
 	private final static WeatherDAO WEATHERDAO = new WeatherDAO(); 
 	
 	public WeatherDAO() {
@@ -32,6 +31,7 @@ public class WeatherDAO {
 	}
 
 	public void makeWeather(HttpServletRequest request) {
+		Connection con = DBManager.connect();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -100,6 +100,8 @@ public class WeatherDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
 		}
 	}
 

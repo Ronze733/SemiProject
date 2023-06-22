@@ -53,11 +53,11 @@
 			<div class="detail-place-root"> 오시는길</div>
 			<div class="detail-place-addr"> 주소: ${placeInfo.p_addr }</div>
 			<input type="hidden" id="param" value="${placeInfo.p_addr }">
-	<div id="map" style="width:500px;height:400px;"></div>
+	<div id="map-mk" style="width:500px;height:400px;"></div>
 	
 	<script type="text/javascript">
 		let place = document.getElementById('param')?.value;
-		let container = document.getElementById('map');
+		let container = document.getElementById('map-mk');
 		let options = {
 				center: new kakao.maps.LatLng(35.790402, 129.332103),
 				level: 7
