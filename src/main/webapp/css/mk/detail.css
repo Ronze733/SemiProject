@@ -81,6 +81,7 @@
 }
 
 .detail-weather-recent{
+
 	width: 100%;
 	display: inline-flex;
 	justify-content:center;
@@ -103,6 +104,8 @@
 }
 
 
+
+
 .detail-place{
 	margin-top: 20px;
 	height: auto;
@@ -123,10 +126,14 @@
 	border-bottom: 1px solid black;
 }
 
+
 #map-mk{
+
 	display:flex;
 	justify-content:center;
 	width:100%;
 	margin-left:30%;
 	margin-bottom: 50px;
+
 }
+
