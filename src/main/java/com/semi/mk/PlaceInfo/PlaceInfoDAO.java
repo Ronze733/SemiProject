@@ -20,7 +20,7 @@ public class PlaceInfoDAO {
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, request.getParameter("p_id"));
+			pstmt.setString(1, request.getParameter("pid"));
 			rs= pstmt.executeQuery();
 			rs.next();
 			int p_id = rs.getInt("p_id");
