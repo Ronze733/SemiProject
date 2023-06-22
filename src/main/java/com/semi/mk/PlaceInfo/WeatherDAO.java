@@ -21,7 +21,6 @@ import com.semi.db.DBManager;
 
 public class WeatherDAO {
 	
-	private static Connection con = DBManager.connect();
 	private final static WeatherDAO WEATHERDAO = new WeatherDAO(); 
 	
 	public WeatherDAO() {
@@ -33,6 +32,7 @@ public class WeatherDAO {
 
 	public void makeWeather(HttpServletRequest request) {
 		
+		Connection con = DBManager.connect();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String pId = request.getParameter("pid"); 
@@ -46,7 +46,7 @@ public class WeatherDAO {
 			if (rs.next()) {
 				
 			String city = request.getParameter("city");
-			String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&cnt=40&appid=3c20bb3f5ab75a340db446d8ba273c5b";
+			String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&cnt=40&appid=4bffdfc37a41be14217fa1a310b44efe";
 			
 			
 			URL u = new URL(url);
@@ -82,7 +82,7 @@ public class WeatherDAO {
 				String humidity = main.get("humidity") + "";
 				String minTemp = main.get("temp_min") + "";
 				String maxTemp = main.get("temp_max") + "";
-				String fillTemp = main.get("feels_like") + "";
+				String feelTemp = main.get("feels_like") + "";
 				
 				JSONArray conditionJ = (JSONArray) day.get("weather");
 				String condition = ((JSONObject) conditionJ.get(0)).get("main") + "";
@@ -91,7 +91,7 @@ public class WeatherDAO {
 				
 				String windspeed = ((JSONObject) day.get("wind")).get("speed") + "";
 				
-				weather = new Weather(humidity, minTemp, maxTemp, fillTemp, windspeed, condition, date, icon, pop);				
+				weather = new Weather(humidity, minTemp, maxTemp, feelTemp, windspeed, condition, date, icon, pop);				
 				weathers.add(weather);
 			}
 			
@@ -100,7 +100,7 @@ public class WeatherDAO {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}DBManager.close(con, pstmt, rs);
 	}
 
 }

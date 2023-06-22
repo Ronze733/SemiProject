@@ -12,9 +12,8 @@ import com.semi.db.DBManager;
 
 public class PlaceInfoDAO {
 	
-	private static Connection con = DBManager.connect();
-	
 	public static void getPlaceInfo(HttpServletRequest request) {
+		Connection con = DBManager.connect();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String pId = request.getParameter("pid");
@@ -42,6 +41,8 @@ public class PlaceInfoDAO {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
 		}
 }
 }
