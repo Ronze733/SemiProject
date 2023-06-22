@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.semi.bj.account.AccountDAO;
 
-@WebServlet("/SKTCC")
-public class SKTCC extends HttpServlet {
+@WebServlet("/SKTCC2")
+public class SKTCC2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		AccountDAO.loginCheck(request);
-		request.getRequestDispatcher("NewFile.jsp").forward(request, response);
+		request.getRequestDispatcher("NewFile2.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

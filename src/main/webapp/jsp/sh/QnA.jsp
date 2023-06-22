@@ -24,9 +24,10 @@
 					<div>
 						<input class="QnA-search" placeholder="검색어를 입력해주세요.">
 						<button class="QnA-searchbutton">검색</button>
+						${sessionScope.account.user_id}
 					</div>
 					<div>
-						<button onclick="location.href='QnAInsertC?id=${sessionScope.account.user_id }'">작성</button>
+						<button onclick="QnAloginCheck('${sessionScope.account.user_id}')">작성</button>
 					</div>
 				</div>
 				<div class="QnA-body-list">

@@ -10,12 +10,16 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="./css/jm/event.css" />
     <link rel="stylesheet" href="./css/jh/review.css" />
     <link rel="stylesheet" href="./css/jy/recommend.css" />
+    <link rel="stylesheet" href="./css/sh/QnA.css" />
     <script src="./js/jh/review.js"></script>
     <script src="./js/sh/QnA.js"></script>
     <link rel="stylesheet" href="./css/sh/QnA.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <title>South Korea Travel Controller</title>
   </head>
   <body>
@@ -29,7 +33,10 @@ pageEncoding="UTF-8"%>
             <div>SKTC</div>
           </div>
           <div class="main-header-menus">
-            <div class="main-header-menu" onclick="location.href='ReviewPageC?p=1'">
+            <div
+              class="main-header-menu"
+              onclick="location.href='ReviewPageC?p=1'"
+            >
               여행 후기
             </div>
             <div class="main-header-menu" onclick="location.href='QnAC'">

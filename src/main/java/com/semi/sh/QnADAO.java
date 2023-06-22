@@ -192,14 +192,14 @@ public class QnADAO {
 			request.setCharacterEncoding("utf-8");
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			
-			System.out.println(request.getParameter("inquiry_no"));
-			
-			String no = request.getParameter("inquiry_no");
+			System.out.println("1");
+			System.out.println(request.getParameter("no"));
+
+			String no = request.getParameter("no");
 			String title = request.getParameter("inquiry_title");
 			String body = request.getParameter("inquiry_body");
 			String category = request.getParameter("inquiry_category");
-			
+			System.out.println("2");
 			System.out.println(no);
 			System.out.println(title);
 			System.out.println(body);
