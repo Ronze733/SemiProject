@@ -17,8 +17,6 @@ public class PlaceDAO {
 //	private static DBManager db = DBManager.connect();
 	private static Connection con = DBManager.connect();
 	
-			
-	
 	public static JSONObject recommendPlace(HttpServletRequest request) {
 		System.out.println("GET Start ===============");
 		PreparedStatement pstmt = null;
@@ -127,12 +125,13 @@ public class PlaceDAO {
 				int id = rs.getInt("place_id");
 				String pic = rs.getString("place_pic");
 				String name = rs.getString("place_name");
-//				System.out.println(pic);
+				String category3 = rs.getString("place_category3");
 				System.out.println(name);
 				JSONObject jo = new JSONObject();
 				jo.put("id", id);
 				jo.put("pic", pic);
 				jo.put("name", name);
+				jo.put("category3", category3);
 				ja.add(jo);
 			}
 			myJson.put("data", ja);
@@ -308,6 +307,7 @@ public class PlaceDAO {
 				
 				ja.add(jo);
 			}
+			
 			myJson.put("data", ja);
 			return myJson;
 			
@@ -320,4 +320,9 @@ public class PlaceDAO {
 		
 		return null;
 	}
+	
+	
+	
 }
+
+

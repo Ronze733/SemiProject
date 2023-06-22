@@ -22,8 +22,7 @@
 		<div class="input-form-backgroud row">
 			<div class="signup-input-form col-md-12 mx-auto">
 				<h4 class="mb-3">본인인증</h4>
-				<form class="validation-form" action="../../../AccountUpdateC"
-					method="post">
+				<form>
 					<div class="mb-3">
 						<label for="email">이메일</label> <input name="email" type="email"
 							class="form-control" id="email-check" placeholder="이메일을 입력해주세요"
