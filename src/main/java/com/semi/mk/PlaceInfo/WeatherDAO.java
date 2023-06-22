@@ -82,7 +82,7 @@ public class WeatherDAO {
 				String humidity = main.get("humidity") + "";
 				String minTemp = main.get("temp_min") + "";
 				String maxTemp = main.get("temp_max") + "";
-				String fillTemp = main.get("fill_like") + "";
+				String fillTemp = main.get("feels_like") + "";
 				
 				JSONArray conditionJ = (JSONArray) day.get("weather");
 				String condition = ((JSONObject) conditionJ.get(0)).get("main") + "";
