@@ -25,7 +25,7 @@
 				<div class="QnA-insert-bodytxt">${QnA.inquiry_body }</div>
 			</div>
 			<div class="QnA-insert-button">
-				<div><button onclick="history.back()">목록으로</button></div>
+				<div><button onclick="location.href='QnAC'">목록으로</button></div>
 				<div><button onclick="deleteQnA(${param.no})">삭제</button></div>
 				<div><button onclick="location.href='QnAUpdateC?no=${QnA.inquiry_no}'">수정</button></div>
 			</div>

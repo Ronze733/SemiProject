@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="QnAUpdateC" method="post">
+	<form action="QnAUpdateC?no=${QnA.inquiry_no }" method="post">
 		<div class="QnA-insert-container">
 			<div class="QnA-insert-content">
 				<div class="QnA-insert-header">
 					<div>
-						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp; <input name="title" value="${QnA.inquiry_title }"> 
+						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp; <input name="inquiry_title" value="${QnA.inquiry_title }"> 
 					</div>
 				</div>
 				<div class="QnA-insert-header">
@@ -35,7 +35,7 @@
 				</div>
 				<div class="QnA-insert-button">
 					<div><button onclick="history.back()">취소</button></div>
-					<div><button onclick=>수정하기</button></div>
+					<div><button>수정하기</button></div>
 				</div>
 			</div>
 		</div>
