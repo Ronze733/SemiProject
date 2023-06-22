@@ -221,7 +221,7 @@
 				</div>
 			</div>
 		</section>
-
+<!-- 여기까지 Search Tour, Hotel -->
 		<section class="ftco-section services-section">
 			<div class="container">
 				<div class="row d-flex">
@@ -278,7 +278,7 @@
 				</div>
 			</div>
 		</section>
-
+<!-- 여기까지 It's time to start your adventure -->
 		<section class="ftco-section img ftco-select-destination" style="background-image: url(css/bj/images/bg_3.jpg);">
 			<div class="container">
 				<div class="row justify-content-center pb-4">
@@ -347,7 +347,7 @@
 				</div>
 			</div>
 		</section>
-
+<!-- 여기까지 Select Your Destination -->
 		<section class="ftco-section">
 			<div class="container">
 				<div class="row justify-content-center pb-4">
@@ -463,7 +463,7 @@
 				</div>
 			</div>
 		</section>
-		
+<!-- 여기까지 Your Destination -->	
 		<section class="ftco-section ftco-about img"style="background-image: url(css/bj/images/bg_4.jpg);">
 			<div class="overlay"></div>
 			<div class="container py-md-5">
@@ -501,7 +501,7 @@
 				</div>
 			</div>
 		</section>
-
+<!-- 여기까지 Make Your Tour Memorable and Safe With us -->
 		<section class="ftco-section testimony-section bg-bottom" style="background-image: url(css/bj/images/bg_1.jpg);">
 			<div class="overlay"></div>
 			<div class="container">
@@ -624,7 +624,7 @@
 				</div>
 			</div>
 		</section>
-
+<!-- 여기까지 Tourist Feedback -->
 
 		<section class="ftco-section">
 			<div class="container">
