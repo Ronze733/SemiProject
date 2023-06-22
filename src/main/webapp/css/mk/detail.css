@@ -83,8 +83,7 @@
 .detail-weather-recent{
 	display: inline-flex;
 	justify-content:center;
-	margin-left: 140px;
-	margin-right: 140px;
+	margin-left: auto;
 	margin-bottom: 30px;
 }
 .detail-weather-option{
@@ -94,7 +93,6 @@
 	margin-right: 80px;
 	margin-left: 80px;
 	margin-bottom: 50px;
-	flex-direction: column;
 }
 
 .detail-weather-optiontext{
