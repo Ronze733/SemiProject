@@ -17,10 +17,11 @@ import org.mindrot.jbcrypt.BCrypt;
 import com.semi.db.DBManager;
 
 public class AccountDAO {
+	
+	private static Connection con = DBManager.connect();
 
 	public static void login(HttpServletRequest request) {
 
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
@@ -33,7 +34,6 @@ public class AccountDAO {
 
 		String sql = "select * from user_tbl where user_id = ?";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
@@ -71,7 +71,6 @@ public class AccountDAO {
 			System.out.println("db접속 오류");
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, rs);
 		}
 
 	}
@@ -99,9 +98,7 @@ public class AccountDAO {
 	public static void regAccount(HttpServletRequest request) throws UnsupportedEncodingException {
 
 		request.setCharacterEncoding("UTF-8");
-		Date date = new Date();
 
-		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		String sql = "insert into user_tbl values(?, ?, ?, sysdate, ?, ?, ?)";
@@ -125,7 +122,6 @@ public class AccountDAO {
 
 		try {
 
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			pstmt.setString(2, nickname);
@@ -143,7 +139,6 @@ public class AccountDAO {
 			e.printStackTrace();
 
 		} finally {
-			DBManager.close(con, pstmt, null);
 		}
 
 	}
@@ -152,7 +147,6 @@ public class AccountDAO {
 		request.setCharacterEncoding("UTF-8");
 
 		Account account = (Account) request.getSession().getAttribute("account");
-		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		String sql = "update user_tbl set user_name = ?, user_pw = ?, user_gender = ? where user_id = ?";
@@ -170,7 +164,6 @@ public class AccountDAO {
 		System.out.println(id);
 
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, nickname);
 			pstmt.setString(2, pw);
@@ -193,20 +186,17 @@ public class AccountDAO {
 			System.out.println("db연결 실패");
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, null);
 		}
 	}
 
 	public static void accountDelete(HttpServletRequest request) {
 
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		Account account = (Account) request.getSession().getAttribute("account");
 
 		String sql = "delete user_tbl where user_id = ?";
 
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, account.getUser_id());
 
@@ -218,13 +208,11 @@ public class AccountDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, null);
 		}
 	}
 
 	public static void duplicateCheck(HttpServletRequest request, HttpServletResponse response) {
 
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
@@ -233,7 +221,6 @@ public class AccountDAO {
 		String email = request.getParameter("user_id");
 		System.out.println(request.getParameter("user_id"));
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
@@ -255,14 +242,12 @@ public class AccountDAO {
 			System.out.println("db연결 오류");
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, rs);
 		}
 
 	}
 
 	public static boolean accountCheck(HttpServletRequest request) {
 		
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
@@ -279,7 +264,6 @@ public class AccountDAO {
 		System.out.println(answer);
 		
 		try {
-			con = DBManager.connect();
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -305,7 +289,6 @@ public class AccountDAO {
 			System.out.println("db 접속 오류");
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, rs);
 		}
 		return result;
 	}
@@ -315,7 +298,6 @@ public class AccountDAO {
 		
 		Account account = (Account) request.getSession().getAttribute("account");
 		
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		
 		String sql = "update user_tbl set user_pw = ? where user_id = ?";
@@ -327,7 +309,6 @@ public class AccountDAO {
 		System.out.println(id);
 		
 		try {
-			con = DBManager.connect();
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, pw);
@@ -351,7 +332,6 @@ public class AccountDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, null);
 		}
 		
 		

@@ -65,8 +65,6 @@
     
     
      <jsp:include page="${contentPage}"></jsp:include>
-     
-     
 </div>
 <div class="row mt-5">
   <div class="col text-center">
