@@ -98,7 +98,7 @@ $(document).ready(function() {
 		$.ajax({
 			type: "post",
 			async: false,
-			url: "AccountUpdateC2",
+			url: "../../../AccountUpdateC2",
 			dataType: 'text',
 			data: {
 				"actionType": "pwRecovery",
@@ -114,6 +114,7 @@ $(document).ready(function() {
 				console.log(status);
 				console.log(error);
 				alert("오류가 발생했습니다. 관리자에게 문의하세요.");
+
 			}
 		});
 
