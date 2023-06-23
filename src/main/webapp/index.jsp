@@ -49,7 +49,18 @@
 
 <title>South Korea Travel Controller</title>
 </head>
-<body>
+<%
+// jsp 상단에 추가 
+String url = request.getRequestURL().toString();
+String className = "asd";
+if (url.contains("QnAC")) {
+	className = "nav-qna";
+} else if (url.contains("ReviewPageC")) {
+	className = "nav-review";
+}
+%>
+<body onload="test()">
+
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
@@ -86,10 +97,10 @@
 				<div class="col-md-9 ftco-animate pb-5 text-center">
 					<p class="breadcrumbs">
 						<span class="mr-2"><a href="index.html">Home <i
-								class="fa fa-chevron-right"></i></a></span> <span>Blog <i
+								class="fa fa-chevron-right"></i></a></span> <span id="nowPage"> <i
 							class="fa fa-chevron-right"></i></span>
 					</p>
-					<h1 class="mb-0 bread">Blog</h1>
+					<h1 class="mb-0 bread" id="nowPageH"></h1>
 				</div>
 			</div>
 		</div>

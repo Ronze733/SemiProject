@@ -2,6 +2,7 @@ package com.semi.main;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +24,6 @@ public class HC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	}
 	
 }
