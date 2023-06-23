@@ -26,6 +26,7 @@
 	<link rel="stylesheet" href="css/bj/SKTCMain/style.css">
 </head>
 <body>
+<% request.setAttribute("currentPage", "nav-home"); %>
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
 			<a class="navbar-brand" href="index.html">Pacific<span>Travel Agency</span></a>
@@ -35,12 +36,14 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-					<li class="nav-item"><a href="ReviewPageC?p=1" class="nav-link">Review</a></li>
-					<li class="nav-item"><a href="destination.html" class="nav-link">Sign Up</a></li>
-					<li class="nav-item"><a href="SKTCC2" class="nav-link">SKTC</a></li>
-					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+					<li class="nav-item" id="nav-home"><a href="NewFile.jsp"
+						class="nav-link">메인 페이지</a></li>
+					<li class="nav-item" id="nav-review"><a href="ReviewPageC?p=1"
+						class="nav-link">여행 후기</a></li>
+					<li class="nav-item" id="nav-qna"><a href="QnAC"
+						class="nav-link">고객 게시판</a></li>
+					<li class="nav-item" id="nav-blog"><a href="blog.html"
+						class="nav-link">Blog</a></li>
 				</ul>
 			</div>
 		</div>
