@@ -149,6 +149,15 @@ public class WeatherDAO {
 			JSONObject resultData = (JSONObject) message.get("result");
 			String translatedText = resultData.get("translatedText").toString();
 			
+			  if (translatedText.equals("분명한")) {
+		            translatedText = "맑음";
+		        }
+			
+			  if (translatedText.equals("구름")) {
+		            translatedText = "구름 많음";
+		        }
+			
+			  
 			return translatedText;
 			
 		} catch (Exception e) {
