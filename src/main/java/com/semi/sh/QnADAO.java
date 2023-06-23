@@ -12,7 +12,7 @@ import com.semi.db.DBManager;
 public class QnADAO {
 	private ArrayList<QnA> QnAs = null;
 	private final static QnADAO QnADao = new QnADAO();
-
+	private static Connection con = DBManager.connect();
 	private QnADAO() {
 
 	}
