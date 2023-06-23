@@ -40,13 +40,14 @@
 	position: relative;
 	}
 .detail-main-img{
+	display:flex;
+	justify-content:center;
 	margin-top:40px;
 	margin-bottom: 40px;
 	margin-left:auto;
 	width:100%;
 }
 #detail-place_img{
-	margin-left:180px;
 	width: 80%;
 	height: 30%;
 }
@@ -66,10 +67,9 @@
 }
 
 .detail-weather-mk{
-	align-items:center;
-	justify-content:center;
+	
 	text-align:center;
-	width: 100%;
+	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -104,7 +104,12 @@
 	font-size:15pt;
 	font-weight: 800;
 }
+<<<<<<< HEAD
+=======
 
+
+
+>>>>>>> f31871a1ccb75472768211946ec5637b1db0bdce
 
 .detail-place{
 	width:90%;

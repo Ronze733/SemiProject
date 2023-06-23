@@ -5,6 +5,8 @@ package com.semi.mk.PlaceInfo;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +20,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import com.semi.db.DBManager;
+
+import oracle.jdbc.babelfish.Translator;
 
 public class WeatherDAO {
 	
@@ -46,7 +50,9 @@ public class WeatherDAO {
 			if (rs.next()) {
 				
 			String city = rs.getString("place_addr2");
-			String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&cnt=40&appid=3c20bb3f5ab75a340db446d8ba273c5b";
+			String encodedCity = URLEncoder.encode(city, StandardCharsets.UTF_8.toString());
+			String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + encodedCity + "&units=metric&cnt=40&appid=3c20bb3f5ab75a340db446d8ba273c5b";
+			
 			
 			
 			URL u = new URL(url);
@@ -104,5 +110,4 @@ public class WeatherDAO {
 	}
 
 }
-	
 
