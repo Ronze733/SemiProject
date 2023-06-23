@@ -78,6 +78,15 @@ function drawStar2() {
 
 }
 
-
+function ReviewloginCheck(id){
+	let loginCheck = id;
+	console.log(loginCheck);
+	if(loginCheck == ''){
+		alert('로그인 후 이용해주세요.');
+		location.href='AccountC';
+	} else{
+		location.href='ReviewWriteC?id=' + id;
+	}
+}
 
 

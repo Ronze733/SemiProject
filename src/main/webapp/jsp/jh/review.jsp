@@ -33,11 +33,8 @@
 			</div>
 
 			<div class="review-button">
-				<div>
-					<img alt="" src="">
-				</div>
 				<div class="review-button-link">
-					<a href="ReviewWriteC">후기작성</a>
+					<button onclick="ReviewloginCheck('${sessionScope.account.user_id}')">후기작성</button>				
 				</div>
 			</div>
 		</div>
@@ -46,18 +43,14 @@
 				<div class="review-img">
 					<div class="review-con">
 						<div>
-							<input style="width: 250px;" type="hidden">
-						</div>
-						<div>
 							<div class="r-img"
 								onclick="location.href='ReviewDetailC?id=${r.review_id}'">
 								<img class="reviewImg" src="img/jh/${r.review_pic}">
 							</div>
 							<div>
-								<span class="star"> ★★★★★ <span>★★★★★</span> <input
-									type="range" class="s" step="1" min="0" max="10"> <input
-									type="text" class="star_value" name="star_value"
-									value="${r.review_likes}">
+								<span class="star"> ★★★★★ <span>★★★★★</span> 
+								<input type="range" class="s" step="1" min="0" max="10"> 
+								<input type="text" class="star_value" name="star_value" value="${r.review_likes}">
 								</span>
 							</div>
 						</div>

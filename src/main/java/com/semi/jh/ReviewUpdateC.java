@@ -17,6 +17,7 @@ public class ReviewUpdateC extends HttpServlet {
 		ReviewDao.getReviewdao().select(request);
 		AccountDAO.loginCheck(request);
 		ReviewDao.getReviewdao().selectid(request);
+		ReviewDao.getReviewdao().makebody(request);
 		request.setAttribute("contentPage", "jsp/jh/reviewUpdate.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 

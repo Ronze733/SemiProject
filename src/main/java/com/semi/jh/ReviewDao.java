@@ -122,6 +122,13 @@ public class ReviewDao {
 			System.out.println(body);
 			System.out.println(pic);
 			System.out.println(likes);
+			
+			if (body.equals(null)) {
+				body="...";
+			}else {
+				body= body.replaceAll("\r\n", "<br>");
+			}
+			
 
 			pstmt.setString(1, user_id);
 			pstmt.setString(2, place);
@@ -129,13 +136,6 @@ public class ReviewDao {
 			pstmt.setString(4, body);
 			pstmt.setString(5, pic);
 			pstmt.setString(6, likes);
-			
-			if (body.isEmpty()) {
-				body="...";
-			}else {
-				body= body.replaceAll("\r\n", "<br>");
-			}
-			
 			
 			if (pstmt.executeUpdate()==1) {
 				String result = "등록성공";
@@ -206,6 +206,13 @@ public class ReviewDao {
 				pic_new = pic;
 			}
 			
+			if (body.equals(null)) {
+				body="...";
+			}else {
+				body= body.replaceAll("\r\n", "<br>");
+			}
+			
+
 			pstmt = con.prepareStatement(url);
 			pstmt.setString(1, pic_new);
 			pstmt.setString(2, title);
@@ -326,6 +333,17 @@ public class ReviewDao {
 //			DBManager.close(con, pstmt, rs);
 			
 		}
+	}
+
+
+
+	public void makebody(HttpServletRequest req) {
+	    String body = req.getParameter("body");
+	    body = body.replaceAll("<br>", "\r\n");
+	    System.out.println(body);
+	    req.setAttribute("body", body);
+
+		
 	}
 }
 

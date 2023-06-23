@@ -38,7 +38,7 @@
 					<div class="review-writeimg">
 						<input name="pic" type="file">
 					</div>
-					<div style="margin-left: 100px;">
+					<div>
 						<span class="star"> ★★★★★ <span>★★★★★</span> 
 							<input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10"> 
 							<input type="hidden" id="star_value"name="star_value" value="">
@@ -60,7 +60,7 @@
 							placeholder="여러분의 후기를 적어주세요!"></textarea>
 					</div>
 					<div class="place">
-						<div class="place2">
+						<div class="place2" style="display: flex; gap: 10px;">
 							<select name="place_name" class="select-styling">
 								<option value="seoul">서울</option>
 								<option value="busan">부산</option>
@@ -76,11 +76,12 @@
 								<option value="gangwon">강원도</option>
 								<option value="jeju ">제주도</option>
 							</select>
+							<div class="review-detailbutton">
+								<button class="review-detailbutton">&nbsp;&nbsp;Submit</button>
+							</div>
 						</div>
 					</div>
-					<div class="review-detailbutton">
-						<button class="review-detailbutton">&nbsp;&nbsp;Submit</button>
-					</div>
+
 				</div>
 			</div>
 		</form>
