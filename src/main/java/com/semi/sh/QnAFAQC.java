@@ -8,27 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.semi.bj.account.AccountDAO;
-import com.semi.db.DBManager;
 
-@WebServlet("/QnAUpdateC")
-public class QnAUpdateC extends HttpServlet {
+@WebServlet("/QnAFAQC")
+public class QnAFAQC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AccountDAO.loginCheck(request);
-		QnADAO.getQnADAO().getQnA(request);
-		QnADAO.getQnADAO().makebody2(request);
-		request.setAttribute("contentPage", "jsp/sh/QnA_update.jsp");
+		QnADAO.getQnADAO().getAllQnA(request);
+		QnADAO.getQnADAO().pagingQnA(1, request);
+		request.setAttribute("contentPage", "jsp/sh/QnA_FAQ.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
-			
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
-		QnADAO.getQnADAO().updateQnA(request);
-		QnADAO.getQnADAO().getQnA(request);
-		QnADAO.getQnADAO().makebody(request);
-		request.setAttribute("contentPage", "jsp/sh/QnA_detail.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}
 

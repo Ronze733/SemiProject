@@ -34,7 +34,7 @@
 					</div>
 				</div>
 				<div class="QnA-insert-button">
-					<div><button name="inquiry_user_id" value=" ${sessionScope.account.user_id }">완료</button></div>
+					<div><button name="inquiry_user_id" value="${sessionScope.account.user_id }">완료</button></div>
 				</div>
 			</div>
 		</div>

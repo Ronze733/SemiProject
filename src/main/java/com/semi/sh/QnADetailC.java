@@ -16,6 +16,7 @@ public class QnADetailC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QnADAO.getQnADAO().getQnA(request);
 		AccountDAO.loginCheck(request);
+		QnADAO.getQnADAO().makebody(request);
 		request.setAttribute("contentPage", "jsp/sh/QnA_detail.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

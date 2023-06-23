@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import com.semi.db.DBManager;
 
 public class QnADAO {
+	private static Connection con = DBManager.connect();
 	private ArrayList<QnA> QnAs = null;
 	private final static QnADAO QnADao = new QnADAO();
-	private static Connection con = DBManager.connect();
 	private QnADAO() {
 
 	}
@@ -22,13 +22,11 @@ public class QnADAO {
 	}
 
 	public void getAllQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		String sql = "select * from inquiry";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -50,13 +48,11 @@ public class QnADAO {
 	}
 
 	public void getQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		String sql = "select * from inquiry where inquiry_no = ?";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("no"));
 			rs = pstmt.executeQuery();
@@ -84,13 +80,12 @@ public class QnADAO {
 	}
 
 	public void insert(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into inquiry values(?, ?, ?, sysdate, inquiry_no_seq.nextval, ?, ?)";
+		String sql = "insert into inquiry values(?, ?, ?, sysdate, inquiry_no_seq.nextval, ?, ?, '.')";
+
 		try {
 			request.setCharacterEncoding("UTF-8");
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 
 			String id = request.getParameter("inquiry_user_id");
@@ -104,6 +99,12 @@ public class QnADAO {
 			System.out.println(category);
 			System.out.println(body);
 			System.out.println(name);
+			
+			if (body.equals(null)) {
+				body = "...";
+			}else {
+				body = body.replaceAll("\r\n", "<br>");
+			}
 
 			pstmt.setString(1, id);
 			pstmt.setString(2, title);
@@ -119,7 +120,7 @@ public class QnADAO {
 			e.printStackTrace();
 			System.out.println("등록 실패");
 		} finally {
-	//		DBManager.close(con, pstmt, null);
+		//	DBManager.close(con, pstmt, null);
 		}
 
 	}
@@ -161,12 +162,10 @@ public class QnADAO {
 	}
 
 	public void delQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		String sql = "delete inquiry where inquiry_no = ?";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("pkno"));
 
@@ -184,13 +183,11 @@ public class QnADAO {
 	}
 
 	public void updateQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		
 		String sql = "update inquiry set inquiry_title = ?, inquiry_body = ?, inquiry_category = ?, inquiry_question_day = sysdate where inquiry_no = ?";
 		try {
 			request.setCharacterEncoding("utf-8");
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			System.out.println("1");
 			System.out.println(request.getParameter("no"));
@@ -217,7 +214,7 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// DBManager.close(con, pstmt, null);
+		//	DBManager.close(con, pstmt, null);
 		}
 
 	}
@@ -229,9 +226,7 @@ public class QnADAO {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("txt"));
 			pstmt.setString(2,request.getParameter("no"));
-			if (pstmt.executeUpdate()==1) {
-				System.out.println("answered q");
-				System.out.println("answered q");
+			if (pstmt.executeUpdate() == 1) {
 				System.out.println("answered q");
 			}
 
@@ -241,15 +236,46 @@ public class QnADAO {
 		//	DBManager.close(con, pstmt, null);
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 
+	public void makebody(HttpServletRequest request) {
+	    QnA qna = (QnA) request.getAttribute("QnA");
+	    
+	    String body = qna.getInquiry_body();
+	    body = body.replaceAll("\r\n", "<br>");
+	    qna.setInquiry_body(body);
+	    
+	}
+
+	public void makebody2(HttpServletRequest request) {
+		QnA qna = (QnA) request.getAttribute("QnA");
+		
+		String body = qna.getInquiry_body();
+		body = body.replaceAll("<br>", "\r\n");
+		qna.setInquiry_body(body);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
