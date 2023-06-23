@@ -75,19 +75,19 @@
 		<div class="r-page"
 			style="display: flex; font-size: 20px; justify-content: center; margin-top: 20px;">
 			  <select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)">
-			    <option value="recently">최신순</option>
 			    <option value="stars">평점순</option>
+			    <option value="recently">최신순</option>
 			  </select>
-			<div onclick="location.href='ReviewPageC?p=1'">[맨처음]</div>
+			<div onclick="location.href='ReviewSRC?p=1'">[맨처음]</div>
 			<c:if test="${curPageNo > 1}">
-				<div onclick="location.href='ReviewPageC?p=${curPageNo - 1}'">&nbsp;[이전]&nbsp;</div>
+				<div onclick="location.href='ReviewSRC?p=${curPageNo - 1}'">&nbsp;[이전]&nbsp;</div>
 			</c:if>
 			<c:forEach begin="1" end="${pageCount }" var="i">
-				<div onclick="location.href='ReviewPageC?p=${i }'">&nbsp;${i }&nbsp;
+				<div onclick="location.href='ReviewSRC?p=${i }'">&nbsp;${i }&nbsp;
 				</div>
 			</c:forEach>
 			<c:if test="${curPageNo < pageCount}">
-				<div onclick="location.href='ReviewPageC?p=${curPageNo + 1}'">&nbsp;[다음]&nbsp;</div>
+				<div onclick="location.href='ReviewSRC?p=${curPageNo + 1}'">&nbsp;[다음]&nbsp;</div>
 			</c:if>
 			<div onclick="location.href='ReviewPageC?p=${pageCount }'">[맨끝]</div>
 		</div>

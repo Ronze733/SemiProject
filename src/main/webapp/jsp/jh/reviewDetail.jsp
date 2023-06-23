@@ -37,11 +37,18 @@
 			    <div class="review-write-submit">
 			    	<div class="review-img-time">
 			        <div class="review-writeimg">
-			            <img class="reviewImg" src="img/jh/${review.review_pic}">
+			            <img class="reviewImg2" src="img/jh/${review.review_pic}">
 			        </div>
 			        <div class="review-date">
 			        ${review.review_create_at}
 			        </div>
+						<div style="margin-left: 100px;">
+							<span class="star"> ★★★★★ <span>★★★★★</span>
+							 <input type="range" class="s" step="1" min="0" max="10" value="${review.review_likes}"> 
+							 <input type="text" class="star_value" name="star_value" value="${review.review_likes}">
+							</span>
+								<input value="${review.review_likes}">
+						</div>			        
 			        </div>
 			        <div class="review-write-detail">
 			            <div class="review-title-text">
@@ -57,9 +64,11 @@
 			                ${review.review_body}
 			            </div>
 							<div class="place">
-								<div class="div-button" onclick="goBack()">뒤로가기</div>						
+								<div class="div-button" onclick="goBack()">뒤로가기</div>			
+							<c:if test="${sessionScope.account.user_id eq review.review_user_id}">
 							  	<div class="div-button" onclick="confirmDelete(${review.review_id})">삭제</div>
-								<div class="div-button" onclick="location.href='ReviewUpdateC?id=${review.review_id}'">수정</div>					
+								<div class="div-button" onclick="location.href='ReviewUpdateC?id=${review.review_id}'">수정</div>	
+							</c:if>				
 							</div>
 			        	</div>
 			   		 </div>
