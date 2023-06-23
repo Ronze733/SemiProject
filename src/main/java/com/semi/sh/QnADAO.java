@@ -45,7 +45,7 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, rs);
+		//	DBManager.close(con, pstmt, rs);
 		}
 	}
 
@@ -78,7 +78,7 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, rs);
+		//	DBManager.close(con, pstmt, rs);
 		}
 
 	}
@@ -119,7 +119,7 @@ public class QnADAO {
 			e.printStackTrace();
 			System.out.println("등록 실패");
 		} finally {
-			DBManager.close(con, pstmt, null);
+	//		DBManager.close(con, pstmt, null);
 		}
 
 	}
@@ -178,7 +178,7 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, null);
+		//	DBManager.close(con, pstmt, null);
 		}
 
 	}
@@ -238,7 +238,7 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManager.close(con, pstmt, null);
+		//	DBManager.close(con, pstmt, null);
 		}
 		
 		
