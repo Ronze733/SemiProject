@@ -5,14 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 재생성</title>
-<link href="../../../css/bj/signupPage.css" rel="stylesheet" type="text/css">
+<link href="css/bj/signupPage.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../../js/bj/pwRecovery2.js" defer="defer"></script>
+<script type="text/javascript" src="js/bj/pwRecovery2.js" defer="defer"></script>
 </head>
 <body>
 
@@ -32,9 +32,9 @@
 					<div class="mb-3">
 						<label for="password">새 비밀번호</label> <input name="password"
 							type="password" class="form-control" id="password"
-							placeholder="숫자, 영어, 특수문자 포함, 8~16자"
-							onFocus="changePlaceholder(this, '비밀번호를 입력해주세요');"
-							onBlur="restorePlaceholder(this, '숫자, 영어, 특수문자 포함, 8~16자');" required>
+							placeholder="비밀번호를 입력해주세요"
+							onFocus="changePlaceholder(this, '숫자포함, 4~18자');"
+							onBlur="restorePlaceholder(this, '비밀번호를 입력해주세요');" required>
 					</div>
 					<div class="mb-3">
 						<label for="password-confirm">비밀번호 확인</label> <input

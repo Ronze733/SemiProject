@@ -26,8 +26,8 @@ public class AccountUpdateC extends HttpServlet {
 			request.getRequestDispatcher("jsp/bj/login/myPage.jsp").forward(request, response);
 
 		} else {
-			AccountDAO.accountCheck(request, response);
-			if (AccountDAO.accountCheck(request, response)) {
+			AccountDAO.accountCheck(request);
+			if (AccountDAO.accountCheck(request)) {
 				request.getRequestDispatcher("jsp/bj/login/pwRecovery2.jsp").forward(request, response);
 
 			} else {

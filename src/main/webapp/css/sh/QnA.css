@@ -68,12 +68,6 @@
     line-height: 20px;
 }
 
-.QnA-list-title5{
-	flex-basis: 100px;
-    text-align: center;
-    line-height: 20px;
-}
-
 .QnA-lists{
 	justify-content: space-between;
 	display: flex;
@@ -95,7 +89,6 @@
 	flex-grow: 1;
     line-height: 20px;
     font-weight: 400;
-    cursor: pointer;
 }
 
 .QnA-list3{
@@ -111,13 +104,6 @@
     line-height: 20px;
     font-weight: 400;
     color: gray;
-}
-
-.QnA-list5{
-	flex-basis: 100px;
-    text-align: center;
-    line-height: 20px;
-    font-weight: 400;
 }
 
 .QnA-page-number{
