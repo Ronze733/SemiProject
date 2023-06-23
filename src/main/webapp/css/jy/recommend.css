@@ -63,6 +63,14 @@
 	font-weight: 700; 
 }
 
+.recommend-themes-label input[type="checkbox"]{
+	display: none;
+}
+
+.recommend-themes-label input[type="checkbox"]:checked{
+ 	background: red;
+ }
+
 .recommend-search-places{
 	display: flex;
     width: 50%;

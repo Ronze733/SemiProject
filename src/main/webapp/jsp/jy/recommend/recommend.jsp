@@ -13,7 +13,7 @@
 							테마
 						</div>
 						<div>
-							<label>
+							<label class="recommend-themes-label">
 								<input class="recommend-themes" type="checkbox" name="themes" value="가족">가족
 							</label>
 						</div>
