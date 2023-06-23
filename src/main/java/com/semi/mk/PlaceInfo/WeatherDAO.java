@@ -45,8 +45,13 @@ public class WeatherDAO {
 			
 			if (rs.next()) {
 				
+<<<<<<< HEAD
+			String city = rs.getString("place_addr2");
+			String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&cnt=40&appid=3c20bb3f5ab75a340db446d8ba273c5b";
+=======
 			String city = request.getParameter("city");
 			String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&cnt=40&appid=4bffdfc37a41be14217fa1a310b44efe";
+>>>>>>> f31871a1ccb75472768211946ec5637b1db0bdce
 			
 			
 			URL u = new URL(url);
