@@ -213,11 +213,28 @@ public class QnADAO {
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("수정 성공!");
 			}
-			
-					
-			
-			
-			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// DBManager.close(con, pstmt, null);
+		}
+
+	}
+
+	public void updateAns(HttpServletRequest request) {
+		String sql = "update inquiry set inquiry_answer = ? where inquiry_no = ?";
+		try {
+			request.getParameter("no");
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, request.getParameter("txt"));
+			pstmt.setString(2,request.getParameter("no"));
+			if (pstmt.executeUpdate()==1) {
+				System.out.println("answered q");
+				System.out.println("answered q");
+				System.out.println("answered q");
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
