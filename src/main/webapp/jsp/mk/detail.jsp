@@ -47,8 +47,8 @@
 	 		 		강수확률 ${w.pop * 100 } %<br>
 	 				체감온도 ${w.fillTemp }<br>
 	 				최저 기온/최고 기온 ${w.minTemp } / ${w.maxTemp }<br>
-	 				습도 ${w.humidity }<br>
-	 				풍속 ${w.windSpeed }
+	 				습도 ${w.humidity } %<br>
+	 				풍속 ${w.windSpeed } m/s
 	 				</C:forEach>
 	 				</div>
 	 			</div>
@@ -59,7 +59,7 @@
 			<div class="detail-place-root"> 오시는길</div>
 			<div class="detail-place-addr"> 주소: ${placeInfo.p_addr }</div>
 			<input type="hidden" id="param" value="${placeInfo.p_addr }">
-	<div id="map-mk" style="width:500px;height:400px;"></div>
+	<div id="map-mk" style="width:90%;height:400px;margin-left: 75px;"></div>
 	
 	<script type="text/javascript">
 		let place = document.getElementById('param')?.value;
