@@ -20,7 +20,7 @@
 		</div>
 		<div class="detail-main-informatoin">
 	 		<div class="detail-main-img" >
-	 			<img id="detail-place_img" alt="" src=""> ${placeInfo.p_pic }
+	 			<img id="detail-place_img" alt="" src="./img/mk/${placeInfo.p_pic }"> 
 	 		</div>
 	 		<div class="detail-main-text">
 	 			<h2>상세정보</h2>
@@ -30,19 +30,25 @@
 	 		</div>
 	 	</div>
  		</div>
- 		<div class="detail-weather">
+ 		<div class="detail-weather-mk">
 	 		<div class="detail-weather-title">날씨</div>
 	 			<div class="detail-weather-recent">
 	 				<div class="detail-weather-option">
-	 				<C:forEach items="${weathers }" var="w">
-	 		 		<div class="detail-weather-optiontext"> ${w.day } 날짜</div> 
-	 		 		아이콘 <img alt="" src="https://openweathermap.org/img/wn/${w.icon }@2x.png"> <br>
+	 				<C:forEach items="${weathers }" var="w" varStatus="loop">
+	 		 		<div class="detail-weather-optiontext"> 
+	 				<C:choose>
+	 				<C:when test="${loop.index ==0 }">오늘</C:when>
+	 				<C:when test="${loop.index ==1 }">내일</C:when>
+	 				<C:when test="${loop.index ==2 }">모레</C:when>
+	 				</C:choose>
+	 		 		</div> 
+	 		 		<img alt="" src="https://openweathermap.org/img/wn/${w.icon }@2x.png"> <br>
 	 		 		기상 상태 ${w.condition }<br>
 	 		 		강수확률 ${w.pop * 100 } %<br>
 	 				체감온도 ${w.fillTemp }<br>
 	 				최저 기온/최고 기온 ${w.minTemp } / ${w.maxTemp }<br>
-	 				습도 ${w.humidity }<br>
-	 				풍속 ${w.windSpeed }
+	 				습도 ${w.humidity } %<br>
+	 				풍속 ${w.windSpeed } m/s
 	 				</C:forEach>
 	 				</div>
 	 			</div>
@@ -53,11 +59,15 @@
 			<div class="detail-place-root"> 오시는길</div>
 			<div class="detail-place-addr"> 주소: ${placeInfo.p_addr }</div>
 			<input type="hidden" id="param" value="${placeInfo.p_addr }">
-	<div id="map" style="width:500px;height:400px;"></div>
+<<<<<<< HEAD
+	<div id="map-mk" style="width:90%;height:400px;margin-left: 75px;"></div>
+=======
+	<div id="map-mk" style="width:500px;height:400px;"></div>
+>>>>>>> f31871a1ccb75472768211946ec5637b1db0bdce
 	
 	<script type="text/javascript">
 		let place = document.getElementById('param')?.value;
-		let container = document.getElementById('map');
+		let container = document.getElementById('map-mk');
 		let options = {
 				center: new kakao.maps.LatLng(35.790402, 129.332103),
 				level: 7

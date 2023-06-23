@@ -20,13 +20,13 @@ public class AccountDAO {
 	
 	private static Connection con = DBManager.connect();
 
-	public static void login(HttpServletRequest request, HttpServletResponse response) {
+	public static void login(HttpServletRequest request) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String email = request.getParameter("user_email");
-		String pw = request.getParameter("user_pw");
+		String email = request.getParameter("email");
+		String pw = request.getParameter("password");
 		String result = "";
 
 		System.out.println(email);
@@ -37,9 +37,6 @@ public class AccountDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
-			
-			response.setContentType("text/html;charset=utf-8");
-			PrintWriter writer = response.getWriter();
 
 			if (rs.next()) {
 				String dbPw = rs.getString("user_pw");
@@ -59,20 +56,14 @@ public class AccountDAO {
 					HttpSession hs = request.getSession();
 					hs.setAttribute("account", userInfo);
 					hs.setMaxInactiveInterval(60 * 300);
-					response.setStatus(200);
-					writer.write("true");
 				} else {
 					System.out.println("비밀번호 오류");
 					result = "비밀번호가 맞지 않습니다";
-					writer.write("비밀번호가 맞지 않습니다");
-					response.setStatus(400);
 				}
 
 			} else {
 				System.out.println("아이디 오류");
 				result = "존재하지 않는 회원입니다";
-				writer.write("존재하지 않는 회원입니다");
-				response.setStatus(400);
 			}
 			request.setAttribute("result", result);
 
@@ -158,22 +149,18 @@ public class AccountDAO {
 		Account account = (Account) request.getSession().getAttribute("account");
 		PreparedStatement pstmt = null;
 
-		String sql = "update user_tbl set user_name = ?, user_pw = ?, user_gender = ?, user_question = ?, user_answer = ? where user_id = ?";
+		String sql = "update user_tbl set user_name = ?, user_pw = ?, user_gender = ? where user_id = ?";
 
 		String nickname = request.getParameter("nickname");
 		String pw = BCrypt.hashpw(request.getParameter("password"), BCrypt.gensalt());
 		String pwConfirm = request.getParameter("passwordConfirm");
 		String gender = request.getParameter("gender");
-		String question = request.getParameter("question");
-		String answer = request.getParameter("answer");
 		String id = account.getUser_id();
 
 		System.out.println(nickname);
 		System.out.println(pw);
 		System.out.println(pwConfirm);
 		System.out.println(gender);
-		System.out.println(question);
-		System.out.println(answer);
 		System.out.println(id);
 
 		try {
@@ -181,11 +168,9 @@ public class AccountDAO {
 			pstmt.setString(1, nickname);
 			pstmt.setString(2, pw);
 			pstmt.setString(3, gender);
-			pstmt.setString(4, question);
-			pstmt.setString(5, answer);
-			pstmt.setString(6, id);
+			pstmt.setString(4, id);
 
-			if (pstmt.executeUpdate() >= 1) {
+			if (pstmt.executeUpdate() == 1) {
 				System.out.println("수정 성공");
 
 				// 세션을 새로 업데이트
@@ -261,16 +246,16 @@ public class AccountDAO {
 
 	}
 
-	public static boolean accountCheck(HttpServletRequest request, HttpServletResponse response) {
+	public static boolean accountCheck(HttpServletRequest request) {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		String sql = "select * from user_tbl where user_id = ? and user_question = ? and user_answer = ?";
 
-		String id = request.getParameter("user_email");
-		String question = request.getParameter("user_question");
-		String answer = request.getParameter("user_answer");
+		String id = request.getParameter("email");
+		String question = request.getParameter("question");
+		String answer = request.getParameter("answer");
 		
 		boolean result = false;
 		
@@ -285,9 +270,6 @@ public class AccountDAO {
 			pstmt.setString(2, question);
 			pstmt.setString(3, answer);
 
-			response.setContentType("text/html;charset=utf-8");
-			PrintWriter writer = response.getWriter();
-			
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
@@ -299,12 +281,8 @@ public class AccountDAO {
 				hs.setMaxInactiveInterval(60 * 300);
 				result = true;
 				request.setAttribute("AccountCheck", result);
-				response.setStatus(200);
-				writer.write("true");
 			} else {
 				System.out.println("본인인증 실패");
-				response.setStatus(400);
-				writer.write("false");
 			}
 
 		} catch (Exception e) {

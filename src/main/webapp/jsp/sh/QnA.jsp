@@ -17,7 +17,6 @@
 				<div class="QnA-left-lists">
 					<div class="QnA-left-list">공지사항</div>
 					<div class="QnA-left-list">문의하기</div>
-					<div class="QnA-left-list">자주 묻는 질문</div>
 				</div>
 			</div>
 			<div class="QnA-body">
@@ -26,6 +25,7 @@
 					<div>
 						<input class="QnA-search" placeholder="검색어를 입력해주세요.">
 						<button class="QnA-searchbutton">검색</button>
+						${sessionScope.account.user_id}
 					</div>
 					<div>
 						<button onclick="QnAloginCheck('${sessionScope.account.user_id}')">작성</button>
@@ -37,27 +37,20 @@
 						<div class="QnA-list-title2">제목</div>
 						<div class="QnA-list-title3">아이디</div>
 						<div class="QnA-list-title4">날짜</div>
-						<div class="QnA-list-title5">상태</div>
 					</div>
 					<c:forEach items="${QnAs }" var="QnA">
 						<div class="QnA-lists">
 							<div class="QnA-list1">${QnA.inquiry_category }</div>
+
 							<c:if test="${QnA.inquiry_title ne '' }">
 							<div class="QnA-list2" onclick="location.href='QnADetailC?no=${QnA.inquiry_no}'"> <span class="leftToRight">${QnA.inquiry_title }</span></div>
 							</c:if>
 							<c:if test="${QnA.inquiry_title eq '' }">
 							<div class="QnA-list2"></div>
 							</c:if>
+
 							<div class="QnA-list3">${QnA.inquiry_user_name }</div>
 							<div class="QnA-list4">${QnA.inquiry_question_day }</div>
-							<div class="QnA-list5">
-							<c:if test="${QnA.inquiry_answer ne '.' && QnA.inquiry_title ne '' }">
-								답변완료
-							</c:if>
-							<c:if test="${QnA.inquiry_answer eq '.'}">
-							    미답변
-							</c:if>
-							</div>
 						</div>
 					</c:forEach>
 				</div>

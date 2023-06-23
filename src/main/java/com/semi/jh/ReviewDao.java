@@ -1,5 +1,6 @@
 package com.semi.jh;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -16,6 +17,8 @@ import com.semi.db.DBManager;
 import com.semi.sh.QnA;
 
 public class ReviewDao {
+	
+	private static Connection con = DBManager.connect();
 	private ArrayList<Review> reviews = null;
 	private final static ReviewDao REVIEWDAO = new ReviewDao();
 	
@@ -32,12 +35,10 @@ public class ReviewDao {
 
 
 	public void select(HttpServletRequest request) {
-		Connection con =null;
 		PreparedStatement pstmt =null;
 		ResultSet rs= null;
-		String url="select * from review";
+		String url="SELECT * FROM review ORDER BY review_id";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(url);
 			rs = pstmt.executeQuery();
 			Review r = null;
@@ -60,21 +61,19 @@ public class ReviewDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManager.close(con, pstmt, rs);
+//			DBManager.close(con, pstmt, rs);
 			
 		}
 		
 		
 	}
 	public void selectid(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String url = "select * from review where review_id=?";
 		String idString = request.getParameter("id");
 		int id = Integer.parseInt(idString);
 		try {
-		    con = DBManager.connect();
 		    pstmt = con.prepareStatement(url);
 		    pstmt.setInt(1, id);
 		    rs = pstmt.executeQuery();
@@ -92,25 +91,22 @@ public class ReviewDao {
 		    }
 		    request.setAttribute("review", review);
 		
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManager.close(con, pstmt, rs);
+			//DBManager.close(con, pstmt, rs);
 			
 		}
 		
 		
 	}
 	public void insert(HttpServletRequest request) {
-		Connection con =null;
 		PreparedStatement pstmt =null;
 		String url="INSERT INTO review VALUES (review_id_seq.nextval, ? , ? , ? , ? , sysdate , ? , ?)";
 		String path = request.getServletContext().getRealPath("img/jh");
 		System.out.println(path);
 		try {
 			MultipartRequest mr = new MultipartRequest(request, path , 30*1024*1024,"utf-8",new DefaultFileRenamePolicy());
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(url);
 			
 			String user_id=mr.getParameter("id");
@@ -134,6 +130,12 @@ public class ReviewDao {
 			pstmt.setString(5, pic);
 			pstmt.setString(6, likes);
 			
+			if (body.isEmpty()) {
+				body="...";
+			}else {
+				body= body.replaceAll("\r\n", "<br>");
+			}
+			
 			
 			if (pstmt.executeUpdate()==1) {
 				String result = "등록성공";
@@ -145,7 +147,7 @@ public class ReviewDao {
 			e.printStackTrace();
 			System.out.println("등록실패");
 		}finally {
-			DBManager.close(con, pstmt, null);
+			//DBManager.close(con, pstmt, null);
 			
 		}
 		
@@ -154,13 +156,11 @@ public class ReviewDao {
 	}
 
 	public void delete(HttpServletRequest request) {
-		Connection con =null;
 		PreparedStatement pstmt =null;
 		String url="delete from review where review_id=? ";
 		String id = request.getParameter("id");
 		System.out.println(id);
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(url);
 			pstmt.setString(1, id);
 			
@@ -172,19 +172,17 @@ public class ReviewDao {
 			e.printStackTrace();
 			System.out.println("삭제실패");
 		}finally {
-			DBManager.close(con, pstmt, null);
+			//DBManager.close(con, pstmt, null);
 			
 		}
 		
 	}
 
 	public void update(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		String path = request.getServletContext().getRealPath("img/jh");
-		String url = "update review set review_pic=? ,review_title=? ,review_body=? ,review_place=? where review_id=?";
+		String url = "update review set review_pic=? ,review_title=? ,review_body=? ,review_place=? ,review_likes=? where review_id=?";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(url);
 			MultipartRequest mr = new MultipartRequest(request, path , 30*1024*1024,"utf-8",new DefaultFileRenamePolicy());
 			
@@ -193,6 +191,7 @@ public class ReviewDao {
 		    String title = mr.getParameter("title");
 		    String body = mr.getParameter("body");
 		    String place = mr.getParameter("place");
+		    String likes=mr.getParameter("star_value");
 		    String id=mr.getParameter("id");
 		    
 			System.out.println(pic_new);
@@ -200,24 +199,35 @@ public class ReviewDao {
 			System.out.println(title);
 			System.out.println(body);
 			System.out.println(place);
+			System.out.println(likes);
 			System.out.println(id);
 
+			if (pic_new == null) {
+				pic_new = pic;
+			}
+			
 			pstmt = con.prepareStatement(url);
 			pstmt.setString(1, pic_new);
 			pstmt.setString(2, title);
 			pstmt.setString(3, body);
 			pstmt.setString(4, place);
-			pstmt.setString(5, id);
+			pstmt.setString(5, likes);			
+			pstmt.setString(6, id);
+			
 			
 			if (pstmt.executeUpdate()==1) {
 				System.out.println("수정 완료");
+				/*if (pic_new!=null) {
+					File f = new File(path+"/"+pic);
+					f.delete();
+				}*/
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("수정 실패");
 			
 		}finally {
-			DBManager.close(con, pstmt, null);
+			//DBManager.close(con, pstmt, null);
 		}
 		
 	}
@@ -251,14 +261,12 @@ public class ReviewDao {
 
 	public void search(HttpServletRequest request) {
 		String keyword = request.getParameter("keyword");
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs= null;
 		
 		reviews = new ArrayList<Review>(); // 검색 결과를 저장하기 위한 리스트
 		String sql = "SELECT * FROM review WHERE review_title LIKE ? OR review_body LIKE ?";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, "%" + keyword + "%");
 			pstmt.setString(2, "%" + keyword + "%");
@@ -281,10 +289,43 @@ public class ReviewDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManager.close(con, pstmt, rs);
+			//DBManager.close(con, pstmt, rs);
 			
 		}
 	}
-	
+
+
+
+	public void selectlikes(HttpServletRequest request) {
+		PreparedStatement pstmt =null;
+		ResultSet rs= null;
+		String url="SELECT * FROM review ORDER BY review_likes";
+		try {
+			pstmt = con.prepareStatement(url);
+			rs = pstmt.executeQuery();
+			Review r = null;
+			reviews = new ArrayList<Review>();
+			while (rs.next()) {
+				int id=rs.getInt("review_id");
+				String user_id = rs.getString("review_user_id");
+				String place = rs.getString("review_place");
+				String title = rs.getString("review_title");
+				String body = rs.getString("review_body");
+				Date date = rs.getDate("review_created_at");
+				String pic = rs.getString("review_pic");
+				int likes = rs.getInt("review_likes");
+				r = new Review(id, user_id, place, title, body, date, pic, likes);
+				reviews.add(r);
+			}
+			request.setAttribute("reviews", reviews);
+		
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+//			DBManager.close(con, pstmt, rs);
+			
+		}
+	}
 }
 
