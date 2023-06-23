@@ -12,7 +12,7 @@ import com.semi.db.DBManager;
 public class QnADAO {
 	private ArrayList<QnA> QnAs = null;
 	private final static QnADAO QnADao = new QnADAO();
-
+	private static Connection con = DBManager.connect();
 	private QnADAO() {
 
 	}
@@ -22,13 +22,11 @@ public class QnADAO {
 	}
 
 	public void getAllQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		String sql = "select * from inquiry";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -45,18 +43,16 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, rs);
+		//	DBManager.close(con, pstmt, rs);
 		}
 	}
 
 	public void getQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		String sql = "select * from inquiry where inquiry_no = ?";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("no"));
 			rs = pstmt.executeQuery();
@@ -78,19 +74,17 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, rs);
+		//	DBManager.close(con, pstmt, rs);
 		}
 
 	}
 
 	public void insert(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		String sql = "insert into inquiry values(?, ?, ?, sysdate, inquiry_no_seq.nextval, ?, ?)";
 		try {
 			request.setCharacterEncoding("UTF-8");
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 
 			String id = request.getParameter("inquiry_user_id");
@@ -119,7 +113,7 @@ public class QnADAO {
 			e.printStackTrace();
 			System.out.println("등록 실패");
 		} finally {
-			DBManager.close(con, pstmt, null);
+		//	DBManager.close(con, pstmt, null);
 		}
 
 	}
@@ -161,12 +155,10 @@ public class QnADAO {
 	}
 
 	public void delQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		String sql = "delete inquiry where inquiry_no = ?";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("pkno"));
 
@@ -184,13 +176,11 @@ public class QnADAO {
 	}
 
 	public void updateQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		
 		String sql = "update inquiry set inquiry_title = ?, inquiry_body = ?, inquiry_category = ?, inquiry_question_day = sysdate where inquiry_no = ?";
 		try {
 			request.setCharacterEncoding("utf-8");
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			System.out.println("1");
 			System.out.println(request.getParameter("no"));
@@ -217,7 +207,7 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// DBManager.close(con, pstmt, null);
+		//	DBManager.close(con, pstmt, null);
 		}
 
 	}
@@ -238,7 +228,7 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManager.close(con, pstmt, null);
+		//	DBManager.close(con, pstmt, null);
 		}
 		
 		

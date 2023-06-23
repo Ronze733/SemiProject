@@ -4,6 +4,7 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"
 	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
 	crossorigin="anonymous"></script>
+<script type="text/javascript" src="./js/jy/pagination.js"></script>
 	<div class="recommend-container">
 		<div class="recommend-search" style="display: flex;">
 			<div id="recommend-search-menus">
@@ -120,11 +121,12 @@
 			</div>
 		</div>
 		<div class="recommend-travel-places">
-				<div class="result-div-wrap">
+				<div class="recommend-result-div-wrap">
 
 					
 					
 				</div>
+				<div id="result-pagination"></div>
 		</div>
 	</div>
 <script type="text/javascript" src="./js/jy/recommend.js"></script>
