@@ -6,6 +6,7 @@ const resultDiv = 	`<div class="recommend-result-div">
 						</div>
 						<div class="recommend-result-name"></div>
 						<div class="recommend-result-location"></div>
+						<div class="recommend-result-location">test</div>
 					</div>
 					`;
 
