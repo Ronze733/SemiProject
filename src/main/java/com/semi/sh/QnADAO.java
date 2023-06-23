@@ -227,6 +227,8 @@ public class QnADAO {
 			pstmt.setString(2,request.getParameter("no"));
 			if (pstmt.executeUpdate()==1) {
 				System.out.println("answered q");
+				System.out.println("answered q");
+				System.out.println("answered q");
 			}
 		} catch (Exception e) {
 
