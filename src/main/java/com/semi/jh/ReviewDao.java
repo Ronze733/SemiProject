@@ -212,6 +212,9 @@ public class ReviewDao {
 				body= body.replaceAll("\r\n", "<br>");
 			}
 			
+			if (likes.equals("")) {
+				likes="0";
+			}
 
 			pstmt = con.prepareStatement(url);
 			pstmt.setString(1, pic_new);

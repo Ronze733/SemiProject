@@ -39,6 +39,9 @@
 						<input name="pic" type="file">
 					</div>
 					<div>
+					별점을 지정해주세요.
+					</div>
+					<div>
 						<span class="star"> ★★★★★ <span>★★★★★</span> 
 							<input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10"> 
 							<input type="hidden" id="star_value"name="star_value" value="">

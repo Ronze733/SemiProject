@@ -85,6 +85,28 @@
 			<div onclick="location.href='ReviewPageC?p=${pageCount }'">[맨끝]</div>
 		</div>
 	</div>
+	<div class="CM" style="display: flex;">
+	<div class="side_quick fixed" style="left: 105px; display: block;">
+                <div id="ctl00_bodyContent_SideTopBanner" class="side_ban">                                             
+                            <a href="https://kbwiserent.co.kr/" target="_blank" title="여기 어때?">
+                                <img src="img/jh/car.png" alt="렌트카는 MZ 렌트카" style="width: 100px;">
+                            </a>      
+                            <div>                                 
+                            걸어다니기힘들지?
+                            </div>   
+						</div>                    
+					</div>
+		<div class="side_quick fixed" style="left: 105px; display: block;">
+                <div id="ctl00_bodyContent_SideTopBanner" class="side_ban">                                             
+                            <a href="https://www.goodchoice.kr/" target="_blank" title="여기 어때?">
+                                <img src="img/jh/Hotel.png" alt="호텔은여기어때?" style="width: 100px;">
+                            </a>      
+                            <div>                                 
+                            호텔은 여기어때?
+                            </div>   
+						</div>                    
+					</div>	
+	</div>							
 </body>
 <script type="text/javascript">
 	drawStar2()

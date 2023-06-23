@@ -47,7 +47,6 @@
 							 <input type="range" class="s" step="1" min="0" max="10" value="${review.review_likes}"> 
 							 <input type="text" class="star_value" name="star_value" value="${review.review_likes}">
 							</span>
-								<input value="${review.review_likes}">
 						</div>			        
 			        </div>
 			        <div class="review-write-detail">
@@ -75,4 +74,7 @@
 				</form>
 			</div>
 </body>
+<script type="text/javascript">
+	drawStar2()
+</script>
 </html>
