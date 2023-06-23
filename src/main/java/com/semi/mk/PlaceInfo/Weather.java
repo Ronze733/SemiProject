@@ -4,7 +4,7 @@ public class Weather {
 	private String humidity;
 	private String minTemp;
 	private String maxTemp;
-	private String fillTemp;
+	private String feelTemp;
 	private String windSpeed;
 	private String condition;
 	private String day;
@@ -15,13 +15,13 @@ public class Weather {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Weather(String humidity, String minTemp, String maxTemp, String fillTemp, String windSpeed, String condition,
+	public Weather(String humidity, String minTemp, String maxTemp, String feelTemp, String windSpeed, String condition,
 			String day, String icon, double pop) {
 		super();
 		this.humidity = humidity;
 		this.minTemp = minTemp;
 		this.maxTemp = maxTemp;
-		this.fillTemp = fillTemp;
+		this.feelTemp = feelTemp;
 		this.windSpeed = windSpeed;
 		this.condition = condition;
 		this.day = day;
@@ -53,12 +53,12 @@ public class Weather {
 		this.maxTemp = maxTemp;
 	}
 
-	public String getFillTemp() {
-		return fillTemp;
+	public String getFeelTemp() {
+		return feelTemp;
 	}
 
-	public void setFillTemp(String fillTemp) {
-		this.fillTemp = fillTemp;
+	public void setFeelTemp(String feelTemp) {
+		this.feelTemp = feelTemp;
 	}
 
 	public String getWindSpeed() {
@@ -100,6 +100,6 @@ public class Weather {
 	public void setPop(double pop) {
 		this.pop = pop;
 	}
-
+	
 	
 }

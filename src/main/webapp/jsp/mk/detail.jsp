@@ -59,7 +59,11 @@
 			<div class="detail-place-root"> 오시는길</div>
 			<div class="detail-place-addr"> 주소: ${placeInfo.p_addr }</div>
 			<input type="hidden" id="param" value="${placeInfo.p_addr }">
+<<<<<<< HEAD
 	<div id="map-mk" style="width:90%;height:400px;margin-left: 75px;"></div>
+=======
+	<div id="map-mk" style="width:500px;height:400px;"></div>
+>>>>>>> f31871a1ccb75472768211946ec5637b1db0bdce
 	
 	<script type="text/javascript">
 		let place = document.getElementById('param')?.value;
