@@ -1,8 +1,7 @@
 let resultDivWrap = $(".recommend-result-div-wrap");
 
 const resultDiv = `<div class="recommend-result-div">
-						<div>
-							<img alt="" src="" class="recommend-result-pic" onclick="">
+						<div class="recommend-result-img" style="" onclick="">
 						</div>
 						<div class="recommend-result-name"></div>
 						<div class="recommend-result-location"></div>
@@ -48,10 +47,10 @@ function setVal(data) {
       let resultDiv2 = $(resultDiv).clone();
       console.log(el.name);
       console.log(el.id);
-      $(resultDiv2).find(".recommend-result-pic").attr("src", "./img/mk/" + el.pic);
+      $(resultDiv2).find(".recommend-result-img").attr("style", "background-image: url('./img/mk/" + el.pic +"');");
       $(resultDiv2).find(".recommend-result-name").text(el.name);
       $(resultDiv2).find(".recommend-result-location").text(el.category3);
-      $(resultDiv2).find(".recommend-result-pic").attr("onclick", "sendController(" + el.id + ")");
+      $(resultDiv2).find(".recommend-result-img").attr("onclick", "sendController(" + el.id + ")");
       $(resultDivWrap).append(resultDiv2);
     });
   }

@@ -205,14 +205,17 @@
     height: 200px;
 }
 
-.recommend-result-pic{
+.recommend-result-img{
 	width: 277px;
 	height: 169px;
 	border-radius: 25px;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 	transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-.recommend-result-pic:hover{
+.recommend-result-img:hover{
 	transform: scale(1.1);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
