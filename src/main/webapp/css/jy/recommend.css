@@ -79,6 +79,7 @@
 
 .recommend-themes-label:hover{
 	background-color: #ddd;
+	color: #fff;
 }
 
 .recommend-themes-label input[type="checkbox"]:checked + .recommend-theme{
@@ -125,6 +126,7 @@
 
 .recommend-places-label:hover{
 	background-color: #ddd;
+	color: #fff;
 }
 
 .recommend-places-label input[type="checkbox"]:checked + .recommend-place{
@@ -170,6 +172,7 @@
 
 .recommend-locations-label:hover{
 	background-color: #ddd;
+	color: #fff;
 }
 
 .recommend-locations-label input[type="checkbox"]:checked + .recommend-location{
@@ -206,11 +209,12 @@
 	width: 277px;
 	height: 169px;
 	border-radius: 25px;
-	transition: transform 0.3s ease; 
+	transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .recommend-result-pic:hover{
 	transform: scale(1.1);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .recommend-result-name{
