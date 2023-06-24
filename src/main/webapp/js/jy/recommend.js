@@ -2,7 +2,7 @@ let resultDivWrap = $(".recommend-result-div-wrap");
 
 const resultDiv = `<div class="recommend-result-div">
 						<div>
-							<img alt="" src="" class="recommend-result-img" onclick="">
+							<img alt="" src="" class="recommend-result-pic" onclick="">
 						</div>
 						<div class="recommend-result-name"></div>
 						<div class="recommend-result-location"></div>
@@ -48,10 +48,10 @@ function setVal(data) {
       let resultDiv2 = $(resultDiv).clone();
       console.log(el.name);
       console.log(el.id);
-      $(resultDiv2).find(".recommend-result-img").attr("src", "./img/mk/" + el.pic);
+      $(resultDiv2).find(".recommend-result-pic").attr("src", "./img/mk/" + el.pic);
       $(resultDiv2).find(".recommend-result-name").text(el.name);
       $(resultDiv2).find(".recommend-result-location").text(el.category3);
-      $(resultDiv2).find(".recommend-result-img").attr("onclick", "sendController(" + el.id + ")");
+      $(resultDiv2).find(".recommend-result-pic").attr("onclick", "sendController(" + el.id + ")");
       $(resultDivWrap).append(resultDiv2);
     });
   }
@@ -70,10 +70,10 @@ let placeQuery = "";
 let locationQuery = "";
 
 $(themesEl).click(function () {
-  let themes = $(this).val();
-  if ($(this).is(":checked")) {
+	let themes = $(this).val();
+	if ($(this).is(":checked")) {
     themeQuery += themes + "!";
-  } else {
+    } else {
     themeQuery = themeQuery.replace($(this).val() + "!", "");
   }
   console.log(themeQuery);
@@ -116,6 +116,11 @@ function sendAjaxRequest() {
     },
   });
 }
+
+
+
+
+
 
 
 
