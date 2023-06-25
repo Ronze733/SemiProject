@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="../../../AdminC" method="post" enctype="multipart/form-data">
+	<form action="AdminC" method="post" enctype="multipart/form-data">
 		<input type="file" name="pic"> 사진<br>
 		<input name="placeName"> 장소명<br>
 		<input name="placeAddr"> 도로명 주소<br>

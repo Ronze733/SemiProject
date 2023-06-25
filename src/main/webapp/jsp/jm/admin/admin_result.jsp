@@ -16,6 +16,6 @@
 	${place.placeExplain }<br>
 	${place.placeAddr2 }<br>
 	<span>사진과 모든 것이 잘 나온다면 등록 성공!</span>
-	<button onclick="location.href='../../../AdminC'">돌아가기</button>
+	<button onclick="location.href='AdminC'">돌아가기</button>
 </body>
 </html>

@@ -23,7 +23,8 @@ import com.semi.db.DBManager;
 
 public class AdminDAO {
 
-	private static final String ACCESS_TOKEN = "sl.Bg8z7Q2-UUZmCKfmwWL_0gygddn2WKXbARMhwKb-fWOXJ-jP0R1MhYY6AnMGyvoM0t_lS247BpPSmBgezVu8HnxkStKvyhOZJPnJaaskV3yBaeJy0XbvdvVe_MNx24bF9U76IDLR4ZWi";
+	private static final String ACCESS_TOKEN = 
+			"sl.Bg-Gsy4wqc8u0YvQ4aYxYTO5BRA-EX1jloehkd-0bARGXbAjCCdlfgAu7dvX-TyDCdPzbQMk_4UgokTTqCYhEvxrKdRv9DUmdnHCVt_u1HrFUikPcQ9ucSqnHngCpkferyZbDuD_TJUe";
 
 	public static String uploadToDropbox(InputStream fileInputStream, String fileName) {
 		DbxRequestConfig config = DbxRequestConfig.newBuilder("dropbox/semi-project").build();
