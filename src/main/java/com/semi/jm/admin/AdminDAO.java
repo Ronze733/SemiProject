@@ -21,7 +21,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.semi.db.DBManager;
 
-public class Admin {
+public class AdminDAO {
 
 	private static final String ACCESS_TOKEN = "sl.Bg8z7Q2-UUZmCKfmwWL_0gygddn2WKXbARMhwKb-fWOXJ-jP0R1MhYY6AnMGyvoM0t_lS247BpPSmBgezVu8HnxkStKvyhOZJPnJaaskV3yBaeJy0XbvdvVe_MNx24bF9U76IDLR4ZWi";
 

@@ -16,7 +16,7 @@ public class AdminC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Admin.addPlace(request);
+		AdminDAO.addPlace(request);
 		request.getRequestDispatcher("./jsp/jm/admin/admin_result.jsp").forward(request, response);
 	}
 
