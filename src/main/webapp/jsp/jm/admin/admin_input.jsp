@@ -8,8 +8,8 @@
 </head>
 <body>
 	<form action="../../../AdminC" method="post" enctype="multipart/form-data">
-		<input type="file" name="pic"> 사진
-		<input name="placeName"> 장소명
+		<input type="file" name="pic"> 사진<br>
+		<input name="placeName"> 장소명<br>
 		<input name="placeAddr"> 도로명 주소<br>
 		Category1
 		<input type="checkbox" id="cotegory1-family" name="category1" value="가족">
@@ -43,8 +43,10 @@
 			<option value="강원도"> 강원도
 			<option value="제주도"> 제주도
 		</select>
-		<input type="text" name="placeExplain"> 장소 설명
-		<input name="placeAddr2"> 영어 주소(https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=37.5692&lon=126.9860&zoom=5 에서 존재 하는지 확인 후 없으면 근처 위치로)
+		<br>
+		<input type="text" name="placeExplain"> 장소 설명 <br>
+		<input name="placeAddr2"> 영어 주소(<a href="https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=37.5692&lon=126.9860&zoom=5" target="_blank">여기</a>에서 존재 하는지 확인 후 없으면 근처 위치로)
+		<br>
 		<button>등록</button>
 	</form>
 </body>

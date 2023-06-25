@@ -7,14 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${place.placePic }
-	<img alt="" src="${place.placePic }">
-	${place.placeName }
-	${place.placeAddr }
-	${place.placeCategory1 }
-	${place.placeCategory2 }
-	${place.placeCategory3 }
-	${place.placeExplain }
-	${place.placeAddr2 }
+	<img alt="" src="${place.placePic }"><br>
+	${place.placeName }<br>
+	${place.placeAddr }<br>
+	${place.placeCategory1 }<br>
+	${place.placeCategory2 }<br>
+	${place.placeCategory3 }<br>
+	${place.placeExplain }<br>
+	${place.placeAddr2 }<br>
+	<span>사진과 모든 것이 잘 나온다면 등록 성공!</span>
 </body>
 </html>
