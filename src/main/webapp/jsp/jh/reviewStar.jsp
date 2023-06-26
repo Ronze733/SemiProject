@@ -38,6 +38,14 @@
 				</div>
 			</div>
 		</div>
+		<div class="r-page"
+			style="display: flex; font-size: 17px; justify-content: flex-end; ">
+			  <select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)" 
+			  style="border: 1px solid #B4B4B4;border-radius: 4px;">
+			    <option value="recently">최신순</option>
+			    <option value="stars">평점순</option>
+			  </select>
+		</div>	
 		<c:forEach var="r" items="${reviews}" varStatus="loop">
 			<div class="review-imgf">
 				<div class="review-img">
@@ -65,26 +73,24 @@
 			</div>
 		</c:forEach>
 		<div></div>
-		<div class="r-page"
-			style="display: flex; font-size: 20px; justify-content: center; margin-top: 20px;">
-			  <select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)">
-			    <option value="stars">평점순</option>
-			    <option value="recently">최신순</option>
-			  </select>
-			<div onclick="location.href='ReviewSRC?p=1'">[맨처음]</div>
-			<c:if test="${curPageNo > 1}">
-				<div onclick="location.href='ReviewSRC?p=${curPageNo - 1}'">&nbsp;[이전]&nbsp;</div>
-			</c:if>
-			<c:forEach begin="1" end="${pageCount }" var="i">
-				<div onclick="location.href='ReviewSRC?p=${i }'">&nbsp;${i }&nbsp;
-				</div>
-			</c:forEach>
-			<c:if test="${curPageNo < pageCount}">
-				<div onclick="location.href='ReviewSRC?p=${curPageNo + 1}'">&nbsp;[다음]&nbsp;</div>
-			</c:if>
-			<div onclick="location.href='ReviewPageC?p=${pageCount }'">[맨끝]</div>
-		</div>
-	</div>
+		  <div class="col text-center">
+		    <div class="block-27">
+		      <ul>
+		      	<li><a href="ReviewSRC?p=1">&lt;&lt;</a></li>
+		      	<c:if test="${curPageNo > 1}">
+		        <li><a href="ReviewSRC?p=${curPageNo - 1}">&lt;</a></li>
+				</c:if>
+				<c:forEach begin="1" end="${pageCount }" var="i">
+		        <li><a href="ReviewSRC?p=${i }">${i }</a></li>
+				</c:forEach>
+				<c:if test="${curPageNo < pageCount}">
+		        <li><a href="ReviewSRC?p=${curPageNo + 1}">&gt;</a></li>
+				</c:if>
+				<li><a href="ReviewSRC?p=${pageCount }">&gt;&gt;</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</div>		
 </body>
 <script type="text/javascript">
 	drawStar2()

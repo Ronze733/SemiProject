@@ -402,13 +402,24 @@ flex-grow: 0;
     order: 1;
     flex-grow: 0;
     margin-left: 20px;	
+	padding-left: 6px;
+	white-space: nowrap;
+	color: black;
+	border: 2px solid black;
 }
+
+
+.review-detailbutton:hover {
+  background-color: black;
+  color: white;
+}
+
 
 .select-styling {
   width: 80px; /* 선택 박스의 너비 조정 */
   height: 50px; /* 선택 박스의 높이 조정 */
   padding: 10px; /* 선택 박스 내부 여백 */
-  font-size: 20px; /* 글꼴 크기 조정 */
+  font-size: 15px; /* 글꼴 크기 조정 */
   border-radius: 8px; /* 둥근 테두리 적용 */
   border: 1px solid #AAA8A8; /* 테두리 스타일 및 색상 지정 */
   background-color: #FFFFFF; /* 배경색 지정 */
@@ -419,6 +430,7 @@ flex-grow: 0;
   background-position: right center; /* 배경 이미지 위치 설정 */
   cursor: pointer; /* 커서 모양 변경 (포인터) */
   align-items: center;
+  padding-left: 16px;
 }
 
 
@@ -460,7 +472,7 @@ flex-grow: 0;
   
 .star {
   position: relative;
-  font-size: 32px;
+  font-size: 45px;
   color: #ddd;
 }
 
@@ -480,3 +492,12 @@ flex-grow: 0;
   overflow: hidden;
   pointer-events: none;
 }
+.star-rating {
+box-sizing: border-box;
+/* Auto layout */
+padding: 15px 110px;
+border: 1px solid #B4B4B4;
+border-radius: 4px;
+
+}
+

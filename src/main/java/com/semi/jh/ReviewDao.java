@@ -166,6 +166,7 @@ public class ReviewDao {
 			
 			if (pstmt.executeUpdate()==1) {
 				System.out.println("삭제성공");
+				request.setAttribute("result", "aa");
 			}
 			
 		} catch (Exception e) {
@@ -231,6 +232,7 @@ public class ReviewDao {
 					File f = new File(path+"/"+pic);
 					f.delete();
 				}*/
+				request.setAttribute("result", "aa");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

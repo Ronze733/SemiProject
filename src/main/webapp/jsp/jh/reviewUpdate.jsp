@@ -28,12 +28,11 @@
 		<div class="review-write-submit">
 			<div>
 				<div class="review-writeimg">
-				<div>
-				<img src="img/jh/${review.review_pic}"
-						style="max-width: 300px;"> <input name="oldImg"
-						type="hidden" value="${review.review_pic}"> <input
-						type="file" name="pic_new">
-				</div>
+				  <div>
+				    <img src="img/jh/${review.review_pic}" style="max-width: 430px; max-height: 430px;">
+				    <input name="oldImg" type="hidden" value="${review.review_pic}">
+				    <input type="file" name="pic_new" onchange="updateImage(this)">
+				  </div>
 				</div>
 					<div>
 						<span class="star"> ★★★★★ <span>★★★★★</span> 
@@ -74,8 +73,8 @@
 								<option value="gangwon">강원도</option>
 								<option value="jeju ">제주도</option>
 							</select>
-								<div class="review-detailbutton" >
-									<button class="review-detailbutton" onclick="goBack()">&nbsp;뒤로가기</button>
+								<div style="display: flex;" >
+									<a class="review-detailbutton" onclick="goBack()" style="color: black;">&nbsp;뒤로가기</a>
 										<div>
 									<button class="review-detailbutton">&nbsp;&nbsp;Submit</button>
 									</div>

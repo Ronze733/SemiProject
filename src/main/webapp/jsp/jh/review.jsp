@@ -12,6 +12,7 @@
 		location.href = "ReviewC";
 	}
 </script>
+
 </head>
 <body>
 	<div class="review-container">
@@ -31,13 +32,20 @@
 				<div class="review-write-big">후기를 알려주세요.</div>
 				<div class="review-write-small">추첨을 통해 소정의 상품을 증정드립니다.</div>
 			</div>
-
 			<div class="review-button">
 				<div class="review-button-link">
 					<button onclick="ReviewloginCheck('${sessionScope.account.user_id}')">후기작성</button>				
 				</div>
 			</div>
 		</div>
+		<div class="r-page"
+			style="display: flex; font-size: 17px; justify-content: flex-end; ">
+			  <select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)" 
+			  style="border: 1px solid #B4B4B4;border-radius: 4px;">
+			    <option value="recently">최신순</option>
+			    <option value="stars">평점순</option>
+			  </select>
+		</div>	
 		<c:forEach var="r" items="${reviews}" varStatus="loop">
 			<div class="review-imgf">
 				<div class="review-img">
@@ -65,25 +73,25 @@
 			</div>
 		</c:forEach>
 		<div></div>
-		<div class="r-page"
-			style="display: flex; font-size: 20px; justify-content: center; margin-top: 20px;">
-			  <select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)">
-			    <option value="recently">최신순</option>
-			    <option value="stars">평점순</option>
-			  </select>
-			<div onclick="location.href='ReviewPageC?p=1'">[맨처음]</div>
-			<c:if test="${curPageNo > 1}">
-				<div onclick="location.href='ReviewPageC?p=${curPageNo - 1}'">&nbsp;[이전]&nbsp;</div>
-			</c:if>
-			<c:forEach begin="1" end="${pageCount }" var="i">
-				<div onclick="location.href='ReviewPageC?p=${i }'">&nbsp;${i }&nbsp;
-				</div>
-			</c:forEach>
-			<c:if test="${curPageNo < pageCount}">
-				<div onclick="location.href='ReviewPageC?p=${curPageNo + 1}'">&nbsp;[다음]&nbsp;</div>
-			</c:if>
-			<div onclick="location.href='ReviewPageC?p=${pageCount }'">[맨끝]</div>
-		</div>
+		<div class="row mt-5">
+		  <div class="col text-center">
+		    <div class="block-27">
+		      <ul>
+		      	<li><a href="ReviewPageC?p=1">처음</a></li>
+		      	<c:if test="${curPageNo > 1}">
+		        <li><a href="ReviewPageC?p=${curPageNo - 1}">&lt;</a></li>
+				</c:if>
+				<c:forEach begin="1" end="${pageCount }" var="i">
+		        <li><a href="ReviewPageC?p=${i }">${i }</a></li>
+				</c:forEach>
+				<c:if test="${curPageNo < pageCount}">
+		        <li><a href="ReviewPageC?p=${curPageNo + 1}">&gt;</a></li>
+				</c:if>
+				<li><a href="ReviewPageC?p=${pageCount }">끝</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</div>		
 	</div>
 	<div class="CM" style="display: flex;">
 	<div class="side_quick fixed" style="left: 105px; display: block;">
