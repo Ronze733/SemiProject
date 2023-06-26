@@ -31,9 +31,9 @@
 <body>
 	<div class="navbar-signup">
 		<li class="nav-item"><a href="LoginC" id="Navbar-login"
-			class="nav-link">로그인</a></li>
+			class="nav-link">Log In</a></li>
 		<li class="nav-item"><a href="AccountRegC" id="Navbar-signup"
-			class="nav-link">회원가입</a></li>
+			class="nav-link">Sign Up</a></li>
 	</div>
 </body>
 </html>

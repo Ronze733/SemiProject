@@ -79,7 +79,7 @@ pageEncoding="UTF-8"%>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item" id="nav-home">
-              <a href="NewFile.jsp" class="nav-link">메인 페이지</a>
+              <a href="NewFile.jsp" class="nav-link">HOME</a>
             </li>
             <li class="nav-item" id="nav-review">
               <a href="ReviewPageC?p=1" class="nav-link">여행 후기</a>
