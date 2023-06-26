@@ -37,6 +37,7 @@
 						<div class="QnA-list-title2">제목</div>
 						<div class="QnA-list-title3">아이디</div>
 						<div class="QnA-list-title4">날짜</div>
+						<div class="QnA-list-title5">상태</div>
 					</div>
 					<c:forEach items="${QnAs }" var="QnA">
 					<c:if test="${QnA.inquiry_category eq '문의하기'}">
@@ -50,6 +51,12 @@
 							</c:if>
 							<div class="QnA-list3">${QnA.inquiry_user_name }</div>
 							<div class="QnA-list4">${QnA.inquiry_question_day }</div>
+							<c:if test="${QnA.inquiry_answer eq '.' }">
+							<div class="QnA-list5">미답변</div>
+							</c:if>
+							<c:if test="${QnA.inquiry_answer ne '.' }">
+							<div class="QnA-list5">답변완료</div>
+							</c:if>
 						</div>
 					</c:if>
 					</c:forEach>
