@@ -38,13 +38,9 @@
 					추첨을 통해 소정의 상품을 증정드립니다.
 				</div>
 			</div>
-
 			<div class="review-button">
-				<div>
-					<img alt="" src="">
-				</div>
 				<div class="review-button-link">
-					<a href="ReviewWriteC">후기작성</a>
+					<button onclick="ReviewloginCheck('${sessionScope.account.user_id}')">후기작성</button>				
 				</div>
 			</div>
 		</div>
@@ -52,19 +48,9 @@
 			    <div class="review-imgf">
 			      <div class="review-img">
 			        <div class="review-con">
-			        	<div>
-			          		<input style="width: 250px;" type="hidden" >
-			          	</div>
 			          	<div>
 						<div class="r-img" onclick="location.href='ReviewDetailC?id=${r.review_id}'" >
 						  <img class="reviewImg" src="img/jh/${r.review_pic}">
-						</div>
-						<div>
-						  <button id="like-${r.review_id}" class="like-button" onclick="toggleLike(${r.review_id})"
-						   style="margin-left: 10px; background-color: white; border: white;">
-						    <img class="heart-icon" src="img/jh/heart.png" alt="heart" style="width: 20px; height: 20px;">
-						  </button>
-						  <span id="like-count-${r.review_id}" class="like-count">${r.review_likes}</span>
 						</div>
 						</div>
 						<div class="r-text">

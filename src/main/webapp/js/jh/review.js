@@ -1,14 +1,12 @@
-    function handleSelectChange(value) {
+function handleSelectChange(value) {
       if (value === 'recently') {
         // 최신순일 때 reviewC 페이지로 이동
         window.location.href = 'ReviewC?p=1';
       }else{
 	    window.location.href = 'ReviewSRC?p=1';	
-}
-
+	}
     }
     
-   
 function confirmDelete(reviewId) {
 	if (confirm("삭제하시겠습니까?")) {
 		location.href = 'ReviewDelC?id=' + reviewId;
@@ -62,22 +60,39 @@ function drawStar2() {
 //	console.log(starEls);
 	starEls.forEach(function(e) {
 		console.log(e.value);
-		console.log(e.previousSibling.previousSibling)
-		
+		console.log(e.previousSibling.previousSibling)	
 		let psEl = e.previousSibling.previousSibling;
 		let parentSpan = psEl.previousSibling.previousSibling;
 		console.log(parentSpan);
 		const width = e.value * 10 + '%';
 		console.log(width);
-		parentSpan.style.width = width;
-		
-
+		parentSpan.style.width = width;	
 	});
-
-
 
 }
 
+function ReviewloginCheck(id){
+	let loginCheck = id;
+	console.log(loginCheck);
+	if(loginCheck == ''){
+		alert('로그인 후 이용해주세요.');
+		location.href='AccountC';
+	} else{
+		location.href='ReviewWriteC?id=' + id;
+	}
+}
 
+  function updateImage(input) {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
 
+      reader.onload = function(e) {
+        const imagePreview = input.parentElement.querySelector('img');
+        imagePreview.src = e.target.result;
+      };
 
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  

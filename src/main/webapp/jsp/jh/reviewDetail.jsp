@@ -42,12 +42,11 @@
 			        <div class="review-date">
 			        ${review.review_create_at}
 			        </div>
-						<div style="margin-left: 100px;">
+						<div>
 							<span class="star"> ★★★★★ <span>★★★★★</span>
 							 <input type="range" class="s" step="1" min="0" max="10" value="${review.review_likes}"> 
 							 <input type="text" class="star_value" name="star_value" value="${review.review_likes}">
 							</span>
-								<input value="${review.review_likes}">
 						</div>			        
 			        </div>
 			        <div class="review-write-detail">
@@ -67,7 +66,7 @@
 								<div class="div-button" onclick="goBack()">뒤로가기</div>			
 							<c:if test="${sessionScope.account.user_id eq review.review_user_id}">
 							  	<div class="div-button" onclick="confirmDelete(${review.review_id})">삭제</div>
-								<div class="div-button" onclick="location.href='ReviewUpdateC?id=${review.review_id}'">수정</div>	
+								<div class="div-button" onclick="location.href='ReviewUpdateC?id=${review.review_id}&body=${review.review_body }'">수정</div>	
 							</c:if>				
 							</div>
 			        	</div>
@@ -75,4 +74,7 @@
 				</form>
 			</div>
 </body>
+<script type="text/javascript">
+	drawStar2()
+</script>
 </html>
