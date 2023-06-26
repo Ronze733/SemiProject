@@ -55,9 +55,6 @@ pageEncoding="UTF-8"%>
 
     <title>South Korea Travel Controller</title>
   </head>
-  <% // jsp 상단에 추가 String url = request.getRequestURL().toString(); String
-  className = "asd"; if (url.contains("QnAC")) { className = "nav-qna"; } else
-  if (url.contains("ReviewPageC")) { className = "nav-review"; } %>
   <body onload="test()">
     <nav
       class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
