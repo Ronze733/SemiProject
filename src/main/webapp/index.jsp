@@ -3,7 +3,6 @@ pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pacific - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -79,13 +78,13 @@ pageEncoding="UTF-8"%>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item" id="nav-home">
-              <a href="NewFile.jsp" class="nav-link">메인 페이지</a>
+              <a href="NewFile.jsp" class="nav-link">HOME</a>
             </li>
             <li class="nav-item" id="nav-review">
-              <a href="ReviewPageC?p=1" class="nav-link">여행 후기</a>
+              <a href="ReviewPageC?p=1" class="nav-link">REVIEW</a>
             </li>
             <li class="nav-item" id="nav-qna">
-              <a href="QnAC" class="nav-link">고객 게시판</a>
+              <a href="QnAC" class="nav-link">QnA</a>
             </li>
             <li class="nav-item">
               <jsp:include page="${LoginPage}"></jsp:include>
@@ -98,7 +97,7 @@ pageEncoding="UTF-8"%>
 
     <section
       class="hero-wrap hero-wrap-2 js-fullheight"
-      style="background-image: url('css/bj/images/bg_1.jpg')"
+      style="background-image: url('img/jy/main-img1.jpg')"
     >
       <div class="overlay"></div>
       <div class="container">
@@ -148,7 +147,7 @@ pageEncoding="UTF-8"%>
           <div class="col-md-12 text-center">
             <div
               class="img"
-              style="background-image: url(css/bj/images/bg_2.jpg)"
+              style="background-image: url('img/jy/main-img2.jpg')"
             >
               <div class="overlay"></div>
               <h2>We Are Pacific A Travel Agency</h2>

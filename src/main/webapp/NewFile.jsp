@@ -46,7 +46,6 @@ pageEncoding="UTF-8"%>
     />
   </head>
   <body>
-    <% request.setAttribute("currentPage", "nav-home"); %>
     <nav
       class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
       id="ftco-navbar"
@@ -70,16 +69,16 @@ pageEncoding="UTF-8"%>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item" id="nav-home">
-              <a href="NewFile.jsp" class="nav-link">메인 페이지</a>
+              <a href="NewFile.jsp" class="nav-link">HOME</a>
             </li>
             <li class="nav-item" id="nav-review">
-              <a href="ReviewPageC?p=1" class="nav-link">여행 후기</a>
+              <a href="ReviewPageC?p=1" class="nav-link">REVIEW</a>
             </li>
             <li class="nav-item" id="nav-qna">
-              <a href="QnAC" class="nav-link">고객 게시판</a>
+              <a href="QnAC" class="nav-link">QnA</a>
             </li>
-            <li class="nav-item" id="nav-blog">
-              <a href="blog.html" class="nav-link">Blog</a>
+            <li class="nav-item">
+              <jsp:include page="${LoginPage}"></jsp:include>
             </li>
           </ul>
         </div>
@@ -89,7 +88,7 @@ pageEncoding="UTF-8"%>
 
     <div
       class="hero-wrap js-fullheight"
-      style="background-image: url('css/bj/images/bg_5.jpg')"
+      style="background-image: url('img/jy/main-img1.jpg')"
     >
       <div class="overlay"></div>
       <div class="container">
@@ -99,10 +98,9 @@ pageEncoding="UTF-8"%>
         >
           <div class="col-md-7 ftco-animate">
             <span class="subheading">Welcome to SKTC</span>
-            <h1 class="mb-4">Discover Your Favorite Place with Us</h1>
+            <h1 class="mb-4">다양한 즐길 거리가 <br>기다리는 국내 여행지</h1>
             <p class="caps">
-              Travel to the any corner of the world, without going around in
-              circles
+              SKTC의 추천으로 특별한 순간을 만들어보세요.
             </p>
           </div>
         </div>
@@ -125,7 +123,7 @@ pageEncoding="UTF-8"%>
           <div class="col-md-12 text-center">
             <div
               class="img"
-              style="background-image: url(css/bj/images/bg_2.jpg)"
+              style="background-image: url('img/jy/main-img2.jpg')"
             >
               <div class="overlay"></div>
               <h2>We Are Pacific A Travel Agency</h2>
