@@ -20,7 +20,12 @@
 		</div>
 		<div class="detail-main-informatoin">
 	 		<div class="detail-main-img" >
-	 			<img id="detail-place_img" alt="" src="./img/mk/${placeInfo.p_pic }"> 
+	 			<C:if test="${placeInfo.p_id < 28 }">
+	 				<img id="detail-place_img" alt="" src="./img/mk/${placeInfo.p_pic }">
+	 			</C:if>
+	 			<C:if test="${placeInfo.p_id >= 28 }">
+	 				<img id="detail-place_img" alt="" src="${placeInfo.p_pic }">
+	 			</C:if>
 	 		</div>
 	 		<div class="detail-main-text">
 	 			<h2>상세정보</h2>
@@ -43,10 +48,12 @@
 	 				</C:choose>
 	 		 		</div> 
 	 		 		<img alt="" src="https://openweathermap.org/img/wn/${w.icon }@2x.png"> <br>
-	 		 		기상 상태 ${w.condition }<br>
+	 		 		${w.condition }<br>
 	 		 		강수확률 ${w.pop * 100 } %<br>
-	 				체감온도 ${w.feelTemp }<br>
-	 				최저 기온/최고 기온 ${w.minTemp } / ${w.maxTemp }<br>
+	 				체감온도 ${w.feelTemp } °C<br>
+	 				최저 기온 ${w.minTemp } °C<br>
+	 				최고 기온  ${w.maxTemp } °C<br>
+	 				  
 	 				습도 ${w.humidity } %<br>
 	 				풍속 ${w.windSpeed } m/s
 	 				</C:forEach>
@@ -59,7 +66,7 @@
 			<div class="detail-place-root"> 오시는길</div>
 			<div class="detail-place-addr"> 주소: ${placeInfo.p_addr }</div>
 			<input type="hidden" id="param" value="${placeInfo.p_addr }">
-	<div id="map-mk" style="width:90%;height:400px;margin-left: 75px;"></div>
+	<div id="map-mk" style="width:90%;height:400px;margin-left: 5%;"></div>
 	
 	<script type="text/javascript">
 		let place = document.getElementById('param')?.value;
