@@ -13,10 +13,11 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/bj/signupPage.js" defer="defer"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
 
-	<div class="signup-container">
+	<div class="signup-container" style="background-image: url('css/bj/images/bg_whale.jpg');">
 		<div class="input-form-backgroud row">
 			<div class="signup-input-form col-md-12 mx-auto">
 				<h4 class="mb-3">회원가입</h4>
@@ -32,7 +33,6 @@
 						<div class="col-md-6 mb-3">
 							<label for="gender">성별</label> <select name="gender"
 								class="custom-select d-block w-100" id="gender" required>
-								<option value="gender"></option>
 								<option>남자</option>
 								<option>여자</option>
 							</select>
@@ -58,9 +58,9 @@
 					<div class="mb-3">
 						<label for="password">비밀번호</label> <input name="password"
 							type="password" class="form-control" id="password"
-							placeholder="비밀번호를 입력해주세요"
-							onFocus="changePlaceholder(this, '숫자포함, 4~18자');"
-							onBlur="restorePlaceholder(this, '비밀번호를 입력해주세요');" required>
+							placeholder="숫자, 영어, 특수문자 포함, 8~16자"
+							onFocus="changePlaceholder(this, '비밀번호를 입력해주세요');"
+							onBlur="restorePlaceholder(this, '숫자, 영어, 특수문자 포함, 8~16자');" required>
 					</div>
 					<div class="mb-3">
 						<label for="password-confirm">비밀번호 확인</label> <input
@@ -78,11 +78,12 @@
 						</select>
 					</div>
 					<div class="mb-3">
-						<label for="answer">답</label> <input name="answer"
-							type="text" class="form-control" id="answer"
+						<label for="answer">답</label> <input name="answer" type="text"
+							class="form-control" id="answer"
 							placeholder="비밀번호를 잊어버렸을 때 질문의 답"
 							onFocus="changePlaceholder(this, '최대 12자');"
-							onBlur="restorePlaceholder(this, '비밀번호를 잊어버렸을 때 질문의 답');" required>
+							onBlur="restorePlaceholder(this, '비밀번호를 잊어버렸을 때 질문의 답');"
+							required>
 					</div>
 					<hr class="mb-4">
 					<div class="custom-control custom-checkbox">
@@ -93,6 +94,8 @@
 					<div class="mb-4"></div>
 					<button class="btn btn-primary btn-lg btn-block" type="submit">가입
 						완료</button>
+					<button class="btn btn-primary btn-lg btn-block"
+						onclick="location.href='HC'" type="button">메인 페이지</button>
 				</form>
 			</div>
 		</div>
