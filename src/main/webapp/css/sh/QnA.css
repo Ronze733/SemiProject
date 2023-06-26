@@ -3,6 +3,11 @@
 	height: 100%;
 }
 
+.QnA-form{
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .QnA-content{
     display: flex;
     justify-content: center;
@@ -11,6 +16,7 @@
 
 .QnA-header{
 	font-size: 20pt;
+	margin-bottom: 10px;
 }
 
 .QnA-left-lists{
@@ -63,6 +69,12 @@
 }
 
 .QnA-list-title4{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.QnA-list-title5{
 	flex-basis: 100px;
     text-align: center;
     line-height: 20px;
@@ -122,6 +134,13 @@
     color: gray;
 }
 
+.QnA-list5{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 400;
+}
+
 .QnA-page-number{
 	display: flex;
 	justify-content: center;
@@ -156,7 +175,7 @@
 .QnA-insert-button{
 	justify-content: space-between;
     display: flex;
-    width: 150px;
+    width: 230px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
@@ -169,17 +188,17 @@
 	height: 300px;
 }
 
-.QnA-insert-button{
-	justify-content: space-between;
-    display: flex;
-    width: 230px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-    margin-top: 15px;
+
+/* QnA_answer */
+.QnA-answer-button{
+	display: flex;
+    justify-content: space-evenly;
 }
 
-
+.QnA-insert-answer{
+	margin-left: auto;
+	margin-right: auto;
+}
 
 
 

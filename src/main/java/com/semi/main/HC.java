@@ -2,6 +2,7 @@ package com.semi.main;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,12 +19,11 @@ public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		AccountDAO.loginCheck(request);
-		request.setAttribute("contentPage", "./jsp/jy/recommend/recommend.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.setAttribute("recommendPage", "./jsp/jy/recommend/recommend.jsp");
+		request.getRequestDispatcher("NewFile.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	}
 	
 }

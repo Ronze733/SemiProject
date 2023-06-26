@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="QnAInsertC" method="post">
+	<form action="QnAInsertC" method="post" class="QnA-form">
 		<div class="QnA-insert-container">
 			<div class="QnA-insert-content">
 				<div class="QnA-insert-header">
@@ -34,7 +34,7 @@
 					</div>
 				</div>
 				<div class="QnA-insert-button">
-					<div><button name="inquiry_user_id" value=" ${sessionScope.account.user_id }">완료</button></div>
+					<div><button name="inquiry_user_id" value="${sessionScope.account.user_id }">완료</button></div>
 				</div>
 			</div>
 		</div>

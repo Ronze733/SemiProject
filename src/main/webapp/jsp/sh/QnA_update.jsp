@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="QnAUpdateC?no=${QnA.inquiry_no }" method="post">
+	<form action="QnAUpdateC?no=${QnA.inquiry_no }" method="post" class="QnA-form">
 		<div class="QnA-insert-container">
 			<div class="QnA-insert-content">
 				<div class="QnA-insert-header">

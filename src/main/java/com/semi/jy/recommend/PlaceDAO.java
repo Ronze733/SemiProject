@@ -127,12 +127,14 @@ public class PlaceDAO {
 				int id = rs.getInt("place_id");
 				String pic = rs.getString("place_pic");
 				String name = rs.getString("place_name");
+				String p_category3 = rs.getString("place_category3");
 //				System.out.println(pic);
 				System.out.println(name);
 				JSONObject jo = new JSONObject();
 				jo.put("id", id);
 				jo.put("pic", pic);
 				jo.put("name", name);
+				jo.put("category3", p_category3);
 				ja.add(jo);
 			}
 			myJson.put("data", ja);
