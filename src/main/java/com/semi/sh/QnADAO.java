@@ -13,6 +13,7 @@ public class QnADAO {
 	private static Connection con = DBManager.connect();
 	private ArrayList<QnA> QnAs = null;
 	private final static QnADAO QnADao = new QnADAO();
+  
 	private QnADAO() {
 
 	}
