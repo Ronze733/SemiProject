@@ -156,7 +156,9 @@ public class WeatherDAO {
 			  if (translatedText.equals("구름")) {
 		            translatedText = "구름 많음";
 		        }
-			
+			  if (translatedText.equals("비.")) {
+		            translatedText = "비";
+		        }
 			  
 			return translatedText;
 			
