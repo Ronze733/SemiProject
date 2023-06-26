@@ -8,9 +8,9 @@
 </head>
 <body>
 	<form action="AdminC" method="post" enctype="multipart/form-data">
-		<input type="file" name="pic"> 사진<br>
-		<input name="placeName"> 장소명<br>
-		<input name="placeAddr"> 도로명 주소<br>
+		<input type="file" name="pic" id="pic"> 사진<br>
+		<input name="placeName" id="placeName"> 장소명<br>
+		<input name="placeAddr" id="placeAddr"> 도로명 주소<br>
 		Category1
 		<input type="checkbox" id="cotegory1-family" name="category1" value="가족">
 			<label for="category1-family">가족</label>
@@ -28,7 +28,7 @@
 			<label for="category2-valley">계곡</label>
 		<br>
 		Categroy3
-		<select name="category3">
+		<select name="category3" id="category3">
 			<option value="서울"> 서울
 			<option value="부산"> 부산
 			<option value="대구"> 대구
@@ -44,10 +44,11 @@
 			<option value="제주도"> 제주도
 		</select>
 		<br>
-		<input type="text" name="placeExplain"> 장소 설명 <br>
-		<input name="placeAddr2"> 영어 주소(<a href="https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=37.5692&lon=126.9860&zoom=5" target="_blank">여기</a>에서 존재 하는지 확인 후 없으면 근처 위치로)
+		<input type="text" name="placeExplain" id="placeExplain"> 장소 설명 <br>
+		<input name="placeAddr2" id="placeAddr2"> 영어 주소(<a href="https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=37.5692&lon=126.9860&zoom=5" target="_blank">여기</a>에서 존재 하는지 확인 후 없으면 근처 위치로)
 		<br>
-		<button>등록</button>
+		<button onclick="return check()">등록</button>
 	</form>
+	<script src="./js/jm/admin/admin.js"></script>
 </body>
 </html>
