@@ -21,6 +21,8 @@ function presentAllPlaces() {
     url: "RecommendC", // 호출할 jsp 파일 / 컨트롤러 가도 됨
     success: function (data) {
       setVal(data);
+      
+      
     }
   });
 }
@@ -47,7 +49,11 @@ function setVal(data) {
       let resultDiv2 = $(resultDiv).clone();
       console.log(el.name);
       console.log(el.id);
-      $(resultDiv2).find(".recommend-result-img").attr("style", "background-image: url('./img/mk/" + el.pic +"');");
+      if(el.id >=28){
+		$(resultDiv2).find(".recommend-result-img").attr("style", "background-image: url('"+ el.pic +"');");
+		} else{
+	      $(resultDiv2).find(".recommend-result-img").attr("style", "background-image: url('./img/mk/" + el.pic +"');");
+		}
       $(resultDiv2).find(".recommend-result-name").text(el.name);
       $(resultDiv2).find(".recommend-result-location").text(el.category3);
       $(resultDiv2).find(".recommend-result-img").attr("onclick", "sendController(" + el.id + ")");
