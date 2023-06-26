@@ -14,7 +14,7 @@ const resultName = $(".recommend-result-name");
 
 function paging(data){
 	console.log(data)
-	 let container = $('#result-pagination');
+	 let container = $('#recommend-result-pagination');
         container.pagination({
             dataSource: data,
             pageSize:6,
@@ -22,7 +22,6 @@ function paging(data){
 			console.log(pagination)
 			console.log(data);
                 var dataHtml = '';
-
                 $.each(data, function (index, item) {
 					console.log(item.pic);
 					console.log(item.name);

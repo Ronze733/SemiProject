@@ -7,58 +7,63 @@
     <script type="text/javascript" src="./js/jy/recommend.js" defer="defer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 	<div class="recommend-container">
-		<div class="recommend-search" style="display: flex;">
+		<div class="recommend-search">
 			<div id="recommend-search-menus">
 					<div class="recommend-search-themes">
 						<div class="recommend-themes-title">
 							테마
 						</div>
-						<div>
-							<label class="recommend-themes-label">
-								<input class="recommend-themes" type="checkbox" name="themes" value="가족">
-								<span class="recommend-theme">가족</span>
-							</label>
-						</div>
-						<div>
-							<label class="recommend-themes-label">
-								<input class="recommend-themes" type="checkbox" name="themes" value="친구">
-								<span class="recommend-theme">친구</span>
-							</label> 
-						</div>
-						<div>
-							<label class="recommend-themes-label">
-								<input class="recommend-themes" type="checkbox" name="themes" value="연인">
-								<span class="recommend-theme">연인</span>
-							</label> 
+						<div class="recommend-themes-condition">
+							<div>
+								<label class="recommend-themes-label">
+									<input class="recommend-themes" type="checkbox" name="themes" value="가족">
+									<span class="recommend-theme">가족</span>
+								</label>
+							</div>
+							<div>
+								<label class="recommend-themes-label">
+									<input class="recommend-themes" type="checkbox" name="themes" value="친구">
+									<span class="recommend-theme">친구</span>
+								</label> 
+							</div>
+							<div>
+								<label class="recommend-themes-label">
+									<input class="recommend-themes" type="checkbox" name="themes" value="연인">
+									<span class="recommend-theme">연인</span>
+								</label> 
+							</div>
 						</div>
 					</div>
 					<div class="recommend-search-places">
 						<div class="recommend-places-title">
 							장소
 						</div>
-						<div>
-							<label class="recommend-places-label">
-								<input class="recommend-places" type="checkbox" name="places" value="산">
-								<span class="recommend-place">산</span>
-							</label>	
-						</div>
-						<div>
-							<label class="recommend-places-label">
-								<input class="recommend-places" type="checkbox" name="places" value="바다">
-								<span class="recommend-place">바다</span> 
-							</label> 						
-						</div>
-						<div>
-							<label class="recommend-places-label">
-								<input class="recommend-places" type="checkbox" name="places" value="계곡">
-								<span class="recommend-place">계곡</span> 
-							</label> 
+						<div class="recommend-places-condition">
+							<div>
+								<label class="recommend-places-label">
+									<input class="recommend-places" type="checkbox" name="places" value="산">
+									<span class="recommend-place">산</span>
+								</label>	
+							</div>
+							<div>
+								<label class="recommend-places-label">
+									<input class="recommend-places" type="checkbox" name="places" value="바다">
+									<span class="recommend-place">바다</span> 
+								</label> 						
+							</div>
+							<div>
+								<label class="recommend-places-label">
+									<input class="recommend-places" type="checkbox" name="places" value="계곡">
+									<span class="recommend-place">계곡</span> 
+								</label> 
+							</div>
 						</div>
 					</div>
 					<div class="recommend-search-locations">
 						<div class="recommend-locations-title">
 							지역
 						</div>
+						<div class="recommend-locations-condition">
 						<div>
 							<label class="recommend-locations-label">
 								<input class="recommend-locations" type="checkbox" name="locations" value="서울">
@@ -137,6 +142,7 @@
 								<span class="recommend-location">제주도</span>
 							</label>
 						</div>
+						</div>
 					</div>
 			</div>
 		</div>
@@ -146,6 +152,6 @@
 					
 					
 				</div>
-				<div id="result-pagination"></div>
+				<div id="recommend-result-pagination"></div>
 		</div>
 	</div>

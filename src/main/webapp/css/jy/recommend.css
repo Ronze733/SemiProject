@@ -41,6 +41,10 @@
   }
 }
 
+.recommend-search{
+	display: flex;
+}
+
 #recommend-search-menus{
 	display: flex;
     width: 100%;
@@ -51,16 +55,22 @@
 }
 
 .recommend-search-themes{
-	display: flex;
     width: 70%;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
     margin-top: 30px;
     margin-bottom: 10px;
+    display: flex;
 }
 
 .recommend-themes-title{
 	font-weight: 700; 
+}
+
+.recommend-themes-condition{
+	display: flex;
+    width: 80%;
+    justify-content: space-around;
 }
 
 .recommend-themes-label input[type="checkbox"]{
@@ -101,13 +111,19 @@
 	display: flex;
     width: 70%;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
 .recommend-places-title{
 	font-weight: 700;
+}
+
+.recommend-places-condition{
+	display: flex;
+    width: 80%;
+    justify-content: space-around;
 }
 
 .recommend-places-label input[type="checkbox"]{
@@ -146,14 +162,22 @@
 
 .recommend-search-locations{
 	display: flex;
-    width: 90%;
+    width: 70%;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-top: 10px;
     margin-bottom: 30px;
 }
 
 .recommend-locations-title{
 	font-weight: 700;
+}
+
+.recommend-locations-condition{
+	display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .recommend-locations-label input[type="checkbox"]{
@@ -168,6 +192,8 @@
     width: 49px;
     height: 33px;
     text-align: center;
+    margin-right: 40px;
+    margin-bottom: 20px;
 }
 
 .recommend-locations-label:hover{
@@ -247,5 +273,8 @@
     margin-bottom: 30px;
 }
 
-
+#recommend-result-pagination{
+	display: flex;
+    justify-content: center;
+}
 
