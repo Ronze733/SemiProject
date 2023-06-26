@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script src="https://code.jquery.com/jquery-3.7.0.js"
-	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-	crossorigin="anonymous"></script>
-<script type="text/javascript" src="./js/jy/pagination.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+    <script type="text/javascript" src="./js/jy/recommend.js" defer="defer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css"/>
 	<div class="recommend-container">
 		<div class="recommend-search" style="display: flex;">
 			<div id="recommend-search-menus">
@@ -148,4 +149,3 @@
 				<div id="result-pagination"></div>
 		</div>
 	</div>
-<script type="text/javascript" src="./js/jy/recommend.js"></script>

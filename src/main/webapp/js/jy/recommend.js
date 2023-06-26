@@ -1,5 +1,5 @@
 let resultDivWrap = $(".recommend-result-div-wrap");
-
+console.log('recommendjs')
 const resultDiv = `<div class="recommend-result-div">
 						<div class="recommend-result-img" style="" onclick="">
 						</div>
@@ -11,8 +11,47 @@ const resultDiv = `<div class="recommend-result-div">
 const resultImg = $(".recommend-result-img");
 const resultName = $(".recommend-result-name");
 
+
+function paging(data){
+	console.log(data)
+	 let container = $('#result-pagination');
+        container.pagination({
+            dataSource: data,
+            pageSize:6,
+            callback: function (data, pagination) {
+			console.log(pagination)
+			console.log(data);
+                var dataHtml = '';
+
+                $.each(data, function (index, item) {
+					console.log(item.pic);
+					console.log(item.name);
+					console.log(item.category3);
+					if(item.id >= 28){
+                    	dataHtml += `<div class="recommend-result-div">
+							<div class="recommend-result-img" style="background-image:url('${item.pic}')" onclick="sendController(${item.id})">
+							</div>
+							<div class="recommend-result-name">${item.name}</div>
+							<div class="recommend-result-location">${item.category3}</div>
+						</div>
+						`;
+					} else {
+                    	dataHtml += `<div class="recommend-result-div">
+							<div class="recommend-result-img" style="background-image: url('./img/mk/${item.pic}')" onclick="sendController(${item.id})">
+							</div>
+							<div class="recommend-result-name">${item.name}</div>
+							<div class="recommend-result-location">${item.category3}</div>
+						</div>
+						`;
+					}
+                });
+                $(".recommend-result-div-wrap").html(dataHtml);
+            }
+        })
+}
 $(document).ready(function () {
   presentAllPlaces();
+
 });
 
 function presentAllPlaces() {
@@ -21,7 +60,7 @@ function presentAllPlaces() {
     url: "RecommendC", // 호출할 jsp 파일 / 컨트롤러 가도 됨
     success: function (data) {
       setVal(data);
-      
+      paging(data.data);
       
     }
   });
@@ -118,6 +157,7 @@ function sendAjaxRequest() {
     url: "RecommendC", // 호출할 jsp 파일 / 컨트롤러 가도 됨
     success: function (data) {
       setVal(data);
+      paging(data.data);
     },
   });
 }
