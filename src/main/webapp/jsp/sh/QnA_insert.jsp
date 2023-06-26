@@ -15,17 +15,17 @@
 					<div>
 						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp;<input name="inquiry_title" placeholder="제목을 입력해주세요."> 
 					</div>
+					<div>
+						<label><input type="radio" name="inquiry_encoding" value="공개" checked="checked">공개</label>
+						<label><input type="radio" name="inquiry_encoding" value="비공개">비공개</label>
+					</div>
 				</div>
 				<div class="QnA-insert-header">
 					<div>
-						<span style="font-weight: 600;">카테고리</span>&nbsp;&nbsp;
-						<select name="inquiry_category">
-							<option disabled selected value="">--카테고리를 선택해주세요--</option>
-							<option value="공지사항">공지사항</option>
-							<option value="문의하기">문의하기</option>
-						</select>
+						<span style="font-weight: 600;">카테고리</span> <span>&nbsp;&nbsp;문의하기</span>
 					</div>
-					<div><span style="font-weight: 600;">작성자</span> <span> ${sessionScope.account.user_name }</span></div>
+						<input type="hidden" name="inquiry_category" value="문의하기">
+					<div><span style="font-weight: 600;">작성자</span> <span>&nbsp;&nbsp; ${sessionScope.account.user_name }</span></div>
 				</div>
 				<div class="QnA-insert-body">
 					<div style="font-weight: 600; margin-bottom: 15px;">내용</div>

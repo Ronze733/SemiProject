@@ -35,11 +35,11 @@
 			<div class="QnA-insert-button">
 				<div><button onclick="location.href='QnAC'">목록으로</button></div>
 				<c:if test="${sessionScope.account.user_id eq QnA.inquiry_user_id}">
-					<div><button onclick="deleteQnA(${param.no})">삭제</button></div>
-					<div><button onclick="location.href='QnAUpdateC?no=${QnA.inquiry_no}'">수정</button></div>
+					<div><button onclick="deleteQnA(${param.no})" style="margin-left: 15px;">삭제</button></div>
+					<div><button onclick="location.href='QnAUpdateC?no=${QnA.inquiry_no}'" style="margin-left: 15px;">수정</button></div>
 				</c:if>
 				<c:if test="${sessionScope.account.user_id eq 'lhgsky100@naver.com' }">
-					<div><button onclick="location.href='QnAAnswerC?no=${QnA.inquiry_no}'">답변하기</button></div>
+					<div><button onclick="location.href='QnAAnswerC?no=${QnA.inquiry_no}'" style="margin-left: 15px;">답변하기</button></div>
 				</c:if>
 			</div>
 		</div>
