@@ -6,15 +6,18 @@
 <meta charset="UTF-8">
 <title>로그인 페이지</title>
 <link href="css/bj/login.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/bj/login.js"></script>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script type="text/javascript" src="js/bj/login.js"></script>
 </head>
-<body class="text-center">
-	<main class="form-signin w-100 m-auto">
-		<form action="LoginC" method="post" accept-charset="utf-8">
+<body class="text-center" >
+	<main class="form-signin w-100 m-auto" >
+		<form>
 			<img class="mb-8" src="./img/jy/SKTC.png" alt="" width="150"
 				height="118" onclick="location.href='HC'">
 			<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
