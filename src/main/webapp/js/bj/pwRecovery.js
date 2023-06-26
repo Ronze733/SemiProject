@@ -12,6 +12,21 @@ window.addEventListener('load', () => {
 			form.classList.add('was-validated');
 		}, false);
 	});
+	// 이메일 유효성 검사
+	const emailInput = document.getElementById('email-check');
+	emailInput.addEventListener('input', function() {
+		const emailValue = emailInput.value.trim();
+		const emailRegex = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+		const emailErrorMessage = document.getElementById('email-error-message');
+
+		if (!emailRegex.test(emailValue)) {
+			emailInput.setCustomValidity('이메일 형식이 올바르지 않습니다.');
+			emailErrorMessage.textContent = '이메일 형식이 올바르지 않습니다.';
+		} else {
+			emailInput.setCustomValidity('');
+			emailErrorMessage.textContent = '';
+		}
+	});
 }, false);
 
 function changePlaceholder(element, message) {
@@ -41,11 +56,19 @@ $("#duplicate-check").change(function(e) {
 		},
 		success: function(res) {
 			console.log(res)
-			alert("등록되지 않는 회원입니다");
+			Swal.fire({
+				icon: 'error',
+				title: '등록되지 않는 회원입니다',
+				text: '가입하신 이메일을 다시 확인해주세요!',
+			});
 		},
 		error: function(error) {
 			console.log(error)
-			alert("존재하는 회원입니다");
+			Swal.fire({
+				icon: 'success',
+				title: '존재하는 회원입니다.',
+				text: '비밀번호 찾기 질문에 답해주세요!',
+			});
 		}
 	});
 
@@ -65,7 +88,7 @@ $(document).ready(function() {
 		let email = $("input[name=email]").val();
 		let question = $("select[name=question]").val();
 		let answer = $("input[name=answer]").val();
-		
+
 		$.ajax({
 			type: "post",
 			async: false,
@@ -85,7 +108,11 @@ $(document).ready(function() {
 				console.log(xhr);
 				console.log(status);
 				console.log(error);
-				alert("질문에 답이 일치하지 않습니다");
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: '질문의 답이 일치하지 않습니다',
+				});
 			}
 		});
 

@@ -354,7 +354,6 @@ public class AccountDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			System.out.println("test");
 		}
 		
 		

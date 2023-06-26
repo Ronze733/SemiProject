@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<div class="signup-container">
+	<div class="signup-container" style="background-image: url('css/bj/images/bg_whale.jpg');">
 		<div class="input-form-backgroud row">
 			<div class="signup-input-form col-md-12 mx-auto">
 				<h4 class="mb-3">회원정보 수정</h4>

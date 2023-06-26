@@ -80,18 +80,28 @@ $(document).ready(function() {
 
 			},
 			success: function(res) {
-				console.log(res)
-				alert("새 비밀번호가 등록되었습니다");
+				console.log("true")
+				Swal.fire({
+				icon: 'success',
+				title: '새 비밀번호가 등록되었습니다',
+				text: '새 비밀번호로 로그인 해주세요!',
+			}).then(() => {
 				window.opener.handlePopupClosed(); // 부모 창의 함수 호출
 				window.close(); // 팝업창 닫기
+                });
 			},
 			error: function(xhr, status, error) {
 				console.log(xhr);
 				console.log(status);
 				console.log(error);
-				alert("오류가 발생했습니다. 관리자에게 문의하세요.");
+				Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: '오류가 발생했습니다. 관리자에게 문의하세요.',
+			}).then(() => {
 				window.close(); // 팝업창 닫기
 				window.location.href = "../../../LoginC";
+                });
 			}
 		});
 

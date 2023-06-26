@@ -13,10 +13,11 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/bj/signupPage.js" defer="defer"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
 
-	<div class="signup-container" style="background-image: url('css/bj/images/bg_1.jpg');">
+	<div class="signup-container" style="background-image: url('css/bj/images/bg_whale.jpg');">
 		<div class="input-form-backgroud row">
 			<div class="signup-input-form col-md-12 mx-auto">
 				<h4 class="mb-3">회원가입</h4>

@@ -15,7 +15,7 @@ $(document).ready(function() {
 		// 성공 시
 		let email = $("input[name=email]").val();
 		let pw = $("input[name=password]").val();
-		
+
 		$.ajax({
 			type: "post",
 			async: false,
@@ -34,8 +34,13 @@ $(document).ready(function() {
 				console.log(xhr);
 				console.log(status);
 				console.log(error);
-				alert("아이디나 비밀번호가 맞지 않습니다");
-				window.location.href = "LoginC";
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: '아이디나 비밀번호가 맞지 않습니다',
+				}).then(() => {
+					location.href = 'LoginC';
+				});
 			}
 		});
 
@@ -54,7 +59,12 @@ function openPopup() {
 
 function handlePopupClosed() {
 	// 팝업창이 닫힌 후 수행할 동작
-	alert('새 비밀번호가 생성되었습니다');
+/*	Swal.fire({
+		icon: 'success',
+		title: '새 비밀번호가 등록되었습니다',
+		text: '새 비밀번호로 로그인 해주세요!',
+	}).then(() => {
+		window.location.href = "LoginC";
+	});*/
 	// 추가 동작 수행 또는 페이지 새로고침 등
-	window.location.href = "../../../LoginC";
 }
