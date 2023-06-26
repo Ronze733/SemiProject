@@ -22,6 +22,9 @@ function paging(data){
 			console.log(pagination)
 			console.log(data);
                 var dataHtml = '';
+				if(data.length === 0){
+					dataHtml +=``;
+				}
                 $.each(data, function (index, item) {
 					console.log(item.pic);
 					console.log(item.name);
