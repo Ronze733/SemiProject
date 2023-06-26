@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import com.semi.db.DBManager;
 
 public class QnADAO {
+	private static Connection con = DBManager.connect();
 	private ArrayList<QnA> QnAs = null;
 	private final static QnADAO QnADao = new QnADAO();
-
+  
 	private QnADAO() {
 
 	}
@@ -22,13 +23,11 @@ public class QnADAO {
 	}
 
 	public void getAllQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		String sql = "select * from inquiry";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -36,7 +35,7 @@ public class QnADAO {
 			while (rs.next()) {
 				QnA qna = new QnA(rs.getString("inquiry_user_id"), rs.getString("inquiry_title"),
 						rs.getString("inquiry_body"), rs.getDate("inquiry_question_day"), rs.getInt("inquiry_no"),
-						rs.getString("inquiry_category"), rs.getString("inquiry_user_name"));
+						rs.getString("inquiry_category"), rs.getString("inquiry_user_name"), rs.getString("inquiry_answer"), rs.getDate("inquiry_answer_day"));
 				QnAs.add(qna);
 			}
 
@@ -45,18 +44,16 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, rs);
+		//	DBManager.close(con, pstmt, rs);
 		}
 	}
 
 	public void getQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
 		String sql = "select * from inquiry where inquiry_no = ?";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("no"));
 			rs = pstmt.executeQuery();
@@ -72,25 +69,26 @@ public class QnADAO {
 			qna.setInquiry_body(rs.getString("inquiry_body"));
 			qna.setInquiry_user_name(rs.getString("inquiry_user_name"));
 			qna.setInquiry_no(rs.getInt("inquiry_no"));
+			qna.setInquiry_answer(rs.getString("inquiry_answer"));
+			qna.setInquiry_answer_day(rs.getDate("inquiry_answer_day"));
 
 			request.setAttribute("QnA", qna);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, rs);
+		//	DBManager.close(con, pstmt, rs);
 		}
 
 	}
 
 	public void insert(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into inquiry values(?, ?, ?, sysdate, inquiry_no_seq.nextval, ?, ?)";
+		String sql = "insert into inquiry values(?, ?, ?, sysdate, inquiry_no_seq.nextval, ?, ?, '.', sysdate)";
+
 		try {
 			request.setCharacterEncoding("UTF-8");
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 
 			String id = request.getParameter("inquiry_user_id");
@@ -104,6 +102,12 @@ public class QnADAO {
 			System.out.println(category);
 			System.out.println(body);
 			System.out.println(name);
+			
+			if (body.equals(null)) {
+				body = "...";
+			}else {
+				body = body.replaceAll("\r\n", "<br>");
+			}
 
 			pstmt.setString(1, id);
 			pstmt.setString(2, title);
@@ -119,54 +123,43 @@ public class QnADAO {
 			e.printStackTrace();
 			System.out.println("등록 실패");
 		} finally {
-			DBManager.close(con, pstmt, null);
+		//	DBManager.close(con, pstmt, null);
 		}
 
 	}
 
 	public void pagingQnA(int page, HttpServletRequest request) {
-
-		int cnt = 10; // 한페이지당 보여줄 개수
-		int total = QnAs.size(); // 총데이터 개수
-		int pageCount = (int) Math.ceil((double) total / cnt);
-
-		int start = total - (cnt *(page - 1));
-		int end = (page == pageCount) ? -1 : start - (cnt + 1);
-	
-		ArrayList<QnA> items = new ArrayList<QnA>();
-		for (int i = start-1; i > end; i--) {
-			items.add(QnAs.get(i));
-		}
-
-//		int start = total - (cnt * (page - 1));
-//		int end = Math.max(start - cnt, 0); // 수정: 음수가 아닌 경우에만 값을 변경하도록 수정
-//
-//		ArrayList<QnA> items = new ArrayList<QnA>();
-//		for (int i = start - 1; i >= end; i--) { // 수정: 인덱스 범위를 벗어나지 않도록 수정
-//			if (i >= 0 && i < QnAs.size()) { // 수정: 유효한 인덱스인지 확인
-//				items.add(QnAs.get(i));
-//			}
-//		}
 		
-		int emptyItemCount = cnt - items.size();
-		for (int i = 0; i < emptyItemCount; i++) {
-			items.add(new QnA("", "", "", null, 0, "", ""));
-		}
+	    int cnt = 10; // 한 페이지당 보여줄 개수
+	    int total = QnAs.size(); // 총 데이터 개수
+	    int pageCount = (int) Math.ceil((double) total / cnt);
 
-		request.setAttribute("pageCount", pageCount);
-		request.setAttribute("curPageNo", page);
+	    int start = total - (cnt * (page - 1));
+	    int end = Math.max(start - cnt, 0); // 음수가 아닌 경우에만 값을 변경하도록 수정
 
-		request.setAttribute("QnAs", items);
+	    ArrayList<QnA> items = new ArrayList<QnA>();
+	    for (int i = start - 1; i >= end; i--) { // 인덱스 범위를 벗어나지 않도록 수정
+	        if (i >= 0 && i < QnAs.size()) { // 유효한 인덱스인지 확인
+	            items.add(QnAs.get(i));
+	        }
+	    }
+
+	    int emptyItemCount = cnt - items.size();
+	    for (int i = 0; i < emptyItemCount; i++) {
+	        items.add(new QnA("", "", "", null, 0, "", "", "", null));
+	    }
+
+	    request.setAttribute("pageCount", pageCount);
+	    request.setAttribute("curPageNo", page);
+	    request.setAttribute("QnAs", items);
 
 	}
 
 	public void delQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		String sql = "delete inquiry where inquiry_no = ?";
 		try {
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("pkno"));
 
@@ -178,19 +171,17 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(con, pstmt, null);
+		//	DBManager.close(con, pstmt, null);
 		}
 
 	}
 
 	public void updateQnA(HttpServletRequest request) {
-		Connection con = null;
 		PreparedStatement pstmt = null;
 		
 		String sql = "update inquiry set inquiry_title = ?, inquiry_body = ?, inquiry_category = ?, inquiry_question_day = sysdate where inquiry_no = ?";
 		try {
 			request.setCharacterEncoding("utf-8");
-			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			System.out.println("1");
 			System.out.println(request.getParameter("no"));
@@ -217,39 +208,59 @@ public class QnADAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// DBManager.close(con, pstmt, null);
+		//	DBManager.close(con, pstmt, null);
 		}
 
 	}
 
 	public void updateAns(HttpServletRequest request) {
-		String sql = "update inquiry set inquiry_answer = ? where inquiry_no = ?";
+		String sql = "update inquiry set inquiry_answer = ?, inquiry_answer_day = sysdate where inquiry_no = ?";
 		try {
 			request.getParameter("no");
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, request.getParameter("txt"));
+			pstmt.setString(1, request.getParameter("inquiry_answer"));
 			pstmt.setString(2,request.getParameter("no"));
-			if (pstmt.executeUpdate()==1) {
-				System.out.println("answered q");
-				System.out.println("answered q");
+			if (pstmt.executeUpdate() == 1) {
 				System.out.println("answered q");
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManager.close(con, pstmt, null);
+		//	DBManager.close(con, pstmt, null);
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 
+	public void makebody(HttpServletRequest request) {
+	    QnA qna = (QnA) request.getAttribute("QnA");
+	    
+	    String body = qna.getInquiry_body();
+	    body = body.replaceAll("\r\n", "<br>");
+	    qna.setInquiry_body(body);
+	    
+	}
+
+	public void makebody2(HttpServletRequest request) {
+		QnA qna = (QnA) request.getAttribute("QnA");
+		
+		String body = qna.getInquiry_body();
+		body = body.replaceAll("<br>", "\r\n");
+		qna.setInquiry_body(body);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

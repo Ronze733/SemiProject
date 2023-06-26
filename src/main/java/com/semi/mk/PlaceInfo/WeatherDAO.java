@@ -46,15 +46,44 @@ public class WeatherDAO {
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				String city = rs.getString("place_addr2");
-				String encodedCity = URLEncoder.encode(city, StandardCharsets.UTF_8.toString());
-				String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + encodedCity + "&units=metric&cnt=40&appid=3c20bb3f5ab75a340db446d8ba273c5b";
 
-				URL u = new URL(url);
-				HttpsURLConnection huc = (HttpsURLConnection) u.openConnection();
-				
-				InputStream is = huc.getInputStream();
-				InputStreamReader isr = new InputStreamReader(is, "utf-8");
+			String city = rs.getString("place_addr2");
+			String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=metric&cnt=40&appid=3c20bb3f5ab75a340db446d8ba273c5b";
+			
+			URL u = new URL(url);
+			HttpsURLConnection  huc = (HttpsURLConnection) u.openConnection();
+			
+			InputStream is = huc.getInputStream();
+			InputStreamReader isr = new InputStreamReader(is, "utf-8");
+			
+			
+			JSONParser jp = new JSONParser();
+			
+			JSONObject weatherData = (JSONObject) jp.parse(isr);
+			
+			JSONObject sysJ = (JSONObject) weatherData.get("city");
+			JSONArray weatherJ = (JSONArray) weatherData.get("list");
+			
+			String cityName = sysJ.get("name") + "";
+			String countryName = sysJ.get("country") + "";
+			
+			request.setAttribute("cityName", cityName);
+			request.setAttribute("countryName", countryName);
+			
+			Weather weather = null;
+			
+			ArrayList<Weather> weathers = new ArrayList<Weather>();
+			
+			for(int i = 0; i < 3; i++) {
+				JSONObject day = (JSONObject) weatherJ.get(8 * i + 4);
+				String date = (String) day.get("dt_txt");
+				String popS = day.get("pop") + "";
+				double pop = Double.parseDouble(popS);
+				JSONObject main = (JSONObject) day.get("main");
+				String humidity = main.get("humidity") + "";
+				String minTemp = main.get("temp_min") + "";
+				String maxTemp = main.get("temp_max") + "";
+				String feelTemp = main.get("feels_like") + "";
 				
 				JSONParser jp = new JSONParser();
 				JSONObject weatherData = (JSONObject) jp.parse(isr);

@@ -16,6 +16,7 @@ public class QnAUpdateC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AccountDAO.loginCheck(request);
 		QnADAO.getQnADAO().getQnA(request);
+		QnADAO.getQnADAO().makebody2(request);
 		request.setAttribute("contentPage", "jsp/sh/QnA_update.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 			
@@ -25,6 +26,7 @@ public class QnAUpdateC extends HttpServlet {
 		AccountDAO.loginCheck(request);
 		QnADAO.getQnADAO().updateQnA(request);
 		QnADAO.getQnADAO().getQnA(request);
+		QnADAO.getQnADAO().makebody(request);
 		request.setAttribute("contentPage", "jsp/sh/QnA_detail.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 

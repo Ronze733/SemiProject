@@ -28,19 +28,16 @@
 		<div class="review-write-submit">
 			<div>
 				<div class="review-writeimg">
-				<div>
-				<img src="img/jh/${review.review_pic}"
-						style="max-width: 300px;"> <input name="oldImg"
-						type="hidden" value="${review.review_pic}"> <input
-						type="file" name="pic_new">
+				  <div>
+				    <img src="img/jh/${review.review_pic}" style="max-width: 430px; max-height: 430px;">
+				    <input name="oldImg" type="hidden" value="${review.review_pic}">
+				    <input type="file" name="pic_new" onchange="updateImage(this)">
+				  </div>
 				</div>
-				</div>
-					<div style="margin-left: 100px;">
-						<span class="star"> ★★★★★ <span>★★★★★</span> <input
-							type="range" oninput="drawStar(this)" value="1" step="1" min="0"
-							max="10"> 
-							<input type="hidden" class="star_value"
-							name="star_value" value=>
+					<div>
+						<span class="star"> ★★★★★ <span>★★★★★</span> 
+							<input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10"> 
+							<input type="hidden" id="star_value"name="star_value" value="">
 						</span>
 					</div>
 				</div>	
@@ -57,10 +54,10 @@
 						후기를 적어주세요.
 					</div>
 					<div class="review-title-input2">
-						<textarea class="input-box2" rows="" cols="" name="body" placeholder="${review.review_body }"></textarea>
+						<textarea class="input-box2" rows="" cols="" name="body" placeholder="${body }"></textarea>
 					</div>
 					<div class="place">
-						<div class="place2">
+						<div class="place2" style="display: flex; gap: 10px;">
 							<select name="place" class="select-styling">
 								<option value="seoul">서울</option>
 								<option value="busan">부산</option>						
@@ -76,13 +73,13 @@
 								<option value="gangwon">강원도</option>
 								<option value="jeju ">제주도</option>
 							</select>
-							<div>
-							<div class="review-detailbutton" >
-							<button class="review-detailbutton" onclick="goBack()">뒤로가기</button>
-								<div>
-							<button class="review-detailbutton">Submit</button>
-							</div>
-						</div>		
+								<div style="display: flex;" >
+									<a class="review-detailbutton" onclick="goBack()" style="color: black;">&nbsp;뒤로가기</a>
+										<div>
+									<button class="review-detailbutton">&nbsp;&nbsp;Submit</button>
+									</div>
+								</div>
+							<div>		
 						</div>
 					</div>				
 				</div>
