@@ -19,7 +19,7 @@ public class RecommendC extends HttpServlet {
 			throws ServletException, IOException {
 		// ajax 로 리턴받을꺼라 포워드 갈곳 없음 그냥 서버랑 통신만 하고 원래 있던데로 결과 값(json) 가지고 돌아감
 		// testing..
-		AccountDAO.loginCheck(request);
+		//AccountDAO.loginCheck(request);
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");
@@ -30,7 +30,7 @@ public class RecommendC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		AccountDAO.loginCheck(request);
+		//AccountDAO.loginCheck(request);
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");

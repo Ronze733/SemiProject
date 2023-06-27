@@ -23,7 +23,9 @@ function paging(data){
 			console.log(data);
                 var dataHtml = '';
 				if(data.length === 0){
-					dataHtml +=``;
+					dataHtml +=`<div class="recommend-result-nothing">
+								해당 정보를 찾을 수 없습니다.
+								</div>`;
 				}
                 $.each(data, function (index, item) {
 					console.log(item.pic);
@@ -51,6 +53,7 @@ function paging(data){
             }
         })
 }
+
 $(document).ready(function () {
   presentAllPlaces();
 
@@ -163,11 +166,4 @@ function sendAjaxRequest() {
     },
   });
 }
-
-
-
-
-
-
-
 

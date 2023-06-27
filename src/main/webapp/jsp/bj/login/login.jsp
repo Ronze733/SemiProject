@@ -15,7 +15,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript" src="js/bj/login.js"></script>
 </head>
-<body class="text-center" >
+<body class="text-center">
 	<main class="form-signin w-100 m-auto" >
 		<form>
 			<img class="mb-8" src="./img/jy/SKTC.png" alt="" width="150"
