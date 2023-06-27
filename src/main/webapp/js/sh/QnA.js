@@ -29,7 +29,7 @@ function QnADetail(encoding, sessionId, inquiryId, no){
 		if (id == id2 || id == 'lhgsky100@naver.com'){
 		location.href='QnADetailC?no=' + no
 		} else{
-			alert("비공개 게시물 입니다");
+			alert("비공개 게시물 입니다.");
 		}
 		
 	} else {

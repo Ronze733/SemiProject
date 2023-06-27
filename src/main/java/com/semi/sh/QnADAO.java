@@ -80,6 +80,7 @@ public class QnADAO {
 			qna.setInquiry_no(rs.getInt("inquiry_no"));
 			qna.setInquiry_answer(rs.getString("inquiry_answer"));
 			qna.setInquiry_answer_day(rs.getDate("inquiry_answer_day"));
+			qna.setInquiry_encoding(rs.getString("inquiry_encoding"));
 
 			request.setAttribute("QnA", qna);
 
@@ -198,7 +199,8 @@ public class QnADAO {
 	public void updateQnA(HttpServletRequest request) {
 		PreparedStatement pstmt = null;
 		
-		String sql = "update inquiry set inquiry_title = ?, inquiry_body = ?, inquiry_category = ?, inquiry_question_day = sysdate, inquriy_encoding = ? where inquiry_no = ?";
+		String sql = "update inquiry set inquiry_title = ?, inquiry_body = ?, inquiry_category = ?, "
+				+ "inquiry_question_day = sysdate, inquriy_encoding = ? where inquiry_no = ?";
 		try {
 			request.setCharacterEncoding("utf-8");
 			pstmt = con.prepareStatement(sql);
