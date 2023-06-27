@@ -14,6 +14,7 @@
 				<div>
 					<span style="font-weight: 600;">제목</span>&nbsp;&nbsp; ${QnA.inquiry_title } 
 				</div>
+				<div>${QnA.inquiry_encoding }</div>
 			</div>
 			<div class="QnA-insert-header">
 				<div>

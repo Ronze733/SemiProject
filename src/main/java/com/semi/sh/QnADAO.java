@@ -156,18 +156,12 @@ public class QnADAO {
 	            items.add(QnAs.get(i));
 	        }
 	    }
-	    System.out.println(items.size());
 	    
 	    int emptyItemCount = cnt - items.size();
 	    System.out.println(emptyItemCount);
 	    for (int i = 0; i < emptyItemCount; i++) {
 	        items.add(new QnA("", "", "", null, 0, "", "", "", null, ""));
 	    }
-	    
-	    for (QnA qnA : items) {
-			System.out.println(qnA);
-			System.out.println(qnA.getInquiry_title());
-		}
 	    
 	    request.setAttribute("pageCount", pageCount);
 	    request.setAttribute("curPageNo", page);
