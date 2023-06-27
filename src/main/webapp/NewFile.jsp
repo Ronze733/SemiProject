@@ -44,6 +44,7 @@ pageEncoding="UTF-8"%>
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
+    
   </head>
   <body>
     <nav
@@ -52,7 +53,9 @@ pageEncoding="UTF-8"%>
     >
       <div class="container">
         <a class="navbar-brand" href="index.html"
-          >SKTC<span>South Travel Controller</span></a
+          >
+          <img style="width: 30px; height: 30px;" src="./img/jy/SKTC.png">
+          SKTC<span>South Travel Controller</span></a
         >
         <button
           class="navbar-toggler"
@@ -86,16 +89,11 @@ pageEncoding="UTF-8"%>
     </nav>
     <!-- END nav -->
 
-    <div
-      class="hero-wrap js-fullheight"
-      style="background-image: url('img/jy/main-img1.jpg')"
-    >
+    <div class="hero-wrap js-fullheight" style="background-image: url('img/jy/main-img1.jpg')">
       <div class="overlay"></div>
       <div class="container">
-        <div
-          class="row no-gutters slider-text js-fullheight align-items-center"
-          data-scrollax-parent="true"
-        >
+        <div class="row no-gutters slider-text js-fullheight align-items-center"
+          data-scrollax-parent="true">
           <div class="col-md-7 ftco-animate">
             <span class="subheading">Welcome to SKTC</span>
             <h1 class="mb-4">다양한 즐길 거리가 <br>기다리는 국내 여행지</h1>
@@ -131,11 +129,11 @@ pageEncoding="UTF-8"%>
                 We can manage your dream building A small river named Duden
                 flows by their place
               </p>
-              <p class="mb-0">
+              <!-- <p class="mb-0">
                 <a href="#" class="btn btn-primary px-4 py-3"
                   >Ask For A Quote</a
                 >
-              </p>
+              </p>  -->
             </div>
           </div>
         </div>

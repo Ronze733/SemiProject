@@ -53,6 +53,7 @@ function paging(data){
             }
         })
 }
+
 $(document).ready(function () {
   presentAllPlaces();
 
@@ -165,11 +166,4 @@ function sendAjaxRequest() {
     },
   });
 }
-
-
-
-
-
-
-
 

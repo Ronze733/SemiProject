@@ -61,7 +61,9 @@ pageEncoding="UTF-8"%>
     >
       <div class="container">
         <a class="navbar-brand" href="index.html"
-          >SKTC<span>South Travel Controller</span></a
+          >
+          <img style="width: 30px; height: 30px;" src="./img/jy/SKTC.png">
+          SKTC<span>South Travel Controller</span></a
         >
         <button
           class="navbar-toggler"
@@ -123,21 +125,6 @@ pageEncoding="UTF-8"%>
         <div class="row d-flex">
           <jsp:include page="${contentPage}"></jsp:include>
         </div>
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -154,11 +141,6 @@ pageEncoding="UTF-8"%>
               <p>
                 We can manage your dream building A small river named Duden
                 flows by their place
-              </p>
-              <p class="mb-0">
-                <a href="#" class="btn btn-primary px-4 py-3"
-                  >Ask For A Quote</a
-                >
               </p>
             </div>
           </div>
