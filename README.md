@@ -21,3 +21,7 @@ user가 원하는 여행지 테마에 맞춰 여행지를 추천해주고 그것
 - JAVA JDK-14
 - **IDE** : Eclipse, VS code
 - **DATABASE** : Oracle Cloud DB
+
+## 4. PowerPoint
+
+[다운로드 PPT](<SemiProject%20ppt(SKTC).pptx>)
