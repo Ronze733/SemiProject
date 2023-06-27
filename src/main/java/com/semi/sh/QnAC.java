@@ -17,7 +17,7 @@ public class QnAC extends HttpServlet {
 		AccountDAO.loginCheck(request);
 		QnADAO.getQnADAO().getAllQnA(request);
 		QnADAO.getQnADAO().pagingQnA(1, request);
-		request.setAttribute("contentPage", "jsp/sh/QnA_notice.jsp");
+		request.setAttribute("contentPage", "jsp/sh/QnA.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
