@@ -3,10 +3,10 @@ function test() {
 	let nowPage = "";
 	if (currentURL.includes("QnAC")) {
 		var navElement = document.getElementById("nav-qna");
-		nowPage = "고객게시판";
+		nowPage = "QnA";
 	} else if (currentURL.includes("ReviewPageC")) {
 		var navElement = document.getElementById("nav-review");
-		nowPage = "여행후기";
+		nowPage = "REVIEW";
 	}
 	navElement.classList.add("active");
 
