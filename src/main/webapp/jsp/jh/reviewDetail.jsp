@@ -43,7 +43,7 @@
 			        ${review.review_create_at}
 			        </div>
 						<div>
-							<span class="star"> ★★★★★ <span>★★★★★</span>
+							<span class="review_star"> ★★★★★ <span>★★★★★</span>
 							 <input type="range" class="s" step="1" min="0" max="10" value="${review.review_likes}"> 
 							 <input type="text" class="star_value" name="star_value" value="${review.review_likes}">
 							</span>
@@ -59,7 +59,7 @@
 			            <div class="review-title-text2">
 			                후기
 			            </div>
-			            <div class="review-title-input2">
+			            <div class="review-title-input2" style="overflow-y: scroll; ">
 			                ${review.review_body}
 			            </div>
 							<div class="place">

@@ -56,7 +56,7 @@
 								<img class="reviewImg" src="img/jh/${r.review_pic}">
 							</div>
 							<div>
-								<span class="star"> ★★★★★ <span>★★★★★</span> 
+								<span class="review_star"> ★★★★★ <span>★★★★★</span> 
 								<input type="range" class="s" step="1" min="0" max="10"> 
 								<input type="text" class="star_value" name="star_value" value="${r.review_likes}">
 								</span>
