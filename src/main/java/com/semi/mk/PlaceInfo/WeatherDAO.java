@@ -93,7 +93,6 @@ public class WeatherDAO {
 					weather = new Weather(humidity, minTemp, maxTemp, feelTemp, windspeed, translatedCondition, date, icon, pop);				
 					weathers.add(weather);
 				}
-				
 				request.setAttribute("weathers", weathers);
 			}
 			

@@ -6,13 +6,8 @@
 
 .detail-main{
 	width: 90%;
-	border-bottom: 3px solid black;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-.detail-main-backgroundImg{
-	width: 100%;
 }
 
 .detail-main-titleline{
@@ -67,7 +62,7 @@
 }
 
 .detail-main-text{
-	border-bottom: 3px solid black;
+	border-bottom: 1px solid black;
 	width: 100%;
 	text-align: left;
 }
@@ -81,7 +76,7 @@
 }
 
 .detail-weather-mk{
-	margin-top: 70px;
+	margin-top: 60px;
 	text-align:center;
 	width: 90%;
 	margin-left: auto;
@@ -102,8 +97,6 @@
 
 .detail-weather-recent{
 	width: 100%;
-	display: inline-flex;
-	justify-content:center;
 	margin-left: auto;
 	margin-bottom: 30px;
 }

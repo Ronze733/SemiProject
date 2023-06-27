@@ -11,7 +11,6 @@
 </head>
 
 <body>
-	
 	<div class="detail-container">
 		<div class="detail-main">
 			<div class="detail-main-titleline">
@@ -65,7 +64,6 @@
 			<div class="detail-place-root"> 오시는길</div>
 			<input type="hidden" id="param" value="${placeInfo.p_addr }">
 			<div id="map-mk" style="width:90%;height:400px;margin-left: 5%;"></div>
-	
 				<script type="text/javascript">
 					let place = document.getElementById('param')?.value;
 					let container = document.getElementById('map-mk');
@@ -73,7 +71,6 @@
 							center: new kakao.maps.LatLng(35.790402, 129.332103),
 							level: 7
 					}
-		
 					let map = new kakao.maps.Map(container, options);
 					console.log(place);
 		
@@ -96,7 +93,7 @@
 					})
 				</script>
 			<div class="detail-place-addr"> 주소: ${placeInfo.p_addr }</div>
-				</div>
+		</div>
 	</div>
 </body>
 </html>

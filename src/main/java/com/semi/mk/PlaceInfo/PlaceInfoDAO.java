@@ -24,7 +24,9 @@ public class PlaceInfoDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, pId);
 			rs= pstmt.executeQuery();
+			
 			if (rs.next()) {
+			
 			int p_id = rs.getInt("place_id");
 			String p_name = rs.getString("place_name");
 			String p_category1 = rs.getString("place_category1");
@@ -33,7 +35,9 @@ public class PlaceInfoDAO {
 			String p_placePic = rs.getString("place_pic");
 			String p_explain = rs.getString("place_explain");
 			String p_addr = rs.getString("place_addr");
+			
 			PlaceInfo pi = new PlaceInfo(p_id, p_name, p_category1, p_category2, p_category3, p_placePic, p_explain, p_addr);  
+			
 			request.setAttribute("placeInfo",pi);
 			}
 			
