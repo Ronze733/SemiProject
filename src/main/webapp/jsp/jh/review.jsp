@@ -72,12 +72,13 @@
 				</div>
 			</div>
 		</c:forEach>
-		<div></div>
+		<div>
+		</div>
 		<div class="row mt-5">
 		  <div class="col text-center">
 		    <div class="block-27">
 		      <ul>
-		      	<li><a href="ReviewPageC?p=1">처음</a></li>
+		      	<li><a href="ReviewPageC?p=1">&lt;&lt;</a></li>
 		      	<c:if test="${curPageNo > 1}">
 		        <li><a href="ReviewPageC?p=${curPageNo - 1}">&lt;</a></li>
 				</c:if>
@@ -87,37 +88,14 @@
 				<c:if test="${curPageNo < pageCount}">
 		        <li><a href="ReviewPageC?p=${curPageNo + 1}">&gt;</a></li>
 				</c:if>
-				<li><a href="ReviewPageC?p=${pageCount }">끝</a></li>
+				<li><a href="ReviewPageC?p=${pageCount }">&gt;&gt;</a></li>
 		      </ul>
 		    </div>
 		  </div>
 		</div>		
-	</div>
-	<div class="CM" style="display: flex;">
-	<div class="side_quick fixed" style="left: 105px; display: block;">
-                <div id="ctl00_bodyContent_SideTopBanner" class="side_ban">                                             
-                            <a href="https://kbwiserent.co.kr/" target="_blank" title="여기 어때?">
-                                <img src="img/jh/car.png" alt="렌트카는 MZ 렌트카" style="width: 100px;">
-                            </a>      
-                            <div>                                 
-                            걸어다니기힘들지?
-                            </div>   
-						</div>                    
-					</div>
-		<div class="side_quick fixed" style="left: 105px; display: block;">
-                <div id="ctl00_bodyContent_SideTopBanner" class="side_ban">                                             
-                            <a href="https://www.goodchoice.kr/" target="_blank" title="여기 어때?">
-                                <img src="img/jh/Hotel.png" alt="호텔은여기어때?" style="width: 100px;">
-                            </a>      
-                            <div>                                 
-                            호텔은 여기어때?
-                            </div>   
-						</div>                    
-					</div>	
-	</div>							
+	</div>						
 </body>
 <script type="text/javascript">
 	drawStar2()
 </script>
-
 </html>

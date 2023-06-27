@@ -118,7 +118,6 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
     </section>
-
     <section class="ftco-section">
       <div class="container">
         <div class="row d-flex">

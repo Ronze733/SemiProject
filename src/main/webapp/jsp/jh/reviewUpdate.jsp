@@ -16,7 +16,7 @@
 			<div></div>
 			<div class="review-write-word">
 				<div class="review-write-big">
-0					후기를 수정하시겠습니까?.
+					후기를 수정하시겠습니까?.
 				</div>
 				<div class="review-write-small">
 					추가 문의사항은 고객 게시판을 이용바랍니다..
@@ -29,12 +29,12 @@
 				<div>
 					<div class="review-writeimg">
 					  <div>
-					    <img src="img/jh/${review.review_pic}" style="max-width: 430px; max-height: 430px;">
+					    <img id="previewImage" src="img/jh/${review.review_pic}" style="max-width: 430px; max-height: 430px;">
 					    <input name="oldImg" type="hidden" value="${review.review_pic}">
 					  </div>
 					</div>
 					<div>
-						<input type="file" id="pic" name="pic_new" onchange="updateImage(this)" style="padding-top: 10px;">
+					  <input type="file" id="pic" name="pic_new" onchange="updateImage(this)" style="padding-top: 10px;">
 					</div>
 					<div>
 						<span class="review_star"> ★★★★★ <span>★★★★★</span>
@@ -120,6 +120,7 @@
 		  // 모든 입력이 유효한 경우, 폼을 서버로 제출할 수 있습니다.
 		  return true;
 		}
+		
 	</script>
 </body>
 </html>
