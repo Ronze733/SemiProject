@@ -1,8 +1,6 @@
 package com.semi.main;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.URL;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

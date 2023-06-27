@@ -8594,10 +8594,12 @@ h1, h2, h3, h4, h5,
   position: relative; }
   .slider-text .subheading {
     font-size: 30px;
+    font-weight: 600;
     color: #f15d30;
     font-family: "Poppins"; }
   .slider-text h1 {
     font-size: 55px;
+    font-family: 'Noto Sans KR',sans-serif;
     color: #fff;
     line-height: 1.2;
     font-weight: 700; }
@@ -8617,8 +8619,9 @@ h1, h2, h3, h4, h5,
       .slider-text p strong a {
         color: #000000; }
     .slider-text p.caps {
-      font-weight: 400;
-      font-size: 16px; }
+      	font-weight: 400;
+    	font-size: 18px;
+    	font-family: 'Noto Sans KR',sans-serif; }
   .slider-text .breadcrumbs {
     font-size: 16px;
     margin-bottom: 20px;
