@@ -265,6 +265,36 @@ public class QnADAO {
 		qna.setInquiry_body(body);
 		
 	}
+
+	public void searchQnA(HttpServletRequest request) {
+		String keyword = request.getParameter("keyword");
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from inquiry where inquiry_title like ? or inquiry_user_name like ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, "%" + keyword + "%");
+			pstmt.setString(2, "%" + keyword + "%");
+
+			rs = pstmt.executeQuery();
+			QnAs = new ArrayList<QnA>();
+			while (rs.next()) {
+				QnA qna = new QnA(rs.getString("inquiry_user_id"), rs.getString("inquiry_title"),
+						rs.getString("inquiry_body"), rs.getDate("inquiry_question_day"), rs.getInt("inquiry_no"),
+						rs.getString("inquiry_category"), rs.getString("inquiry_user_name"), rs.getString("inquiry_answer"), 
+						rs.getDate("inquiry_answer_day"), rs.getString("inquiry_encoding"));
+				QnAs.add(qna);
+			}
+			request.setAttribute("QnAs", QnAs);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		//	DBManager.close(con, pstmt, rs);
+		}
+	}
 	
 	
 	
