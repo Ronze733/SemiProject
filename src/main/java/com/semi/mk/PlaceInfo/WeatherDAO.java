@@ -85,7 +85,8 @@ public class WeatherDAO {
 					JSONArray conditionJ = (JSONArray) day.get("weather");
 					String condition = ((JSONObject) conditionJ.get(0)).get("main") + "";
 					String icon = ((JSONObject) conditionJ.get(0)).get("icon") + "";
-
+					icon = icon.replace("n", "d");
+					
 					String translatedCondition = translateToKorean(condition);
 					
 					String windspeed = ((JSONObject) day.get("wind")).get("speed") + "";
