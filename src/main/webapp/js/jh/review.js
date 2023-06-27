@@ -44,7 +44,7 @@ function handlePageClick(page) {
 
 
 function drawStar(target) {
-  const starSpan = document.querySelector('.star span');
+  const starSpan = document.querySelector('.review_star span');
   if (starSpan) {
     const width = target.value * 10 + '%';
     starSpan.style.width = width;
