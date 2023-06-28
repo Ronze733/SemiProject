@@ -10,6 +10,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
 <link rel="stylesheet" href="./css/jm/modal.css">
 
+
 <div class="recommend-container">
 	<div class="recommend-search">
 		<div id="recommend-search-menus">
@@ -148,7 +149,10 @@
 		<div class="recommend-result-div-wrap"></div>
 		<div id="recommend-result-pagination"></div>
 	</div>
+</div>
 
+<div style="width: 100%;">
+	<jsp:include page="test2.jsp"></jsp:include>
 </div>
 
 
