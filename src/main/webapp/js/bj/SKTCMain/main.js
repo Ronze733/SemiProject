@@ -7,7 +7,10 @@ function test() {
 	} else if (currentURL.includes("ReviewPageC")) {
 		var navElement = document.getElementById("nav-review");
 		nowPage = "REVIEW";
-	} else if (currentURL.includes("PlaceInfoC")){
+	} else if (currentURL.includes("HC")) {
+		var navElement = document.getElementById("nav-home");
+		nowPage = "SKTC";
+	} else if (currentURL.includes("PlaceInfoC")) {
 		let placeName = document.getElementById("placeN");
 		nowPage = placeName;
 	}

@@ -1,45 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
 <head>
-<meta charset="UTF-8">
-<title>로그인 페이지</title>
-<link href="css/bj/login.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+<title>Transparent Login Form HTML CSS</title>
+<link href="css/bj/loginPage.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-<script
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript" src="js/bj/login.js"></script>
 </head>
-<body class="text-center">
-	<main class="form-signin w-100 m-auto" >
-		<form>
-			<img class="mb-8" src="./img/jy/SKTC.png" alt="" width="150"
-				height="118" onclick="location.href='HC'">
-			<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-			<div class="form-floating">
-				<input name="email" type="email" class="form-control"
-					id="floatingInput" placeholder="이메일"
-					onFocus="changePlaceholder(this, 'name@example.com');"
-					onBlur="restorePlaceholder(this, '이메일');">
+<body>
+	<div class="bg-img" style="background-image: url('img/bj/main-img2.jpg');">
+		<div class="content">
+			<header>Login</header>
+			<form>
+				<div class="field">
+					<span class="fa fa-user"></span> <input name="email" type="email"
+						class="form-control" id="floatingInput" placeholder="이메일"
+						onFocus="changePlaceholder(this, 'name@example.com');"
+						onBlur="restorePlaceholder(this, '이메일');">
+				</div>
+				<div class="field space">
+					<span class="fa fa-lock"></span> <input name="password"
+						type="password" class="form-control" id="floatingPassword"
+						placeholder="비밀번호"> <span class="show">SHOW</span>
+				</div>
+				<div class="signup">
+					<br> <a href="javascript:void(0);" onclick="openPopup();">비밀번호를
+						잊어버리셨나요?</a>
+				</div>
+				<br>
+				<div class="field">
+					<input type="submit" value="로그인">
+				</div>
+			</form>
+			<div class="signup">
+				아직 회원이 아니신가요? <a href="AccountRegC">회원가입</a>
 			</div>
-			<div class="form-floating">
-				<input name="password" type="password" class="form-control"
-					id="floatingPassword" placeholder="비밀번호">
-			</div>
-
-			<div class="signup mb-3">
-				<a href="javascript:void(0);" onclick="openPopup();">비밀번호를
-					잊어버리셨나요?</a>
-			</div>
-			<button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
-			<p class="mt-5 mb-3 text-muted">© 2023~</p>
-		</form>
-	</main>
+		</div>
+	</div>
+	<script>
+		const pass_field = document.querySelector('.pass-key');
+		const showBtn = document.querySelector('.show');
+		showBtn.addEventListener('click', function() {
+			if (pass_field.type === "password") {
+				pass_field.type = "text";
+				showBtn.textContent = "HIDE";
+				showBtn.style.color = "#3498db";
+			} else {
+				pass_field.type = "password";
+				showBtn.textContent = "SHOW";
+				showBtn.style.color = "#222";
+			}
+		});
+	</script>
 </body>
 </html>

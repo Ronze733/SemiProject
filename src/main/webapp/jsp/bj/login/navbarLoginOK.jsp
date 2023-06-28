@@ -48,9 +48,9 @@
 </a> <!-- Dropdown menu -->
 	<ul class="dropdown-menu dropdown-menu-end"
 		aria-labelledby="navbarDropdown">
-		<li><a class="dropdown-item" href="AccountDetailC">계정 정보</a></li>
+		<li><a class="dropdown-item" href="AccountDetailC">My Account</a></li>
 
-		<li><a class="dropdown-item" href="LoginC">로그아웃</a></li>
+		<li><a class="dropdown-item" href="LoginC">Log Out</a></li>
 	</ul></li>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

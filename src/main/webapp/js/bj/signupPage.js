@@ -152,6 +152,3 @@ $("#email-check").focus(function() {
 
 
 
-
-
-
