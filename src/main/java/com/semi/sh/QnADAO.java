@@ -63,6 +63,7 @@ public class QnADAO {
 
 		String sql = "select * from inquiry where inquiry_no = ?";
 		try {
+			request.setCharacterEncoding("utf-8");
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("no"));
 			rs = pstmt.executeQuery();
@@ -232,6 +233,7 @@ public class QnADAO {
 	public void updateAns(HttpServletRequest request) {
 		String sql = "update inquiry set inquiry_answer = ?, inquiry_answer_day = sysdate where inquiry_no = ?";
 		try {
+			request.setCharacterEncoding("utf-8");
 			request.getParameter("no");
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("inquiry_answer"));

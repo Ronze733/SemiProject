@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입 화면 샘플</title>
+<link rel="icon" type="image/png" href="./img/jy/sktc-favicon.png" />
+<title>회원가입</title>
 <!-- Font Awesome -->
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"

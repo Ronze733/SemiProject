@@ -63,7 +63,7 @@ pageEncoding="UTF-8"%>
         <a class="navbar-brand" href="index.html"
           >
           <img style="width: 30px; height: 30px;" src="./img/jy/SKTC.png">
-          SKTC<span>South Travel Controller</span></a
+          SKTC<span>South Korea Travel Controller</span></a
         >
         <button
           class="navbar-toggler"

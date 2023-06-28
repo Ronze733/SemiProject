@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <head>
 <meta charset="utf-8">
-<title>Transparent Login Form HTML CSS</title>
+<link rel="icon" type="image/png" href="./img/jy/sktc-favicon.png" />
+<title>로그인</title>
 <link href="css/bj/loginPage.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />

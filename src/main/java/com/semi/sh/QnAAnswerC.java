@@ -23,6 +23,8 @@ public class QnAAnswerC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AccountDAO.loginCheck(request);
 		QnADAO.getQnADAO().updateAns(request);
+		QnADAO.getQnADAO().getAllQnA(request);
+		QnADAO.getQnADAO().pagingQnA(1, request);
 		request.setAttribute("contentPage", "jsp/sh/QnA.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 

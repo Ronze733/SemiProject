@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="QnAAnswerC" method="post">
+<form action="QnAAnswerC?category=2" method="post">
 	<div class="QnA-insert-container">
 		<div class="QnA-insert-content">
 			<div class="QnA-insert-header">
