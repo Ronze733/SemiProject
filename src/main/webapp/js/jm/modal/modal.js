@@ -1,18 +1,14 @@
-/**
- * 
- */
- 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
   // 페이지 로드 시 모달 열기
   openModal();
   
   // 모달 닫기 버튼 클릭 시 모달 숨김
-  $("#closeModalButton").click(function() {
+  document.getElementById("closeModalButton").addEventListener("click", function() {
     closeModal();
   });
 
   // 오늘 하루 더 이상 열지 않기 버튼 클릭 시 모달 숨김 및 처리 로직 추가
-  $("#closeTodayModalButton").click(function() {
+  document.getElementById("closeTodayModalButton").addEventListener("click", function() {
     closeModal();
     // 오늘 하루 동안 모달을 더 이상 열지 않는 처리를 여기에 추가하세요.
     disableModalForToday();
@@ -20,10 +16,11 @@ $(document).ready(function() {
 
   // 모달 닫기 함수
   function closeModal() {
-    $("#welcomeModal").hide();
+    document.getElementById("welcomeModal").style.display = "none";
   }
   
-  $("#welcomeModal").draggable();
+  // 모달 드래그 가능하도록 설정
+  makeModalDraggable();
 });
 
 // 모달 열기 함수
@@ -48,6 +45,6 @@ function openModal() {
   // 쿠키에서 modalDisabled 값을 확인하여 오늘 날짜와 비교하여 모달을 열지 여부를 결정합니다.
   var modalDisabled = document.cookie.replace(/(?:(?:^|.*;\s*)modalDisabled\s*\=\s*([^;]*).*$)|^.*$/, "$1");
   if (modalDisabled !== "true") {
-    $("#welcomeModal").show();
+    document.getElementById("welcomeModal").style.display = "block";
   }
 }
