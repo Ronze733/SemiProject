@@ -147,20 +147,22 @@ pageEncoding="UTF-8"%>
             <div class="ftco-footer-widget pt-md-5 mb-4">
               <h2 class="ftco-heading-2">About</h2>
               <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts.
+				"문화와 자연의 아름다움이 어우러진 여행을 경험해보세요."
+			  </p>
+			  <p>		
+				"풍부한 역사와 현대적인 매력이 어우러진 명소를 만나보세요."
               </p>
               <ul
                 class="ftco-footer-social list-unstyled float-md-left float-lft"
               >
                 <li class="ftco-animate">
-                  <a href="#"><span class="fa fa-twitter"></span></a>
+                  <a href="https://twitter.com/"><span class="fa fa-twitter"></span></a>
                 </li>
                 <li class="ftco-animate">
-                  <a href="#"><span class="fa fa-facebook"></span></a>
+                  <a href="https://www.facebook.com/"><span class="fa fa-facebook"></span></a>
                 </li>
                 <li class="ftco-animate">
-                  <a href="#"><span class="fa fa-instagram"></span></a>
+                  <a href="https://www.instagram.com/"><span class="fa fa-instagram"></span></a>
                 </li>
               </ul>
             </div>
@@ -168,53 +170,68 @@ pageEncoding="UTF-8"%>
           <div class="col-md pt-5 border-left">
             <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
               <h2 class="ftco-heading-2">Infromation</h2>
+              <div style="display: flex; gap:20px;">
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Online Enquiry</a></li>
-                <li><a href="#" class="py-2 d-block">General Enquiries</a></li>
-                <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-                <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
-                <li><a href="#" class="py-2 d-block">Call Us</a></li>
+                <li><a href="https://www.sto.or.kr/index" class="py-2 d-block">서울</a></li>
+                <li><a href="https://bto.or.kr/kor/Main.do" class="py-2 d-block">부산</a></li>
+                <li><a href="https://tour.daegu.go.kr/" class="py-2 d-block">대구</a></li>
+                <li><a href="https://www.ito.or.kr/" class="py-2 d-block">인천</a></li>
+                <li><a href="https://www.gjto.or.kr/" class="py-2 d-block">광주</a></li>
+                <li><a href="http://www.djto.kr/kor/domain/domain3.html" class="py-2 d-block">대전</a></li>                                                                                                     
+              </ul>
+              <ul class="list-unstyled">                           
+                <li><a href="http://www.cbta.or.kr/" class="py-2 d-block">충청북도</a></li>
+                <li><a href="https://tour.chungnam.go.kr/html/kr/" class="py-2 d-block">충청남도</a></li>
+                <li><a href="https://www.gtc.co.kr/" class="py-2 d-block">경상북도</a></li>
+                <li><a href="https://gnto.or.kr/main/main.php/" class="py-2 d-block">경상남도</a></li>
+                <li><a href="https://tour.jb.go.kr/index.do" class="py-2 d-block">전라북도</a></li>
+                <li><a href="http://ijnto.or.kr/" class="py-2 d-block">전라남도</a></li>                                                        
+               </ul>
+               <ul class="list-unstyled">
+                <li><a href="https://www.uto.or.kr/uto/index.do" class="py-2 d-block">울산</a></li>  
+                <li><a href="https://gto.or.kr/main.php" class="py-2 d-block">경기도</a></li>
+                <li><a href="http://gwto.or.kr/www/index.do" class="py-2 d-block">강원도</a></li>                 
+                <li><a href="https://ijto.or.kr/korean/" class="py-2 d-block">제주도</a></li>
+                <li><a href="https://knto.or.kr/index" class="py-2 d-block">대한민국</a></li>              
+               </ul>
+               </div>  
+            </div>
+          </div>
+          <div class="col-md pt-5 border-left">
+            <div class="ftco-footer-widget pt-md-5 mb-4" style="margin-left:40px; ">
+              <h2 class="ftco-heading-2">제휴사이트</h2>
+              <ul class="list-unstyled">
+                <li><a href="https://www.goodchoice.kr/" class="py-2 d-block">여기어때</a></li>
+                <li><a href="https://mtravel.interpark.com/home" class="py-2 d-block">인터파크</a></li>
+                <li><a href="https://www.twayair.com/app/main" class="py-2 d-block">티웨이</a></li>
+                <li><a href="https://www.jinair.com/booking/index" class="py-2 d-block">진에어</a></li>
+                <li><a href="https://www.jejuair.net/ko/main/base/index.do" class="py-2 d-block">제주항공</a></li>
+                <li><a href="https://www.lotterentacar.net/hp/kor/main/index.do" class="py-2 d-block">롯데렌트카</a></li>
+                <li><a href="https://www.skcarrental.com/rent/index.do" class="py-2 d-block">SK렌트카</a></li>              
               </ul>
             </div>
           </div>
           <div class="col-md pt-5 border-left">
-            <div class="ftco-footer-widget pt-md-5 mb-4">
-              <h2 class="ftco-heading-2">Experience</h2>
-              <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Adventure</a></li>
-                <li>
-                  <a href="#" class="py-2 d-block">Hotel and Restaurant</a>
-                </li>
-                <li><a href="#" class="py-2 d-block">Beach</a></li>
-                <li><a href="#" class="py-2 d-block">Nature</a></li>
-                <li><a href="#" class="py-2 d-block">Camping</a></li>
-                <li><a href="#" class="py-2 d-block">Party</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md pt-5 border-left">
-            <div class="ftco-footer-widget pt-md-5 mb-4">
+            <div class="ftco-footer-widget pt-md-5 mb-4" style="margin-left: 40px;">
               <h2 class="ftco-heading-2">Have a Questions?</h2>
               <div class="block-23 mb-3">
                 <ul>
                   <li>
                     <span class="icon fa fa-map-marker"></span
                     ><span class="text"
-                      >203 Fake St. Mountain View, San Francisco, California,
-                      USA</span
+                      >15, Jongno 12-gil, Jongno-gu, Seoul, Republic of Korea</span
                     >
                   </li>
                   <li>
                     <a href="#"
                       ><span class="icon fa fa-phone"></span
-                      ><span class="text">+2 392 3929 210</span></a
+                      ><span class="text">+2-6901-7098</span></a
                     >
                   </li>
                   <li>
                     <a href="#"
                       ><span class="icon fa fa-paper-plane"></span
-                      ><span class="text">info@yourdomain.com</span></a
+                      ><span class="text">Soldesk@domain.com</span></a
                     >
                   </li>
                 </ul>

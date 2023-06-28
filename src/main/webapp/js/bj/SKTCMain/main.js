@@ -1,10 +1,10 @@
 function test() {
 	var currentURL = window.location.pathname
 	let nowPage = "";
-	if (currentURL.includes("QnAC")) {
+	if (currentURL.includes("QnA")) {
 		var navElement = document.getElementById("nav-qna");
 		nowPage = "QnA";
-	} else if (currentURL.includes("ReviewPageC")) {
+	} else if (currentURL.includes("Review")) {
 		var navElement = document.getElementById("nav-review");
 		nowPage = "REVIEW";
 	} else if (currentURL.includes("HC")) {
