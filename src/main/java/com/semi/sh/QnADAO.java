@@ -26,7 +26,7 @@ public class QnADAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String category = request.getParameter("category");
-		if(category == null) {
+		if(category.equals("1")) {
 			category = "공지사항";
 		}else if (category.equals("2")) {
 			category = "문의하기";
