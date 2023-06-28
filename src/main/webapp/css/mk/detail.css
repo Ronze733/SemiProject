@@ -41,11 +41,6 @@
     text-decoration-color: aqua;
     text-decoration-thickness: 2px;
 }
-
-.detail-main-informatoin{
-	display: inline;
-	position: relative;
-	}
 	
 .detail-main-img{
 	display:flex;
@@ -93,12 +88,6 @@
 	font-weight: 800;
 	border: 1px solid black;
     border-radius: 30px;
-}
-
-.detail-weather-recent{
-	width: 100%;
-	margin-left: auto;
-	margin-bottom: 30px;
 }
 
 .detail-weather-option{

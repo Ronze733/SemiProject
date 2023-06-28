@@ -9,15 +9,14 @@
 <link rel="stylesheet" href="./css/mk/detail.css">
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f818416cdc1d84e70d4b7d23e7f86e3&libraries=services"></script>
 </head>
-
 <body>
 	<div class="detail-container">
 		<div class="detail-main">
 			<div class="detail-main-titleline">
 			<div class="detail-main-title">${placeInfo.p_name }</div>
+			<input type="hidden" id="detail-main-titleI" value="${placeInfo.p_name }">
 			<div class="detail-main-area">${placeInfo.p_category3}</div>
 			</div>
-			<div class="detail-main-informatoin">
 	 			<div class="detail-main-img" >
 	 				<C:if test="${placeInfo.p_id < 28 }">
 	 					<img id="detail-place_img" alt="" src="./img/mk/${placeInfo.p_pic }">
@@ -32,11 +31,9 @@
 	 			<div class="detail-main-explain">
 	 				${placeInfo.p_explain}
 	 			</div>
-	 		</div>
  		</div>
  		<div class="detail-weather-mk">
 	 		<div class="detail-weather-title">날씨</div>
-	 			<div class="detail-weather-recent">
 	 				<div class="detail-weather-option">
 	 					<C:forEach items="${weathers }" var="w" varStatus="loop">
 	 		 			<div class="detail-weather-optiontext"> 
@@ -48,7 +45,7 @@
 	 		 			<div id="detail-weather-weatherAll">
 	 		 				<img alt="" src="https://openweathermap.org/img/wn/${w.icon }@2x.png"> <br>
 	 		 				${w.condition }<br>
-	 		 				강수확률 ${w.pop * 100 } %<br>
+	 		 				강수확률 ${String.format('%.1f', w.pop * 100)} %<br>
 	 						체감온도 ${w.feelTemp } °C<br>
 	 						최저 기온 ${w.minTemp } °C<br>
 	 						최고 기온  ${w.maxTemp } °C<br>
@@ -58,13 +55,13 @@
 	 					</div>
 	 					</C:forEach>
 	 				</div>
-	 			</div>
 	 		</div>
 		<div class="detail-place">
 			<div class="detail-place-root"> 오시는길</div>
 			<input type="hidden" id="param" value="${placeInfo.p_addr }">
 			<div id="map-mk" style="width:90%;height:400px;margin-left: 5%;"></div>
 				<script type="text/javascript">
+					let placeN = document.getElementById('detail-main-titleI').value;
 					let place = document.getElementById('param')?.value;
 					let container = document.getElementById('map-mk');
 					let options = {
@@ -85,7 +82,7 @@
 			          			  position: coords
 			       			 });
 			       			 var infowindow = new kakao.maps.InfoWindow({
-			         			   content: '<div style="width:150px;text-align:center;padding:6px 0;">'+ place +'</div>'
+			         			   content: '<div style="width:150px;text-align:center;padding:6px 0;">'+ placeN +'</div>'
 			        			});
 			        			infowindow.open(map, marker);
 			        			map.setCenter(coords);
