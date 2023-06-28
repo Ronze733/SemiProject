@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+.Container{
+	width: 99.1vw;
+}
+
+.main-container {
+	position: relative;
+	width: 100%;
+	z-index: 10;
+}
+
+.main-header {
+	position: sticky;
+	top: 0;
+	background-color: transparent;
+	transition: background-color 1.2s ease;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: auto;
+	width: 100%;
+	z-index: 10;
+}
+
+.main-header.scroll-active {
+  background-color: white; /* 스크롤 위치에 도달하면 배경색을 흰색으로 변경 */
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 3px 4px 0px; 
+}
+
+.main-header-logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 180px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 29px;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.main-header-logo img {
+	width: 110px;
+	z-index: 10;
+}
+
+.main-header-menus {
+	display: flex;
+	justify-content: space-around;
+	min-width: 800px;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 24px;
+	font-weight: 800;
+	line-height: 29px;
+	letter-spacing: 0em;
+	text-align: center;
+	color: black;
+	z-index: 10;
+	white-space: nowrap;
+}
+
+.main-header-menu{
+	cursor: pointer;
+}
+
+.main-header-login{
+	z-index: 10;
+}
+
+.main-footer{
+	width: 100%;
+}
+
+.main-footer-box {
+	width: 100%;
+	height: 458px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(127, 206, 223, 0.46);
+	font-family: 'Noto Sans KR', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 29px;
+	color: #FFFFFF;
+	z-index: 10;
+}
+
+.main-footer-box img {
+	width: 144px;
+	height: 135px;
+	z-index: 10;
+}
+
+

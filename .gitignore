@@ -1,1 +1,4 @@
 /build/
+*.class
+src/main/java/com/semi/sh/QnADAO.java.rej
+/target/

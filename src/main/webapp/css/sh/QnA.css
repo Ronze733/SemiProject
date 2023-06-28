@@ -1,0 +1,227 @@
+.QnA-container{
+	width: 100%;
+	height: 100%;
+}
+
+.QnA-form{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.QnA-content{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.QnA-header{
+	font-size: 20pt;
+	margin-bottom: 10px;
+}
+
+.QnA-left-lists{
+	margin-top: 20px;
+	text-align: center;
+}
+
+.QnA-left-list{
+	padding: 5px 0px;
+}
+
+.QnA-body{
+	width: 800px;
+	margin-left: 50px;
+}
+
+.QnA-body-title{
+	display: flex;
+	justify-content: space-between;
+}
+
+.QnA-body-list{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.QnA-list-titles{
+	display: flex;
+	width: 100%;
+	padding: 20px 0px;
+    font-weight: 600;
+}
+
+.QnA-list-title1{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.QnA-list-title2{
+	flex-grow: 1;
+    text-align: center;
+    line-height: 20px;
+}
+
+.QnA-list-title3{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.QnA-list-title4{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.QnA-list-title5{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.QnA-lists{
+	justify-content: space-between;
+	display: flex;
+	height: 30px;
+	border-top: 1px solid black;
+	padding: 14px 0px;
+	height: 50px;
+}
+
+.QnA-list1{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.QnA-list2{
+	padding-left: 70px;
+	flex-grow: 1;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.leftToRight::after {
+  content: "";
+  display: block;
+  border-bottom: 3px solid #000;
+  transition: width 250ms ease-out;
+  left: auto;
+  right: 0;
+  width: 0;
+}
+
+.leftToRight:hover::after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+.QnA-list3{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.QnA-list4{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 400;
+    color: gray;
+}
+
+.QnA-list5{
+	flex-basis: 100px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.QnA-page-number{
+	display: flex;
+	justify-content: center;
+}
+
+/* QnA_insert */
+
+.QnA-insert-container{
+	width: 100%;
+	height: 100%;
+}
+
+.QnA-insert-content{
+    margin-top: 100px;
+    width: 754px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.QnA-insert-header{
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.QnA-insert-body{
+    justify-content: flex-start;
+	
+}
+
+.QnA-insert-button{
+	justify-content: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    margin-top: 15px;
+}
+
+/* QnA_Detail */
+
+.QnA-insert-bodytxt{
+	height: 300px;
+}
+
+
+/* QnA_answer */
+.QnA-answer-button{
+	display: flex;
+    justify-content: space-evenly;
+}
+
+.QnA-insert-answer{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
