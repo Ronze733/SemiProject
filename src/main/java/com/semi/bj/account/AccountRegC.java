@@ -19,7 +19,7 @@ public class AccountRegC extends HttpServlet {
 			
 		} else {
 			AccountDAO.loginCheck(request);
-			request.getRequestDispatcher("jsp/bj/login/signupPage.jsp").forward(request, response);
+			request.getRequestDispatcher("jsp/bj/login/signupPage2.jsp").forward(request, response);
 		}
 	
 //		if (request.getParameter("actionType").equals("isDuplicated")) {

@@ -2,10 +2,9 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
-<link href="css/bj/loginPage.css" rel="stylesheet" type="text/css">
 <meta charset="utf-8">
 <title>Transparent Login Form HTML CSS</title>
-<link rel="stylesheet" href="style.css">
+<link href="css/bj/loginPage.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 	<script
