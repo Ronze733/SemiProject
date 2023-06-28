@@ -7,19 +7,16 @@
 <title>회원가입 화면 샘플</title>
 <!-- Font Awesome -->
 <link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  rel="stylesheet"
-/>
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+	rel="stylesheet" />
 <!-- Google Fonts -->
 <link
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-  rel="stylesheet"
-/>
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+	rel="stylesheet" />
 <!-- MDB -->
 <link
-  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
-  rel="stylesheet"
-/>
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+	rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -48,8 +45,10 @@
 											<i class="fas fa-user fa-lg me-3 fa-fw"></i>
 											<div class="form-outline flex-fill mb-0">
 												<input name="nickname" type="text" class="form-control"
-													id="nickname" required> <label class="form-label"
-													for="nickname">닉네임</label>
+													id="nickname" placeholder="닉네임"
+													onFocus="changePlaceholder(this, 'ex)바다가고싶다');"
+													onBlur="restorePlaceholder(this, '닉네임');" value="" required>
+												<label class="form-label" for="nickname">닉네임</label>
 											</div>
 											<div class="col-md-6 mb-3">
 												<select name="gender"
@@ -142,9 +141,7 @@
 								<div
 									class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-									<img
-										src="img/jy/SKTC.png"
-										class="img-fluid" alt="Sample image">
+									<img src="img/jy/SKTC.png" class="img-fluid" alt="Sample image">
 
 								</div>
 							</div>
@@ -155,8 +152,6 @@
 		</div>
 	</section>
 	<!-- MDB -->
-<script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"
-></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
 </html>
