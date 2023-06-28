@@ -44,6 +44,14 @@
 				</div>
 			</div>
 		</div>
+		<div class="r-page"
+			style="display: flex; font-size: 17px; justify-content: flex-end; ">
+			  <select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)" 
+			  style="border: 1px solid #B4B4B4;border-radius: 4px;">
+			    <option value="recently">최신순</option>
+			    <option value="stars">평점순</option>
+			  </select>
+		</div>	
 		<c:forEach var="r" items="${reviews}" varStatus="loop">
 			    <div class="review-imgf">
 			      <div class="review-img">
@@ -60,24 +68,28 @@
 			        </div>
 			      </div>
 			    </div>
-			</c:forEach>
-			<div class="r-page" style="display: flex;font-size: 20px;justify-content: center;margin-top: 20px;">
-				    <select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)">
-				        <option value="recently">최신순</option>
-				        <option value="mostviewed">많이읽은순</option>
-				    </select>
-				    <div onclick="location.href='ReviewSearchC?keyword=${param.keyword}&p=1'">[맨처음]</div>
-				    <c:if test="${curPageNo > 1}">
-				        <div onclick="location.href='ReviewSearchC?keyword=${param.keyword}&p=${curPageNo - 1}'">&nbsp;[이전]&nbsp;</div>
-				    </c:if>
-				    <c:forEach begin="1" end="${pageCount}" var="i">
-				        <div onclick="location.href='ReviewSearchC?keyword=${param.keyword}&p=${i}'">&nbsp;${i}&nbsp;</div>
-				    </c:forEach>
-				    <c:if test="${curPageNo < pageCount}">
-				        <div onclick="location.href='ReviewSearchC?keyword=${param.keyword}&p=${curPageNo + 1}'">&nbsp;[다음]&nbsp;</div>
-				    </c:if>
-				    <div onclick="location.href='ReviewSearchC?keyword=${param.keyword}&p=${pageCount}'">[맨끝]</div>
+			</c:forEach>		
+			<div>
 				</div>
-			</div>				
+				<div class="row mt-5">
+				  <div class="col text-center">
+				    <div class="block-27">
+				      <ul>
+				      	<li><a href="ReviewSearchC?keyword=${param.keyword}&p=1">&lt;&lt;</a></li>
+				      	<c:if test="${curPageNo > 1}">
+				        <li><a href="ReviewSearchC?keyword=${param.keyword}&p=${curPageNo - 1}">&lt;</a></li>
+						</c:if>
+						<c:forEach begin="1" end="${pageCount }" var="i">
+				        <li><a href="ReviewSearchC?keyword=${param.keyword}&p=${i}">${i }</a></li>
+						</c:forEach>
+						<c:if test="${curPageNo < pageCount}">
+				        <li><a href="ReviewSearchC?keyword=${param.keyword}&p=${curPageNo + 1}">&gt;</a></li>
+						</c:if>
+						<li><a href="ReviewSearchC?keyword=${param.keyword}&p=${pageCount}">&gt;&gt;</a></li>
+				      </ul>
+				    </div>
+				  </div>
+				</div>
+			</div>											
 </body>	
 </html>

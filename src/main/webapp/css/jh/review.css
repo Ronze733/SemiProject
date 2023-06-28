@@ -470,13 +470,13 @@ flex-grow: 0;
   
   
   
-.star {
+.review_star {
   position: relative;
   font-size: 45px;
   color: #ddd;
 }
 
-.star input {
+.review_star input {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -484,7 +484,7 @@ flex-grow: 0;
   opacity: 0;
 }
 
-.star span {
+.review_star span {
   width: 0;
   position: absolute;
   left: 0;
@@ -492,7 +492,7 @@ flex-grow: 0;
   overflow: hidden;
   pointer-events: none;
 }
-.star-rating {
+.review_star-rating {
 box-sizing: border-box;
 /* Auto layout */
 padding: 15px 110px;

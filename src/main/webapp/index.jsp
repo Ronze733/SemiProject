@@ -3,7 +3,6 @@ pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pacific - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -62,7 +61,9 @@ pageEncoding="UTF-8"%>
     >
       <div class="container">
         <a class="navbar-brand" href="index.html"
-          >SKTC<span>South Travel Controller</span></a
+          >
+          <img style="width: 30px; height: 30px;" src="./img/jy/SKTC.png">
+          SKTC<span>South Travel Controller</span></a
         >
         <button
           class="navbar-toggler"
@@ -79,13 +80,13 @@ pageEncoding="UTF-8"%>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item" id="nav-home">
-              <a href="NewFile.jsp" class="nav-link">메인 페이지</a>
+              <a href="NewFile.jsp" class="nav-link">HOME</a>
             </li>
             <li class="nav-item" id="nav-review">
-              <a href="ReviewPageC?p=1" class="nav-link">여행 후기</a>
+              <a href="ReviewPageC?p=1" class="nav-link">REVIEW</a>
             </li>
             <li class="nav-item" id="nav-qna">
-              <a href="QnAC" class="nav-link">고객 게시판</a>
+              <a href="QnAC" class="nav-link">QnA</a>
             </li>
             <li class="nav-item">
               <jsp:include page="${LoginPage}"></jsp:include>
@@ -98,7 +99,7 @@ pageEncoding="UTF-8"%>
 
     <section
       class="hero-wrap hero-wrap-2 js-fullheight"
-      style="background-image: url('css/bj/images/bg_1.jpg')"
+      style="background-image: url('img/jy/main-img1.jpg')"
     >
       <div class="overlay"></div>
       <div class="container">
@@ -118,26 +119,10 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
     </section>
-
     <section class="ftco-section">
       <div class="container">
         <div class="row d-flex">
           <jsp:include page="${contentPage}"></jsp:include>
-        </div>
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -148,18 +133,13 @@ pageEncoding="UTF-8"%>
           <div class="col-md-12 text-center">
             <div
               class="img"
-              style="background-image: url(css/bj/images/bg_2.jpg)"
+              style="background-image: url('img/jy/main-img2.jpg')"
             >
               <div class="overlay"></div>
               <h2>We Are Pacific A Travel Agency</h2>
               <p>
                 We can manage your dream building A small river named Duden
                 flows by their place
-              </p>
-              <p class="mb-0">
-                <a href="#" class="btn btn-primary px-4 py-3"
-                  >Ask For A Quote</a
-                >
               </p>
             </div>
           </div>

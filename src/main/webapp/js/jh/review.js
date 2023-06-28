@@ -44,7 +44,7 @@ function handlePageClick(page) {
 
 
 function drawStar(target) {
-  const starSpan = document.querySelector('.star span');
+  const starSpan = document.querySelector('.review_star span');
   if (starSpan) {
     const width = target.value * 10 + '%';
     starSpan.style.width = width;
@@ -82,17 +82,14 @@ function ReviewloginCheck(id){
 	}
 }
 
-  function updateImage(input) {
-    if (input.files && input.files[0]) {
-      const reader = new FileReader();
-
-      reader.onload = function(e) {
-        const imagePreview = input.parentElement.querySelector('img');
-        imagePreview.src = e.target.result;
-      };
-
-      reader.readAsDataURL(input.files[0]);
-    }
+function updateImage(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('previewImage').src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
   }
+}
 
   
