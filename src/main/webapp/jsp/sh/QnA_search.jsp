@@ -14,7 +14,7 @@
 			<div class="QnA-title-left">
 				<div class="QnA-header">고객 게시판</div>
 				<div class="QnA-left-lists">
-					<div class="QnA-left-list" onclick="location.href='QnAC'">공지사항</div>
+					<div class="QnA-left-list" onclick="location.href='QnAC?category=1'">공지사항</div>
 					<div class="QnA-left-list" onclick="location.href='QnAC?category=2'">문의하기</div>
 					<div class="QnA-left-list" onclick="location.href='QnAC?category=3'">자주 묻는 질문</div>
 				</div>
@@ -56,20 +56,24 @@
 						</div>
 					</c:forEach>
 				</div>
-				<div class="block-27">
-					<ul>
-						<li><a href="QnASearchC?keyword=${param.keyword}&p=1">&lt;&lt;</a></li>
-						<c:if test="${curPageNo > 1}">
-							<li><a href="QnASearchC?keyword=${param.keyword}&p=${curPageNo - 1}">&lt;</a></li>
-						</c:if>
-						<c:forEach begin="1" end="${pageCount }" var="i">
-							<li><a href="QnASearchC?keyword=${param.keyword}&p=${i }">${i }</a></li>
-						</c:forEach>
-						<c:if test="${curPageNo < pageCount}">
-							<li><a href="QnASearchC?keyword=${param.keyword}&p=${curPageNo + 1}">&gt;</a></li>
-						</c:if>
-						<li><a href="QnASearchC?keyword=${param.keyword}&p=${pageCount }">&gt;&gt;</a></li>
-					</ul>
+				<div class="row mt-5">
+					<div class="col text-center">
+						<div class="block-27">
+							<ul>
+								<li><a href="QnAPageC?category=${param.category}&p=1">&lt;&lt;</a></li>
+								<c:if test="${curPageNo > 1}">
+									<li><a href="QnAPageC?category=${param.category}&p=${curPageNo - 1}">&lt;</a></li>
+								</c:if>
+								<c:forEach begin="1" end="${pageCount }" var="i">
+									<li><a href="QnAPageC?category=${param.category}&p=${i }">${i }</a></li>
+								</c:forEach>
+								<c:if test="${curPageNo < pageCount}">
+									<li><a href="QnAPageC?category=${param.category}&p=${curPageNo + 1}">&gt;</a></li>
+								</c:if>
+								<li><a href="QnAPageC?category=${param.category}&p=${pageCount }">&gt;&gt;</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -86,7 +86,7 @@ pageEncoding="UTF-8"%>
               <a href="ReviewPageC?p=1" class="nav-link">REVIEW</a>
             </li>
             <li class="nav-item" id="nav-qna">
-              <a href="QnAC" class="nav-link">QnA</a>
+              <a href="QnAC?category=1" class="nav-link">QnA</a>
             </li>
             <li class="nav-item">
               <jsp:include page="${LoginPage}"></jsp:include>
