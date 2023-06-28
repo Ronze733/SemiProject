@@ -70,7 +70,7 @@
 								<option value="gwangju">&nbsp;광주</option>
 								<option value="daejeon">&nbsp;대전</option>
 								<option value="ulsan">&nbsp;울산</option>
-								<option value="kyeonggido">경기도</option>
+								<option value="kyeonggido">경기도</option>-
 								<option value="chungcheong">충청도</option>
 								<option value="gyeongsang">경상도</option>
 								<option value="jeolla">전라도</option>
