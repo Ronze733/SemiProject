@@ -42,8 +42,8 @@
 			style="display: flex; font-size: 17px; justify-content: flex-end; ">
 			  <select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)" 
 			  style="border: 1px solid #B4B4B4;border-radius: 4px;">
-			    <option value="recently">최신순</option>
 			    <option value="stars">평점순</option>
+			    <option value="recently">최신순</option>
 			  </select>
 		</div>	
 		<c:forEach var="r" items="${reviews}" varStatus="loop">
