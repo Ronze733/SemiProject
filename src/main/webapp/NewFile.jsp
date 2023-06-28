@@ -169,7 +169,7 @@ pageEncoding="UTF-8"%>
           </div>
           <div class="col-md pt-5 border-left">
             <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Infromation</h2>
+              <h2 class="ftco-heading-2">Information</h2>
               <div style="display: flex; gap:20px;">
               <ul class="list-unstyled">
                 <li><a href="https://www.sto.or.kr/index" class="py-2 d-block">서울</a></li>
