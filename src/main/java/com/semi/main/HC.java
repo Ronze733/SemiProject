@@ -18,7 +18,7 @@ public class HC extends HttpServlet {
 
 		AccountDAO.loginCheck(request);
 		request.setAttribute("contentPage", "./jsp/jy/recommend/recommend.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.getRequestDispatcher("NewFile.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
