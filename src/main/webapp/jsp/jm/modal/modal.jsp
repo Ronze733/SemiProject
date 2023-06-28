@@ -18,7 +18,7 @@
     	<div class="modal-content">
     		<img alt="" src="./img/jm/modal/welcomemodal.png" class="modal-img">
     	</div>
-    	<div style="display: flex; width: 399px">
+    	<div style="display: flex; width: 398px">
     		<div style="margin-left: 137px">
 		    	<span class="close" id="closeTodayModalButton">오늘 하루 더 이상 열지 않기 &times;</span>
     		</div>
