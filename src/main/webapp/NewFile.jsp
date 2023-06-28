@@ -44,16 +44,20 @@ pageEncoding="UTF-8"%>
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" type="text/css" href="css/jy/slick.css"/>
+<link rel="stylesheet" type="text/css" href="css/jy/slick-theme.css"/>
+    
   </head>
   <body>
-    <% request.setAttribute("currentPage", "nav-home"); %>
     <nav
       class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
       id="ftco-navbar"
     >
       <div class="container">
         <a class="navbar-brand" href="index.html"
-          >SKTC<span>South Travel Controller</span></a
+          >
+          <img style="width: 30px; height: 30px;" src="./img/jy/SKTC.png">
+          SKTC<span>South Travel Controller</span></a
         >
         <button
           class="navbar-toggler"
@@ -70,16 +74,16 @@ pageEncoding="UTF-8"%>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item" id="nav-home">
-              <a href="NewFile.jsp" class="nav-link">메인 페이지</a>
+              <a href="NewFile.jsp" class="nav-link">HOME</a>
             </li>
             <li class="nav-item" id="nav-review">
-              <a href="ReviewPageC?p=1" class="nav-link">여행 후기</a>
+              <a href="ReviewPageC?p=1" class="nav-link">REVIEW</a>
             </li>
             <li class="nav-item" id="nav-qna">
-              <a href="QnAC" class="nav-link">고객 게시판</a>
+              <a href="QnAC?category=1" class="nav-link">QnA</a>
             </li>
-            <li class="nav-item" id="nav-blog">
-              <a href="blog.html" class="nav-link">Blog</a>
+            <li class="nav-item">
+              <jsp:include page="${LoginPage}"></jsp:include>
             </li>
           </ul>
         </div>
@@ -87,22 +91,16 @@ pageEncoding="UTF-8"%>
     </nav>
     <!-- END nav -->
 
-    <div
-      class="hero-wrap js-fullheight"
-      style="background-image: url('css/bj/images/bg_5.jpg')"
-    >
+    <div class="hero-wrap js-fullheight" style="background-image: url('img/jy/main-img1.jpg')">
       <div class="overlay"></div>
       <div class="container">
-        <div
-          class="row no-gutters slider-text js-fullheight align-items-center"
-          data-scrollax-parent="true"
-        >
+        <div class="row no-gutters slider-text js-fullheight align-items-center"
+          data-scrollax-parent="true">
           <div class="col-md-7 ftco-animate">
             <span class="subheading">Welcome to SKTC</span>
-            <h1 class="mb-4">Discover Your Favorite Place with Us</h1>
+            <h1 class="mb-4">다양한 즐길 거리가 <br>기다리는 국내 여행지</h1>
             <p class="caps">
-              Travel to the any corner of the world, without going around in
-              circles
+              SKTC의 추천으로 특별한 순간을 만들어보세요.
             </p>
           </div>
         </div>
@@ -125,18 +123,13 @@ pageEncoding="UTF-8"%>
           <div class="col-md-12 text-center">
             <div
               class="img"
-              style="background-image: url(css/bj/images/bg_2.jpg)"
+              style="background-image: url('img/jy/main-img2.jpg')"
             >
               <div class="overlay"></div>
               <h2>We Are Pacific A Travel Agency</h2>
               <p>
                 We can manage your dream building A small river named Duden
                 flows by their place
-              </p>
-              <p class="mb-0">
-                <a href="#" class="btn btn-primary px-4 py-3"
-                  >Ask For A Quote</a
-                >
               </p>
             </div>
           </div>

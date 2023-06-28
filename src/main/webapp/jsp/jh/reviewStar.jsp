@@ -42,8 +42,8 @@
 			style="display: flex; font-size: 17px; justify-content: flex-end; ">
 			  <select name="selecter" class="selecter-styling" onchange="handleSelectChange(this.value)" 
 			  style="border: 1px solid #B4B4B4;border-radius: 4px;">
-			    <option value="recently">최신순</option>
 			    <option value="stars">평점순</option>
+			    <option value="recently">최신순</option>
 			  </select>
 		</div>	
 		<c:forEach var="r" items="${reviews}" varStatus="loop">
@@ -56,7 +56,7 @@
 								<img class="reviewImg" src="img/jh/${r.review_pic}">
 							</div>
 							<div>
-								<span class="star"> ★★★★★ <span>★★★★★</span> 
+								<span class="review_star"> ★★★★★ <span>★★★★★</span> 
 								<input type="range" class="s" step="1" min="0" max="10"> 
 								<input type="text" class="star_value" name="star_value" value="${r.review_likes}">
 								</span>

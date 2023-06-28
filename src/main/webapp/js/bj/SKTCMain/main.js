@@ -10,6 +10,9 @@ function test() {
 	} else if (currentURL.includes("HC")) {
 		var navElement = document.getElementById("nav-home");
 		nowPage = "SKTC";
+	} else if (currentURL.includes("PlaceInfoC")) {
+		let placeName = document.getElementById("placeN");
+		nowPage = placeName;
 	}
 	navElement.classList.add("active");
 

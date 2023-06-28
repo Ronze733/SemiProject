@@ -25,21 +25,30 @@ public class QnADAO {
 	public void getAllQnA(HttpServletRequest request) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-
-		String sql = "select * from inquiry";
+		String category = request.getParameter("category");
+		if(category.equals("1")) {
+			category = "공지사항";
+		}else if (category.equals("2")) {
+			category = "문의하기";
+		}else if(category.equals("3")) {
+			category = "자주 묻는 질문";
+		}
+		
+		String sql = "select * from inquiry where inquiry_category = ?";
 		try {
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, category);
+			
 			rs = pstmt.executeQuery();
 
 			QnAs = new ArrayList<QnA>();
 			while (rs.next()) {
 				QnA qna = new QnA(rs.getString("inquiry_user_id"), rs.getString("inquiry_title"),
 						rs.getString("inquiry_body"), rs.getDate("inquiry_question_day"), rs.getInt("inquiry_no"),
-						rs.getString("inquiry_category"), rs.getString("inquiry_user_name"), rs.getString("inquiry_answer"), rs.getDate("inquiry_answer_day"));
+						rs.getString("inquiry_category"), rs.getString("inquiry_user_name"), rs.getString("inquiry_answer"), 
+						rs.getDate("inquiry_answer_day"), rs.getString("inquiry_encoding"));
 				QnAs.add(qna);
 			}
-
-			request.setAttribute("QnAs", QnAs);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -71,6 +80,7 @@ public class QnADAO {
 			qna.setInquiry_no(rs.getInt("inquiry_no"));
 			qna.setInquiry_answer(rs.getString("inquiry_answer"));
 			qna.setInquiry_answer_day(rs.getDate("inquiry_answer_day"));
+			qna.setInquiry_encoding(rs.getString("inquiry_encoding"));
 
 			request.setAttribute("QnA", qna);
 
@@ -85,7 +95,7 @@ public class QnADAO {
 	public void insert(HttpServletRequest request) {
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into inquiry values(?, ?, ?, sysdate, inquiry_no_seq.nextval, ?, ?, '.', sysdate)";
+		String sql = "insert into inquiry values(?, ?, ?, sysdate, inquiry_no_seq.nextval, ?, ?, '.', sysdate, ?)";
 
 		try {
 			request.setCharacterEncoding("UTF-8");
@@ -96,12 +106,14 @@ public class QnADAO {
 			String category = request.getParameter("inquiry_category");
 			String body = request.getParameter("inquiry_body");
 			String name = request.getParameter("inquiry_user_name");
+			String encoding = request.getParameter("inquiry_encoding");
 
 			System.out.println(id);
 			System.out.println(title);
 			System.out.println(category);
 			System.out.println(body);
 			System.out.println(name);
+			System.out.println(encoding);
 			
 			if (body.equals(null)) {
 				body = "...";
@@ -114,6 +126,7 @@ public class QnADAO {
 			pstmt.setString(3, body);
 			pstmt.setString(4, category);
 			pstmt.setString(5, name);
+			pstmt.setString(6, encoding);
 
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("등록 성공");
@@ -133,7 +146,7 @@ public class QnADAO {
 	    int cnt = 10; // 한 페이지당 보여줄 개수
 	    int total = QnAs.size(); // 총 데이터 개수
 	    int pageCount = (int) Math.ceil((double) total / cnt);
-
+	    System.out.println(total);
 	    int start = total - (cnt * (page - 1));
 	    int end = Math.max(start - cnt, 0); // 음수가 아닌 경우에만 값을 변경하도록 수정
 
@@ -143,12 +156,13 @@ public class QnADAO {
 	            items.add(QnAs.get(i));
 	        }
 	    }
-
+	    
 	    int emptyItemCount = cnt - items.size();
+	    System.out.println(emptyItemCount);
 	    for (int i = 0; i < emptyItemCount; i++) {
-	        items.add(new QnA("", "", "", null, 0, "", "", "", null));
+	        items.add(new QnA("", "", "", null, 0, "", "", "", null, ""));
 	    }
-
+	    
 	    request.setAttribute("pageCount", pageCount);
 	    request.setAttribute("curPageNo", page);
 	    request.setAttribute("QnAs", items);
@@ -179,7 +193,8 @@ public class QnADAO {
 	public void updateQnA(HttpServletRequest request) {
 		PreparedStatement pstmt = null;
 		
-		String sql = "update inquiry set inquiry_title = ?, inquiry_body = ?, inquiry_category = ?, inquiry_question_day = sysdate where inquiry_no = ?";
+		String sql = "update inquiry set inquiry_title = ?, inquiry_body = ?, inquiry_category = ?, "
+				+ "inquiry_question_day = sysdate, inquriy_encoding = ? where inquiry_no = ?";
 		try {
 			request.setCharacterEncoding("utf-8");
 			pstmt = con.prepareStatement(sql);
@@ -190,6 +205,7 @@ public class QnADAO {
 			String title = request.getParameter("inquiry_title");
 			String body = request.getParameter("inquiry_body");
 			String category = request.getParameter("inquiry_category");
+			
 			System.out.println("2");
 			System.out.println(no);
 			System.out.println(title);
@@ -248,6 +264,36 @@ public class QnADAO {
 		body = body.replaceAll("<br>", "\r\n");
 		qna.setInquiry_body(body);
 		
+	}
+
+	public void searchQnA(HttpServletRequest request) {
+		String keyword = request.getParameter("keyword");
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from inquiry where inquiry_title like ? or inquiry_user_name like ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, "%" + keyword + "%");
+			pstmt.setString(2, "%" + keyword + "%");
+
+			rs = pstmt.executeQuery();
+			QnAs = new ArrayList<QnA>();
+			while (rs.next()) {
+				QnA qna = new QnA(rs.getString("inquiry_user_id"), rs.getString("inquiry_title"),
+						rs.getString("inquiry_body"), rs.getDate("inquiry_question_day"), rs.getInt("inquiry_no"),
+						rs.getString("inquiry_category"), rs.getString("inquiry_user_name"), rs.getString("inquiry_answer"), 
+						rs.getDate("inquiry_answer_day"), rs.getString("inquiry_encoding"));
+				QnAs.add(qna);
+			}
+			request.setAttribute("QnAs", QnAs);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		//	DBManager.close(con, pstmt, rs);
+		}
 	}
 	
 	

@@ -33,7 +33,7 @@
 						<img alt="" src="" id="imagePreview" style="width: 100%; height: 100%; display: none;">
 					</div>
 					<div>
-						<input id="uploadInput" name="pic" type="file">
+						<input id="uploadInput" name="pic" type="file" style="padding-top: 10px;">
 					</div>
 					<br>
 					<div class="star-rating">
@@ -41,7 +41,7 @@
 							별점을 지정해주세요.
 						</div>
 						<div>
-							<span class="star"> ★★★★★ <span>★★★★★</span> 
+							<span class="review_star"> ★★★★★ <span>★★★★★</span> 
 								<input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10"> 
 								<input type="hidden" id="star_value" name="star_value" value="">
 							</span>
@@ -70,7 +70,7 @@
 								<option value="gwangju">&nbsp;광주</option>
 								<option value="daejeon">&nbsp;대전</option>
 								<option value="ulsan">&nbsp;울산</option>
-								<option value="kyeonggido">경기도</option>
+								<option value="kyeonggido">경기도</option>-
 								<option value="chungcheong">충청도</option>
 								<option value="gyeongsang">경상도</option>
 								<option value="jeolla">전라도</option>
@@ -78,7 +78,7 @@
 								<option value="jeju">제주도</option>
 							</select>
 							<div>
-								<button class="review-detailbutton" onclick="validateForm()">&nbsp;&nbsp;Submit</button>
+								<button class="review-detailbutton" onclick="return validateForm()">&nbsp;&nbsp;Submit</button>
 							</div>
 						</div>
 					</div>
@@ -99,6 +99,7 @@
 		  const titleValue = titleInput.value.trim();
 		  const bodyValue = bodyInput.value.trim();
 		  const placeValue = placeSelect.value;
+		  
 
 		  // 제목이 입력되지 않은 경우
 		  if (titleValue === "") {
@@ -121,7 +122,11 @@
 		    alert("장소를 선택해주세요.");
 		    return false; // 페이지 전환을 막기 위해 false를 반환
 		  }
-
+		  
+		  if (inputElement.files.length === 0) {
+			  alert("사진을 선택해주세요.");
+			  return false; // 페이지 전환을 막기 위해 false를 반환
+			}
 		  // 모든 입력이 유효한 경우, 폼을 서버로 제출할 수 있습니다.
 		  return true;
 		}
@@ -141,6 +146,19 @@
 			reader.readAsDataURL(file);
 		}
 	});
+	
+	// JavaScript 코드
+	var textarea = document.getElementById("bodyInput");
+	var maxLength = 1000; // 최대 글자 수
+
+	textarea.addEventListener("input", function() {
+	  if (textarea.value.length > maxLength) {
+	    alert("글자 수가 너무 깁니다. " + maxLength + "자 이하로 입력해주세요.");
+	    textarea.value = textarea.value.substring(0, maxLength);
+	  }
+	});
+
+
 	</script>
 </body>
 </html>

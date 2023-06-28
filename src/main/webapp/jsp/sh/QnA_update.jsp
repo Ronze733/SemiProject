@@ -14,17 +14,17 @@
 					<div>
 						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp; <input name="inquiry_title" value="${QnA.inquiry_title }"> 
 					</div>
+					<div>
+					<input type="hidden" id="inquiry_encoding" value="${QnA.inquiry_encoding }">
+						<label><input type="radio" name="inquiry_encoding" value="공개">공개</label>
+						<label><input type="radio" name="inquiry_encoding" value="비공개">비공개</label>
+					</div>
 				</div>
 				<div class="QnA-insert-header">
 					<div>
-						<span style="font-weight: 600;">카테고리</span>&nbsp;&nbsp; 
-							<input type="hidden" id="inquiry_category" value="${QnA.inquiry_category }">
-							<select name="inquiry_category">
-								<option value="공지사항">공지사항</option>
-								<option value="이벤트">이벤트</option>
-								<option value="문의하기">문의하기</option>
-							</select>
+						<span style="font-weight: 600;">카테고리</span> <span>&nbsp;&nbsp;문의하기</span>
 					</div>
+						<input type="hidden" name="inquiry_category" value="문의하기">
 					<div><span style="font-weight: 600;">작성자</span>&nbsp;&nbsp; ${QnA.inquiry_user_name }</div>
 				</div>
 				<div class="QnA-insert-body">
@@ -42,12 +42,12 @@
 	</form>
 </body>
 <script type="text/javascript">
-	let select = document.querySelector('select[name="inquiry_category"]');
-	let addrVal = document.querySelector('#inquiry_category').value;
-	for (let i = 0; i < select.options.length; i++) {
-		if (select.options[i].value == addrVal) {
-			select.options[i].selected = true;
-		}
-	}
+var inquiryEncoding = document.getElementById("inquiry_encoding").value;
+
+if (inquiryEncoding === "공개") {
+    document.querySelector('input[name="inquiry_encoding"][value="공개"]').checked = true;
+} else if (inquiryEncoding === "비공개") {
+    document.querySelector('input[name="inquiry_encoding"][value="비공개"]').checked = true;
+}
 </script>
 </html>
