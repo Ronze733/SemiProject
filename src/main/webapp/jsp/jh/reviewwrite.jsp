@@ -70,7 +70,7 @@
 								<option value="gwangju">&nbsp;광주</option>
 								<option value="daejeon">&nbsp;대전</option>
 								<option value="ulsan">&nbsp;울산</option>
-								<option value="kyeonggido">경기도</option>
+								<option value="kyeonggido">경기도</option>-
 								<option value="chungcheong">충청도</option>
 								<option value="gyeongsang">경상도</option>
 								<option value="jeolla">전라도</option>
@@ -146,6 +146,19 @@
 			reader.readAsDataURL(file);
 		}
 	});
+	
+	// JavaScript 코드
+	var textarea = document.getElementById("bodyInput");
+	var maxLength = 1000; // 최대 글자 수
+
+	textarea.addEventListener("input", function() {
+	  if (textarea.value.length > maxLength) {
+	    alert("글자 수가 너무 깁니다. " + maxLength + "자 이하로 입력해주세요.");
+	    textarea.value = textarea.value.substring(0, maxLength);
+	  }
+	});
+
+
 	</script>
 </body>
 </html>

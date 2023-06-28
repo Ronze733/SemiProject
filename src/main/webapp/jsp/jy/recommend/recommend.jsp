@@ -8,6 +8,8 @@
 <script type="text/javascript" src="./js/jy/recommend.js" defer="defer"></script>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
+<link rel="stylesheet" href="./css/jm/modal.css">
+
 
 <div class="recommend-container">
 	<div class="recommend-search">
@@ -147,9 +149,26 @@
 		<div class="recommend-result-div-wrap"></div>
 		<div id="recommend-result-pagination"></div>
 	</div>
+</div>
 
+<div style="width: 100%;">
+	<jsp:include page="test2.jsp"></jsp:include>
 </div>
 
 
-
+<!-- modal -->
+<div id="welcomeModal" class="modal">
+    	<div class="modal-content">
+    		<img alt="" src="./img/jm/modal/welcomemodal.png" class="modal-img">
+    	</div>
+    	<div style="display: flex; width: 235px; margin-top: 5px">
+    		<div>
+		    	<span class="close" id="closeTodayModalButton">오늘 하루 더 이상 열지 않기 &times;</span>
+    		</div>
+    		<div style="margin-left: 20px">
+		      	<span class="close" id="closeModalButton">닫기 &times;</span>	
+    		</div>
+    	</div>
+	</div>
+<script src="./js/jm/modal/modal.js"></script>
 

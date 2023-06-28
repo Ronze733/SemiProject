@@ -44,6 +44,8 @@ pageEncoding="UTF-8"%>
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" type="text/css" href="css/jy/slick.css"/>
+<link rel="stylesheet" type="text/css" href="css/jy/slick-theme.css"/>
     
   </head>
   <body>
@@ -78,7 +80,7 @@ pageEncoding="UTF-8"%>
               <a href="ReviewPageC?p=1" class="nav-link">REVIEW</a>
             </li>
             <li class="nav-item" id="nav-qna">
-              <a href="QnAC" class="nav-link">QnA</a>
+              <a href="QnAC?category=1" class="nav-link">QnA</a>
             </li>
             <li class="nav-item">
               <jsp:include page="${LoginPage}"></jsp:include>
@@ -129,11 +131,6 @@ pageEncoding="UTF-8"%>
                 We can manage your dream building A small river named Duden
                 flows by their place
               </p>
-              <!-- <p class="mb-0">
-                <a href="#" class="btn btn-primary px-4 py-3"
-                  >Ask For A Quote</a
-                >
-              </p>  -->
             </div>
           </div>
         </div>

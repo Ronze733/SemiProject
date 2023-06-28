@@ -7,6 +7,9 @@ function test() {
 	} else if (currentURL.includes("ReviewPageC")) {
 		var navElement = document.getElementById("nav-review");
 		nowPage = "REVIEW";
+	} else if (currentURL.includes("PlaceInfoC")){
+		let placeName = document.getElementById("placeN");
+		nowPage = placeName;
 	}
 	navElement.classList.add("active");
 
