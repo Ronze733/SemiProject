@@ -126,10 +126,10 @@ pageEncoding="UTF-8"%>
               style="background-image: url('img/jy/main-img2.jpg')"
             >
               <div class="overlay"></div>
-              <h2>We Are Pacific A Travel Agency</h2>
+              <h2>We are South Korea Travel Controllers.</h2>
               <p>
-                We can manage your dream building A small river named Duden
-                flows by their place
+                We can manage your dreams.
+				Where do you want to go now?
               </p>
             </div>
           </div>
