@@ -20,15 +20,6 @@
 		<div class="review-title">
 			당신의 이야기를 들려주세요.
 		</div>
-		<div >
-   	 		<form action="ReviewSearchC" method="GET">
-   	 			<div class="review-searcher">
-       				 <input class="review-search" type="text" name="keyword" value="${keyword}" placeholder="검색어를 입력하세요">			
-       			 	 <input type="hidden" name="p" value="1">
-       			 	<button class="review-searchbutton" type="submit">search</button>  		
-       			</div>
-    		</form>
-		</div>
 		<div class="review-write">
 			<div class="review-write-word">
 				<div class="review-write-big">
