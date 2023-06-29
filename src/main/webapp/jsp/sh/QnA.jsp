@@ -128,5 +128,4 @@
 		</div>
 	</div>
 </body>
-<script src="./js/sh/QnA.js"></script>
 </html>
