@@ -21,7 +21,7 @@
 			</div>
 			<div class="QnA-body">
 				<div class="QnA-body-title">
-					<div>검색결과</div>
+					<div class="QnA-header">검색결과</div>
 					<form action="QnASearchC">
 						<div>
 							<input class="QnA-search" type="text" name="keyword" value="${keyword }" placeholder="검색어를 입력해주세요.">
@@ -30,7 +30,7 @@
 						</div>
 					</form>
 					<div>
-						<button onclick="QnAloginCheck('${sessionScope.account.user_id}')">작성</button>
+						<button class="QnA-searchbutton" onclick="QnAloginCheck('${sessionScope.account.user_id}')">작성</button>
 					</div>
 				</div>
 				<div class="QnA-body-list">

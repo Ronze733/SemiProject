@@ -33,8 +33,8 @@
 					</div>
 				</div>
 			<div class="QnA-answer-button">
-			<div><button>작성완료</button></div>
-			<div><button name="inquiry_answer" value=".">취소</button></div>
+			<div><button class="QnA-searchbutton">작성완료</button></div>
+			<div><button class="QnA-searchbutton" name="inquiry_answer" value=".">취소</button></div>
 			</div>
 		</div>
 	</div>
