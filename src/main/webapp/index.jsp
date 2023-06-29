@@ -174,6 +174,9 @@ pageEncoding="UTF-8"%>
                 <li class="ftco-animate">
                   <a href="https://www.instagram.com/"><span class="fa fa-instagram"></span></a>
                 </li>
+                <li class="ftco-animate">
+                  <a href="https://www.github.com/"><span class="fa fa-github"></span></a>
+                </li>
               </ul>
             </div>
           </div>
@@ -291,7 +294,7 @@ pageEncoding="UTF-8"%>
         />
       </svg>
     </div>
-
+	<!-- <script src="js/jy/mousePointStar.js"></script>  -->
     <script src="js/bj/SKTCMain/jquery.min.js"></script>
     <script src="js/bj/SKTCMain/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/bj/SKTCMain/popper.min.js"></script>
@@ -307,5 +310,8 @@ pageEncoding="UTF-8"%>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/bj/SKTCMain/google-map.js"></script>
     <script src="js/bj/SKTCMain/main.js"></script>
+    <script type="text/javascript">
+    
+    </script>
   </body>
 </html>

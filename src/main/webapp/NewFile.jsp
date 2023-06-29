@@ -164,6 +164,9 @@ pageEncoding="UTF-8"%>
                 <li class="ftco-animate">
                   <a href="https://www.instagram.com/"><span class="fa fa-instagram"></span></a>
                 </li>
+                 <li class="ftco-animate">
+                  <a href="https://www.github.com/Ronze733/SemiProject" target="_blank"><span class="fa fa-github"></span></a>
+                </li>
               </ul>
             </div>
           </div>
@@ -281,7 +284,7 @@ pageEncoding="UTF-8"%>
         />
       </svg>
     </div>
-
+    <script src="js/jy/mousePointStar.js"></script>
     <script src="js/bj/SKTCMain/jquery.min.js"></script>
     <script>
       jQuery.noConflict();

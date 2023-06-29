@@ -4,20 +4,19 @@ function test() {
 	if (currentURL.includes("QnA")) {
 		var navElement = document.getElementById("nav-qna");
 		nowPage = "QnA";
-		navElement.classList.add("active");
 	} else if (currentURL.includes("Review")) {
 		var navElement = document.getElementById("nav-review");
 		nowPage = "REVIEW";
-		navElement.classList.add("active");
 	} else if (currentURL.includes("HC")) {
 		var navElement = document.getElementById("nav-home");
 		nowPage = "SKTC";
-		navElement.classList.add("active");
 	} else if (currentURL.includes("PlaceInfoC")) {
-		let placeName = document.getElementById("detail-main-titleI").value;
+		var navElement = document.getElementById("detail-main-titleI");
+		let placeName = navElement.value;
 		console.log(placeName);
 		nowPage = placeName;
 	}
+	navElement.classList.add("active");
 
 	// <span> 요소에 nowPage 값 할당
 	var spanElement = document.getElementById("nowPage");
