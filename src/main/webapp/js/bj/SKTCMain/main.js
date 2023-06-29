@@ -11,7 +11,9 @@ function test() {
 		var navElement = document.getElementById("nav-home");
 		nowPage = "SKTC";
 	} else if (currentURL.includes("PlaceInfoC")) {
-		let placeName = document.getElementById("placeN");
+		var navElement = document.getElementById("detail-main-titleI");
+		let placeName = navElement.value;
+		console.log(placeName);
 		nowPage = placeName;
 	}
 	navElement.classList.add("active");
