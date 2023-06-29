@@ -58,6 +58,7 @@
 							<div class="QnA-list-title5">상태</div>
 						</c:if>
 					</div>
+					</div>
 					<c:if test="${param.category == 1 || param.category == 2}">
 					<c:forEach items="${QnAs}" var="QnA">
 						<div class="QnA-lists">
@@ -86,7 +87,7 @@
 						</div>
 					</c:forEach>
 					</c:if>
-				</div>
+				
 				<c:if test="${param.category == 3 }">
 				<div id="Accordion_wrap">
 				<c:forEach items="${QnAs }" var="QnA">

@@ -58,6 +58,7 @@
 .QnA-left-lists{
 	margin-top: 20px;
 	text-align: center;
+	cursor: pointer;
 }
 
 .QnA-left-list{
@@ -78,6 +79,7 @@
 
 .highlighted {
     color: #f15d30;
+    font-weight: 600;
   }
 
 .QnA-body-list{
@@ -126,7 +128,7 @@
 	justify-content: space-between;
 	display: flex;
 	height: 30px;
-	border-top: 1px solid black;
+	border-bottom: 1px solid #dddddd;
 	padding: 14px 0px;
 	height: 50px;
 }
@@ -143,6 +145,7 @@
 	flex-grow: 1;
     line-height: 20px;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .leftToRight::after {
@@ -255,10 +258,6 @@
   box-sizing: border-box; 
 }
   
-.que:first-child{
-    border-top: 1px solid black;
-  }
-  
 .que{
   position: relative;
   padding: 17px 0;
@@ -272,20 +271,20 @@
   display: inline-block;
   content: 'Q';
   font-size: 14px;
-  color: #006633;
+  color: #f15d30;
   margin: 0 5px;
 }
 
 .que.on>span{
   font-weight: bold;
-  color: #006633; 
+  color: #f15d30; 
 }
   
 .anw {
   display: none;
-    overflow: hidden;
+  overflow: hidden;
   font-size: 14px;
-  background-color: #f4f4f2;
+  background-color: #f15d3017;
   padding: 27px 0;
 }
   
@@ -294,7 +293,7 @@
   content: 'A';
   font-size: 14px;
   font-weight: bold;
-  color: #666;
+  color: #f15d30;
   margin: 0 5px;
 }
 
