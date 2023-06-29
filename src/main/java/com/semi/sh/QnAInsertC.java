@@ -20,7 +20,7 @@ public class QnAInsertC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QnADAO.getQnADAO().insert(request);
-		response.sendRedirect("QnAC");
+		response.sendRedirect("QnAC?category=1");
 	}
 
 }

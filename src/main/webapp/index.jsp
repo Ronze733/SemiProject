@@ -43,7 +43,6 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="./css/jy/recommend.css" />
     <link rel="stylesheet" href="./css/sh/QnA.css" />
     <script src="./js/jh/review.js"></script>
-    <script src="./js/sh/QnA.js"></script>
     <link rel="stylesheet" href="./css/sh/QnA.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -174,12 +173,15 @@ pageEncoding="UTF-8"%>
                 <li class="ftco-animate">
                   <a href="https://www.instagram.com/"><span class="fa fa-instagram"></span></a>
                 </li>
+                <li class="ftco-animate">
+                  <a href="https://www.github.com/"><span class="fa fa-github"></span></a>
+                </li>
               </ul>
             </div>
           </div>
           <div class="col-md pt-5 border-left">
             <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Infromation</h2>
+              <h2 class="ftco-heading-2">Information</h2>
               <div style="display: flex; gap:20px;">
               <ul class="list-unstyled">
                 <li><a href="https://www.sto.or.kr/index" class="py-2 d-block">서울</a></li>
@@ -291,7 +293,7 @@ pageEncoding="UTF-8"%>
         />
       </svg>
     </div>
-
+	<!-- <script src="js/jy/mousePointStar.js"></script>  -->
     <script src="js/bj/SKTCMain/jquery.min.js"></script>
     <script src="js/bj/SKTCMain/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/bj/SKTCMain/popper.min.js"></script>
@@ -307,5 +309,6 @@ pageEncoding="UTF-8"%>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/bj/SKTCMain/google-map.js"></script>
     <script src="js/bj/SKTCMain/main.js"></script>
+    <script src="./js/sh/QnA.js"></script>
   </body>
 </html>

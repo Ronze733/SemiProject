@@ -16,12 +16,49 @@
 
 .QnA-header{
 	font-size: 20pt;
-	margin-bottom: 10px;
+}
+
+.QnA-search{
+	width: 300px;
+}
+
+.QnA-searchbutton{
+	box-sizing: border-box;
+  	appearance: none;
+  	background-color: transparent;
+  	border: 2px solid #f15d30;
+  	border-radius: 0.6em;
+  	color: #f15d30;
+  	cursor: pointer;
+  	align-self: center;
+  	font-size: 1rem;
+  	font-weight: 400;
+  	line-height: 1;
+  	margin: 20px;
+  	padding: 0.4em 1.2em;
+  	text-decoration: none;
+  	text-align: center;
+  	text-transform: uppercase;
+  	font-family: 'Montserrat', sans-serif;
+  	font-weight: 700;
+  	transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out
+}
+
+.QnA-searchbutton:hover{
+	 box-shadow: 0 0 40px 40px #f15d30 inset;
+	 color: #fff;
+	 outline: 0;
+}
+
+.QnA-searchbutton:focus {
+	color: #fff;
+    outline: 0;
 }
 
 .QnA-left-lists{
 	margin-top: 20px;
 	text-align: center;
+	cursor: pointer;
 }
 
 .QnA-left-list{
@@ -36,7 +73,14 @@
 .QnA-body-title{
 	display: flex;
 	justify-content: space-between;
+	align-content: center;
+    align-items: center;
 }
+
+.highlighted {
+    color: #f15d30;
+    font-weight: 600;
+  }
 
 .QnA-body-list{
 	border-top: 1px solid black;
@@ -84,7 +128,7 @@
 	justify-content: space-between;
 	display: flex;
 	height: 30px;
-	border-top: 1px solid black;
+	border-bottom: 1px solid #dddddd;
 	padding: 14px 0px;
 	height: 50px;
 }
@@ -101,22 +145,32 @@
 	flex-grow: 1;
     line-height: 20px;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .leftToRight::after {
   content: "";
   display: block;
-  border-bottom: 3px solid #000;
+  border-bottom: 3px solid #f15d30;
+  opacity: 0.4;
   transition: width 250ms ease-out;
   left: auto;
   right: 0;
   width: 0;
+  position: relative; /* 추가: 상대적인 위치 지정 */
 }
 
 .leftToRight:hover::after {
-  width: 100%;
+  width: 100%; /* 변경: 항상 텍스트 길이에 맞게 줄이 커짐 */
   left: 0;
   right: auto;
+}
+
+.leftToRight {
+  display: inline-block; /* 추가: 텍스트가 줄 바꿈되지 않도록 인라인 블록으로 설정 */
+  position: relative; /* 추가: 상대적인 위치 지정 */
+  overflow: hidden; /* 추가: 텍스트 넘침 처리 */
+  white-space: nowrap; /* 추가: 텍스트 줄 바꿈 방지 */
 }
 
 .QnA-list3{
@@ -199,6 +253,68 @@
 	margin-right: auto;
 }
 
+/* 자주 묻는 질문 */
+*{
+  box-sizing: border-box; 
+}
+  
+.que{
+  position: relative;
+  padding: 17px 0;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px solid #dddddd;
+  
+}
+  
+.que::before{
+  display: inline-block;
+  content: 'Q';
+  font-size: 14px;
+  color: #f15d30;
+  margin: 0 5px;
+}
+
+.que.on>span{
+  font-weight: bold;
+  color: #f15d30; 
+}
+  
+.anw {
+  display: none;
+  overflow: hidden;
+  font-size: 14px;
+  background-color: #f15d3017;
+  padding: 27px 0;
+}
+  
+.anw::before {
+  display: inline-block;
+  content: 'A';
+  font-size: 14px;
+  font-weight: bold;
+  color: #f15d30;
+  margin: 0 5px;
+}
+
+.arrow-wrap {
+  position: absolute;
+  top:50%; right: 10px;
+  transform: translate(0, -50%);
+}
+
+.que .arrow-top {
+  display: none;
+}
+.que .arrow-bottom {
+  display: block;
+}
+.que.on .arrow-bottom {
+  display: none;
+}
+.que.on .arrow-top {
+  display: block; 
+}
 
 
 

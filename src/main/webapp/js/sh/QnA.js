@@ -70,3 +70,50 @@ function call() {
 	}
 
 }
+
+
+ // 현재 URL에서 카테고리 값을 가져옴 (예: QnAC?category=1)
+const urlParams = new URLSearchParams(window.location.search);
+const category = urlParams.get('category');
+
+// 카테고리가 1일 경우 공지사항 요소에 highlight 클래스 추가
+if (category === '1') {
+	console.log(category);
+	const noticeElement = document.getElementById('notice1');
+	console.log(noticeElement);
+	noticeElement.classList.add('highlighted');
+} else if (category === '2') {
+	const noticeElement = document.getElementById('notice2');
+	noticeElement.classList.add('highlighted');
+
+} else if (category === '3') {
+	const noticeElement = document.getElementById('notice3');
+	noticeElement.classList.add('highlighted');
+}
+
+// 자주 묻는 질문
+$(".que").click(function() {
+   $(this).next(".anw").stop().slideToggle(300);
+  $(this).toggleClass('on').siblings().removeClass('on');
+  $(this).next(".anw").siblings(".anw").slideUp(300); // 1개씩 펼치기
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

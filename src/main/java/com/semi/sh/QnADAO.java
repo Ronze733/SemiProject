@@ -157,7 +157,7 @@ public class QnADAO {
 	            items.add(QnAs.get(i));
 	        }
 	    }
-	    
+			
 	    int emptyItemCount = cnt - items.size();
 	    System.out.println(emptyItemCount);
 	    for (int i = 0; i < emptyItemCount; i++) {
