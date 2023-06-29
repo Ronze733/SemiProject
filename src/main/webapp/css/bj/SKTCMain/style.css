@@ -6966,7 +6966,7 @@ button.bg-dark:focus {
 
 .pb-5,
 .py-5 {
-  padding-bottom: 3rem !important; }
+  padding-bottom: 20rem !important; }
 
 .pl-5,
 .px-5 {
@@ -9246,6 +9246,7 @@ textarea.form-control {
 
 .ftco-footer {
   font-size: 16px;
+  font-family: 'Noto Sans KR', sans-serif;
   padding: 7em 0;
   z-index: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.05); }

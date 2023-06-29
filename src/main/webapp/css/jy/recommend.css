@@ -245,6 +245,7 @@
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
 }
 
 .recommend-result-img:hover {
