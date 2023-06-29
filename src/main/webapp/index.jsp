@@ -43,7 +43,6 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="./css/jy/recommend.css" />
     <link rel="stylesheet" href="./css/sh/QnA.css" />
     <script src="./js/jh/review.js"></script>
-    <script src="./js/sh/QnA.js"></script>
     <link rel="stylesheet" href="./css/sh/QnA.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -310,8 +309,6 @@ pageEncoding="UTF-8"%>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/bj/SKTCMain/google-map.js"></script>
     <script src="js/bj/SKTCMain/main.js"></script>
-    <script type="text/javascript">
-    
-    </script>
+    <script src="./js/sh/QnA.js"></script>
   </body>
 </html>

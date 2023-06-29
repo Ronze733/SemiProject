@@ -14,11 +14,11 @@
 			<div class="QnA-title-left">
 				<div class="QnA-header">고객 게시판</div>
 				<div class="QnA-left-lists">
-					<div class="QnA-left-list"
+					<div class="QnA-left-list" id="notice1"
 						onclick="location.href='QnAC?category=1'">공지사항</div>
-					<div class="QnA-left-list"
+					<div class="QnA-left-list" id="notice2"
 						onclick="location.href='QnAC?category=2'">문의하기</div>
-					<div class="QnA-left-list"
+					<div class="QnA-left-list" id="notice3"
 						onclick="location.href='QnAC?category=3'">자주 묻는 질문</div>
 				</div>
 			</div>
@@ -29,7 +29,7 @@
 							<div class="QnA-header">문의하기</div>
 						</c:when>
 						<c:when test="${param.category == 3 }">
-							<div class="QnA-header">자주 하는 질문</div>
+							<div class="QnA-header">자주 묻는 질문</div>
 						</c:when>
 						<c:otherwise>
 							<div class="QnA-header">공지사항</div>
@@ -44,7 +44,7 @@
 						</div>
 					</form>
 					<div>
-						<button onclick="QnAloginCheck('${sessionScope.account.user_id}')">작성</button>
+						<button class="QnA-searchbutton" onclick="QnAloginCheck('${sessionScope.account.user_id}')">작성</button>
 					</div>
 				</div>
 				<div class="QnA-body-list">
@@ -58,6 +58,8 @@
 							<div class="QnA-list-title5">상태</div>
 						</c:if>
 					</div>
+					</div>
+					<c:if test="${param.category == 1 || param.category == 2}">
 					<c:forEach items="${QnAs}" var="QnA">
 						<div class="QnA-lists">
 							<div class="QnA-list1">${QnA.inquiry_category }</div>
@@ -84,28 +86,47 @@
 							</c:if>
 						</div>
 					</c:forEach>
-				</div>
-				<div class="row mt-5">
-					<div class="col text-center">
-						<div class="block-27">
-							<ul>
-								<li><a href="QnAPageC?category=${param.category}&p=1">&lt;&lt;</a></li>
-								<c:if test="${curPageNo > 1}">
-									<li><a href="QnAPageC?category=${param.category}&p=${curPageNo - 1}">&lt;</a></li>
-								</c:if>
-								<c:forEach begin="1" end="${pageCount }" var="i">
-									<li><a href="QnAPageC?category=${param.category}&p=${i }">${i }</a></li>
-								</c:forEach>
-								<c:if test="${curPageNo < pageCount}">
-									<li><a href="QnAPageC?category=${param.category}&p=${curPageNo + 1}">&gt;</a></li>
-								</c:if>
-								<li><a href="QnAPageC?category=${param.category}&p=${pageCount }">&gt;&gt;</a></li>
-							</ul>
+					</c:if>
+				
+				<c:if test="${param.category == 3 }">
+				<div id="Accordion_wrap">
+				<c:forEach items="${QnAs }" var="QnA">
+					<div class="que">
+						<span>${QnA.inquiry_title }</span>
+						<div class="arrow-wrap">
+							<span class="arrow-top">↑</span> <span class="arrow-bottom">↓</span>
 						</div>
 					</div>
+					<div class="anw">
+						<span>${QnA.inquiry_answer }</span>
+					</div>
+				</c:forEach>
 				</div>
+				</c:if>
+				<c:if test="${param.category == 1 || param.category == 2 }">
+					<div class="row mt-5">
+						<div class="col text-center">
+							<div class="block-27">
+								<ul>
+									<li><a href="QnAPageC?category=${param.category}&p=1">&lt;&lt;</a></li>
+									<c:if test="${curPageNo > 1}">
+										<li><a href="QnAPageC?category=${param.category}&p=${curPageNo - 1}">&lt;</a></li>	
+									</c:if>	
+									<c:forEach begin="1" end="${pageCount }" var="i">
+										<li><a href="QnAPageC?category=${param.category}&p=${i }">${i }</a></li>
+									</c:forEach>
+									<c:if test="${curPageNo < pageCount}">
+										<li><a href="QnAPageC?category=${param.category}&p=${curPageNo + 1}">&gt;</a></li>
+									</c:if>
+									<li><a href="QnAPageC?category=${param.category}&p=${pageCount }">&gt;&gt;</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</c:if>
 			</div>
 		</div>
 	</div>
 </body>
+<script src="./js/sh/QnA.js"></script>
 </html>
