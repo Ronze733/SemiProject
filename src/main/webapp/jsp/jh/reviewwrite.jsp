@@ -10,14 +10,6 @@
 		<div class="review-title">
 			이번 여행은 어떠셨나요? <br> 다른 분들에게 공유해주세요.
 		</div>
-		<div>
-			<form action="ReviewC" method="GET">
-				<div class="review-searcher">
-					<input class="review-search" type="text" name="keyword" placeholder="검색어를 입력하세요">
-					<button class="review-searchbutton" type="submit">search</button>
-				</div>
-			</form>
-		</div>
 		<div class="review-write-de">
 			<div></div>
 			<div class="review-write-word">
