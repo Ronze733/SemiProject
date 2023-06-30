@@ -202,7 +202,7 @@ pageEncoding="UTF-8"%>
           </div>
           <div class="col-md pt-5 border-left">
             <div class="ftco-footer-widget pt-md-5 mb-4" style="margin-left:40px; ">
-              <h2 class="ftco-heading-2">partner</h2>
+              <h2 class="ftco-heading-2">Partner</h2>
               <ul class="list-unstyled">
                 <li><a href="https://www.goodchoice.kr/" class="py-2 d-block">여기어때</a></li>
                 <li><a href="https://mtravel.interpark.com/home" class="py-2 d-block">인터파크</a></li>
