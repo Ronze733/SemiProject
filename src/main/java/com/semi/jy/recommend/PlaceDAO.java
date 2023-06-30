@@ -80,6 +80,7 @@ public class PlaceDAO {
 				sql += ")";
 			}
 			
+			sql += " order by place_id";
 			System.out.println(sql);
 			
 			pstmt = con.prepareStatement(sql);
@@ -150,7 +151,7 @@ public class PlaceDAO {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from place";
+		String sql = "select * from place order by place_id";
 		try {
 			
 			pstmt = con.prepareStatement(sql);
