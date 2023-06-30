@@ -15,7 +15,7 @@ public class ReviewDetailC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ReviewDao.getReviewdao().selectid(request);
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		request.setAttribute("contentPage", "jsp/jh/reviewDetail.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 

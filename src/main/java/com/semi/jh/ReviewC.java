@@ -14,7 +14,7 @@ public class ReviewC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		ReviewDao.getReviewdao().select(request);
 		ReviewDao.getReviewdao().paging(1,request);
 		request.setAttribute("contentPage", "jsp/jh/review.jsp");

@@ -15,8 +15,8 @@ public class LoginC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		if (AccountDAO.loginCheck(request)) {
-			AccountDAO.logout(request);
+		if (AccountDAO.getAccountdao().loginCheck(request)) {
+			AccountDAO.getAccountdao().logout(request);
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} else {
 			request.getRequestDispatcher("jsp/bj/login/login.jsp").forward(request, response);
@@ -26,8 +26,8 @@ public class LoginC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		AccountDAO.login(request, response);
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().login(request, response);
+		AccountDAO.getAccountdao().loginCheck(request);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

@@ -14,7 +14,7 @@ public class QnAC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		System.out.println(request.getParameter("category"));
 		QnADAO.getQnADAO().getAllQnA(request);
 		QnADAO.getQnADAO().pagingQnA(1, request);

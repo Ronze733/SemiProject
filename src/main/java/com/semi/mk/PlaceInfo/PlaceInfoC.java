@@ -16,7 +16,7 @@ public class PlaceInfoC extends HttpServlet {
        
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		PlaceInfoDAO.getPlaceInfo(request);
 		WeatherDAO.getWeatherdao().makeWeather(request);
 		request.setAttribute("contentPage","jsp/mk/detail.jsp");
