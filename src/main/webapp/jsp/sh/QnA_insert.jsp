@@ -35,6 +35,7 @@
 				</div>
 				<div class="QnA-insert-button">
 					<div><button class="QnA-searchbutton" name="inquiry_user_id" value="${sessionScope.account.user_id }">완료</button></div>
+					<div><button class="QnA-searchbutton" type="button" onclick="location.href='QnAC?category=1'">목록으로</button></div>
 				</div>
 			</div>
 		</div>
