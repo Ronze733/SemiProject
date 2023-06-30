@@ -22,6 +22,7 @@ import com.semi.db.DBManager;
 
 public class WeatherDAO {
 	
+	private Connection con = DBManager.connect();
 	private final static WeatherDAO WEATHERDAO = new WeatherDAO(); 
 	
 	public WeatherDAO() {
@@ -33,7 +34,6 @@ public class WeatherDAO {
 
 	public void makeWeather(HttpServletRequest request) {
 		
-		Connection con = DBManager.connect();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String pId = request.getParameter("pid"); 
@@ -101,7 +101,6 @@ public class WeatherDAO {
 			e.printStackTrace();
 		}
 		
-		DBManager.close(con, pstmt, rs);
 	}
 
 	private String translateToKorean(String text) {

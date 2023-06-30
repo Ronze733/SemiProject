@@ -47,19 +47,26 @@
 						<button class="QnA-searchbutton" onclick="QnAloginCheck('${sessionScope.account.user_id}')">작성</button>
 					</div>
 				</div>
-				<div class="QnA-body-list">
-					<div class="QnA-list-titles">
-						<div class="QnA-list-title1">카테고리</div>
-						<div class="QnA-list-title2">제목</div>
-						<div class="QnA-list-title3">아이디</div>
-						<div class="QnA-list-title4">날짜</div>
-						<c:if test="${param.category == 2 }">
-							<div class="QnA-list-title3">공개여부</div>
-							<div class="QnA-list-title5">상태</div>
-						</c:if>
-					</div>
-					</div>
-					<c:if test="${param.category == 1 || param.category == 2}">
+				<c:choose>
+					<c:when test="${param.category == 1 || param.category == 2 }">
+						<div class="QnA-body-list">
+							<div class="QnA-list-titles">
+								<div class="QnA-list-title1">카테고리</div>
+								<div class="QnA-list-title2">제목</div>
+								<div class="QnA-list-title3">아이디</div>
+								<div class="QnA-list-title4">날짜</div>
+								<c:if test="${param.category == 2 }">
+									<div class="QnA-list-title3">공개여부</div>
+									<div class="QnA-list-title5">상태</div>
+								</c:if>
+							</div>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="QnA-body-list-FAQ"></div>
+					</c:otherwise>
+				</c:choose>
+				<c:if test="${param.category == 1 || param.category == 2}">
 					<c:forEach items="${QnAs}" var="QnA">
 						<div class="QnA-lists">
 							<div class="QnA-list1">${QnA.inquiry_category }</div>
@@ -87,15 +94,16 @@
 						</div>
 					</c:forEach>
 					</c:if>
-				
 				<c:if test="${param.category == 3 }">
 				<div id="Accordion_wrap">
 				<c:forEach items="${QnAs }" var="QnA">
 					<div class="que">
 						<span>${QnA.inquiry_title }</span>
-						<div class="arrow-wrap">
+						<!--
+						 <div class="arrow-wrap">
 							<span class="arrow-top">↑</span> <span class="arrow-bottom">↓</span>
-						</div>
+						</div> 
+						-->
 					</div>
 					<div class="anw">
 						<span>${QnA.inquiry_answer }</span>

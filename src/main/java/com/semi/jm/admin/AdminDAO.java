@@ -27,7 +27,7 @@ import oracle.jdbc.proxy.annotation.Pre;
 public class AdminDAO {
 
 	private static final String ACCESS_TOKEN = 
-			"sl.Bg-Gsy4wqc8u0YvQ4aYxYTO5BRA-EX1jloehkd-0bARGXbAjCCdlfgAu7dvX-TyDCdPzbQMk_4UgokTTqCYhEvxrKdRv9DUmdnHCVt_u1HrFUikPcQ9ucSqnHngCpkferyZbDuD_TJUe";
+			"sl.BhR8Xlw_rmNvHhz2KHgKKgWrNoMXZkhZQB5eg04HpRnR5P7rKXbWdrax2061FzEm7kI4CSZtZ38nPucdBPXub2xtX8xxPDgveyihy0jv-KcV0qt-cN7G0UsQ0KATwxlEkZoCMgnnCLHo";
 
 	public static String uploadToDropbox(InputStream fileInputStream, String fileName) {
 		DbxRequestConfig config = DbxRequestConfig.newBuilder("dropbox/semi-project").build();

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${placeId }번 등록 <br>
+	${requestScope.placeId }번 등록 <br>
 	<img alt="" src="${place.placePic }"><br>
 	${place.placeName }<br>
 	${place.placeAddr }<br>
