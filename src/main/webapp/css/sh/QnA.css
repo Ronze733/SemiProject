@@ -246,7 +246,8 @@
 /* QnA_Detail */
 
 .QnA-insert-bodytxt{
-	height: 300px;
+	height: auto;
+	margin-bottom: 80px;
 }
 
 

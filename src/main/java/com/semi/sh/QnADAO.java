@@ -161,6 +161,7 @@ public class QnADAO {
 	            items.add(QnAs.get(i));
 	        }
 	    }
+		
 			
 	    int emptyItemCount = cnt - items.size();
 	    System.out.println(emptyItemCount);
@@ -199,7 +200,7 @@ public class QnADAO {
 		PreparedStatement pstmt = null;
 		
 		String sql = "update inquiry set inquiry_title = ?, inquiry_body = ?, inquiry_category = ?, "
-				+ "inquiry_question_day = sysdate, inquriy_encoding = ? where inquiry_no = ?";
+				+ "inquiry_question_day = sysdate, inquiry_encoding = ? where inquiry_no = ?";
 		try {
 			request.setCharacterEncoding("utf-8");
 			pstmt = con.prepareStatement(sql);
@@ -210,17 +211,20 @@ public class QnADAO {
 			String title = request.getParameter("inquiry_title");
 			String body = request.getParameter("inquiry_body");
 			String category = request.getParameter("inquiry_category");
+			String encoding = request.getParameter("inquiry_encoding");
 			
 			System.out.println("2");
 			System.out.println(no);
 			System.out.println(title);
 			System.out.println(body);
 			System.out.println(category);
+			System.out.println(encoding);
 			
 			pstmt.setString(1, title);
 			pstmt.setString(2, body);
 			pstmt.setString(3, category);
-			pstmt.setString(4, no);
+			pstmt.setString(4, encoding);
+			pstmt.setString(5, no);
 			
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("수정 성공!");
@@ -269,6 +273,23 @@ public class QnADAO {
 		String body = qna.getInquiry_body();
 		body = body.replaceAll("<br>", "\r\n");
 		qna.setInquiry_body(body);
+		
+	}
+	
+	public void makeanswer(HttpServletRequest request) {
+		QnA qna = (QnA) request.getAttribute("QnA");
+		
+		String answer = qna.getInquiry_answer();
+		answer = answer.replaceAll("\r\n", "<br>");
+		qna.setInquiry_answer(answer);
+	}
+	
+	public void makeanswer2(HttpServletRequest request) {
+		QnA qna = (QnA) request.getAttribute("QnA");
+		
+		String answer = qna.getInquiry_answer();
+		answer = answer.replaceAll("<br>", "\r\n");
+		qna.setInquiry_answer(answer);
 		
 	}
 
