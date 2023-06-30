@@ -1,12 +1,10 @@
 package com.semi.jh;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,11 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.semi.db.DBManager;
-import com.semi.sh.QnA;
 
 public class ReviewDao {
 	
-	private static Connection con = DBManager.connect();
+	private Connection con = DBManager.connect();
 	private ArrayList<Review> reviews = null;
 	private final static ReviewDao REVIEWDAO = new ReviewDao();
 	
