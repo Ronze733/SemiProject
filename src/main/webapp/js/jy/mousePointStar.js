@@ -23,6 +23,10 @@
 	var tinyv=new Array();
 
 	window.onload=function() { if (document.getElementById) {
+		var currentURL2 = window.location.pathname
+		if(!currentURL2.includes("HC")){
+			test();
+		}
 	  var i, rats, rlef, rdow;
 	  for (var i=0; i<sparkles; i++) {
 	    var rats=createDiv(3, 3);

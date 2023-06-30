@@ -24,7 +24,6 @@ pageEncoding="UTF-8"%>
     />
 
     <link rel="stylesheet" href="css/bj/SKTCMain/animate.css" />
-
     <link rel="stylesheet" href="css/bj/SKTCMain/owl.carousel.min.css" />
     <link rel="stylesheet" href="css/bj/SKTCMain/owl.theme.default.min.css" />
     <link rel="stylesheet" href="css/bj/SKTCMain/magnific-popup.css" />
@@ -53,7 +52,7 @@ pageEncoding="UTF-8"%>
 
     <title>South Korea Travel Controller</title>
   </head>
-  <body onload="test()">
+  <body>
     <nav
       class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
       id="ftco-navbar"
@@ -293,7 +292,6 @@ pageEncoding="UTF-8"%>
         />
       </svg>
     </div>
-	<!-- <script src="js/jy/mousePointStar.js"></script>  -->
     <script src="js/bj/SKTCMain/jquery.min.js"></script>
     <script src="js/bj/SKTCMain/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/bj/SKTCMain/popper.min.js"></script>
@@ -309,6 +307,7 @@ pageEncoding="UTF-8"%>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/bj/SKTCMain/google-map.js"></script>
     <script src="js/bj/SKTCMain/main.js"></script>
+    <script src="js/jy/mousePointStar.js"></script>
     <script src="./js/sh/QnA.js"></script>
   </body>
 </html>
