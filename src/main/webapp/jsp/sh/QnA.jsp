@@ -63,8 +63,7 @@
 						</div>
 					</c:when>
 					<c:otherwise>
-						<div class="QnA-body-list-FAQ">
-						</div>
+						<div class="QnA-body-list-FAQ"></div>
 					</c:otherwise>
 				</c:choose>
 				<c:if test="${param.category == 1 || param.category == 2}">
@@ -95,7 +94,6 @@
 						</div>
 					</c:forEach>
 					</c:if>
-				
 				<c:if test="${param.category == 3 }">
 				<div id="Accordion_wrap">
 				<c:forEach items="${QnAs }" var="QnA">
