@@ -37,7 +37,7 @@ public class QnADAO {
 		String sql = "SELECT inquiry.*, user_tbl.user_name AS inquiry_user_name"
 				+ " FROM inquiry"
 				+ " JOIN user_tbl ON inquiry.inquiry_user_id = user_tbl.user_id"
-				+ " WHERE inquiry.inquiry_category = ?";
+				+ " WHERE inquiry.inquiry_category = ? order by inquiry.inquiry_no";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, category);
@@ -280,7 +280,7 @@ public class QnADAO {
 		String sql = "SELECT inquiry.*, user_tbl.user_name AS inquiry_user_name"
 				+ " FROM inquiry"
 				+ " JOIN user_tbl ON inquiry.inquiry_user_id = user_tbl.user_id"
-				+ " WHERE inquiry.inquiry_title LIKE ? OR user_tbl.user_name LIKE ?";
+				+ " WHERE inquiry.inquiry_title LIKE ? OR user_tbl.user_name LIKE ? order by inquiry.inquiry_no";
 		try {
 			pstmt = con.prepareStatement(sql);
 			
@@ -304,18 +304,5 @@ public class QnADAO {
 		//	DBManager.close(con, pstmt, rs);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
