@@ -27,14 +27,14 @@
 				<div class="QnA-insert-bodytxt">${QnA.inquiry_body }</div>
 			</div>
 			<c:if test="${QnA.inquiry_answer ne '.'}">
-				<div>
-					<div>답변</div>
-					<div>${QnA.inquiry_answer_day }</div>
+				<div style="display: flex; justify-content: space-between;">
+					<div><span style="font-weight: 600;">답변</span></div>
+					<div><span style="font-weight: 600;">날짜</span>&nbsp;&nbsp;${QnA.inquiry_answer_day }</div>
 				</div>
 				<div class="QnA-insert-bodytxt">${QnA.inquiry_answer }</div>
 			</c:if>			
 			<div class="QnA-insert-button">
-				<div><button class="QnA-searchbutton" onclick="location.href='QnAC'">목록으로</button></div>
+				<div><button class="QnA-searchbutton" onclick="location.href='QnAC?category=1'">목록으로</button></div>
 				<c:if test="${sessionScope.account.user_id eq QnA.inquiry_user_id}">
 					<div><button class="QnA-searchbutton" onclick="deleteQnA(${param.no})" style="margin-left: 15px;">삭제</button></div>
 					<div><button class="QnA-searchbutton" onclick="location.href='QnAUpdateC?no=${QnA.inquiry_no}'" style="margin-left: 15px;">수정</button></div>

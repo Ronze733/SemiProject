@@ -20,6 +20,9 @@
 
 .QnA-search{
 	width: 300px;
+	border: 1px solid #AAA8A8;
+    border-radius: 80px;
+    padding: 3px 20px;
 }
 
 .QnA-searchbutton{
@@ -85,6 +88,10 @@
 .QnA-body-list{
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
+}
+
+.QnA-body-list-FAQ{
+	border-bottom: 1px solid #dddddd;
 }
 
 .QnA-list-titles{
@@ -302,7 +309,7 @@
   top:50%; right: 10px;
   transform: translate(0, -50%);
 }
-
+/* 화살표
 .que .arrow-top {
   display: none;
 }
@@ -315,7 +322,7 @@
 .que.on .arrow-top {
   display: block; 
 }
-
+*/
 
 
 

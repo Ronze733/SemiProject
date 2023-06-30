@@ -13,7 +13,7 @@
 				<div class="QnA-insert-header">
 					<input type="hidden" name="inquiry_user_name" value="${sessionScope.account.user_name }"> 
 					<div>
-						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp;<input name="inquiry_title" placeholder="제목을 입력해주세요."> 
+						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp;<input  class="QnA-search" name="inquiry_title" placeholder="제목을 입력해주세요."> 
 					</div>
 					<div>
 						<label><input type="radio" name="inquiry_encoding" value="공개" checked="checked">공개</label>
