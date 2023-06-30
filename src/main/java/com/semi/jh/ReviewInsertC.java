@@ -23,7 +23,7 @@ public class ReviewInsertC extends HttpServlet {
 		ReviewDao.getReviewdao().insert(request);
 		ReviewDao.getReviewdao().paging(1,request);
 		ReviewDao.getReviewdao().select(request);
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		request.setAttribute("contentPage", "jsp/jh/review.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.semi.bj.account.AccountDAO;
-import com.semi.db.DBManager;
 
 @WebServlet("/QnADetailC")
 public class QnADetailC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QnADAO.getQnADAO().getQnA(request);
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		QnADAO.getQnADAO().makebody(request);
 		QnADAO.getQnADAO().makeanswer(request);
 		request.setAttribute("contentPage", "jsp/sh/QnA_detail.jsp");

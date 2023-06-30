@@ -13,7 +13,7 @@ import com.semi.bj.account.AccountDAO;
 public class QnAInsertC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		request.setAttribute("contentPage", "jsp/sh/QnA_insert.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
