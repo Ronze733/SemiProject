@@ -157,16 +157,16 @@
 
 
 <!-- modal -->
-<div id="welcomeModal" class="modal">
-    	<div class="modal-content">
-    		<img alt="" src="./img/jm/modal/welcomemodal.png" class="modal-img">
+<div id="jm-welcomeModal" class="jm-modal">
+    	<div class="jm-modal-content">
+    		<img alt="" src="./img/jm/modal/welcomemodal.png" class="jm-modal-img">
     	</div>
     	<div style="display: flex; width: 235px; margin-top: 5px">
     		<div>
-		    	<span class="close" id="closeTodayModalButton">오늘 하루 더 이상 열지 않기 &times;</span>
+		    	<span class="jm-close" id="jm-closeTodayModalButton">오늘 하루 더 이상 열지 않기 &times;</span>
     		</div>
     		<div style="margin-left: 20px">
-		      	<span class="close" id="closeModalButton">닫기 &times;</span>	
+		      	<span class="jm-close" id="jm-closeModalButton">닫기 &times;</span>	
     		</div>
     	</div>
 	</div>
