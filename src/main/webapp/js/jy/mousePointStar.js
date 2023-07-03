@@ -128,13 +128,13 @@ function update_tiny(i) {
 document.onmousemove = mouse;
 function mouse(e) {
 	if (e) {
-    y = e.pageY;
-    x = e.pageX;
-  } else {
-    set_scroll();
-    y = event.y + sdown;
-    x = event.x + sleft;
-  }
+		y = e.pageY;
+		x = e.pageX;
+	} else {
+		set_scroll();
+		y = event.y + sdown;
+		x = event.x + sleft;
+	}
 }
 
 window.onscroll = set_scroll;
@@ -200,13 +200,14 @@ function newColour() {
 }
 
 function isMouseOverDropdown() {
-  var dropdowns = document.querySelectorAll(".nav-item.dropdown, .dropdown-menu.dropdown-menu-end, .dropdown-item");
-  for (var i = 0; i < dropdowns.length; i++) {
-    var dropdown = dropdowns[i];
-    var rect = dropdown.getBoundingClientRect();
-    if (x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom) {
-      return true;
-    }
-  }
-  return false;
+	var parent = document.querySelector("#ftco-navbar");
+	var dropdowns = parent.querySelectorAll(".nav-item.dropdown, .dropdown-menu.dropdown-menu-end, .dropdown-item");
+	for (var i = 0; i < dropdowns.length; i++) {
+		var dropdown = dropdowns[i];
+		var rect = dropdown.getBoundingClientRect();
+		if (x >= rect.left + window.pageXOffset && x <= rect.right + window.pageXOffset && y >= rect.top + window.pageYOffset && y <= rect.bottom + window.pageYOffset) {
+			return true;
+		}
+	}
+	return false;
 }
