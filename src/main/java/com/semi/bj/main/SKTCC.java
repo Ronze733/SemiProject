@@ -15,7 +15,7 @@ public class SKTCC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		request.getRequestDispatcher("NewFile.jsp").forward(request, response);
 	}
 

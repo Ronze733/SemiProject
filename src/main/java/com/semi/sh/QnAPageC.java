@@ -16,7 +16,7 @@ public class QnAPageC extends HttpServlet {
 		QnADAO.getQnADAO().getAllQnA(request);
 		int p = Integer.parseInt(request.getParameter("p"));
 		QnADAO.getQnADAO().pagingQnA(p, request);
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		request.setAttribute("contentPage", "./jsp/sh/QnA.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

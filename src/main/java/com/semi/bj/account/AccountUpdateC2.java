@@ -13,15 +13,15 @@ public class AccountUpdateC2 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		System.out.println(request.getParameter("user_pw"));
-		AccountDAO.pwUpdate(request, response);
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().pwUpdate(request, response);
+		AccountDAO.getAccountdao().loginCheck(request);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}

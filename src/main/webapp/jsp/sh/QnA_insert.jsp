@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="QnAInsertC" method="post" class="QnA-form" onsubmit="return call()">
+	<form action="QnAInsertC?" method="post" class="QnA-form" onsubmit="return call()">
 		<div class="QnA-insert-container">
 			<div class="QnA-insert-content">
 				<div class="QnA-insert-header">
 					<input type="hidden" name="inquiry_user_name" value="${sessionScope.account.user_name }"> 
 					<div>
-						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp;<input name="inquiry_title" placeholder="제목을 입력해주세요."> 
+						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp;<input  class="QnA-search" name="inquiry_title" placeholder="제목을 입력해주세요."> 
 					</div>
 					<div>
 						<label><input type="radio" name="inquiry_encoding" value="공개" checked="checked">공개</label>
@@ -34,7 +34,8 @@
 					</div>
 				</div>
 				<div class="QnA-insert-button">
-					<div><button name="inquiry_user_id" value="${sessionScope.account.user_id }">완료</button></div>
+					<div><button class="QnA-searchbutton" name="inquiry_user_id" value="${sessionScope.account.user_id }">완료</button></div>
+					<div><button class="QnA-searchbutton" type="button" onclick="location.href='QnAC?category=1'">목록으로</button></div>
 				</div>
 			</div>
 		</div>

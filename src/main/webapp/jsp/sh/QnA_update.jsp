@@ -12,7 +12,7 @@
 			<div class="QnA-insert-content">
 				<div class="QnA-insert-header">
 					<div>
-						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp; <input name="inquiry_title" value="${QnA.inquiry_title }"> 
+						<span style="font-weight: 600;">제목</span>&nbsp;&nbsp; <input class="QnA-search" name="inquiry_title" value="${QnA.inquiry_title }"> 
 					</div>
 					<div>
 					<input type="hidden" id="inquiry_encoding" value="${QnA.inquiry_encoding }">
@@ -34,8 +34,8 @@
 					</div>
 				</div>
 				<div class="QnA-insert-button">
-					<div><button onclick="history.back()">취소</button></div>
-					<div><button>수정하기</button></div>
+					<div><button class="QnA-searchbutton">수정하기</button></div>
+					<div><button class="QnA-searchbutton" type="button" onclick="history.back()">취소</button></div>
 				</div>
 			</div>
 		</div>

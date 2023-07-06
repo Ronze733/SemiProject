@@ -5,22 +5,29 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.User;
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.semi.db.DBManager;
 
 public class AccountDAO {
 	
-	private static Connection con = DBManager.connect();
+	private Connection con = DBManager.connect();
+	private static final AccountDAO ACCOUNTDAO = new AccountDAO();
+	
+	private AccountDAO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static AccountDAO getAccountdao() {
+		return ACCOUNTDAO;
+	}
 
-	public static void login(HttpServletRequest request, HttpServletResponse response) {
+	public void login(HttpServletRequest request, HttpServletResponse response) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -84,7 +91,7 @@ public class AccountDAO {
 
 	}
 
-	public static void logout(HttpServletRequest request) {
+	public void logout(HttpServletRequest request) {
 
 		HttpSession hs = request.getSession();
 
@@ -92,7 +99,7 @@ public class AccountDAO {
 		loginCheck(request);
 	}
 
-	public static boolean loginCheck(HttpServletRequest request) {
+	public boolean loginCheck(HttpServletRequest request) {
 		Account account = (Account) request.getSession().getAttribute("account");
 		if (account == null) {
 			request.setAttribute("LoginPage", "jsp/bj/login/navbarLogin.jsp");
@@ -104,7 +111,7 @@ public class AccountDAO {
 
 	}
 
-	public static void regAccount(HttpServletRequest request) throws UnsupportedEncodingException {
+	public void regAccount(HttpServletRequest request) throws UnsupportedEncodingException {
 
 		request.setCharacterEncoding("UTF-8");
 
@@ -114,7 +121,7 @@ public class AccountDAO {
 
 		String email = request.getParameter("email");
 		String nickname = request.getParameter("nickname");
-		String pw = request.getParameter("password");
+		//String pw = request.getParameter("password");
 		String pw2 = BCrypt.hashpw(request.getParameter("password"), BCrypt.gensalt());
 		String pwConfirm = request.getParameter("passwordConfirm");
 		String gender = request.getParameter("gender");
@@ -130,7 +137,6 @@ public class AccountDAO {
 		System.out.println(answer);
 
 		try {
-
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			pstmt.setString(2, nickname);
@@ -146,13 +152,11 @@ public class AccountDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-
-		} finally {
 		}
 
 	}
 
-	public static void accountUpdate(HttpServletRequest request) throws UnsupportedEncodingException {
+	public void accountUpdate(HttpServletRequest request) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
 
 		Account account = (Account) request.getSession().getAttribute("account");
@@ -200,11 +204,10 @@ public class AccountDAO {
 		} catch (Exception e) {
 			System.out.println("db연결 실패");
 			e.printStackTrace();
-		} finally {
 		}
 	}
 
-	public static void accountDelete(HttpServletRequest request) {
+	public void accountDelete(HttpServletRequest request) {
 
 		PreparedStatement pstmt = null;
 		Account account = (Account) request.getSession().getAttribute("account");
@@ -226,7 +229,7 @@ public class AccountDAO {
 		}
 	}
 
-	public static void duplicateCheck(HttpServletRequest request, HttpServletResponse response) {
+	public void duplicateCheck(HttpServletRequest request, HttpServletResponse response) {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -261,7 +264,7 @@ public class AccountDAO {
 
 	}
 
-	public static boolean accountCheck(HttpServletRequest request, HttpServletResponse response) {
+	public boolean accountCheck(HttpServletRequest request, HttpServletResponse response) {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -315,7 +318,7 @@ public class AccountDAO {
 		return result;
 	}
 
-	public static void pwUpdate(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+	public void pwUpdate(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
 		
 		Account account = (Account) request.getSession().getAttribute("account");

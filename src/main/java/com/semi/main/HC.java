@@ -16,7 +16,7 @@ public class HC extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		request.setAttribute("recommendPage", "./jsp/jy/recommend/recommend.jsp");
 		request.getRequestDispatcher("NewFile.jsp").forward(request, response);
 	}

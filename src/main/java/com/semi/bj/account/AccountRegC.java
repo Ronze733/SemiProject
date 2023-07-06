@@ -15,10 +15,10 @@ public class AccountRegC extends HttpServlet {
 			throws ServletException, IOException {
 		
 		if (request.getParameter("user_id") != null) {
-			AccountDAO.duplicateCheck(request, response);
+			AccountDAO.getAccountdao().duplicateCheck(request, response);
 			
 		} else {
-			AccountDAO.loginCheck(request);
+			AccountDAO.getAccountdao().loginCheck(request);
 			request.getRequestDispatcher("jsp/bj/login/signupPage2.jsp").forward(request, response);
 		}
 	
@@ -31,8 +31,8 @@ public class AccountRegC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 //		request.setCharacterEncoding("UTF-8");
-		AccountDAO.regAccount(request);
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().regAccount(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		response.sendRedirect("HC");
 	}
 

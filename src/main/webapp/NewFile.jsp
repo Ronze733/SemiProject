@@ -73,7 +73,7 @@ pageEncoding="UTF-8"%>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item" id="nav-home">
+            <li class="nav-item active" id="nav-home">
               <a href="NewFile.jsp" class="nav-link">HOME</a>
             </li>
             <li class="nav-item" id="nav-review">
@@ -126,10 +126,10 @@ pageEncoding="UTF-8"%>
               style="background-image: url('img/jy/main-img2.jpg')"
             >
               <div class="overlay"></div>
-              <h2>We Are Pacific A Travel Agency</h2>
+              <h2>We are South Korea Travel Controllers.</h2>
               <p>
-                We can manage your dream building A small river named Duden
-                flows by their place
+                We can manage your dreams.
+				Where do you want to go now?
               </p>
             </div>
           </div>
@@ -164,12 +164,15 @@ pageEncoding="UTF-8"%>
                 <li class="ftco-animate">
                   <a href="https://www.instagram.com/"><span class="fa fa-instagram"></span></a>
                 </li>
+                 <li class="ftco-animate">
+                  <a href="https://www.github.com/Ronze733/SemiProject" target="_blank"><span class="fa fa-github"></span></a>
+                </li>
               </ul>
             </div>
           </div>
           <div class="col-md pt-5 border-left">
             <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-              <h2 class="ftco-heading-2">Infromation</h2>
+              <h2 class="ftco-heading-2">Information</h2>
               <div style="display: flex; gap:20px;">
               <ul class="list-unstyled">
                 <li><a href="https://www.sto.or.kr/index" class="py-2 d-block">서울</a></li>
@@ -199,7 +202,7 @@ pageEncoding="UTF-8"%>
           </div>
           <div class="col-md pt-5 border-left">
             <div class="ftco-footer-widget pt-md-5 mb-4" style="margin-left:40px; ">
-              <h2 class="ftco-heading-2">제휴사이트</h2>
+              <h2 class="ftco-heading-2">Partner</h2>
               <ul class="list-unstyled">
                 <li><a href="https://www.goodchoice.kr/" class="py-2 d-block">여기어때</a></li>
                 <li><a href="https://mtravel.interpark.com/home" class="py-2 d-block">인터파크</a></li>
@@ -281,7 +284,6 @@ pageEncoding="UTF-8"%>
         />
       </svg>
     </div>
-
     <script src="js/bj/SKTCMain/jquery.min.js"></script>
     <script>
       jQuery.noConflict();
@@ -300,5 +302,6 @@ pageEncoding="UTF-8"%>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/bj/SKTCMain/google-map.js"></script>
     <script src="js/bj/SKTCMain/main.js"></script>
+     <script src="js/jy/mousePointStar.js"></script>
   </body>
 </html>

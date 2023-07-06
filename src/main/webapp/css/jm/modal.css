@@ -2,36 +2,38 @@
 
 
 
-.modal {
+.jm-modal {
   display: none;
   position: absolute;
-  z-index: 999;
-  left: 760px;
+  z-index: 2;
+  left: 900px;
   top: -525px;
-  width: 237px;
-  height: 440px;
+  width: 236px;
+  height: 450px;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.8);
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.modal-content {
+.jm-modal-content {
   border: 1px solid #888;
   width: 236px;
 }
 
-.modal-img {
+.jm-modal-img {
 	width: 235px;
 }
 
-.close {
+.jm-close {
   color: rgb(250, 254, 222);
   float: right;
   font-size: 10pt;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.jm-close:hover,
+.jm-close:focus {
   color: yellow;
   text-decoration: none;
   cursor: pointer;

@@ -14,7 +14,7 @@ public class ReviewSRC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		ReviewDao.getReviewdao().selectlikes(request);
 		int p = Integer.parseInt(request.getParameter("p"));
 		ReviewDao.getReviewdao().paging(p,request);

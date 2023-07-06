@@ -13,21 +13,21 @@ public class AccountUpdateC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		request.getRequestDispatcher("jsp/bj/login/update.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		if (AccountDAO.loginCheck(request)) {
-			AccountDAO.accountUpdate(request);
-			AccountDAO.loginCheck(request);
+		if (AccountDAO.getAccountdao().loginCheck(request)) {
+			AccountDAO.getAccountdao().accountUpdate(request);
+			AccountDAO.getAccountdao().loginCheck(request);
 			request.getRequestDispatcher("jsp/bj/login/myPage.jsp").forward(request, response);
 
 		} else {
-			AccountDAO.accountCheck(request, response);
-			if (AccountDAO.accountCheck(request, response)) {
+			AccountDAO.getAccountdao().accountCheck(request, response);
+			if (AccountDAO.getAccountdao().accountCheck(request, response)) {
 				request.getRequestDispatcher("jsp/bj/login/pwRecovery2.jsp").forward(request, response);
 
 			} else {

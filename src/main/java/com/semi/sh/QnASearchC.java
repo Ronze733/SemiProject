@@ -13,7 +13,7 @@ import com.semi.bj.account.AccountDAO;
 public class QnASearchC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		QnADAO.getQnADAO().searchQnA(request);
 		QnADAO.getQnADAO().pagingQnA(1, request);
 		request.setAttribute("contentPage", "jsp/sh/QnA_search.jsp");
