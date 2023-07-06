@@ -13,7 +13,7 @@ public class AccountDetailC extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		request.getRequestDispatcher("jsp/bj/login/myPage.jsp").forward(request, response);
 	}
 

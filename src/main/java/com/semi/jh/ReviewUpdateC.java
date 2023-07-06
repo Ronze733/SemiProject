@@ -15,7 +15,7 @@ public class ReviewUpdateC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ReviewDao.getReviewdao().select(request);
-		AccountDAO.loginCheck(request);
+		AccountDAO.getAccountdao().loginCheck(request);
 		ReviewDao.getReviewdao().selectid(request);
 		ReviewDao.getReviewdao().makebody(request);
 		request.setAttribute("contentPage", "jsp/jh/reviewUpdate.jsp");
@@ -26,7 +26,7 @@ public class ReviewUpdateC extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccountDAO.loginCheck(request);	
+		AccountDAO.getAccountdao().loginCheck(request);	
 		ReviewDao.getReviewdao().update(request);
 		request.setAttribute("contentPage", "jsp/jh/review.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
