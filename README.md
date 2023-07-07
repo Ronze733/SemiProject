@@ -349,7 +349,7 @@ user가 원하는 여행지 테마에 맞춰 여행지를 추천해주고 그것
 	}
   ```
 
-## 8. PowerPoint
+## 8. PDF
 
 [다운로드 pdf](./SKTC.pdf?raw=true)
   
