@@ -23,12 +23,6 @@ user가 원하는 여행지 테마에 맞춰 여행지를 추천해주고 그것
 - **DATABASE** : Oracle Cloud DB
 - server : local tomcat
 
-<!--
-## 4. PowerPoint
-
-[다운로드 PPT](<https://raw.githubusercontent.com/Ronze733/SemiProject/developer/SemiProject%20ppt(SKTC).pptx>)
--->
-
 ## 4. 주요 사용 기능 및 라이브러리
 
 - **Ajax**
@@ -355,5 +349,7 @@ user가 원하는 여행지 테마에 맞춰 여행지를 추천해주고 그것
 	}
   ```
 
-## 7. 
+## 8. PowerPoint
+
+[다운로드 pdf](./SKTC.pdf?raw=true)
   
